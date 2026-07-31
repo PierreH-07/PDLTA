@@ -204,7 +204,200 @@
             color: white;
             border-color: #0E1655;
             transform: translateX(-5px);
-        }.periods-grid{
+        }
+        .period-lateral-btn{
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 20px 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: white;
+            border-radius: 0 8px 8px 0;
+            opacity: 0.55;
+            transition: opacity 0.2s, width 0.2s;
+            z-index: 999;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        }
+        .period-lateral-btn:hover{
+            opacity: 1;
+            width: 52px;
+        }
+        .period-lateral-btn.prev{
+            left: 0;
+            border-radius: 0 8px 8px 0;
+            text-align: center;
+        }
+        .period-lateral-btn.next{
+            right: 0;
+            border-radius: 8px 0 0 8px;
+            text-align: center;
+        }
+        .period-timeline-wrap{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            width: 100%;
+            padding: 12px 0 4px 0;
+            background: transparent;
+            border-radius: 0;
+            flex-wrap: nowrap;
+        }
+        .period-timeline-wrap.compact{
+            flex-direction: row;
+            align-items: center;
+            width: auto;
+            padding: 0;
+            gap: 2px;
+        }
+        /* ---- version pleine (PeriodView) ---- */
+        .ptl-track{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+        .ptl-line{
+            position: absolute;
+            top: 50%;
+            left: 24px;
+            right: 24px;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 0;
+        }
+        .ptl-line-fill{
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+        .ptl-dot-wrap{
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .ptl-dot-wrap.inactive{ opacity: 0.45; }
+        .ptl-dot-wrap.inactive:hover{ opacity: 0.8; }
+        .ptl-dot{
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.3);
+            background: #1a2340;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        .ptl-dot-wrap.active .ptl-dot{
+            width: 22px;
+            height: 22px;
+            border-color: white;
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.18);
+        }
+        .ptl-dot-wrap.inactive:hover .ptl-dot{
+            transform: scale(1.15);
+        }
+        .ptl-card{
+            display: none;
+        }
+        .ptl-cards-row{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin-top: 2px;
+        }
+        .ptl-card-item{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px 8px 14px;
+            border-radius: 14px;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            max-width: 180px;
+        }
+        .ptl-card-item.active{
+            border-color: rgba(255,255,255,0.25);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        .ptl-card-item.inactive{
+            opacity: 0.38;
+        }
+        .ptl-card-item.inactive:hover{
+            opacity: 0.7;
+            background: rgba(255,255,255,0.05);
+        }
+        .ptl-card-code{
+            font-size: 0.78em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: white;
+            opacity: 0.7;
+            margin-bottom: 6px;
+        }
+        .ptl-card-item.active .ptl-card-code{
+            opacity: 1;
+        }
+        .ptl-card-label{
+            font-size: 0.88em;
+            font-weight: 700;
+            color: white;
+            line-height: 1.3;
+        }
+        .ptl-card-item.inactive .ptl-card-label{
+            font-weight: 500;
+        }
+        /* ---- version compacte (ThemeView) ---- */
+        .period-timeline-btn{
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .period-timeline-btn.active{
+            padding: 6px 14px;
+            font-size: 0.82em;
+            color: white;
+            opacity: 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+        .period-timeline-btn.inactive{
+            padding: 5px 10px;
+            font-size: 0.75em;
+            color: white;
+            opacity: 0.38;
+            background: transparent !important;
+        }
+        .period-timeline-btn.inactive:hover{
+            opacity: 0.75;
+        }
+        .periods-grid{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 25px;
@@ -51018,6 +51211,150 @@ function ProfilDeveloppementView() {
                 return () => document.removeEventListener('navigate-to-theme', handleNavigateToTheme);
             }, []);
 
+            // --- Navigation inter-périodes ---
+            const PERIOD_NAV_META = {
+                1: { label: 'Je découvre',    short: 'P1', color: '#55CC85' },
+                2: { label: "Je m'approprie", short: 'P2', color: '#0DBCF0' },
+                3: { label: "Je m'organise",  short: 'P3', color: '#D59F49' },
+                4: { label: "Je m'affirme",   short: 'P4', color: '#8D71DE' },
+                5: { label: "J'excelle",      short: 'P5', color: '#E2001A' },
+            };
+
+            const navigateToSameTheme = (targetPeriodId) => {
+                if (!selectedTheme) return;
+                document.dispatchEvent(new CustomEvent('navigate-to-theme', {
+                    detail: {
+                        periodId: targetPeriodId,
+                        disciplineId: selectedDiscipline,
+                        themeId: selectedTheme.id,
+                    }
+                }));
+            };
+
+            const showPeriodNav = (view === 'theme' || view === 'transversal' || view === 'period') && selectedPeriod;
+
+            const navigateToPeriod = (targetPeriodId) => {
+                setSelectedPeriod(targetPeriodId);
+                setView('period');
+            };
+
+            const PeriodTimeline = ({ compact = false }) => {
+                if (!showPeriodNav) return null;
+                const entries = Object.entries(PERIOD_NAV_META);
+
+                if (compact) {
+                    // Version compacte : petits boutons pills (ThemeView / TransversalView)
+                    return (
+                        <div className="period-timeline-wrap compact">
+                            {entries.map(([pid, meta]) => {
+                                const periodNum = Number(pid);
+                                const isActive = periodNum === selectedPeriod;
+                                return (
+                                    <button
+                                        key={pid}
+                                        title={meta.label}
+                                        className={`period-timeline-btn ${isActive ? 'active' : 'inactive'}`}
+                                        style={{ background: isActive ? meta.color : 'transparent' }}
+                                        onClick={() => {
+                                            if (isActive) return;
+                                            if (view === 'period') navigateToPeriod(periodNum);
+                                            else navigateToSameTheme(periodNum);
+                                        }}
+                                    >
+                                        {meta.short}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    );
+                }
+
+                // Version pleine : frise graphique (PeriodView)
+                const activeIdx = selectedPeriod - 1; // 0-based
+                const fillPct = entries.length > 1 ? (activeIdx / (entries.length - 1)) * 100 : 0;
+                const activeColor = PERIOD_NAV_META[selectedPeriod]?.color ?? '#888';
+
+                return (
+                    <div className="period-timeline-wrap">
+                        {/* Ligne + points */}
+                        <div className="ptl-track">
+                            <div className="ptl-line">
+                                <div className="ptl-line-fill" style={{ width: `${fillPct}%`, background: activeColor }} />
+                            </div>
+                            {entries.map(([pid, meta]) => {
+                                const periodNum = Number(pid);
+                                const isActive = periodNum === selectedPeriod;
+                                const isPast = periodNum < selectedPeriod;
+                                return (
+                                    <div
+                                        key={pid}
+                                        className={`ptl-dot-wrap ${isActive ? 'active' : 'inactive'}`}
+                                        title={meta.label}
+                                        onClick={() => !isActive && navigateToPeriod(periodNum)}
+                                    >
+                                        <div
+                                            className="ptl-dot"
+                                            style={{
+                                                background: isActive ? activeColor : isPast ? meta.color : '#1a2340',
+                                                borderColor: isActive ? 'white' : isPast ? meta.color : 'rgba(255,255,255,0.25)',
+                                            }}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        {/* Cartes sous la ligne */}
+                        <div className="ptl-cards-row">
+                            {entries.map(([pid, meta]) => {
+                                const periodNum = Number(pid);
+                                const isActive = periodNum === selectedPeriod;
+                                return (
+                                    <div
+                                        key={pid}
+                                        className={`ptl-card-item ${isActive ? 'active' : 'inactive'}`}
+                                        style={{ background: isActive ? `${meta.color}22` : 'transparent' }}
+                                        onClick={() => !isActive && navigateToPeriod(periodNum)}
+                                    >
+                                        <span className="ptl-card-code" style={{ color: isActive ? meta.color : 'white' }}>{meta.short}</span>
+                                        <span className="ptl-card-label">{meta.label}</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                );
+            };
+
+            const PeriodLateralButtons = () => {
+                if (!showPeriodNav) return null;
+                const prev = selectedPeriod > 1 ? PERIOD_NAV_META[selectedPeriod - 1] : null;
+                const next = selectedPeriod < 5 ? PERIOD_NAV_META[selectedPeriod + 1] : null;
+                return (
+                    <>
+                        {prev && (
+                            <button
+                                className="period-lateral-btn prev"
+                                style={{ background: prev.color }}
+                                title={prev.label}
+                                onClick={() => navigateToSameTheme(selectedPeriod - 1)}
+                            >
+                                ‹ {prev.label}
+                            </button>
+                        )}
+                        {next && (
+                            <button
+                                className="period-lateral-btn next"
+                                style={{ background: next.color }}
+                                title={next.label}
+                                onClick={() => navigateToSameTheme(selectedPeriod + 1)}
+                            >
+                                {next.label} ›
+                            </button>
+                        )}
+                    </>
+                );
+            };
+
             const handleBreadcrumbClick = (target) => {
                 if (target === 'home') {
                     setView('home');
@@ -51149,9 +51486,13 @@ function ProfilDeveloppementView() {
                                 )}
                             </div>
 
-                            <button className="back-button" onClick={handleBack}>
-                                ← Retour
-                            </button>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                                <button className="back-button" style={{ marginBottom: 0 }} onClick={handleBack}>
+                                    ← Retour
+                                </button>
+                                <PeriodTimeline />
+                            </div>
+                            <PeriodLateralButtons />
                         </>
                     )}
                     {view === 'home' && <HomeView onDiscoverClick={() => setView('disciplines')} onPeriodClick={handlePeriodClick} onDisciplineInfoClick={(disciplineId) => { setLogiqueInterneDiscipline(disciplineId); setView('logique-interne'); }} />}
