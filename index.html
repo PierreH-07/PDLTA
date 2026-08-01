@@ -2161,6 +2161,9 @@
           flex-shrink: 0; line-height: 1;
         }
         .av2-chip-section .av2-sico { font-size: 15px; line-height: 1; }
+        .av2-dept-ico {
+          font-size: 22px; line-height: 1; flex-shrink: 0; align-self: center;
+        }
         .av2-dept .av2-col { flex: 1; min-width: 0; }
         .av2-dept h2 {
           font-family: 'Inter', system-ui, sans-serif; font-weight: 800; font-size: 26px;
@@ -9707,7 +9710,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "savoir-entrainer-na",
+                        id: "savoir-entrainer",
                         icon: window.ICONS['mental-cohesion'],
                         title: "Construction de la posture d'athlète",
                         description: "Développer les premières habitudes de pratique",
@@ -10302,7 +10305,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         
                     },
                     {
-                        id: "environnements-pratique-eau-libre",
+                        id: "attendus-techniques",
                         icon: "🌊",
                         title: "Découvrir les différents environnements de pratique",
                         description: "Explorer les milieux naturels et leurs spécificités pour la pratique de l'eau libre",
@@ -10628,7 +10631,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "apprentissage-athletique",
+                        id: "athletique",
                         icon: "🤸🏽‍♀️",
                         title: "Apprentissage athlétique",
                         description: "Entre 6 et 11 ans, la préparation athlétique se concentre sur l'appropriation du corps dans l'espace et au sol à travers des situations variées et ludiques. L'objectif est de développer une motricité générale riche : sauter, ramper, rouler, se déplacer dans toutes les directions et découvrir son corps en mouvement.",
@@ -14590,7 +14593,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "transformations",
+                        id: "athletique",
                         icon: "🤸🏽‍♀️",
                         title: "Formation athlétique",
                         description: "La période collège est celle de la construction des fondations : développer la coordination, apprendre à gainer son corps, placer chaque mouvement avec intention et maîtrise. C'est la qualité de ces apprentissages qui conditionne la solidité de la construction athlétique future. Les qualités explorées en P2 doivent être entretenues et consolidées. Parallèlement, de nouvelles qualités de renforcement et de contrôle moteur sont à développer, en tenant compte des transformations biologiques liées à la puberté.",
@@ -15700,7 +15703,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "savoir-entrainer-na",
+                        id: "savoir-entrainer",
                         icon: window.ICONS['mental-cohesion'],
                         title: "Structuration de la posture d'athlète",
                         description: "Développer son savoir-être d'athlète",
@@ -15710,10 +15713,6 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                             contenuSpecifique: `
 <div style="padding: 4px;">
 
-  <div style="background: linear-gradient(135deg, #D59F49, #e6b86a); border-radius: 12px; padding: 22px 26px; margin-bottom: 24px;">
-    <h2 style="color: white; margin: 0 0 8px; font-size: 1.25em; font-weight: 700;">📚 Structuration de la posture d'athlète</h2>
-    <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.95em; line-height: 1.6;">Développer son savoir-être d'athlète.</p>
-  </div>
 
   <div style="background: white; border: 1.5px solid rgba(213,159,73,0.2); border-left: 5px solid #D59F49; border-radius: 10px; padding: 16px 20px; margin-bottom: 28px; font-size: 0.9em; color: #444; line-height: 1.8;">
     Au collège, tu poses les bases de ton attitude d'athlète. Les compétences que tu vas développer ici concernent ton engagement, ta régularité, ta persévérance, ta capacité à écouter ton corps et à t'organiser. Ce sont des compétences qui vont te servir toute ta vie sportive.
@@ -16515,7 +16514,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "apprendre-sentrainer",
+                        id: "savoir-entrainer",
                         icon: "🎯",
                         title: "Apprendre à s'entraîner",
                         description: "Développer son savoir-être d'athlète",
@@ -16763,7 +16762,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "apprendre-sentrainer",
+                        id: "savoir-entrainer",
                         specificTo: 'eau-libre',
                         icon: "🌊",
                         title: "Apprendre à s'entraîner",
@@ -17021,7 +17020,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "apprendre-sentrainer",
+                        id: "savoir-entrainer",
                         specificTo: 'plongeon',
                         icon: "🎯",
                         title: "Apprendre à s'entraîner",
@@ -21535,7 +21534,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                         <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                         <p style="font-size: 0.93em; line-height: 1.6;">Développement de la force maximale au service de la force propulsive </p>
-                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
+                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
                     </div>
                     <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                         <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -21626,7 +21625,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                         <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                         <p style="font-size: 0.93em; line-height: 1.6;">Capacité musculaire à expanser la cage thoracique et maintenir la rigidité du tronc pendant les appuis</p>
-                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
+                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
                     </div>
                     <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                         <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -21751,7 +21750,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                         <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                         <p style="font-size: 0.93em; line-height: 1.6;">Force musculaire-endurance : maintenir un niveau de puissance dans la durée</p>
-                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
+                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
                     </div>
                     <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                         <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -21884,7 +21883,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                         <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                         <p style="font-size: 0.93em; line-height: 1.6;">Profil physique personnel (plutôt endurant ou plutôt rapide) qui oriente vers la stratégie optimale</p>
-                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique — profil Force/Vitesse</a>
+                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique — profil Force/Vitesse</a>
                     </div>
                     <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                         <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -21977,7 +21976,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                         <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                         <p style="font-size: 0.93em; line-height: 1.6;">Puissance explosive d'impulsion, force des membres inférieurs pour maximiser la vitesse de départ et de virage</p>
-                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
+                        <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
                     </div>
                     <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                         <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -22099,7 +22098,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                             <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                             <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Force explosive des jambes, gainage dynamique pour maintenir l'alignement</p>
-                            <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
+                            <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
                         </div>
                         <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                             <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -22236,7 +22235,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         <div style="background: rgba(156, 39, 176, 0.05); padding: 15px; border-radius: 8px;">
                             <ul style="line-height: 1.8; margin-left: 20px; margin-bottom: 0;">
                                 <li><strong>Répétitions à vitesse croissante</strong> : Intégrer les virages dans les séries d'allure</li>
-                                <li><strong>Poussée explosive sur le mur</strong> : Développer la force de poussée — <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="font-size:0.88em; color:#9C27B0; font-weight:600; text-decoration:underline;">→ Développement athlétique</a></li>
+                                <li><strong>Poussée explosive sur le mur</strong> : Développer la force de poussée — <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="font-size:0.88em; color:#9C27B0; font-weight:600; text-decoration:underline;">→ Développement athlétique</a></li>
                                 <li><strong>Orientation optimale</strong> : Pieds bien placés sur le mur pour une poussée efficace</li>
                             </ul>
                         </div>
@@ -22252,7 +22251,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "developpement-qualites-physiques",
+                        id: "athletique",
                         icon: "🤸🏽‍♀️",
                         title: "Développement athlétique",
                         description: "À cette période, la préparation athlétique vise le développement maximal de la force et de la puissance musculaire. C'est la période la plus favorable pour construire la masse musculaire et développer les qualités physiques qui soutiendront la performance à haut niveau.",
@@ -23516,7 +23515,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "savoir-entrainer-na",
+                        id: "savoir-entrainer",
                         icon: window.ICONS['mental-cohesion'],
                         title: "Développement de la posture d'athlète",
                         description: "Développer son savoir-faire d'athlète",
@@ -23526,10 +23525,6 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                             contenuSpecifique: `
 <div style="padding: 4px;">
 
-  <div style="background: linear-gradient(135deg, #8D71DE, #a98ee8); border-radius: 12px; padding: 22px 26px; margin-bottom: 24px;">
-    <h2 style="color: white; margin: 0 0 8px; font-size: 1.25em; font-weight: 700;">📋 Développement de la posture d'athlète</h2>
-    <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.95em; line-height: 1.6;">Développer son savoir-faire d'athlète.</p>
-  </div>
 
   <div style="background: white; border: 1.5px solid rgba(141,113,222,0.2); border-left: 5px solid #8D71DE; border-radius: 10px; padding: 16px 20px; margin-bottom: 28px; font-size: 0.9em; color: #444; line-height: 1.8;">
     Au lycée, tu développes des compétences techniques et méthodologiques pour optimiser ton entraînement. Tu apprends à gérer ton effort, analyser plus finement ta performance et celle du groupe et utiliser des outils pour progresser. Tu commences aussi à construire un double projet sport + études.
@@ -24241,7 +24236,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 <div style="background: rgba(76, 175, 80, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #4CAF50;">
                     <h5 style="color: #4CAF50; margin-bottom: 10px; font-size: 1em;">💪 Physique</h5>
                     <p style="font-size: 0.93em; line-height: 1.6;">Force endurance, efficacité technique prolongée</p>
-                    <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'developpement-qualites-physiques'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
+                    <a href="#" onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 4, themeId: 'athletique'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#4CAF50; font-weight:600; text-decoration:underline;">→ Développement athlétique</a>
                 </div>
                 <div style="background: rgba(255, 152, 0, 0.08); padding: 15px; border-radius: 8px; border-top: 4px solid #FF9800;">
                     <h5 style="color: #FF9800; margin-bottom: 10px; font-size: 1em;">❤️ Physiologique</h5>
@@ -24286,7 +24281,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "entrainement-specifique",
+                        id: "savoir-entrainer",
                         specificTo: 'eau-libre',
                         icon: "🌊",
                         title: "Entraînement spécifique",
@@ -24632,7 +24627,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "entrainement-specifique",
+                        id: "savoir-entrainer",
                         icon: "📋",
                         title: "Entraînement spécifique",
                         description: "Développer son savoir-faire d'athlète",
@@ -24884,6 +24879,227 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   
 
 </div>
+                            `,
+                            contenuSpecifiquePlongeon: `
+        <div style="max-width: 960px; margin: 0 auto;">
+
+            <!-- INTRODUCTION GÉNÉRALE -->
+            <div style="background: linear-gradient(135deg, rgba(141,113,222,0.15) 0%, rgba(141,113,222,0.08) 100%); padding: 24px; border-radius: 12px; margin-bottom: 30px; border: 2px solid rgba(141,113,222,0.3);">
+                <p style="line-height: 1.8; color: #333; margin: 0; font-size: 1.05em;">
+                    Au lycée, tu développes des <strong>compétences techniques et méthodologiques</strong> pour optimiser ton entraînement.
+                    Tu apprends à <strong>gérer ton effort</strong>, <strong>analyser ta performance</strong> et <strong>utiliser des outils</strong>
+                    pour progresser. Tu commences aussi à construire un <strong>double projet</strong> sport + études.
+                </p>
+            </div>
+
+            <!-- COMPÉTENCE 1 : SPÉCIALISATION -->
+            <div style="background: white; border: 2px solid rgba(141,113,222,0.2); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+                <h3 style="color: #8D71DE; margin-bottom: 16px; display: flex; align-items: center;">
+                    <span style="background: #8D71DE; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; margin-right: 12px;">1</span>
+                    Spécialisation de l'entraînement
+                </h3>
+                <div style="background: rgba(141,113,222,0.05); padding: 18px; border-radius: 8px; margin-bottom: 18px;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 10px; font-size: 1em;">💡 Pourquoi cette compétence est importante pour toi</h4>
+                    <p style="line-height: 1.8; color: #555; margin: 0; font-size: 0.95em;">
+                        Au lycée, tu commences à te spécialiser sur certaines hauteurs. Ton entraînement, tout en restant très large, peut devenir
+                        plus ciblé et plus exigeant, mais c'est normal : tu développes les qualités spécifiques dont tu as besoin pour progresser
+                        sur tes hauteurs de prédilection.
+                    </p>
+                </div>
+                <div style="background: white; padding: 18px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #8D71DE;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 12px; font-size: 1em;">🎯 Ce que cette compétence te permet de développer</h4>
+                    <ul style="line-height: 1.8; margin-left: 20px; color: #555; font-size: 0.94em;">
+                        <li>Identifier clairement tes hauteurs de prédilection (1m, 3m, 10m, individuel, synchro)</li>
+                        <li>Comprendre les qualités physiques que tu dois développer pour ta spécialité (force, endurance, vitesse, capacité à encaisser les impacts pour le 10m)</li>
+                        <li>Accepter de faire des séances ciblées même quand c'est vraiment difficile</li>
+                        <li>Faire le lien entre le contenu de tes séances et tes objectifs de performance</li>
+                        <li>Dialoguer avec ton entraîneur sur ta spécialisation</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(76,175,80,0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2E7D32; margin-bottom: 10px; font-size: 0.95em;">✅ Comment savoir que cette compétence progresse</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em; margin-bottom: 0;">
+                        <li>Tu peux expliquer pourquoi tu fais telle ou telle séance</li>
+                        <li>Tu acceptes la spécificité de ton entraînement</li>
+                        <li>Tu te projettes clairement sur tes hauteurs cibles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COMPÉTENCE 2 : ENGAGEMENT QUOTIDIEN -->
+            <div style="background: white; border: 2px solid rgba(141,113,222,0.2); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+                <h3 style="color: #8D71DE; margin-bottom: 16px; display: flex; align-items: center;">
+                    <span style="background: #8D71DE; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; margin-right: 12px;">2</span>
+                    Engagement quotidien dans les exercices (intention de)
+                </h3>
+                <div style="background: rgba(141,113,222,0.05); padding: 18px; border-radius: 8px; margin-bottom: 18px;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 10px; font-size: 1em;">💡 Pourquoi cette compétence est importante pour toi</h4>
+                    <p style="line-height: 1.8; color: #555; margin: 0; font-size: 0.95em;">
+                        Faire l'exercice, c'est bien. Mais le faire avec <strong>intention</strong> — savoir exactement sur quoi tu te concentres —
+                        c'est ce qui fait vraiment la différence. Tu ne plonges pas "juste pour plonger" : chaque plongeon a un objectif.
+                    </p>
+                </div>
+                <div style="background: white; padding: 18px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #8D71DE;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 12px; font-size: 1em;">🎯 Ce que cette compétence te permet de développer</h4>
+                    <ul style="line-height: 1.8; margin-left: 20px; color: #555; font-size: 0.94em;">
+                        <li>Avant chaque plongeon, te fixer une intention claire (ex. : "Je vais me concentrer sur le gainage à l'ouverture")</li>
+                        <li>Maintenir ta concentration tout au long de la série de plongeons, même quand tu fatigues</li>
+                        <li>Ne pas être juste là physiquement et absent mentalement : chaque plongeon compte</li>
+                        <li>Après la série, évaluer si tu as respecté ton intention</li>
+                        <li>Demander des feedbacks ciblés à ton entraîneur sur ton intention</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(76,175,80,0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2E7D32; margin-bottom: 10px; font-size: 0.95em;">✅ Comment savoir que cette compétence progresse</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em; margin-bottom: 0;">
+                        <li>Tu verbalises ton intention avant la série</li>
+                        <li>Tu restes concentré même en fin de séance</li>
+                        <li>Tu évalues toi-même la qualité de ton travail</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COMPÉTENCE 3 : RATIO RÉPÉTITIONS / RÉUSSITES -->
+            <div style="background: white; border: 2px solid rgba(141,113,222,0.2); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+                <h3 style="color: #8D71DE; margin-bottom: 16px; display: flex; align-items: center;">
+                    <span style="background: #8D71DE; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; margin-right: 12px;">3</span>
+                    Ton ratio répétitions / réussites à l'entraînement
+                </h3>
+                <div style="background: rgba(141,113,222,0.05); padding: 18px; border-radius: 8px; margin-bottom: 18px;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 10px; font-size: 1em;">💡 Pourquoi cette compétence est importante pour toi</h4>
+                    <p style="line-height: 1.8; color: #555; margin: 0; font-size: 0.95em;">
+                        Plonger "pour plonger", ce n'est pas assez précis. Le ratio nombre d'essais / réussites à l'entraînement te permet de
+                        cibler de manière optimale exactement ce que tu veux développer (réussite sur un essai unique, régularité…).
+                    </p>
+                </div>
+                <div style="background: white; padding: 18px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #8D71DE;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 12px; font-size: 1em;">🎯 Ce que cette compétence te permet de développer</h4>
+                    <ul style="line-height: 1.8; margin-left: 20px; color: #555; font-size: 0.94em;">
+                        <li>Connaître ton meilleur ratio essais / réussites sur chacun de tes plongeons</li>
+                        <li>Comprendre à quoi sert cette recherche de volume</li>
+                        <li>Évaluer ton intensité aussi par ton ressenti (échelle de perception de l'effort)</li>
+                        <li>Ajuster ton ratio pendant la série si tu vois que tu n'es pas dans la bonne zone</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(76,175,80,0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2E7D32; margin-bottom: 10px; font-size: 0.95em;">✅ Comment savoir que cette compétence progresse</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em; margin-bottom: 0;">
+                        <li>Tu connais tes ratios essais / réussites sans qu'on te le rappelle constamment</li>
+                        <li>Tu peux expliquer pourquoi tes ratios sont bons ou pas</li>
+                        <li>Tu ajustes spontanément ton effort si tu te rends compte que tu n'es pas dans la bonne zone de performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COMPÉTENCE 4 : ANALYSE DES CONCOURS -->
+            <div style="background: white; border: 2px solid rgba(141,113,222,0.2); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+                <h3 style="color: #8D71DE; margin-bottom: 16px; display: flex; align-items: center;">
+                    <span style="background: #8D71DE; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; margin-right: 12px;">4</span>
+                    Analyse des concours
+                </h3>
+                <div style="background: rgba(141,113,222,0.05); padding: 18px; border-radius: 8px; margin-bottom: 18px;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 10px; font-size: 1em;">💡 Pourquoi cette compétence est importante pour toi</h4>
+                    <p style="line-height: 1.8; color: #555; margin: 0; font-size: 0.95em;">
+                        "J'ai fait un bon total de points" ou "J'ai mal plongé", ce n'est pas une analyse. Apprendre à décortiquer précisément
+                        ton concours avec des données objectives te permet d'identifier exactement ce qui marche et ce qui doit être amélioré.
+                    </p>
+                </div>
+                <div style="background: white; padding: 18px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #8D71DE;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 12px; font-size: 1em;">🎯 Ce que cette compétence te permet de développer</h4>
+                    <ul style="line-height: 1.8; margin-left: 20px; color: #555; font-size: 0.94em;">
+                        <li>Lire et comprendre les notes (référentiel juge)</li>
+                        <li>Analyser tes points intermédiaires, tes moyennes, tes liaisons entre les plongeons</li>
+                        <li>Identifier tes points forts et tes points faibles dans ton concours</li>
+                        <li>Comparer tes données avec tes concours précédents pour voir ta progression</li>
+                        <li>Utiliser cette analyse pour orienter ton entraînement</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(76,175,80,0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2E7D32; margin-bottom: 10px; font-size: 0.95em;">✅ Comment savoir que cette compétence progresse</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em; margin-bottom: 0;">
+                        <li>Tu analyses tes concours avec précision (pas juste "c'était bien" ou "c'était nul")</li>
+                        <li>Tu identifies tes axes d'amélioration prioritaires</li>
+                        <li>Tu demandes des données spécifiques à ton entraîneur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COMPÉTENCE 5 : GESTION DE LA PRESSION -->
+            <div style="background: white; border: 2px solid rgba(141,113,222,0.2); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+                <h3 style="color: #8D71DE; margin-bottom: 16px; display: flex; align-items: center;">
+                    <span style="background: #8D71DE; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; margin-right: 12px;">5</span>
+                    Gestion de la pression
+                </h3>
+                <div style="background: rgba(141,113,222,0.05); padding: 18px; border-radius: 8px; margin-bottom: 18px;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 10px; font-size: 1em;">💡 Pourquoi cette compétence est importante pour toi</h4>
+                    <p style="line-height: 1.8; color: #555; margin: 0; font-size: 0.95em;">
+                        La pression en compétition peut te faire perdre tous tes moyens… ou te révéler. La différence, c'est dans ta préparation
+                        mentale. Apprendre à gérer ton stress, c'est ce qui te permettra de performer quand ça compte vraiment.
+                    </p>
+                </div>
+                <div style="background: white; padding: 18px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #8D71DE;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 12px; font-size: 1em;">🎯 Ce que cette compétence te permet de développer</h4>
+                    <ul style="line-height: 1.8; margin-left: 20px; color: #555; font-size: 0.94em;">
+                        <li>Créer des routines pré-concours (échauffement, rituels, musique) qui te rassurent</li>
+                        <li>Utiliser ta respiration pour gérer ton stress (cohérence cardiaque, respiration profonde)</li>
+                        <li>Visualiser tes plongeons avant la compétition (tu "te vois" les réussir)</li>
+                        <li>Rester concentré malgré les distractions (le public, tes adversaires, les imprévus)</li>
+                        <li>Rebondir après une contre-performance</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(76,175,80,0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2E7D32; margin-bottom: 10px; font-size: 0.95em;">✅ Comment savoir que cette compétence progresse</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em; margin-bottom: 0;">
+                        <li>Tu as des routines bien établies avant tes concours</li>
+                        <li>Tu gères mieux ton stress en compétition</li>
+                        <li>Tu maintiens ta concentration même après un échec</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COMPÉTENCE 6 : DOUBLE PROJET -->
+            <div style="background: white; border: 2px solid rgba(141,113,222,0.2); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+                <h3 style="color: #8D71DE; margin-bottom: 16px; display: flex; align-items: center;">
+                    <span style="background: #8D71DE; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; margin-right: 12px;">6</span>
+                    Double projet : anticipation sur post-bac
+                </h3>
+                <div style="background: rgba(141,113,222,0.05); padding: 18px; border-radius: 8px; margin-bottom: 18px;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 10px; font-size: 1em;">💡 Pourquoi cette compétence est importante pour toi</h4>
+                    <p style="line-height: 1.8; color: #555; margin: 0; font-size: 0.95em;">
+                        Le sport peut t'accompagner toute ta vie, mais il prend différentes formes avec le temps. Construire dès maintenant
+                        un double projet, entre sport et études ou formation, c'est préparer ton avenir tout en continuant à progresser.
+                    </p>
+                </div>
+                <div style="background: white; padding: 18px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #8D71DE;">
+                    <h4 style="color: #6A1B9A; margin-bottom: 12px; font-size: 1em;">🎯 Ce que cette compétence te permet de développer</h4>
+                    <ul style="line-height: 1.8; margin-left: 20px; color: #555; font-size: 0.94em;">
+                        <li>Te projeter au-delà du sport : quel métier t'intéresse ? Quelles études ?</li>
+                        <li>Identifier les filières compatibles avec le haut niveau (STAPS, aménagements, formations à distance)</li>
+                        <li>Anticiper tes choix d'orientation (Parcoursup, dossiers à monter)</li>
+                        <li>Communiquer avec tes parents et tes conseillers d'orientation</li>
+                        <li>Équilibrer ton investissement sportif et scolaire</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(255,193,7,0.1); padding: 16px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #FFC107;">
+                    <h4 style="color: #F57F17; margin-bottom: 10px; font-size: 0.95em;">🤔 Questions que tu dois te poser</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em;">
+                        <li>Quel métier m'intéresse après le sport ?</li>
+                        <li>Quelles études sont compatibles avec mon entraînement ?</li>
+                        <li>Quels aménagements sont possibles (SHN, sections sportives) ?</li>
+                        <li>Comment je gère les périodes de compétitions pendant les examens ?</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(76,175,80,0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2E7D32; margin-bottom: 10px; font-size: 0.95em;">✅ Comment savoir que cette compétence progresse</h4>
+                    <ul style="line-height: 1.7; margin-left: 20px; color: #555; font-size: 0.92em; margin-bottom: 0;">
+                        <li>Tu as un projet scolaire/professionnel clair</li>
+                        <li>Tu anticipes tes choix d'orientation</li>
+                        <li>Tu maintiens un équilibre entre sport et études</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
                             `
                         }
                     }
@@ -27934,7 +28150,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "savoir-entrainer-na",
+                        id: "savoir-entrainer",
                         icon: window.ICONS['mental-cohesion'],
                         title: "Autonomie et expertise de la posture d'athlète",
                         description: "Développer tes savoirs d'athlète-expert",
@@ -27944,10 +28160,6 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                             contenuSpecifique: `
 <div style="padding: 4px;">
 
-  <div style="background: linear-gradient(135deg, #E2001A, #f04040); border-radius: 12px; padding: 22px 26px; margin-bottom: 24px;">
-    <h2 style="color: white; margin: 0 0 8px; font-size: 1.25em; font-weight: 700;">🎓 Autonomie et expertise de la posture d'athlète</h2>
-    <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.95em; line-height: 1.6;">Développer tes savoirs d'athlète-expert.</p>
-  </div>
 
   <div style="background: white; border: 1.5px solid rgba(226,0,26,0.15); border-left: 5px solid #E2001A; border-radius: 10px; padding: 16px 20px; margin-bottom: 28px; font-size: 0.9em; color: #444; line-height: 1.8;">
     À haut niveau, tu deviens expert de ton propre entraînement. Tu possèdes les connaissances théoriques pour comprendre et optimiser ta préparation. Tu es acteur et co-constructeur de ta performance avec ton entraîneur.
@@ -28173,7 +28385,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "preparer-competition",
+                        id: "attendus-techniques",
                         icon: "🏆",
                         title: "Se préparer à la compétition",
                         description: "Mettre à l'épreuve de la vitesse tous les principes d'efficacité sur la durée complète de l'épreuve",
@@ -29285,7 +29497,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "periodisation-specifique",
+                        id: "athletique",
                         icon: "🤸🏽‍♀️",
                         title: "Individualisation athlétique",
                         description: "À haut niveau, la préparation athlétique devient hautement individualisée : chaque athlète développe son programme spécifique en fonction de ses besoins, de ses points faibles et de ses objectifs. L'enjeu n'est plus de construire la force maximale, mais d'entretenir une force optimale tout en prévenant les blessures et en optimisant la disponibilité.",
@@ -29551,7 +29763,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "autonomie-expertise",
+                        id: "savoir-entrainer",
                         specificTo: 'eau-libre',
                         icon: "🌊",
                         title: "Autonomie et expertise",
@@ -29805,7 +30017,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "autonomie-expertise",
+                        id: "savoir-entrainer",
                         icon: "🎓",
                         title: "Autonomie et expertise",
                         description: "Développer tes savoirs d'athlète-expert",
@@ -30016,7 +30228,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     }
                 ,
                     {
-                        id: "autonomie-expertise",
+                        id: "savoir-entrainer",
                         specificTo: 'plongeon',
                         icon: "🎓",
                         title: "Autonomie et expertise",
@@ -41520,8 +41732,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 </style>
 
   <div class="page-badge" style="background:var(--p3-l);color:var(--p3-dark);">P3 · 11–15 ans · U12/U13/U15</div>
-  <h1 class="page-title">Jeu collectif</h1>
-  <p class="page-sub">S'organiser collectivement avec lecture et intentions claires. Les habiletés tactiques individuelles sont le prérequis de toute action collective.</p>
+    <p class="page-sub">S'organiser collectivement avec lecture et intentions claires. Les habiletés tactiques individuelles sont le prérequis de toute action collective.</p>
 
   <div class="domain">
     <div class="domain-head" style="background:linear-gradient(135deg,#1e3a8a,#1D4ED8);">
@@ -42994,7 +43205,6 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 .famille-desc{font-size:0.86em;line-height:1.65;color:#555;}
 </style>
 <div class="page-badge" style="background:var(--p5-l);color:var(--p5-dark);">P5 · Senior / Haute performance</div>
-<h1 class="page-title">Jeu collectif</h1>
 <p class="page-sub">Maîtriser les tactiques collectives au niveau international.</p>
 
 <div class="domain">
@@ -51190,7 +51400,7 @@ function ProfilDeveloppementView() {
                 const handleNavigateToTheme = (e) => {
                     const { periodId, disciplineId, themeId, scrollToId } = e.detail;
                     const parsedPeriodId = typeof periodId === 'string' && /^\ *\d+$/.test(periodId) ? Number(periodId) : periodId;
-                    const period = periodsData.find(p => p.id === parsedPeriodId);
+                    const period = periodsData[parsedPeriodId];
                     if (!period) return;
                     const theme = resolvePeriodTheme(period, disciplineId, themeId);
                     if (!theme) return;
@@ -51221,16 +51431,18 @@ function ProfilDeveloppementView() {
             };
 
             const navigateToSameTheme = (targetPeriodId) => {
-                if (!selectedTheme) return;
-                document.dispatchEvent(new CustomEvent('navigate-to-theme', {
-                    detail: {
-                        periodId: targetPeriodId,
-                        disciplineId: selectedDiscipline,
-                        themeId: selectedTheme.id,
-                    }
-                }));
-            };
+    if (!selectedTheme) return;
 
+    document.dispatchEvent(
+        new CustomEvent('navigate-to-theme', {
+            detail: {
+                periodId: targetPeriodId,
+                disciplineId: selectedDiscipline,
+                themeId: selectedTheme.id,
+            }
+        })
+    );
+};
             const showPeriodNav = (view === 'theme' || view === 'transversal' || view === 'period') && selectedPeriod;
 
             const navigateToPeriod = (targetPeriodId) => {
@@ -51238,40 +51450,26 @@ function ProfilDeveloppementView() {
                 setView('period');
             };
 
-            const PeriodTimeline = ({ compact = false }) => {
+            const PeriodTimeline = () => {
                 if (!showPeriodNav) return null;
-                const entries = Object.entries(PERIOD_NAV_META);
 
-                if (compact) {
-                    // Version compacte : petits boutons pills (ThemeView / TransversalView)
-                    return (
-                        <div className="period-timeline-wrap compact">
-                            {entries.map(([pid, meta]) => {
-                                const periodNum = Number(pid);
-                                const isActive = periodNum === selectedPeriod;
-                                return (
-                                    <button
-                                        key={pid}
-                                        title={meta.label}
-                                        className={`period-timeline-btn ${isActive ? 'active' : 'inactive'}`}
-                                        style={{ background: isActive ? meta.color : 'transparent' }}
-                                        onClick={() => {
-                                            if (isActive) return;
-                                            if (view === 'period') navigateToPeriod(periodNum);
-                                            else navigateToSameTheme(periodNum);
-                                        }}
-                                    >
-                                        {meta.short}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    );
-                }
+                // Sur une page de thème, la frise ne propose que les périodes où ce thème existe
+                const isThemeNav = view !== 'period' && !!selectedTheme;
+                const entries = Object.entries(PERIOD_NAV_META).filter(([pid]) => {
+                    if (!isThemeNav) return true;
+                    const periodNum = Number(pid);
+                    if (periodNum === selectedPeriod) return true;
+                    return !!resolvePeriodTheme(periodsData[periodNum], selectedDiscipline, selectedTheme.id);
+                });
+                if (entries.length < 2) return null;
 
-                // Version pleine : frise graphique (PeriodView)
-                const activeIdx = selectedPeriod - 1; // 0-based
-                const fillPct = entries.length > 1 ? (activeIdx / (entries.length - 1)) * 100 : 0;
+                const goTo = (periodNum) => {
+                    if (isThemeNav) navigateToSameTheme(periodNum);
+                    else navigateToPeriod(periodNum);
+                };
+
+                const activeIdx = entries.findIndex(([pid]) => Number(pid) === selectedPeriod);
+                const fillPct = entries.length > 1 ? (Math.max(activeIdx, 0) / (entries.length - 1)) * 100 : 0;
                 const activeColor = PERIOD_NAV_META[selectedPeriod]?.color ?? '#888';
 
                 return (
@@ -51290,7 +51488,7 @@ function ProfilDeveloppementView() {
                                         key={pid}
                                         className={`ptl-dot-wrap ${isActive ? 'active' : 'inactive'}`}
                                         title={meta.label}
-                                        onClick={() => !isActive && navigateToPeriod(periodNum)}
+                                        onClick={() => !isActive && goTo(periodNum)}
                                     >
                                         <div
                                             className="ptl-dot"
@@ -51313,7 +51511,7 @@ function ProfilDeveloppementView() {
                                         key={pid}
                                         className={`ptl-card-item ${isActive ? 'active' : 'inactive'}`}
                                         style={{ background: isActive ? `${meta.color}22` : 'transparent' }}
-                                        onClick={() => !isActive && navigateToPeriod(periodNum)}
+                                        onClick={() => !isActive && goTo(periodNum)}
                                     >
                                         <span className="ptl-card-code" style={{ color: isActive ? meta.color : 'white' }}>{meta.short}</span>
                                         <span className="ptl-card-label">{meta.label}</span>
@@ -53008,14 +53206,32 @@ function ProfilDeveloppementView() {
             const normalizedDisciplineId = normalizeDisciplineId(disciplineId);
             const effectiveDisciplineKey = getDisciplineKey(disciplineId) ?? disciplineId;
 
-            const matchTheme = (t) => {
-                if (t.id !== themeId) return false;
-                if (!effectiveDisciplineKey) return true;
-                return t.specificTo === effectiveDisciplineKey || !t.specificTo;
-            };
+            const themes = period.themes ?? [];
 
-            const directTheme = period.themes?.find(matchTheme);
+            // Le thème spécifique à la discipline prime toujours sur le thème commun de même id.
+            const directTheme =
+                (effectiveDisciplineKey
+                    ? themes.find(t => t.id === themeId && t.specificTo === effectiveDisciplineKey)
+                    : null)
+                ?? themes.find(t => t.id === themeId && !t.specificTo)
+                ?? (effectiveDisciplineKey ? null : themes.find(t => t.id === themeId));
             if (directTheme) return directTheme;
+
+            // Plongeon : les attendus techniques sont générés depuis disciplineObjectives
+            if (effectiveDisciplineKey === 'plongeon') {
+                const plgObjectives = disciplineObjectives['plongeon']?.[period.id];
+                if (themeId === 'attendus-techniques' && plgObjectives?.techniquePlongeon) {
+                    return {
+                        id: 'attendus-techniques',
+                        icon: '🏅',
+                        title: plgObjectives.techniquePlongeon.titre || 'Technique plongeon',
+                        detailDescription: plgObjectives.techniquePlongeon.detailDescription,
+                        specificTo: 'plongeon',
+                        details: { contenuSpecifique: plgObjectives.techniquePlongeon.contenuSpecifique }
+                    };
+                }
+                return null;
+            }
 
             if (effectiveDisciplineKey !== 'water-polo') return null;
             const wpObjectives = disciplineObjectives['water-polo']?.[period.id];
@@ -53310,28 +53526,29 @@ function ProfilDeveloppementView() {
             const _disciplineKey = getDisciplineKey(disciplineId);
             const blocDataPeriod = blocsPartages[_disciplineKey]?.[period.id];
 
+            // Règle unique de sélection des thèmes d'une discipline :
+            //   on retient les thèmes communs + ceux de la discipline, et un thème
+            //   `specificTo` remplace systématiquement le thème commun de même id.
+            //   (les ids sont normalisés par famille : attendus-techniques, savoir-entrainer,
+            //    athletique, competition — cf. resolvePeriodTheme)
+            const selectThemesFor = (disciplineKey) => {
+                const eligible = period.themes.filter(theme =>
+                    !theme.genericForOtherDisciplines &&
+                    (!theme.specificTo || theme.specificTo === disciplineKey)
+                );
+                const specificIds = new Set(
+                    eligible.filter(t => t.specificTo === disciplineKey).map(t => t.id)
+                );
+                return eligible.filter(t => t.specificTo === disciplineKey || !specificIds.has(t.id));
+            };
+
             // Filtrer les thèmes selon la discipline
             let filteredThemes;
 
             if (disciplineId === 1) {
-                // Natation course : inclure seulement les thèmes spécifiques à natation-course + génériques
-                filteredThemes = period.themes.filter(theme =>
-                    !theme.genericForOtherDisciplines &&
-                    (!theme.specificTo || theme.specificTo === 'natation-course')
-                );
+                filteredThemes = selectThemesFor('natation-course');
             } else if (disciplineId === 5) {
-                // Eau libre : thèmes eau-libre + transversaux (sans specificTo)
-                // Si un thème EL-spécifique existe pour un id donné, il remplace le thème générique de même id
-                const allEligibleEL = period.themes.filter(theme =>
-                    !theme.genericForOtherDisciplines &&
-                    (!theme.specificTo || theme.specificTo === 'eau-libre')
-                );
-                const elSpecificIds = new Set(
-                    allEligibleEL.filter(t => t.specificTo === 'eau-libre').map(t => t.id)
-                );
-                filteredThemes = allEligibleEL.filter(theme =>
-                    theme.specificTo === 'eau-libre' || !elSpecificIds.has(theme.id)
-                );
+                filteredThemes = selectThemesFor('eau-libre');
             } else if (disciplineId === 2 && period.id === 2) {
                 // Water-polo période 2 : créer des thèmes à partir de disciplineObjectives
                 filteredThemes = period.themes.filter(theme =>
@@ -53370,7 +53587,7 @@ function ProfilDeveloppementView() {
                 }
             } else if (disciplineId === 2 && period.id === 3) {
                 // Water-polo période 3 : thèmes WP spécifiques + bloc athlétique transversal + poussés depuis disciplineObjectives
-                const wpAthleticIds = ["apprentissage-athletique", "transformations", "developpement-qualites-physiques", "periodisation-specifique"];
+                const wpAthleticIds = ["athletique"];
                 filteredThemes = period.themes.filter(theme =>
                     !theme.genericForOtherDisciplines &&
                     (theme.specificTo === 'water-polo' || (!theme.specificTo && wpAthleticIds.includes(theme.id)))
@@ -53417,7 +53634,7 @@ function ProfilDeveloppementView() {
                 }
             } else if (disciplineId === 2 && period.id === 4) {
                 // Water-polo période 4 : thèmes WP spécifiques + bloc athlétique transversal + poussés depuis disciplineObjectives
-                const wpAthleticIds4 = ["apprentissage-athletique", "transformations", "developpement-qualites-physiques", "periodisation-specifique"];
+                const wpAthleticIds4 = ["athletique"];
                 filteredThemes = period.themes.filter(theme =>
                     !theme.genericForOtherDisciplines &&
                     (theme.specificTo === 'water-polo' || (!theme.specificTo && wpAthleticIds4.includes(theme.id)))
@@ -53451,7 +53668,7 @@ function ProfilDeveloppementView() {
 
             } else if (disciplineId === 2 && period.id === 5) {
                 // Water-polo période 5 : thèmes WP spécifiques + bloc athlétique transversal + poussés depuis disciplineObjectives
-                const wpAthleticIds5 = ["apprentissage-athletique", "transformations", "developpement-qualites-physiques", "periodisation-specifique"];
+                const wpAthleticIds5 = ["athletique"];
                 filteredThemes = period.themes.filter(theme =>
                     !theme.genericForOtherDisciplines &&
                     (theme.specificTo === 'water-polo' || (!theme.specificTo && wpAthleticIds5.includes(theme.id)))
@@ -53519,7 +53736,7 @@ function ProfilDeveloppementView() {
                 }
 
                 // Ajouter apprentissage athlétique (générique)
-                const apprentissageTheme = period.themes.find(t => t.id === "apprentissage-athletique");
+                const apprentissageTheme = period.themes.find(t => t.id === "athletique");
                 if (apprentissageTheme) {
                     filteredThemes.push(apprentissageTheme);
                 }
@@ -53532,7 +53749,7 @@ function ProfilDeveloppementView() {
                     // Thème Technique plongeon
                     if (plongeonData3.techniquePlongeon) {
                         filteredThemes.push({
-                            id: "technique-plongeon",
+                            id: "attendus-techniques",
                             icon: "🏅",
                             title: plongeonData3.techniquePlongeon.titre || "Technique plongeon",
                             detailDescription: plongeonData3.techniquePlongeon.detailDescription || "Tableaux de progression Benjamin et Minime",
@@ -53544,14 +53761,14 @@ function ProfilDeveloppementView() {
                     }
                 }
 
-                // Ajouter formation athlétique (générique P3 = "transformations")
-                const formationAthletiqueP3 = period.themes.find(t => t.id === "transformations");
+                // Ajouter le bloc athlétique commun (id normalisé : "athletique")
+                const formationAthletiqueP3 = period.themes.find(t => t.id === "athletique");
                 if (formationAthletiqueP3) {
                     filteredThemes.push(formationAthletiqueP3);
                 }
 
                 // Ajouter apprendre à s'entraîner (spécifique plongeon)
-                const sentrainerPlongeon = period.themes.find(t => t.id === "apprendre-sentrainer" && t.specificTo === 'plongeon');
+                const sentrainerPlongeon = period.themes.find(t => t.id === "savoir-entrainer" && t.specificTo === 'plongeon');
                 if (sentrainerPlongeon) {
                     filteredThemes.push(sentrainerPlongeon);
                 }
@@ -53560,7 +53777,7 @@ function ProfilDeveloppementView() {
                 const plongeonData5 = disciplineObjectives["plongeon"]?.[period.id];
                 if (plongeonData5?.techniquePlongeon) {
                     filteredThemes.push({
-                        id: "technique-plongeon",
+                        id: "attendus-techniques",
                         icon: "🏅",
                         title: plongeonData5.techniquePlongeon.titre || "Se préparer à la compétition",
                         detailDescription: plongeonData5.techniquePlongeon.detailDescription || "Tableaux de progression Seniors",
@@ -53570,9 +53787,9 @@ function ProfilDeveloppementView() {
                         }
                     });
                 }
-                const periodisationP5 = period.themes.find(t => t.id === "periodisation-specifique");
+                const periodisationP5 = period.themes.find(t => t.id === "athletique");
                 if (periodisationP5) filteredThemes.push(periodisationP5);
-                const autonomieP5 = period.themes.find(t => t.id === "autonomie-expertise" && t.specificTo === 'plongeon');
+                const autonomieP5 = period.themes.find(t => t.id === "savoir-entrainer" && t.specificTo === 'plongeon');
                 if (autonomieP5) filteredThemes.push(autonomieP5);
                 const competitionP5 = period.themes.find(t => t.id === "competition");
                 if (competitionP5) filteredThemes.push(competitionP5);
@@ -53586,7 +53803,7 @@ function ProfilDeveloppementView() {
                     // Thème Technique plongeon
                     if (plongeonData4.techniquePlongeon) {
                         filteredThemes.push({
-                            id: "technique-plongeon",
+                            id: "attendus-techniques",
                             icon: "🏅",
                             title: plongeonData4.techniquePlongeon.titre || "Technique plongeon",
                             detailDescription: plongeonData4.techniquePlongeon.detailDescription || "Tableaux de progression Cadets/Cadettes",
@@ -53598,27 +53815,22 @@ function ProfilDeveloppementView() {
                     }
                 }
 
-                // Ajouter développement athlétique (générique P4 = "developpement-qualites-physiques")
-                const developpementAthletiqueP4 = period.themes.find(t => t.id === "developpement-qualites-physiques");
+                // Ajouter le bloc athlétique commun (id normalisé : "athletique")
+                const developpementAthletiqueP4 = period.themes.find(t => t.id === "athletique");
                 if (developpementAthletiqueP4) {
                     filteredThemes.push(developpementAthletiqueP4);
                 }
 
                 // Ajouter entraînement spécifique (avec contenu plongeon)
-                const entrainementSpecifique = period.themes.find(t => t.id === "entrainement-specifique");
+                // Le bloc commun porte le contenu plongeon (details.contenuSpecifiquePlongeon) :
+                // il faut donc cibler la version COMMUNE, pas celle d'une autre discipline.
+                const entrainementSpecifique = period.themes.find(t => t.id === "savoir-entrainer" && !t.specificTo);
                 if (entrainementSpecifique) {
                     filteredThemes.push(entrainementSpecifique);
                 }
 
             } else if (disciplineId === 4) {
-                // Natation artistique : inclure les thèmes spécifiques NA + thèmes génériques
-                // Exclure les thèmes NC génériques remplacés par des équivalents NA spécifiques
-                const naExcludedIds = ['apprendre-sentrainer', 'entrainement-specifique', 'autonomie-expertise'];
-                filteredThemes = period.themes.filter(theme =>
-                    !theme.genericForOtherDisciplines &&
-                    (!theme.specificTo || theme.specificTo === 'natation-artistique') &&
-                    !naExcludedIds.includes(theme.id)
-                );
+                filteredThemes = selectThemesFor('natation-artistique');
             } else {
                 // Autres disciplines : exclure les thèmes génériques et tous les thèmes spécifiques à d'autres disciplines
                 filteredThemes = period.themes.filter(theme =>
@@ -53628,7 +53840,7 @@ function ProfilDeveloppementView() {
             }
 
             // Réorganiser pour placer le bloc athlétique en 3ème position (1. technique, 2. entraînement, 3. athlétique)
-            const athleticIds = ["apprentissage-athletique", "transformations", "developpement-qualites-physiques", "periodisation-specifique"];
+            const athleticIds = ["athletique"];
             const athleticIndex = filteredThemes.findIndex(theme => athleticIds.includes(theme.id));
             if (athleticIndex !== -1 && athleticIndex !== 2) {
                 const athleticTheme = filteredThemes.splice(athleticIndex, 1)[0];
@@ -55117,7 +55329,10 @@ function ProfilDeveloppementView() {
 
             // ── RENDERER UNIFIÉ — court-circuit contenuSpecifique ──────────────────
             if (theme.details?.contenuSpecifique) {
-                const cs = theme.details.contenuSpecifique;
+                // Le plongeon dispose d'une variante dédiée sur certains blocs (ex. savoir s'entraîner P4)
+                const cs = (disciplineId === 3 && theme.details.contenuSpecifiquePlongeon)
+                    ? theme.details.contenuSpecifiquePlongeon
+                    : theme.details.contenuSpecifique;
                 // Si le HTML est une page complète (PLO), le rendre directement sans wrapper
                 if (cs.trimStart().startsWith('<div class="subtheme-view')) {
                     return <div dangerouslySetInnerHTML={{ __html: cs }} />;
@@ -55238,12 +55453,11 @@ function ProfilDeveloppementView() {
                                 return (
                                     <section key={s.id} id={s.id} className={isBand ? 'av2-band' : ''}>
                                         <header className="av2-dept">
-                                            <span className="av2-chip-section"><span className="av2-sico">{ico}</span>{s.eyebrow}</span>
+                                            <span className="av2-dept-ico">{ico}</span>
                                             <div className="av2-col">
                                                 <h2>{s.title}</h2>
                                                 {kicker && <div className="av2-kicker">{kicker}</div>}
                                             </div>
-                                            {kindLabel && <span className="av2-kind">{kindLabel}</span>}
                                         </header>
                                         {s.kind === 'list' && (
                                             <ul className="av2-bullet-grid">
@@ -55902,7 +56116,7 @@ function ProfilDeveloppementView() {
                             </div>
                         )}
 
-                        {/* Enrichissement disciplinaire spécifique — periodisation-specifique */}
+                        {/* Enrichissement disciplinaire spécifique — bloc athlétique */}
                         {(() => {
                             const disciplineKey = getDisciplineKey(disciplineId);
                             const disciplineName = getDisciplineName(disciplineId) ?? "";
@@ -56004,9 +56218,8 @@ function ProfilDeveloppementView() {
                                     return (
                                         <section key={s.id} id={s.id} className={idx % 2 === 0 ? 'av2-band' : ''}>
                                             <header className="av2-dept">
-                                                <span className="av2-chip-section"><span className="av2-sico">{s.icon||'🏊'}</span>{s.eyebrow}</span>
+                                                <span className="av2-dept-ico">{s.icon||'🏊'}</span>
                                                 <div className="av2-col"><h2>{s.title}</h2></div>
-                                                <span className="av2-kind">Contenu</span>
                                             </header>
                                             <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}}>
                                                 {s.data.introduction && <p style={{fontStyle:'italic',marginBottom:'16px'}}>{s.data.introduction}</p>}
@@ -56248,13 +56461,15 @@ function ProfilDeveloppementView() {
 const disciplineKey = getDisciplineKey(disciplineId);
                                 const disciplineName = getDisciplineName(disciplineId) ?? "";
 
+                                // Le bloc athlétique porte le même id sur toutes les périodes :
+                                // la clé d'enrichissement se déduit donc de la période, pas de l'id.
                                 const enrichmentKeyMap = {
-                                    "apprentissage-athletique": "apprentissageAthletiqueEnrichment",
-                                    "transformations": "formationAthletiqueEnrichment",
-                                    "developpement-qualites-physiques": "developpementAthletiqueEnrichment",
-                                    "periodisation-specifique": "individualisationAthletiqueEnrichment"
+                                    2: "apprentissageAthletiqueEnrichment",
+                                    3: "formationAthletiqueEnrichment",
+                                    4: "developpementAthletiqueEnrichment",
+                                    5: "individualisationAthletiqueEnrichment"
                                 };
-                                const enrichmentKey = enrichmentKeyMap[theme.id];
+                                const enrichmentKey = theme.id === "athletique" ? enrichmentKeyMap[period.id] : null;
                                 if (!disciplineKey || !enrichmentKey) return null;
 
                                 const enrichment = disciplineObjectives[disciplineKey]?.[period.id]?.[enrichmentKey]
