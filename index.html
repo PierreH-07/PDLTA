@@ -8073,7 +8073,7 @@
                                     <h3>Déroulement d'un ballet</h3>
                                     <ol style="line-height:1.8; margin:0 0 20px 20px;">
                                         <li>Le ballet commence au signal de l'arbitre</li>
-                                        <li>Les nageurs exécutent la chorégraphie complète avec tous les éléments requis et transitions</li>
+                                        <li>Les athlètes exécutent la chorégraphie complète avec tous les éléments requis et transitions</li>
                                         <li>Les juges évaluent simultanément leur critère : technique, transitions, artistique, synchronisation</li>
                                         <li>Les notes sont affichées et validées par l'arbitre avant d'être prises en compte</li>
                                     </ol>
@@ -8082,6 +8082,76 @@
                                      <p style="line-height:1.8; margin-bottom:20px;">Chaque juge attribue une note selon ses critères d'observation. Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées et la moyenne des juges constitue le score final, en tenant compte des pondérations techniques et artistiques, avec application éventuelle des pénalités de synchronisation.</p>
                                     <ul style="line-height:1.8; margin:0 0 12px 20px;">
                                         <li><strong>Score d'exécution technique :</strong> évalue la hauteur, la précision et le contrôle de chaque élément. Les notes sont pondérées selon la difficultés validée des éléments</li>
+                                        <li><strong>Score d'impression artistique :</strong> évalue la composition chorégraphique globale, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours. Les notes sont pondérées selon les coefficients pré-définis par épreuve</li>
+                                        <li><strong>Score final</strong> = Score d'exécution technique (pondéré par la difficulté validée) + Score d'impression artistique (pondéré par les coefficients de valeur de l'épreuve). Une pénalité de synchronisation est appliquée pour toutes les imperfections relevées.</li>
+                                    </ul>
+                                    
+                                    ${tableauNotationBalletsHTML('#EC4899')}
+
+                                    <h3>📋 Précisions sur les contenus</h3>
+                                   <p style="line-height: 1.8; color: #555; margin-bottom: 30px; font-style: italic;">
+                                        <strong>📍 Retrouvez toutes les informations <a href="https://www.ffnatation.fr/reglements-natation-artistique">sur le site de la Fédération Française de Natation</a>
+                                    </p>
+
+                                    <div style="background:rgba(236,72,153,0.08); padding:16px; border-radius:8px; border-left:4px solid #EC4899; margin-top:20px;">
+                                        <strong>En résumé :</strong>
+                                        <ul style="margin:8px 0 0 20px; line-height:1.8;">
+                                            <li>Jugement équitable devant tous les juges</li>
+                                            <li>Évaluation de la technique, des transitions, de la synchronisation et de l'artistique</li>
+                                            <li>Score final = score technique pondéré + score artistique pondéré ± pénalités de synchronisation</li>
+                                        </ul>
+                                    </div>
+                                `
+                            },
+                             {
+                                id: "ballets-techniques",
+                                specificTo: 4,
+                                titre: "Les ballets techniques",
+                                icone: "🩰",
+                                description: "Comprendre les ballets techniques en natation artistique",
+                                contenu: `
+                                    <h3>Qu'est-ce qu'un ballet technique ?</h3>
+                                    <p style="line-height:1.8; margin-bottom:15px;">Les ballets sont des <strong>enchaînements chorégraphiés</strong> effectués sur la musique. Ils sont composés de :</p>
+                                    <ul style="line-height:1.8; margin:0 0 15px 20px;">
+                                        <li>Éléements techniques obligatoires : des figures techniques imposées (TRE) prédéfinies par épreuve et identiques pour tous les concurrents,</li>
+                                        <li><strong>Éléments requis :</strong> porté(s), figure(s) hybride(s), constitués d'enchaînements de positions ou de mouvements techniques</li>
+                                        <li><strong>Transitions :</strong> tous les mouvements entre les éléments, qui relient et fluidifient la chorégraphie</li>
+                                    </ul>
+                                    <p style="line-height:1.8; margin-bottom:20px;">Chaque partie du ballet doit être exécutée avec <strong>hauteur, précision et contrôle</strong> pour permettre une évaluation complète de la technique et de l'artistique.</p>
+
+                                    <h3>Qui juge les ballets techniques ?</h3>
+                                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'éléments</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Observent la précision et le contrôle de chaque éléments (TRE, hybrides, acrobaties)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'impression artistique</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Évaluent la composition chorégraphique, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de synchronisation</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que les athlètes sont parfaitement synchronisés (sauf solos)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de la carte de difficulté déclarée</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que tous les éléments réalisées correspondent à la difficulté annoncée et appliquent une pénalité de base si nécessaire </p>
+                                        </div>
+                                    </div>
+                                    <p style="line-height:1.8; margin-bottom:20px; font-size:0.9em; color:#666; font-style:italic;">Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées. La moyenne constitue le score final, avec application éventuelle des pénalités de synchronisation.</p>
+
+                                    <h3>Déroulement d'un ballet</h3>
+                                    <ol style="line-height:1.8; margin:0 0 20px 20px;">
+                                        <li>Le ballet commence au signal de l'arbitre</li>
+                                        <li>Les athlètes exécutent la chorégraphie complète avec tous les éléments requis et transitions</li>
+                                        <li>Les juges évaluent simultanément leur critère : technique, transitions, artistique, synchronisation</li>
+                                        <li>Les notes sont affichées et validées par l'arbitre avant d'être prises en compte</li>
+                                    </ol>
+
+                                    <h3>Scores et notation</h3>
+                                     <p style="line-height:1.8; margin-bottom:20px;">Chaque juge attribue une note selon ses critères d'observation. Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées et la moyenne des juges constitue le score final, en tenant compte des pondérations techniques et artistiques, avec application éventuelle des pénalités de synchronisation.</p>
+                                    <ul style="line-height:1.8; margin:0 0 12px 20px;">
+                                        <li><strong>Score d'éléments :</strong> évalue la hauteur, la précision et le contrôle de chaque élément. Les notes sont pondérées selon la difficultés validée des éléments</li>
                                         <li><strong>Score d'impression artistique :</strong> évalue la composition chorégraphique globale, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours. Les notes sont pondérées selon les coefficients pré-définis par épreuve</li>
                                         <li><strong>Score final</strong> = Score d'exécution technique (pondéré par la difficulté validée) + Score d'impression artistique (pondéré par les coefficients de valeur de l'épreuve). Une pénalité de synchronisation est appliquée pour toutes les imperfections relevées.</li>
                                     </ul>
@@ -13297,105 +13367,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     </ul>
 
                                     <h3>📚 Catalogue des figures Jeunes</h3>
-                                    <p style="margin-bottom:8px;">Les Jeunes nagent <strong>4 figures</strong> issues de 3 sections de 2 groupes chacune. Chaque groupe comprend 2 figures :</p>
-                                    <ul style="line-height:1.8; margin:0 0 14px 20px;">
-                                        <li>1 <strong>section est tirée au sort</strong> parmi celles existantes</li>
-                                        <li>Le nombre de sections intégrées au tirage augmente avec l'avancée dans la saison et le niveau de pratique</li>
-                                    </ul>
-                                    <table class="figures-table-card">
-                                        <thead>
-                                            <tr>
-                                                <th style="white-space:nowrap;">Section / Groupe</th>
-                                                <th style="white-space:nowrap;">N° Figure</th>
-                                                <th>Nom</th>
-                                                <th style="white-space:nowrap;">DD</th>
-                                                <th style="width:150px;">Schéma</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td rowspan="2" style="white-space:nowrap;"><strong>Section A – Groupe 1</strong></td>
-                                                <td>307e</td>
-                                                <td>Poisson volant, vrille 360°</td>
-                                                <td>2.9</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-307e-poisson-volant-vrille-360.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="307e Poisson volant"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>437</td>
-                                                <td>Cyclone, ouvert 180°</td>
-                                                <td>2.6</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-437-cyclone-ouvert-180.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="437 Cyclone"></td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" style="white-space:nowrap;"><strong>Section A – Groupe 2</strong></td>
-                                                <td>308h</td>
-                                                <td>Barracuda grand écart aérien, vrille ascendante 180°</td>
-                                                <td>2.9</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-308h-barracuda-grand-ecart-aerien-vrille-ascendante-180.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="308h Barracuda"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>407</td>
-                                                <td>Espadon jambes tendues rotation ariane</td>
-                                                <td>2.6</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-407-espadon-jambes-tendues-rotation-ariane.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="407 Espadon"></td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" style="white-space:nowrap;"><strong>Section B – Groupe 3</strong></td>
-                                                <td>356f</td>
-                                                <td>Marsouin fouetté, vrille continue 720°</td>
-                                                <td>3.0</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-356f-marsouin-fouette-vrille-continue-720.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="356f Marsouin"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>441</td>
-                                                <td>Saturne</td>
-                                                <td>2.5</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-441-saturne.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="441 Saturne"></td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" style="white-space:nowrap;"><strong>Section B – Groupe 4</strong></td>
-                                                <td>352</td>
-                                                <td>Vénus</td>
-                                                <td>3.0</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-352-venus.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="352 Venus"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>240i</td>
-                                                <td>Albatros, vrille ascendante 360°</td>
-                                                <td>1.9</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-240i-albatros-vrille-ascendante-360.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="240i Albatros"></td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" style="white-space:nowrap;"><strong>Section C – Groupe 5</strong></td>
-                                                <td>140j</td>
-                                                <td>Flamenco jambe pliée, vrille combinée (360°+360°)</td>
-                                                <td>3.1</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-140j-flamenco-jambe-pliee-vrille-combinee.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="140j Flamenco"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>421</td>
-                                                <td>Promenade arrière fermée à 360°</td>
-                                                <td>2.4</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-421-promenade-arriere-fermee-360.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="421 Promenade"></td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" style="white-space:nowrap;"><strong>Section C – Groupe 6</strong></td>
-                                                <td>440d</td>
-                                                <td>Ipanéma, vrille 180°</td>
-                                                <td>3.1</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-440d-ipanema-vrille-180.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="440d Ipanema"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>154f</td>
-                                                <td>Londres, vrille continue 720°</td>
-                                                <td>2.4</td>
-                                                <td style="padding:2px;"><img src="Images/sch%C3%A9ma%20NA/jeunes-154f-londres-vrille-continue-720.png" style="width:100%;height:120px;object-fit:contain;display:block;" alt="154f Londres"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <p style="margin-bottom:8px;">Les Jeunes nagent <strong>4 figures tirées au sort</strong> issues de 3 sections de 2 groupes chacune. Chaque groupe comprend 2 figures :</p>
+                                   
                                     
                                     <h3>📊 Système de notation (0 à 10)</h3>
-                                    <p style="line-height:1.8; margin-bottom:10px;">5 juges évaluent chaque figure. La note la plus haute et la note la plus basse sont supprimées. La moyenne des 3 notes restantes est multipliée par le coefficient de difficulté (DD).</p>
+                                    <p style="line-height:1.8; margin-bottom:10px;">5 juges évaluent chaque figure. La note la plus haute et la note la plus basse sont supprimées. La moyenne des 3 notes restantes est multipliée par le coefficient de difficulté.</p>
                                     <table class="figures-table-card">
                                         <thead>
                                             <tr>
@@ -13418,13 +13394,13 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                         </tbody>
                                     </table>
                                     
-                                    <h3>🏅 Déroulement d'une compétition de figures imposées</h3>
+                                    <h3>🏅 Organisation d'une compétition de figures imposées</h3>
 
                                     <div style="background:rgba(236,72,153,0.07); padding:14px 18px; border-radius:8px; border-left:3px solid #0DBCF0; margin-bottom:14px;">
                                         <strong style="color:#0DBCF0;">Un passage équitable pour tous</strong>
                                         <ul style="margin:8px 0 0 20px; line-height:1.8; color:#555; font-size:0.92em;">
-                                            <li>Les nageurs portent tous <strong>maillot noir et bonnet blanc</strong> (aucun signe distinctif)</li>
-                                            <li>Chaque nageur réalise la <strong>même figure</strong>, les uns après les autres</li>
+                                            <li>Les athlètes portent tous <strong>maillot noir et bonnet blanc</strong> (aucun signe distinctif)</li>
+                                            <li>Chaque athlète réalise la <strong>même figure</strong>, les uns après les autres</li>
                                             <li>Tous passent devant le <strong>même jury</strong> (appelé atelier)</li>
                                             <li>Une fois la figure réalisée par tous, on passe à la figure suivante</li>
                                         </ul>
@@ -13444,7 +13420,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                         <strong style="color:#0DBCF0;">Déroulement d'un passage</strong>
                                         <ul style="margin:8px 0 0 20px; line-height:1.8; color:#555; font-size:0.92em;">
                                             <li>Le départ est donné par <strong>l'arbitre ou le vice-arbitre</strong></li>
-                                            <li>Le nageur réalise la figure demandée</li>
+                                            <li>L'athlète réalise la figure demandée</li>
                                             <li>À la fin : les notes sont affichées <strong>simultanément</strong> par tous les juges</li>
                                             <li>Les notes sont validées par l'arbitre avant d'être officiellement prises en compte</li>
                                         </ul>
@@ -13453,8 +13429,8 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     <div style="background:rgba(236,72,153,0.08); padding:16px; border-radius:8px; border-left:4px solid #0DBCF0; margin-top:20px;">
                                         <strong>En résumé :</strong>
                                         <ul style="margin:8px 0 0 20px; line-height:1.8;">
-                                            <li>Chaque nageur exécute <strong>4 figures</strong></li>
-                                            <li>Même figure, même jury, pour tous les nageurs, <strong>jugement équitable</strong></li>
+                                            <li>Chaque athlète exécute <strong>4 figures</strong></li>
+                                            <li>Même figure, même jury, pour tous les athlètes, <strong>jugement équitable</strong></li>
                                             <li>Évaluation de la hauteur, de la technique, de la précision et de la maîtrise</li>
                                             <li><strong>Score final :</strong> note la plus haute et note la plus basse supprimées → moyenne × coefficient de difficulté → total des 4 figures</li>
                                         </ul>
@@ -36184,10 +36160,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         "Respecter les contraintes techniques des enchaînements"
                     ],
                     competition: {
-                        titre: "La compétition en catégories Jeune et Junior",
+                        titre: "La compétition en catégories Jeune",
                         soustitre: "Parcours de formation et de compétition - Natation Artistique",
-                        description: "Les parcours compétitifs Jeune (12-15 ans, collège) et Junior (15-19 ans, lycée) pour la saison 2025-2026",
-                        detailDescription: "Les parcours compétitifs Jeune (12-15 ans, collège) et Junior (15-19 ans, lycée) pour la saison 2025-2026",
+                        description: "Les parcours compétitifs Jeune (12-15 ans, collège)",
+                        detailDescription: "Les parcours compétitifs Jeune (12-15 ans, collège)",
 
                         sections: [
                             {
@@ -36253,7 +36229,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <p style="line-height: 1.8; color: #555; margin-bottom: 10px;">
         La reconnaissance prend une place plus structurante, à travers :
     </p>
-    <ul style="line-height: 1.8; margin-left: 20px;">
+    <ul style="line-height: 1.8; color: #555; margin-left: 20px;">
         <li>Classements et résultats sportifs</li>
         <li>Sélections, stages et dispositifs de reconnaissance</li>
         <li>Valorisation des progrès techniques et de l'investissement</li>
@@ -36274,7 +36250,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <p style="line-height: 1.8; color: #555; margin-bottom: 10px;">
         À cette période charnière (collège), la compétition sert à :
     </p>
-    <ul style="line-height: 1.8; margin-left: 0; list-style: none;">
+    <ul style="line-height: 1.8; color: #555; margin-left: 0; list-style: none;">
         <li>➡ Structurer la progression vers le haut niveau</li>
         <li>➡ Développer la rigueur et la discipline</li>
         <li>➡ Apprendre à gérer la pression compétitive</li>
@@ -36350,20 +36326,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                         <h4 style="color: #FF9800; margin-bottom: 12px;">👥 Public concerné</h4>
                                         <ul style="line-height: 1.8; margin-left: 20px;">
-                                            <li><strong>Filles :</strong> 12, 13, 14, 15 ans (nées en 2014, 2013, 2012 et 2011)</li>
-                                            <li><strong>Garçons :</strong> 12, 13, 14, 15, 16 ans (nés en 2014, 2013, 2012, 2011 et 2010)</li>
+                                            <li><strong>Filles :</strong> 12, 13, 14, 15 ans</li>
+                                            <li><strong>Garçons :</strong> 12, 13, 14, 15, 16 ans</li>
                                         </ul>
                                     </div>
 
-                                    <div style="background: rgba(33, 150, 243, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 15px;">
-                                        <h4 style="color: #2196F3; margin-bottom: 12px;">📋 Conditions d'accès</h4>
-                                        <ul style="line-height: 1.8; margin-left: 20px;">
-                                            <li><strong>Formation :</strong> Avoir validé le niveau Synchro d'Argent</li>
-                                            <li><strong>Pour accéder au Championnat N2 :</strong> Avoir obtenu les points requis en figures imposées en solos, duos, duos mixtes, équipes ET avoir nagé le ballet combiné en Championnat régional</li>
-                                            <li><strong>Pour accéder aux Championnats de France N1 :</strong> Avoir obtenu les places et points requis en figures imposées + places et points requis en ballets combinés au Championnat N2</li>
-                                            <li><strong>Pour accéder aux Championnats de France Élite en duo :</strong> Avoir obtenu la place et les points requis en figures imposées</li>
-                                        </ul>
-                                    </div>
 
                                     <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-top: 15px;">
                                         <h4 style="color: #0E1655; margin-bottom: 15px;">👤 Profil de l'athlète Jeune</h4>
@@ -36510,7 +36477,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                             },
                             {
                                 id: "epreuves-jeune",
-                                titre: "Catégorie Jeune : Épreuves Techniques",
+                                titre: "Catégorie Jeune : Les épreuves",
                                 icone: "⚙️",
                                 contenu: `
                                     <p style="margin-bottom: 15px; line-height: 1.7;">
@@ -36620,12 +36587,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     <div class="cross-link-box" style="margin-top: 25px;">
                                         <h4>📚 Pour approfondir</h4>
                                         <p>
-                                            Consultez la liste des
+                                            Consultez la fiche des
                                             <a href="#" class="link-to-card" data-card="figures-imposees-jeunes" data-type="discipline">Figures imposées Jeunes</a>
-                                            dans le bloc <strong>"Comprendre"</strong> : les 12 figures, les sections et les groupes.<br>
-                                            Consultez également la liste des
-                                            <a href="#" class="link-to-card" data-card="ballets-libres" data-type="discipline">Éléments de ballet Jeunes</a> :
-                                            les hybrides et les acrobaties.
+                                            dans le bloc <strong>"Comprendre"</strong>.<br>
+                                            Consultez également la fiche des
+                                            <a href="#" class="link-to-card" data-card="ballets-libres" data-type="discipline">Ballets libres</a>.
                                         </p>
                                     </div>
                                 `
@@ -37083,7 +37049,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     competition: {
                         titre: "La compétition en catégorie Junior",
                         soustitre: "Parcours de performance et d'excellence - Lycée (15-19 ans)",
-                        description: "Le parcours compétitif Junior pour la saison 2025-2026, du niveau régional à l'international",
+                        description: "Le parcours compétitif Junior, du niveau régional à l'international",
                         sections: [
                             {
                                 id: "pourquoi-competition",
@@ -37152,7 +37118,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <p style="line-height: 1.8; color: #555; margin-bottom: 10px;">
         La reconnaissance prend une place plus structurante, à travers :
     </p>
-    <ul style="line-height: 1.8; margin-left: 20px;">
+    <ul style="line-height: 1.8; color: #555; margin-left: 20px;">
         <li>Classements et résultats sportifs</li>
         <li>Sélections en équipe de France Junior, stages et dispositifs de reconnaissance</li>
         <li>Valorisation des progrès techniques et de l'investissement</li>
@@ -37163,7 +37129,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
 <div style="background: rgba(33, 150, 243, 0.08); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
     <h4 style="color: #2196F3; margin-bottom: 15px;">👨‍⚖️ Qui évalue ?</h4>
-    <ul style="line-height: 1.8; margin-left: 20px;">
+    <ul style="line-height: 1.8;color: #555; margin-left: 20px;">
         <li><strong>Les entraîneurs spécialisés</strong> et le staff de performance</li>
         <li><strong>Les juges internationaux</strong> et experts techniques</li>
         <li><strong>Le Directeur Technique National</strong> pour les sélections en équipe de France</li>
@@ -37199,27 +37165,9 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                         <h4 style="color: #9C27B0; margin-bottom: 12px;">👥 Public concerné</h4>
                                         <ul style="line-height: 1.8; margin-left: 20px;">
-                                            <li><strong>Filles :</strong> 15, 16, 17, 18, 19 ans (nées en 2011, 2010, 2009, 2008 et 2007)</li>
-                                            <li><strong>Garçons :</strong> 15, 16, 17, 18, 19, 20 ans (nés en 2011, 2010, 2009, 2008, 2007 et 2006)</li>
+                                            <li><strong>Filles :</strong> 15, 16, 17, 18, 19 ans</li>
+                                            <li><strong>Garçons :</strong> 15, 16, 17, 18, 19, 20 ans</li>
                                         </ul>
-                                    </div>
-
-                                    <div style="background: rgba(33, 150, 243, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                        <h4 style="color: #2196F3; margin-bottom: 12px;">📋 Conditions d'accès</h4>
-                                        <ul style="line-height: 1.8; margin-left: 20px;">
-                                            <li><strong>Pour Championnats Régionaux et N2 :</strong> Avoir validé le niveau Synchro d'Argent</li>
-                                            <li><strong>Pour Championnats de France :</strong> Avoir validé le niveau Synchro d'Or</li>
-                                            <li><strong>Qualification N2 :</strong> Avoir nagé les épreuves aux régionaux (si sélectifs)</li>
-                                            <li><strong>Progression :</strong> Avoir obtenu les places requises pour chaque niveau de Championnats</li>
-                                        </ul>
-                                    </div>
-
-                                    <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                        <h4 style="color: #4CAF50; margin-bottom: 12px;">🎓 Note importante - Synchro d'Or</h4>
-                                        <p style="margin-bottom: 10px; line-height: 1.7;">
-                                            Un ballet composé d'un ou plusieurs athlètes titulaires du Synchro d'Argent n'empêchera pas
-                                            la qualification aux Championnats de France, le Synchro d'Or étant obligatoire lors des engagements.
-                                        </p>
                                     </div>
 
                                     <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-top: 15px;">
@@ -37326,13 +37274,13 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                                 </tr>
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Épreuve qualificative Hiver</td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">Qualificative pour le Championnat de France d'Hiver (17 solos + garçons)</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">Qualificative pour le Championnat de France d'Hiver</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">Solos techniques uniquement</td>
                                                 </tr>
                                                 <tr style="background: rgba(156, 39, 176, 0.05);">
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Championnat de France Hiver</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">Championnat national d'hiver, qualificatif pour l'Élite</td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">Solos techniques (19+garçons), Duos mixtes techniques, Équipes techniques (14)</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">Solos techniques, Duos mixtes techniques, Équipes techniques</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Championnat Régional</td>
@@ -37347,12 +37295,12 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Championnat de France N1</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">Championnat national d'été, qualificatif pour l'Élite</td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">Toutes épreuves techniques et libres (23 ballets par type) + Ballets acrobatiques</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">Toutes épreuves techniques et libres + Ballets acrobatiques</td>
                                                 </tr>
                                                 <tr style="background: rgba(156, 39, 176, 0.05);">
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Championnat de France Élite Open</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">Plus haut niveau de compétition Junior national</td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">Toutes épreuves techniques et libres + Ballets acrobatiques (éliminatoires + finales)</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">Toutes épreuves techniques et libres + Ballets acrobatiques</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -37605,6 +37553,18 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                             <li><strong>Équipe technique :</strong> Le ballet peut contenir 1 cercle maximum (facultatif)</li>
                                             <li><strong>Obligation éléments Junior :</strong> Déclarer au moins un élément de chaque famille de difficulté dans les ballets libres</li>
                                         </ul>
+                                    </div>
+
+                                       <div class="cross-link-box" style="margin-top: 25px;">
+                                        <h4>📚 Pour approfondir</h4>
+                                        <p>
+                                            Consultez la fiche des
+                                            <a href="#" class="link-to-card" data-card="ballets-techniques" data-type="discipline">Ballets techniques</a>
+                                            dans le bloc <strong>"Comprendre"</strong>.<br>
+                                            Consultez également la fiche des
+                                            <a href="#" class="link-to-card" data-card="ballets-libres" data-type="discipline">ballets libres</a> :
+                                            les hybrides et les acrobaties.
+                                        </p>
                                     </div>
                                 `
                             },
