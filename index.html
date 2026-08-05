@@ -52194,6 +52194,11 @@ function ProfilDeveloppementView() {
 
             const PeriodLateralButtons = () => {
                 if (!showPeriodNav) return null;
+                const isThemeNav = view !== 'period' && !!selectedTheme;
+                const goTo = (periodNum) => {
+                    if (isThemeNav) navigateToSameTheme(periodNum);
+                    else navigateToPeriod(periodNum);
+                };
                 const prev = selectedPeriod > 1 ? PERIOD_NAV_META[selectedPeriod - 1] : null;
                 const next = selectedPeriod < 5 ? PERIOD_NAV_META[selectedPeriod + 1] : null;
                 return (
@@ -52203,7 +52208,7 @@ function ProfilDeveloppementView() {
                                 className="period-lateral-btn prev"
                                 style={{ background: prev.color }}
                                 title={prev.label}
-                                onClick={() => navigateToSameTheme(selectedPeriod - 1)}
+                                onClick={() => goTo(selectedPeriod - 1)}
                             >
                                 ‹ {prev.label}
                             </button>
@@ -52213,7 +52218,7 @@ function ProfilDeveloppementView() {
                                 className="period-lateral-btn next"
                                 style={{ background: next.color }}
                                 title={next.label}
-                                onClick={() => navigateToSameTheme(selectedPeriod + 1)}
+                                onClick={() => goTo(selectedPeriod + 1)}
                             >
                                 {next.label} ›
                             </button>
