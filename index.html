@@ -13438,6 +13438,75 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                 `
                             },
                             {
+                                id: "ballets-libres",
+                                specificTo: 4,
+                                titre: "Les ballets libres",
+                                icone: "🩰",
+                                description: "Comprendre les ballets libres en natation artistique",
+                                contenu: `
+                                    <h3>Qu'est-ce qu'un ballet libre ?</h3>
+                                    <p style="line-height:1.8; margin-bottom:15px;">Les ballets sont des <strong>enchaînements chorégraphiés</strong> effectués sur la musique. Ils sont composés de :</p>
+                                    <ul style="line-height:1.8; margin:0 0 15px 20px;">
+                                        <li><strong>Éléments requis :</strong> un porté (Acro) ou une figure (Hybride), constitués d'enchaînements de positions ou de mouvements codifiés</li>
+                                        <li><strong>Transitions :</strong> tous les mouvements entre les éléments, qui relient et fluidifient la chorégraphie</li>
+                                    </ul>
+                                    <p style="line-height:1.8; margin-bottom:20px;">Chaque partie du ballet doit être exécutée avec <strong>hauteur, précision et contrôle</strong> pour permettre une évaluation complète de la technique et de l'artistique.</p>
+
+                                    <h3>Qui juge les ballets libres ?</h3>
+                                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'exécution</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Observent la hauteur, la précision et le contrôle de chaque élément (hybrides, acrobaties)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'impression artistique</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Évaluent la composition chorégraphique, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de synchronisation</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que les athlètes sont parfaitement synchronisés (sauf solos)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de la carte de difficulté déclarée</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que tous les éléments réalisées correspondent à la difficulté annoncée et appliquent une pénalité de base si nécessaire </p>
+                                        </div>
+                                    </div>
+                                    <p style="line-height:1.8; margin-bottom:20px; font-size:0.9em; color:#666; font-style:italic;">Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées. La moyenne constitue le score final, avec application éventuelle des pénalités de synchronisation.</p>
+
+                                    <h3>Déroulement d'un ballet</h3>
+                                    <ol style="line-height:1.8; margin:0 0 20px 20px;">
+                                        <li>Le ballet commence au signal de l'arbitre</li>
+                                        <li>Les athlètes exécutent la chorégraphie complète avec tous les éléments requis et transitions</li>
+                                        <li>Les juges évaluent simultanément leur critère : technique, transitions, artistique, synchronisation</li>
+                                        <li>Les notes sont affichées et validées par l'arbitre avant d'être prises en compte</li>
+                                    </ol>
+
+                                    <h3>Scores et notation</h3>
+                                     <p style="line-height:1.8; margin-bottom:20px;">Chaque juge attribue une note selon ses critères d'observation. Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées et la moyenne des juges constitue le score final, en tenant compte des pondérations techniques et artistiques, avec application éventuelle des pénalités de synchronisation.</p>
+                                    <ul style="line-height:1.8; margin:0 0 12px 20px;">
+                                        <li><strong>Score d'exécution technique :</strong> évalue la hauteur, la précision et le contrôle de chaque élément. Les notes sont pondérées selon la difficultés validée des éléments</li>
+                                        <li><strong>Score d'impression artistique :</strong> évalue la composition chorégraphique globale, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours. Les notes sont pondérées selon les coefficients pré-définis par épreuve</li>
+                                        <li><strong>Score final</strong> = Score d'exécution technique (pondéré par la difficulté validée) + Score d'impression artistique (pondéré par les coefficients de valeur de l'épreuve). Une pénalité de synchronisation est appliquée pour toutes les imperfections relevées.</li>
+                                    </ul>
+
+                                    ${tableauNotationBalletsHTML('#EC4899')}
+
+                                    <h3>📋 Précisions sur les contenus</h3>
+                                   <p style="line-height: 1.8; color: #555; margin-bottom: 30px; font-style: italic;">
+                                        <strong>📍 Retrouvez toutes les informations <a href="https://www.ffnatation.fr/reglements-natation-artistique">sur le site de la Fédération Française de Natation</a>
+                                    </p>
+
+                                    <div style="background:rgba(236,72,153,0.08); padding:16px; border-radius:8px; border-left:4px solid #EC4899; margin-top:20px;">
+                                        <strong>En résumé :</strong>
+                                        <ul style="margin:8px 0 0 20px; line-height:1.8;">
+                                            <li>Jugement équitable devant tous les juges</li>
+                                            <li>Évaluation de la technique, des transitions, de la synchronisation et de l'artistique</li>
+                                            <li>Score final = score technique pondéré + score artistique pondéré ± pénalités de synchronisation</li>
+                                        </ul>
+                                    </div>
+                                `
+                            },
+                            {
                                 id: "preparation-physique-jeunes",
                                 titre: "Préparation physique",
                                 icone: "💪",
@@ -19423,6 +19492,145 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
                                     <div style="background: rgba(255, 123, 172, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #FF7BAC;">
                                         <strong>🏆 Niveau Junior :</strong> Les figures doivent être exécutées avec une qualité internationale. La hauteur, la précision et le contrôle sont évalués de manière très exigeante.
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "ballets-libres",
+                                specificTo: 4,
+                                titre: "Les ballets libres",
+                                icone: "🩰",
+                                description: "Comprendre les ballets libres en natation artistique",
+                                contenu: `
+                                    <h3>Qu'est-ce qu'un ballet libre ?</h3>
+                                    <p style="line-height:1.8; margin-bottom:15px;">Les ballets sont des <strong>enchaînements chorégraphiés</strong> effectués sur la musique. Ils sont composés de :</p>
+                                    <ul style="line-height:1.8; margin:0 0 15px 20px;">
+                                        <li><strong>Éléments requis :</strong> un porté (Acro) ou une figure (Hybride), constitués d'enchaînements de positions ou de mouvements codifiés</li>
+                                        <li><strong>Transitions :</strong> tous les mouvements entre les éléments, qui relient et fluidifient la chorégraphie</li>
+                                    </ul>
+                                    <p style="line-height:1.8; margin-bottom:20px;">Chaque partie du ballet doit être exécutée avec <strong>hauteur, précision et contrôle</strong> pour permettre une évaluation complète de la technique et de l'artistique.</p>
+
+                                    <h3>Qui juge les ballets libres ?</h3>
+                                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'exécution</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Observent la hauteur, la précision et le contrôle de chaque élément (hybrides, acrobaties)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'impression artistique</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Évaluent la composition chorégraphique, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de synchronisation</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que les athlètes sont parfaitement synchronisés (sauf solos)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de la carte de difficulté déclarée</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que tous les éléments réalisées correspondent à la difficulté annoncée et appliquent une pénalité de base si nécessaire </p>
+                                        </div>
+                                    </div>
+                                    <p style="line-height:1.8; margin-bottom:20px; font-size:0.9em; color:#666; font-style:italic;">Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées. La moyenne constitue le score final, avec application éventuelle des pénalités de synchronisation.</p>
+
+                                    <h3>Déroulement d'un ballet</h3>
+                                    <ol style="line-height:1.8; margin:0 0 20px 20px;">
+                                        <li>Le ballet commence au signal de l'arbitre</li>
+                                        <li>Les athlètes exécutent la chorégraphie complète avec tous les éléments requis et transitions</li>
+                                        <li>Les juges évaluent simultanément leur critère : technique, transitions, artistique, synchronisation</li>
+                                        <li>Les notes sont affichées et validées par l'arbitre avant d'être prises en compte</li>
+                                    </ol>
+
+                                    <h3>Scores et notation</h3>
+                                     <p style="line-height:1.8; margin-bottom:20px;">Chaque juge attribue une note selon ses critères d'observation. Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées et la moyenne des juges constitue le score final, en tenant compte des pondérations techniques et artistiques, avec application éventuelle des pénalités de synchronisation.</p>
+                                    <ul style="line-height:1.8; margin:0 0 12px 20px;">
+                                        <li><strong>Score d'exécution technique :</strong> évalue la hauteur, la précision et le contrôle de chaque élément. Les notes sont pondérées selon la difficultés validée des éléments</li>
+                                        <li><strong>Score d'impression artistique :</strong> évalue la composition chorégraphique globale, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours. Les notes sont pondérées selon les coefficients pré-définis par épreuve</li>
+                                        <li><strong>Score final</strong> = Score d'exécution technique (pondéré par la difficulté validée) + Score d'impression artistique (pondéré par les coefficients de valeur de l'épreuve). Une pénalité de synchronisation est appliquée pour toutes les imperfections relevées.</li>
+                                    </ul>
+
+                                    ${tableauNotationBalletsHTML('#EC4899')}
+
+                                    <h3>📋 Précisions sur les contenus</h3>
+                                   <p style="line-height: 1.8; color: #555; margin-bottom: 30px; font-style: italic;">
+                                        <strong>📍 Retrouvez toutes les informations <a href="https://www.ffnatation.fr/reglements-natation-artistique">sur le site de la Fédération Française de Natation</a>
+                                    </p>
+
+                                    <div style="background:rgba(236,72,153,0.08); padding:16px; border-radius:8px; border-left:4px solid #EC4899; margin-top:20px;">
+                                        <strong>En résumé :</strong>
+                                        <ul style="margin:8px 0 0 20px; line-height:1.8;">
+                                            <li>Jugement équitable devant tous les juges</li>
+                                            <li>Évaluation de la technique, des transitions, de la synchronisation et de l'artistique</li>
+                                            <li>Score final = score technique pondéré + score artistique pondéré ± pénalités de synchronisation</li>
+                                        </ul>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "ballets-techniques",
+                                specificTo: 4,
+                                titre: "Les ballets techniques",
+                                icone: "🩰",
+                                description: "Comprendre les ballets techniques en natation artistique",
+                                contenu: `
+                                    <h3>Qu'est-ce qu'un ballet technique ?</h3>
+                                    <p style="line-height:1.8; margin-bottom:15px;">Les ballets sont des <strong>enchaînements chorégraphiés</strong> effectués sur la musique. Ils sont composés de :</p>
+                                    <ul style="line-height:1.8; margin:0 0 15px 20px;">
+                                        <li>Éléements techniques obligatoires : des figures techniques imposées (TRE) prédéfinies par épreuve et identiques pour tous les concurrents,</li>
+                                        <li><strong>Éléments requis :</strong> porté(s), figure(s) hybride(s), constitués d'enchaînements de positions ou de mouvements techniques</li>
+                                        <li><strong>Transitions :</strong> tous les mouvements entre les éléments, qui relient et fluidifient la chorégraphie</li>
+                                    </ul>
+                                    <p style="line-height:1.8; margin-bottom:20px;">Chaque partie du ballet doit être exécutée avec <strong>hauteur, précision et contrôle</strong> pour permettre une évaluation complète de la technique et de l'artistique.</p>
+
+                                    <h3>Qui juge les ballets techniques ?</h3>
+                                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'éléments</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Observent la précision et le contrôle de chaque éléments (TRE, hybrides, acrobaties)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Juges d'impression artistique</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Évaluent la composition chorégraphique, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de synchronisation</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que les athlètes sont parfaitement synchronisés (sauf solos)</p>
+                                        </div>
+                                        <div style="background:rgba(236,72,153,0.07); padding:14px; border-radius:8px; border-left:3px solid #EC4899;">
+                                            <strong style="color:#EC4899;">Contrôleurs de la carte de difficulté déclarée</strong>
+                                            <p style="margin:6px 0 0; font-size:0.9em; line-height:1.6; color:#555;">Vérifient que tous les éléments réalisées correspondent à la difficulté annoncée et appliquent une pénalité de base si nécessaire </p>
+                                        </div>
+                                    </div>
+                                    <p style="line-height:1.8; margin-bottom:20px; font-size:0.9em; color:#666; font-style:italic;">Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées. La moyenne constitue le score final, avec application éventuelle des pénalités de synchronisation.</p>
+
+                                    <h3>Déroulement d'un ballet</h3>
+                                    <ol style="line-height:1.8; margin:0 0 20px 20px;">
+                                        <li>Le ballet commence au signal de l'arbitre</li>
+                                        <li>Les athlètes exécutent la chorégraphie complète avec tous les éléments requis et transitions</li>
+                                        <li>Les juges évaluent simultanément leur critère : technique, transitions, artistique, synchronisation</li>
+                                        <li>Les notes sont affichées et validées par l'arbitre avant d'être prises en compte</li>
+                                    </ol>
+
+                                    <h3>Scores et notation</h3>
+                                     <p style="line-height:1.8; margin-bottom:20px;">Chaque juge attribue une note selon ses critères d'observation. Les notes sont affichées simultanément, la plus haute et la plus basse sont supprimées et la moyenne des juges constitue le score final, en tenant compte des pondérations techniques et artistiques, avec application éventuelle des pénalités de synchronisation.</p>
+                                    <ul style="line-height:1.8; margin:0 0 12px 20px;">
+                                        <li><strong>Score d'éléments :</strong> évalue la hauteur, la précision et le contrôle de chaque élément. Les notes sont pondérées selon la difficultés validée des éléments</li>
+                                        <li><strong>Score d'impression artistique :</strong> évalue la composition chorégraphique globale, le niveau d'engagement et de performance, ainsi que l'exécution et la richesse des transitions et le parcours. Les notes sont pondérées selon les coefficients pré-définis par épreuve</li>
+                                        <li><strong>Score final</strong> = Score d'exécution technique (pondéré par la difficulté validée) + Score d'impression artistique (pondéré par les coefficients de valeur de l'épreuve). Une pénalité de synchronisation est appliquée pour toutes les imperfections relevées.</li>
+                                    </ul>
+
+                                    ${tableauNotationBalletsHTML('#EC4899')}
+
+                                    <h3>📋 Précisions sur les contenus</h3>
+                                   <p style="line-height: 1.8; color: #555; margin-bottom: 30px; font-style: italic;">
+                                        <strong>📍 Retrouvez toutes les informations <a href="https://www.ffnatation.fr/reglements-natation-artistique">sur le site de la Fédération Française de Natation</a>
+                                    </p>
+
+                                    <div style="background:rgba(236,72,153,0.08); padding:16px; border-radius:8px; border-left:4px solid #EC4899; margin-top:20px;">
+                                        <strong>En résumé :</strong>
+                                        <ul style="margin:8px 0 0 20px; line-height:1.8;">
+                                            <li>Jugement équitable devant tous les juges</li>
+                                            <li>Évaluation de la technique, des transitions, de la synchronisation et de l'artistique</li>
+                                            <li>Score final = score technique pondéré + score artistique pondéré ± pénalités de synchronisation</li>
+                                        </ul>
                                     </div>
                                 `
                             },
