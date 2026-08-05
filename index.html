@@ -35758,90 +35758,103 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                 titre: "Catégorie U12 : Les épreuves",
                                 icone: "⚙️",
                                 contenu: `
-                                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                                        <thead>
-                                            <tr style="background: #0DBCF0; color: white;">
-                                                <th style="padding: 12px; border: 1px solid #ddd; text-align: left;">Épreuve</th>
-                                                <th style="padding: 12px; border: 1px solid #ddd; text-align: left;">Description</th>
-                                                <th style="padding: 12px; border: 1px solid #ddd; text-align: left;">Son rôle dans le développement</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; background: #f9f9f9;">📋 Figures Imposées</td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    Exercice technique réalisé seul, sans musique, permettant de montrer ce qui est appris à l'entraînement.
-                                                </td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    <ul style="margin: 0 0 0 15px; line-height: 1.6;">
-                                                        <li>Construire des bases techniques solides</li>
-                                                        <li>Améliorer le contrôle du corps</li>
-                                                        <li>Développer sa coordination</li>
-                                                        <li>Apprendre à se concentrer</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; background: #f9f9f9;">🎭 Solo Libre</td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    Chorégraphie présentée par un seul nageur, exprimant technique, musicalité et interprétation.
-                                                </td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    <ul style="margin: 0 0 0 15px; line-height: 1.6;">
-                                                        <li>Maîtrise technique individuelle</li>
-                                                        <li>Confiance en soi</li>
-                                                        <li>Expression artistique</li>
-                                                        <li>Gestion du stress</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; background: #f9f9f9;">👯 Duo féminin / mixte</td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    Chorégraphie à deux, parfaitement synchronisée avec la musique.
-                                                </td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    <ul style="margin: 0 0 0 15px; line-height: 1.6;">
-                                                        <li>Synchronisation à deux</li>
-                                                        <li>Coopération et complémentarité</li>
-                                                        <li>Expression artistique partagée</li>
-                                                        <li>Écoute et communication non-verbale</li>
-                                                        <li>Pratique inclusive (duo mixte)</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; background: #f9f9f9;">👥 Ballet Équipe</td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    Chorégraphie de groupe avec déplacements, portés et formations au rythme de la musique.
-                                                </td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    <ul style="margin: 0 0 0 15px; line-height: 1.6;">
-                                                        <li>Travail collectif</li>
-                                                        <li>Coordination de groupe</li>
-                                                        <li>Sens tactique des formations</li>
-                                                        <li>La synchronisation en grand nombre</li>
-                                                        <li>Appartenance au club</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; background: #f9f9f9;">👥 Ballet Combiné</td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    Chorégraphie d'équipe mélangeant solo, duo et passages d'ensemble.
-                                                </td>
-                                                <td style="padding: 12px; border: 1px solid #ddd; vertical-align: top;">
-                                                    <ul style="margin: 0 0 0 15px; line-height: 1.6;">
-                                                        <li>Polyvalence artistique</li>
-                                                        <li>Capacité d'adaptation</li>
-                                                        <li>Transition entre rôles</li>
-                                                        <li>Créativité</li>
-                                                        <li>Gestion de l'effort sur des parties variées</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div style="overflow-x: auto; margin-bottom: 20px;">
+                                        <table style="width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr style="background: #0DBCF0; color: white;">
+                                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 16%;">Épreuve</th>
+                                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 38%;">Description</th>
+                                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 46%;">Son rôle dans le développement de l'athlète</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="background: rgba(13, 188, 240, 0.06);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">📋 Figures Imposées</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une figure imposée est un exercice technique réalisé seul, sans musique, qui permet de mettre en œuvre les apprentissages réalisés à l'entraînement. Elle permet d'évaluer la maîtrise des positions, le contrôle du corps, la coordination et la progression de chaque athlète.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>des bases techniques solides</li>
+                                                            <li>le contrôle du corps dans l'eau</li>
+                                                            <li>la coordination</li>
+                                                            <li>la concentration</li>
+                                                            <li>la capacité à identifier ses progrès et à gagner en confiance</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">🎭 Solo Libre</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par un seul athlète, qui mobilise sa technique, sa musicalité et son interprétation au service d'un projet artistique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise technique individuelle</li>
+                                                            <li>la coordination avec la musique</li>
+                                                            <li>la confiance en soi</li>
+                                                            <li>l'expression et l'interprétation artistiques</li>
+                                                            <li>la capacité à gérer le stress de la compétition</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background: rgba(13, 188, 240, 0.06);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo féminin</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par deux nageuses, qui recherchent la synchronisation, la complémentarité et une interprétation commune avec la musique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation à deux</li>
+                                                            <li>l'écoute et l'ajustement à sa partenaire</li>
+                                                            <li>la communication non verbale</li>
+                                                            <li>l'expression artistique partagée</li>
+                                                            <li>la coopération et la complicité sportive</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo mixte</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par une nageuse et un nageur, fondée sur la synchronisation, la complémentarité et l'expression artistique partagée.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation à deux</li>
+                                                            <li>la complémentarité des rôles</li>
+                                                            <li>l'écoute et l'ajustement</li>
+                                                            <li>la coopération et le respect mutuel</li>
+                                                            <li>l'expression artistique partagée</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background: rgba(13, 188, 240, 0.06);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Équipe</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective dans laquelle les athlètes évoluent ensemble à travers des déplacements, des formations, des éléments techniques et des acrobaties, en relation avec la musique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation collective</li>
+                                                            <li>la coordination et les repères au sein du groupe</li>
+                                                            <li>l'adaptation aux partenaires</li>
+                                                            <li>la coopération et la responsabilité collective</li>
+                                                            <li>l'engagement au service d'un projet commun</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Combiné</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective alternant des séquences réalisées avec des effectifs différents — solo, duo et groupe — au sein d'une même prestation.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la polyvalence technique et artistique</li>
+                                                            <li>la capacité à changer de rôle</li>
+                                                            <li>l'adaptation aux partenaires et aux différentes configurations</li>
+                                                            <li>la fluidité des transitions</li>
+                                                            <li>la créativité et l'engagement dans le projet collectif</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
                                     <div class="cross-link-box" style="margin-top: 25px;">
                                         <h4>📚 Pour approfondir</h4>
@@ -36518,97 +36531,85 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                             <tbody>
                                                 <tr style="background: rgba(255, 152, 0, 0.05);">
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">📋 Figures Imposées</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une figure imposée est un exercice technique réalisé seul, sans musique, qui permet de mettre en œuvre les apprentissages réalisés à l'entraînement. Elle permet d'évaluer la maîtrise des positions, le contrôle du corps, la coordination et la progression de chaque athlète.</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        Un exercice technique réalisé <strong>seul, sans musique</strong>, qui démontre ce qui est appris à l'entraînement.
-                                                        Permet d'évaluer la maîtrise des positions dans l'eau, la coordination et la progression de chaque nageur, étape par étape.
-                                                    </td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        <ul style="margin: 0 0 0 15px; line-height: 1.7;">
-                                                            <li>Construire des <strong>bases techniques solides</strong></li>
-                                                            <li>Améliorer le <strong>contrôle du corps</strong> dans l'eau</li>
-                                                            <li>Développer la <strong>coordination</strong></li>
-                                                            <li>Apprendre à <strong>se concentrer</strong></li>
-                                                            <li>Progresser <strong>à son rythme</strong></li>
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>des bases techniques solides</li>
+                                                            <li>le contrôle du corps dans l'eau</li>
+                                                            <li>la coordination</li>
+                                                            <li>la concentration</li>
+                                                            <li>la capacité à identifier ses progrès et à gagner en confiance</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">🎭 Solo Libre</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par un seul athlète, qui mobilise sa technique, sa musicalité et son interprétation au service d'un projet artistique.</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        Une chorégraphie présentée par <strong>un seul nageur</strong>.
-                                                        L'athlète exprime sa technique, sa musicalité et son interprétation seul devant le public.
-                                                    </td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        <ul style="margin: 0 0 0 15px; line-height: 1.7;">
-                                                            <li>La <strong>maîtrise technique individuelle</strong></li>
-                                                            <li>La coordination avec la <strong>musique</strong></li>
-                                                            <li>La <strong>confiance en soi</strong></li>
-                                                            <li>L'<strong>expression artistique</strong></li>
-                                                            <li>La capacité à <strong>gérer le stress</strong></li>
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise technique individuelle</li>
+                                                            <li>la coordination avec la musique</li>
+                                                            <li>la confiance en soi</li>
+                                                            <li>l'expression et l'interprétation artistiques</li>
+                                                            <li>la capacité à gérer le stress de la compétition</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
                                                 <tr style="background: rgba(255, 152, 0, 0.05);">
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo féminin</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par deux nageuses, qui recherchent la synchronisation, la complémentarité et une interprétation commune avec la musique.</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        Une chorégraphie présentée par <strong>deux nageuses</strong>, qui doivent nager ensemble
-                                                        et être parfaitement synchronisées avec la musique.
-                                                    </td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        <ul style="margin: 0 0 0 15px; line-height: 1.7;">
-                                                            <li>La <strong>synchronisation à deux</strong></li>
-                                                            <li>La <strong>communication non verbale</strong></li>
-                                                            <li>L'écoute et l'<strong>ajustement</strong></li>
-                                                            <li>Le sens du <strong>rythme</strong></li>
-                                                            <li>La <strong>complicité sportive</strong></li>
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation à deux</li>
+                                                            <li>l'écoute et l'ajustement à sa partenaire</li>
+                                                            <li>la communication non verbale</li>
+                                                            <li>l'expression artistique partagée</li>
+                                                            <li>la coopération et la complicité sportive</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo mixte</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par une nageuse et un nageur, fondée sur la synchronisation, la complémentarité et l'expression artistique partagée.</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        Une chorégraphie présentée par <strong>une nageuse et un nageur</strong>.
-                                                        Le duo joue sur la complémentarité et la synchronisation entre les deux athlètes.
-                                                    </td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        <ul style="margin: 0 0 0 15px; line-height: 1.7;">
-                                                            <li>La <strong>synchronisation intersexes</strong></li>
-                                                            <li>La <strong>complémentarité des rôles</strong></li>
-                                                            <li>Le respect et la <strong>coopération</strong></li>
-                                                            <li>L'expression artistique <strong>partagée</strong></li>
-                                                            <li>L'<strong>inclusivité</strong> dans la pratique</li>
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation à deux</li>
+                                                            <li>la complémentarité des rôles</li>
+                                                            <li>l'écoute et l'ajustement</li>
+                                                            <li>la coopération et le respect mutuel</li>
+                                                            <li>l'expression artistique partagée</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
                                                 <tr style="background: rgba(255, 152, 0, 0.05);">
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Équipe</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective dans laquelle les athlètes évoluent ensemble à travers des déplacements, des formations, des éléments techniques et des acrobaties, en relation avec la musique.</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        Une chorégraphie présentée par <strong>un groupe d'athlètes</strong>.
-                                                        Tous doivent nager ensemble, réaliser des déplacements, des portés et des formations au rythme de la musique.
-                                                    </td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        <ul style="margin: 0 0 0 15px; line-height: 1.7;">
-                                                            <li>Le <strong>travail collectif</strong></li>
-                                                            <li>La <strong>coordination de groupe</strong></li>
-                                                            <li>La synchronisation en <strong>grand nombre</strong></li>
-                                                            <li>Le sens tactique des <strong>formations</strong></li>
-                                                            <li>L'appartenance au <strong>club</strong></li>
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation collective</li>
+                                                            <li>la coordination et les repères au sein du groupe</li>
+                                                            <li>l'adaptation aux partenaires</li>
+                                                            <li>la coopération et la responsabilité collective</li>
+                                                            <li>l'engagement au service d'un projet commun</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Combiné</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective alternant des séquences réalisées avec des effectifs différents — solo, duo et groupe — au sein d'une même prestation.</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        Une chorégraphie d'équipe sous <strong>différents formats</strong> : solo, duo et passages d'ensemble
-                                                        dans la même prestation.
-                                                    </td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">
-                                                        <ul style="margin: 0 0 0 15px; line-height: 1.7;">
-                                                            <li>La <strong>polyvalence artistique</strong></li>
-                                                            <li>La capacité d'<strong>adaptation</strong></li>
-                                                            <li>La transition entre rôles (solo → duo → équipe)</li>
-                                                            <li>La <strong>créativité</strong></li>
-                                                            <li>La gestion de l'effort sur des parties variées</li>
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la polyvalence technique et artistique</li>
+                                                            <li>la capacité à changer de rôle</li>
+                                                            <li>l'adaptation aux partenaires et aux différentes configurations</li>
+                                                            <li>la fluidité des transitions</li>
+                                                            <li>la créativité et l'engagement dans le projet collectif</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -37368,6 +37369,147 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                         La catégorie Junior intègre à la fois des épreuves <strong>techniques</strong> (avec éléments obligatoires)
                                         et des épreuves <strong>libres</strong>, ainsi que le ballet acrobatique.
                                     </p>
+
+                                    <h4 style="color: #9C27B0; margin-top: 20px; margin-bottom: 12px;">🎨 Les épreuves Juniors</h4>
+                                    <div style="overflow-x: auto; margin-bottom: 20px;">
+                                        <table style="width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr style="background: #9C27B0; color: white;">
+                                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 16%;">Épreuve</th>
+                                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 38%;">Description</th>
+                                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 46%;">Son rôle dans le développement de l'athlète</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="background: rgba(156, 39, 176, 0.05);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">🎭 Solo Libre</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par un seul athlète, qui mobilise sa technique, sa musicalité et son interprétation au service d'un projet artistique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise technique individuelle</li>
+                                                            <li>la coordination avec la musique</li>
+                                                            <li>la confiance en soi</li>
+                                                            <li>l'expression et l'interprétation artistiques</li>
+                                                            <li>la capacité à gérer le stress de la compétition</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">🎭 Solo Technique</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie individuelle intégrant des éléments techniques imposés, réalisés avec précision et intégrés à un projet artistique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise et la précision techniques individuelles</li>
+                                                            <li>la capacité à intégrer des contraintes techniques dans une chorégraphie</li>
+                                                            <li>la coordination avec la musique</li>
+                                                            <li>l'expression artistique dans un cadre structuré</li>
+                                                            <li>la concentration et la gestion de la pression</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background: rgba(156, 39, 176, 0.05);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo Libre féminin</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par deux nageuses, qui recherchent la synchronisation, la complémentarité et une interprétation commune avec la musique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation à deux</li>
+                                                            <li>l'écoute et l'ajustement à sa partenaire</li>
+                                                            <li>la communication non verbale</li>
+                                                            <li>l'expression artistique partagée</li>
+                                                            <li>la coopération et la complicité sportive</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo Technique féminin</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par deux nageuses, intégrant des éléments techniques imposés à réaliser avec précision et synchronisation.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise technique à deux</li>
+                                                            <li>la synchronisation et l'ajustement mutuel</li>
+                                                            <li>la capacité à intégrer des contraintes techniques dans une chorégraphie</li>
+                                                            <li>la concentration et la communication non verbale</li>
+                                                            <li>la coopération et la responsabilité partagée</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background: rgba(156, 39, 176, 0.05);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo Libre mixte</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par une nageuse et un nageur, fondée sur la synchronisation, la complémentarité et l'expression artistique partagée.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation à deux</li>
+                                                            <li>la complémentarité des rôles</li>
+                                                            <li>l'écoute et l'ajustement</li>
+                                                            <li>la coopération et le respect mutuel</li>
+                                                            <li>l'expression artistique partagée</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👯 Duo Technique mixte</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie présentée par une nageuse et un nageur, intégrant des éléments techniques imposés à réaliser avec précision et synchronisation.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise technique à deux</li>
+                                                            <li>la synchronisation et l'ajustement mutuel</li>
+                                                            <li>la complémentarité des rôles</li>
+                                                            <li>la capacité à intégrer des contraintes techniques dans une chorégraphie</li>
+                                                            <li>la coopération et la responsabilité partagée</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background: rgba(156, 39, 176, 0.05);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Équipe Libre</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective dans laquelle les athlètes évoluent ensemble à travers des déplacements, des formations, des éléments techniques et des acrobaties, en relation avec la musique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la synchronisation collective</li>
+                                                            <li>la coordination et les repères au sein du groupe</li>
+                                                            <li>l'adaptation aux partenaires</li>
+                                                            <li>la coopération et la responsabilité collective</li>
+                                                            <li>l'engagement au service d'un projet commun</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Équipe Technique</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective intégrant des éléments techniques imposés, réalisés avec précision et synchronisation au sein d'un projet artistique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise et la précision techniques</li>
+                                                            <li>la synchronisation et la coordination collectives</li>
+                                                            <li>la rigueur d'exécution</li>
+                                                            <li>la capacité à intégrer des contraintes techniques dans un projet artistique</li>
+                                                            <li>la responsabilité individuelle au service de la performance collective</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr style="background: rgba(156, 39, 176, 0.05);">
+                                                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">👥 Ballet Acrobatique</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd; line-height: 1.6;">Une chorégraphie collective construite autour d'éléments acrobatiques et de leur intégration dans un projet artistique.</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">
+                                                        <p style="margin: 0 0 6px 0;">Cette épreuve permet de développer :</p>
+                                                        <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                                                            <li>la maîtrise des rôles et des actions acrobatiques</li>
+                                                            <li>la coordination et la synchronisation collectives</li>
+                                                            <li>la confiance et la sécurité entre partenaires</li>
+                                                            <li>l'adaptation et la prise de décision au sein du groupe</li>
+                                                            <li>la responsabilité individuelle au service de la réussite collective</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
                                     <h4 style="color: #9C27B0; margin-top: 20px; margin-bottom: 12px;">📐 Épreuves Techniques</h4>
                                     <div style="overflow-x: auto; margin-bottom: 20px;">
