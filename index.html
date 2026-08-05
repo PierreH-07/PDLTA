@@ -56332,7 +56332,7 @@ function ProfilDeveloppementView() {
                                                     <article key={i} className="av2-fiche" onClick={() => handleFicheClick(f)} style={{cursor:'pointer'}}>
                                                         <div className="av2-fiche__no">{String(i+1).padStart(2,'0')}</div>
                                                         <h3>{f.titre}</h3>
-                                                        <p>{f.contenu && f.contenu.indexOf('Contenu à développer') === 0 ? 'Fiche à développer' : f.contenu}</p>
+                                                        <p>{!f.contenu ? '' : f.contenu.indexOf('Contenu à développer') === 0 ? 'Fiche à développer' : (f.resume || (/[<][a-z]/i.test(f.contenu) ? 'Cliquer pour consulter la fiche complète.' : f.contenu))}</p>
                                                     </article>
                                                 ))}
                                             </div>
@@ -57125,7 +57125,7 @@ function ProfilDeveloppementView() {
                                                     <article key={i} className="av2-fiche" onClick={() => handleFicheClick(f)} style={{cursor:'pointer'}}>
                                                         <div className="av2-fiche__no">{String(i+1).padStart(2,'0')}</div>
                                                         <h3>{f.titre}</h3>
-                                                        <p>{f.contenu && f.contenu.indexOf('Contenu à développer') === 0 ? 'Fiche à développer' : f.contenu}</p>
+                                                        <p>{!f.contenu ? '' : f.contenu.indexOf('Contenu à développer') === 0 ? 'Fiche à développer' : (f.resume || (/[<][a-z]/i.test(f.contenu) ? 'Cliquer pour consulter la fiche complète.' : f.contenu))}</p>
                                                     </article>
                                                 ))}
                                             </div>
