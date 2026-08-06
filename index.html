@@ -39179,7 +39179,7 @@ Dans les deux parcours, elle favorise le perfectionnement, l’autonomie, la res
                                                 <tr style="background: rgba(244, 67, 54, 0.05);">
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Championnat de France Été Senior</td>
                                                     <td style="padding: 12px; border: 1px solid #ddd;">Plus haut niveau national</td>
-                                                    <td style="padding: 12px; border: 1px solid #ddd;">solos libres, duos/équipes/acros/combinés</td>
+                                                    <td style="padding: 12px; border: 1px solid #ddd;">Toutes épreuves libres + Ballets Acrobatiques + Ballets Combinés</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Coupe du Monde Senior</td>
@@ -39196,7 +39196,7 @@ Dans les deux parcours, elle favorise le perfectionnement, l’autonomie, la res
                             {
                                 id: "epreuves-senior",
                                 titre: "Catégorie Senior : Les épreuves",
-                                icone: "🎨",
+                                icone: "⚙️",
                                 contenu: `
                                     <p style="margin-bottom: 15px; line-height: 1.7;">
                                         Au niveau national, la catégorie Senior privilégie les épreuves libres, valorisant créativité, expression artistique et maîtrise technique.
@@ -56823,10 +56823,43 @@ function ProfilDeveloppementView() {
                                                 ))}
                                             </div>
                                         )}
-                                        {s.kind === 'rich' && (
-                                            <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: Array.isArray(s.html) ? '<ul>' + s.html.map(t => '<li>'+t+'</li>').join('') + '</ul>' : (s.html||'')}} />
-                                        )}
-                                        {s.id === 'p2-attendus' && <BlocEtirements accentColor="#0090D4" />}
+                                        {s.kind === 'rich' && (() => {
+                                            const richHtml = Array.isArray(s.html) ? '<ul>' + s.html.map(t => '<li>'+t+'</li>').join('') + '</ul>' : (s.html||'');
+                                            if (s.id === 'p2-attendus' && typeof richHtml === 'string') {
+                                                const markerP2 = '<!-- PROPHYLAXIE PÉRINÉE -->';
+                                                if (richHtml.includes(markerP2)) {
+                                                    const [beforeHtml, afterHtml] = richHtml.split(markerP2);
+                                                    return (
+                                                        <>
+                                                            <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: beforeHtml}} />
+                                                            <BlocEtirements accentColor="#0090D4" />
+                                                            <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: afterHtml}} />
+                                                        </>
+                                                    );
+                                                }
+                                                const headingMarker = '<h4 style="color:#6B7280; font-size:0.78em; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin:0 0 10px;">📌 Principes généraux</h4>';
+                                                const closeCard = '</ul></div></div>';
+                                                const headingIdx = richHtml.indexOf(headingMarker);
+                                                if (headingIdx !== -1) {
+                                                    const splitIdx = richHtml.indexOf(closeCard, headingIdx);
+                                                    if (splitIdx !== -1) {
+                                                        const cutPoint = splitIdx + closeCard.length;
+                                                        const beforeHtml = richHtml.slice(0, cutPoint);
+                                                        const afterHtml = richHtml.slice(cutPoint);
+                                                        return (
+                                                            <>
+                                                                <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: beforeHtml}} />
+                                                                <BlocEtirements accentColor="#0090D4" />
+                                                                <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: afterHtml}} />
+                                                            </>
+                                                        );
+                                                    }
+                                                }
+                                            }
+                                            return (
+                                                <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: richHtml}} />
+                                            );
+                                        })()}
                                     </section>
                                 );
                             })}
@@ -57616,10 +57649,23 @@ function ProfilDeveloppementView() {
                                                 ))}
                                             </div>
                                         )}
-                                        {s.kind === 'rich' && (
-                                            <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: Array.isArray(s.html) ? '<ul>' + s.html.map(t => '<li>'+t+'</li>').join('') + '</ul>' : (s.html||'')}} />
-                                        )}
-                                        {s.id === 'p3-attendus' && <BlocEtirements accentColor="#0090D4" />}
+                                        {s.kind === 'rich' && (() => {
+                                            const richHtml = Array.isArray(s.html) ? '<ul>' + s.html.map(t => '<li>'+t+'</li>').join('') + '</ul>' : (s.html||'');
+                                            const marker = '<!-- PROPHYLAXIE PÉRINÉE -->';
+                                            if (s.id === 'p3-attendus' && typeof richHtml === 'string' && richHtml.includes(marker)) {
+                                                const [beforeHtml, afterHtml] = richHtml.split(marker);
+                                                return (
+                                                    <>
+                                                        <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: beforeHtml}} />
+                                                        <BlocEtirements accentColor="#0090D4" />
+                                                        <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: afterHtml}} />
+                                                    </>
+                                                );
+                                            }
+                                            return (
+                                                <div className="av2-rich" style={{marginTop:'20px',paddingTop:'16px',borderTop:'1px solid #E3EAF2'}} dangerouslySetInnerHTML={{__html: richHtml}} />
+                                            );
+                                        })()}
                                     </section>
                                 );
                             })}
