@@ -670,8 +670,8 @@
             flex-shrink: 0;
         }
         .theme-icon img {
-            width: 1.3em;
-            height: 1.3em;
+            width: 2.6em;
+            height: 2.6em;
             object-fit: contain;
             display: block;
         }.theme-title{
@@ -54325,7 +54325,7 @@ function ProfilDeveloppementView() {
                 if (themeId === 'attendus-techniques' && plgObjectives?.techniquePlongeon) {
                     return {
                         id: 'attendus-techniques',
-                        icon: '🏅',
+                        icon: window.ICONS['plg-position-carpee'],
                         title: plgObjectives.techniquePlongeon.titre || 'Technique plongeon',
                         detailDescription: plgObjectives.techniquePlongeon.detailDescription,
                         specificTo: 'plongeon',
@@ -54854,7 +54854,7 @@ function ProfilDeveloppementView() {
                     if (plongeonData3.techniquePlongeon) {
                         filteredThemes.push({
                             id: "attendus-techniques",
-                            icon: "🏅",
+                            icon: window.ICONS['plg-position-carpee'],
                             title: plongeonData3.techniquePlongeon.titre || "Technique plongeon",
                             detailDescription: plongeonData3.techniquePlongeon.detailDescription || "Tableaux de progression Benjamin et Minime",
                             specificTo: 'plongeon',
@@ -54882,7 +54882,7 @@ function ProfilDeveloppementView() {
                 if (plongeonData5?.techniquePlongeon) {
                     filteredThemes.push({
                         id: "attendus-techniques",
-                        icon: "🏅",
+                        icon: window.ICONS['plg-position-carpee'],
                         title: plongeonData5.techniquePlongeon.titre || "Se préparer à la compétition",
                         detailDescription: plongeonData5.techniquePlongeon.detailDescription || "Tableaux de progression Seniors",
                         specificTo: 'plongeon',
@@ -54908,7 +54908,7 @@ function ProfilDeveloppementView() {
                     if (plongeonData4.techniquePlongeon) {
                         filteredThemes.push({
                             id: "attendus-techniques",
-                            icon: "🏅",
+                            icon: window.ICONS['plg-position-carpee'],
                             title: plongeonData4.techniquePlongeon.titre || "Technique plongeon",
                             detailDescription: plongeonData4.techniquePlongeon.detailDescription || "Tableaux de progression Cadets/Cadettes",
                             specificTo: 'plongeon',
