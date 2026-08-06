@@ -41504,131 +41504,88 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     jeuCollectif: {
                         contenuSpecifique: `<style>
-.p4jc-section{margin-bottom:20px;}
-.p4jc-head{font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#8D71DE;margin-bottom:10px;}
-.p4jc-intro{background:white;border:1.5px solid #e5e7eb;border-left:5px solid #8D71DE;border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:0.88em;line-height:1.7;color:#444;}
-.p4jc-bases{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
-@media(max-width:600px){.p4jc-bases{grid-template-columns:1fr;}}
-.p4jc-def-bloc{background:rgba(29,78,216,0.07);border-radius:10px;padding:14px 16px;}
-.p4jc-att-bloc{background:rgba(220,38,38,0.07);border-radius:10px;padding:14px 16px;}
-.p4jc-bloc-title{font-size:0.8em;font-weight:700;margin-bottom:8px;}
-.p4jc-principe{margin-bottom:8px;}
-.p4jc-principe-title{font-size:0.82em;font-weight:700;color:#333;}
-.p4jc-principe-enjeu{font-size:0.8em;color:#555;line-height:1.5;}
-.p4jc-card{background:white;border:1.5px solid #e5e7eb;border-radius:10px;padding:14px 18px;margin-bottom:12px;}
-.p4jc-card-title{font-size:0.9em;font-weight:700;color:#8D71DE;margin-bottom:6px;}
-.p4jc-card-text{font-size:0.83em;color:#444;line-height:1.65;}
+:root{--p4:#8D71DE;--p4-l:rgba(141,113,222,0.08);--p4-dark:#5b3fa6;--att:#DC2626;--def:#1D4ED8;font-family:'Segoe UI',Arial,sans-serif;}
+*{box-sizing:border-box;}
+.domain{border-radius:12px;margin-bottom:26px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
+.domain-head{padding:18px 22px;display:flex;align-items:center;gap:10px;}
+.domain-head h2{font-size:1.35em;margin:0;color:white;display:flex;align-items:center;gap:9px;}
+.domain-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px;}
+.sd-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07);margin-bottom:10px;}
+.sd-card:last-child{margin-bottom:0;}
+.sd-head{padding:12px 18px;border-bottom:1px solid #eee;}
+.sd-head h3{font-size:1em;font-weight:700;margin:0 0 4px;}
+.sd-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;}
+.enjeu-bloc{background:rgba(249,115,22,0.05);border-left:4px solid #F97316;padding:11px 15px;border-radius:0 8px 8px 0;font-size:0.88em;line-height:1.65;color:#555;font-style:italic;}
+.jc-section-title{font-size:0.95em;font-weight:700;padding:7px 12px;border-radius:6px;color:white;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
 .p4jc-sub-card{background:rgba(141,113,222,0.06);border-radius:8px;padding:10px 14px;margin-top:8px;}
 .p4jc-sub-title{font-size:0.8em;font-weight:700;color:#6d46c4;margin-bottom:4px;}
 .p4jc-sub-text{font-size:0.8em;color:#555;line-height:1.6;}
+.page-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-radius:20px;font-size:0.76em;font-weight:700;margin-bottom:6px;}
+.page-sub{color:#666;font-size:0.9em;margin-bottom:22px;line-height:1.6;}
 </style>
 
-<!-- INTRO P4 JC -->
-<div class="p4jc-intro">
-  <strong>Lire le jeu et agir collectivement</strong> pour créer ou résoudre des situations d'avantage. À cette période, les intentions individuelles cèdent la place à des <strong>schémas collectifs choisis</strong> que l'équipe met en œuvre ensemble, dans le cadre d'un projet de jeu défini.
-</div>
+<div class="page-badge" style="background:var(--p4-l);color:var(--p4-dark);">P4 · 15–18 ans</div>
+<p class="page-sub">Les intentions individuelles cèdent la place à des schémas collectifs choisis, mis en œuvre dans le cadre d'un projet de jeu défini.</p>
 
-<!-- RAPPEL BASES TACTIQUES -->
-<div class="p4jc-section">
-  <div class="p4jc-head">Rappel des bases tactiques individuelles</div>
-  <p style="font-size:0.83em;color:#555;margin-bottom:12px;line-height:1.6;">La maîtrise des habiletés tactiques individuelles est le prérequis de toute tactique collective. Ces compétences, développées en P2 et P3, doivent être disponibles sous pression et en situation de match réel.</p>
-  <div class="p4jc-bases">
-    <div class="p4jc-def-bloc">
-      <div class="p4jc-bloc-title" style="color:#1D4ED8;">🛡️ En défense</div>
-      <div class="p4jc-principe"><div class="p4jc-principe-title">Presser sans commettre de faute</div><div class="p4jc-principe-enjeu">Récupérer le ballon ou gêner la circulation sans interrompre le temps.</div></div>
-      <div class="p4jc-principe"><div class="p4jc-principe-title">Stopper le jeu</div><div class="p4jc-principe-enjeu">Interrompre intentionnellement une progression adverse en assumant la conséquence réglementaire.</div></div>
-      <div class="p4jc-principe"><div class="p4jc-principe-title">Bloquer le ballon</div><div class="p4jc-principe-enjeu">Réduire les espaces de tir par une élévation synchronisée avec l'action du tireur.</div></div>
+<div class="domain">
+  <div class="domain-head" style="background:linear-gradient(135deg,#1e3a8a,#1D4ED8);">
+    <h2>🤽 Jouer au service du collectif</h2>
+  </div>
+  <div class="domain-body" style="background:rgba(29,78,216,0.05);">
+    <p style="font-size:0.88em;color:#555;line-height:1.65;font-style:italic;">La maîtrise des habiletés tactiques individuelles est le prérequis de toute tactique collective. Ces compétences, développées en P2 et P3, doivent être disponibles sous pression et en situation de match réel.</p>
+
+    <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Continuité du jeu</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--att);">Rester disponible, créer des solutions, maintenir la pression offensive.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Agir sous pression</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--att);">Tirer, passer ou recevoir en déplacement malgré la présence d'un défenseur.</div></div>
+      </div>
     </div>
-    <div class="p4jc-att-bloc">
-      <div class="p4jc-bloc-title" style="color:#DC2626;">⚔️ En attaque</div>
-      <div class="p4jc-principe"><div class="p4jc-principe-title">Continuité du jeu</div><div class="p4jc-principe-enjeu">Rester disponible, créer des solutions, maintenir la pression offensive.</div></div>
-      <div class="p4jc-principe"><div class="p4jc-principe-title">Agir sous pression</div><div class="p4jc-principe-enjeu">Tirer, passer ou recevoir en déplacement malgré la présence d'un défenseur.</div></div>
+
+    <div style="margin-top:18px;"><div class="jc-section-title" style="background:var(--def);">🛡️ En défense</div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Presser sans commettre de faute</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--def);">Récupérer le ballon ou gêner la circulation sans interrompre le temps.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Stopper le jeu</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--def);">Interrompre intentionnellement une progression adverse en assumant la conséquence réglementaire.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Bloquer le ballon</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--def);">Réduire les espaces de tir par une élévation synchronisée avec l'action du tireur.</div></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- DES PRINCIPES AUX TACTIQUES -->
-<div class="p4jc-section">
-  <div class="p4jc-head">Des principes aux tactiques</div>
-  <div class="p4jc-card">
-    <div class="p4jc-card-title">Des principes aux tactiques</div>
-    <div class="p4jc-card-text">Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des <strong>tactiques et un projet de jeu</strong> : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble.</div>
+<div class="domain">
+  <div class="domain-head" style="background:linear-gradient(135deg,#5b3fa6,#8D71DE);">
+    <h2>🎯 Projet de jeu</h2>
   </div>
-  <div class="p4jc-card">
-    <div class="p4jc-card-title">Qu'est-ce qu'un projet de jeu ?</div>
-    <div class="p4jc-sub-card"><div class="p4jc-sub-title">Définition</div><div class="p4jc-sub-text">Un projet de jeu est le cadre tactique dans lequel une équipe choisit d'évoluer. Il n'est pas universel : il se construit à partir des forces et des faiblesses de l'effectif, du temps disponible pour le développer, et des adversaires rencontrés.</div></div>
-    <div class="p4jc-sub-card" style="margin-top:8px;"><div class="p4jc-sub-title">Philosophie</div><div class="p4jc-sub-text">Un projet de jeu efficace <strong>impose les choix à l'adversaire</strong> plutôt que de subir les siens. Il cherche à limiter les options adverses, à créer des déséquilibres reproductibles, et à mettre la pression de manière organisée. C'est un outil de cohérence collective, pas un carcan.</div></div>
+  <div class="domain-body" style="background:var(--p4-l);">
+    <div class="sd-card">
+      <div class="sd-head"><h3 style="color:var(--p4-dark);">Des principes aux tactiques</h3></div>
+      <div class="sd-body"><p style="font-size:0.88em;color:#444;line-height:1.7;margin:0;">Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des <strong>tactiques et un projet de jeu</strong> : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble.</p></div>
+    </div>
+    <div class="sd-card">
+      <div class="sd-head"><h3 style="color:var(--p4-dark);">Qu'est-ce qu'un projet de jeu ?</h3></div>
+      <div class="sd-body">
+        <div class="p4jc-sub-card"><div class="p4jc-sub-title">Définition</div><div class="p4jc-sub-text">Un projet de jeu est le cadre tactique dans lequel une équipe choisit d'évoluer. Il n'est pas universel : il se construit à partir des forces et des faiblesses de l'effectif, du temps disponible pour le développer, et des adversaires rencontrés.</div></div>
+        <div class="p4jc-sub-card"><div class="p4jc-sub-title">Philosophie</div><div class="p4jc-sub-text">Un projet de jeu efficace <strong>impose les choix à l'adversaire</strong> plutôt que de subir les siens. Il cherche à limiter les options adverses, à créer des déséquilibres reproductibles, et à mettre la pression de manière organisée. C'est un outil de cohérence collective, pas un carcan.</div></div>
+      </div>
+    </div>
+    <div class="sd-card">
+      <div class="sd-head"><h3 style="color:var(--p4-dark);">Les grandes familles tactiques</h3></div>
+      <div class="sd-body"><p style="font-size:0.88em;color:#444;line-height:1.7;margin:0;">À cette période, l'objectif est de <strong>découvrir et comprendre</strong> les principales familles tactiques : pourquoi elles existent, dans quelles situations de jeu elles sont pertinentes, et comment elles s'articulent avec le projet de jeu de l'équipe. Le détail des schémas s'acquiert progressivement par la pratique.</p></div>
+    </div>
   </div>
 </div>
-
-<!-- FAMILLES TACTIQUES -->
-<div class="p4jc-section">
-  <div class="p4jc-head">Les grandes familles tactiques</div>
-  <div class="p4jc-card">
-    <div class="p4jc-card-text">À cette période, l'objectif est de <strong>découvrir et comprendre</strong> les principales familles tactiques : pourquoi elles existent, dans quelles situations de jeu elles sont pertinentes, et comment elles s'articulent avec le projet de jeu de l'équipe. Le détail des schémas s'acquiert progressivement par la pratique.</div>
-  </div>
 `,
-                        titre: "Jeu collectif",
-                        introduction: "Lire le jeu et agir collectivement pour créer ou résoudre des situations d'avantage",
-                        tactiqueIndividuelle: {
-                            titre: "Habiletés tactiques — rappel des bases",
-                            introBloc: "La maîtrise des habiletés tactiques individuelles est le prérequis de toute tactique collective. Ces compétences, développées en P2 et P3, doivent être disponibles sous pression et en situation de match réel.",
-                            defense: {
-                                titre: "En défense",
-                                sousDomaines: [
-                                    {
-                                        id: "presser-sans-faute",
-                                        titre: "Presser sans commettre de faute",
-                                        enjeu: "Récupérer le ballon ou gêner la circulation sans interrompre le temps."
-                                    },
-                                    {
-                                        id: "stopper-le-jeu",
-                                        titre: "Stopper le jeu",
-                                        enjeu: "Interrompre intentionnellement une progression adverse en assumant la conséquence réglementaire."
-                                    },
-                                    {
-                                        id: "bloquer-le-ballon",
-                                        titre: "Bloquer le ballon",
-                                        enjeu: "Réduire les espaces de tir par une élévation synchronisée avec l'action du tireur."
-                                    }
-                                ]
-                            },
-                            attaque: {
-                                titre: "En attaque",
-                                sousDomaines: [
-                                    {
-                                        id: "continuite-jeu",
-                                        titre: "Continuité du jeu",
-                                        enjeu: "Rester disponible, créer des solutions, maintenir la pression offensive."
-                                    },
-                                    {
-                                        id: "agir-sous-pression",
-                                        titre: "Agir sous pression",
-                                        enjeu: "Tirer, passer ou recevoir en déplacement malgré la présence d'un défenseur."
-                                    }
-                                ]
-                            }
-                        },
-                        sousDomaines: [
-                            {
-                                id: "grands-principes-p4",
-                                titre: "Des principes aux tactiques",
-                                contenu: "Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des tactiques et un projet de jeu : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble."
-                            },
-                            {
-                                id: "projet-de-jeu",
-                                titre: "Qu'est-ce qu'un projet de jeu ?",
-                                definition: "Un projet de jeu est le cadre tactique dans lequel une équipe choisit d'évoluer. Il n'est pas universel : il se construit à partir des forces et des faiblesses de l'effectif, du temps disponible pour le développer, et des adversaires rencontrés.",
-                                philosophie: "Un projet de jeu efficace impose les choix à l'adversaire plutôt que de subir les siens. Il cherche à limiter les options adverses, à créer des déséquilibres reproductibles, et à mettre la pression de manière organisée. C'est un outil de cohérence collective, pas un carcan."
-                            },
-                            {
-                                id: "familles-tactiques",
-                                titre: "Les grandes familles tactiques",
-                                introduction: "À cette période, l'objectif est de découvrir et comprendre les principales familles tactiques : pourquoi elles existent, dans quelles situations de jeu elles sont pertinentes, et comment elles s'articulent avec le projet de jeu de l'équipe. Le détail des schémas s'acquiert progressivement par la pratique.",
-                                defense: [],
-                                attaque: []
-                            }
-                        ]
+                        titre: "Jeu collectif"
                     },
                     accompagner: {
                     titre: "Accompagner l'enfant d'école primaire",
@@ -44243,116 +44200,77 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     jeuCollectif: {
                         contenuSpecifique: `<style>
-:root{--p4:#8D71DE;--p4-l:rgba(141,113,222,0.08);--p4-dark:#5b3fa6;--p5:#E2001A;--p5-l:rgba(226,0,26,0.08);--p5-dark:#a0001a;--att:#DC2626;--def:#1D4ED8;--tech:#F97316;--phys:#10B981;--cogn:#8B5CF6;--physio:#EF4444;--wp-dark:#C2410C;font-family:'Segoe UI',Arial,sans-serif;}
+:root{--p4:#8D71DE;--p4-l:rgba(141,113,222,0.08);--p4-dark:#5b3fa6;--p5:#E2001A;--p5-l:rgba(226,0,26,0.08);--p5-dark:#a0001a;--att:#DC2626;--def:#1D4ED8;font-family:'Segoe UI',Arial,sans-serif;}
 *{box-sizing:border-box;}
 .domain{border-radius:12px;margin-bottom:26px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
 .domain-head{padding:18px 22px;display:flex;align-items:center;gap:10px;}
 .domain-head h2{font-size:1.35em;margin:0;color:white;display:flex;align-items:center;gap:9px;}
 .domain-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px;}
-.section-label{font-size:0.75em;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:white;padding:5px 10px;border-radius:4px;display:inline-block;margin-bottom:8px;}
 .sd-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07);margin-bottom:10px;}
 .sd-card:last-child{margin-bottom:0;}
 .sd-head{padding:12px 18px;border-bottom:1px solid #eee;}
 .sd-head h3{font-size:1em;font-weight:700;margin:0 0 4px;}
 .sd-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;}
 .enjeu-bloc{background:rgba(249,115,22,0.05);border-left:4px solid #F97316;padding:11px 15px;border-radius:0 8px 8px 0;font-size:0.88em;line-height:1.65;color:#555;font-style:italic;}
-.ressources-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.r-bloc{padding:12px 14px;border-radius:8px;font-size:0.86em;line-height:1.6;}
-.r-bloc h5{font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
-.r-bloc ul{padding-left:13px;}
-.r-bloc ul li{margin-bottom:3px;color:#444;}
-.r-tech{background:rgba(249,115,22,0.07);border-top:3px solid #F97316;}
-.r-tech h5{color:#C2410C;}
-.r-phys{background:rgba(16,185,129,0.07);border-top:3px solid #10B981;}
-.r-phys h5{color:#065F46;}
-.r-cogn{background:rgba(139,92,246,0.07);border-top:3px solid #8B5CF6;}
-.r-cogn h5{color:#5B21B6;}
-.r-physio{background:rgba(239,68,68,0.07);border-top:3px solid #EF4444;}
-.r-physio h5{color:#991B1B;}
-.leviers{background:#f9fafb;border-radius:8px;padding:12px 15px;}
-.leviers h5{font-size:0.78em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1D4ED8;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
-.leviers ul{padding-left:14px;}
-.leviers ul li{font-size:0.86em;color:#444;line-height:1.6;margin-bottom:3px;}
-.bottom-grid{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #eee;}
-.bottom-col{padding:12px 16px;}
-.bottom-col:first-child{border-right:1px solid #eee;}
-.bottom-col h4{font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
-.bottom-col.vigi h4{color:#BF360C;}
-.bottom-col.indic h4{color:#065F46;}
-.bottom-col ul{padding-left:13px;}
-.bottom-col ul li{font-size:0.84em;line-height:1.65;color:#555;margin-bottom:2px;}
 .jc-section-title{font-size:0.95em;font-weight:700;padding:7px 12px;border-radius:6px;color:white;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
-.jc-label{font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#999;margin-bottom:3px;display:block;}
-.jc-item{font-size:0.86em;line-height:1.5;color:#444;display:flex;gap:7px;align-items:flex-start;}
-.jc-item.int{color:#555;font-style:italic;}
-.jc-marker{flex-shrink:0;margin-top:2px;}
 .page-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-radius:20px;font-size:0.76em;font-weight:700;margin-bottom:6px;}
-.page-title{font-size:1.5em;font-weight:800;margin-bottom:4px;}
 .page-sub{color:#666;font-size:0.9em;margin-bottom:22px;line-height:1.6;}
 .intro-p{font-size:0.9em;line-height:1.75;color:#555;font-style:italic;background:rgba(0,0,0,0.03);padding:14px 18px;border-radius:8px;margin-bottom:18px;}
 .bloc-list{background:white;border-radius:10px;padding:14px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.07);margin-bottom:10px;}
 .bloc-list h4{font-size:0.9em;font-weight:700;margin-bottom:8px;}
 .bloc-list ul{padding-left:15px;}
 .bloc-list ul li{font-size:0.86em;line-height:1.65;color:#444;margin-bottom:3px;}
-.bloc-poste{background:white;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07);margin-bottom:10px;}
-.poste-head{padding:10px 16px;font-weight:700;font-size:0.92em;color:white;}
-.poste-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #eee;}
-.poste-col{padding:10px 14px;border-right:1px solid #eee;font-size:0.84em;line-height:1.6;}
-.poste-col:last-child{border-right:none;}
-.poste-col-title{font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#888;margin-bottom:5px;}
-.poste-col ul{padding-left:13px;color:#444;}
-.poste-col ul li{margin-bottom:2px;}
-.famille-bloc{background:white;border-radius:10px;padding:14px 18px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.07);}
-.famille-title{font-size:0.95em;font-weight:700;margin-bottom:8px;}
-.famille-desc{font-size:0.86em;line-height:1.65;color:#555;}
+.stub-card{background:white;border:1.5px dashed #d0d0d0;border-radius:10px;padding:20px;text-align:center;color:#999;font-size:0.88em;font-style:italic;}
 </style>
 <div class="page-badge" style="background:var(--p5-l);color:var(--p5-dark);">P5 · Senior / Haute performance</div>
 <p class="page-sub">Maîtriser les tactiques collectives au niveau international.</p>
 
 <div class="domain">
-  <div class="domain-head" style="background:linear-gradient(135deg,#E2001A,#ef4444);">
-    <h2>🎯 Maîtriser les principes de jeu</h2>
-  </div>
-  <div class="domain-body" style="background:var(--p5-l);">
-    <div class="bloc-list">
-      <ul>
-        <li>Connaître et maîtriser les schémas défensifs et offensifs</li>
-        <li>Attaque — variantes 3-3, 4-2, combinaisons pré-établies</li>
-        <li>Défense — alternance pressing / zone / mixte, ajustements en temps réel</li>
-        <li>Transitions — contre-attaques ultra-rapides, repli organisé en &lt;5 secondes</li>
-        <li>Phases spéciales — supériorité / infériorité avec variantes selon adversaire</li>
-        <li>Fin de match — stratégies adaptées selon le score</li>
-        <li>Reconnaître et jouer un surnombre / sous-nombre simplement</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="domain">
-  <div class="domain-head" style="background:linear-gradient(135deg,#1D4ED8,#3b82f6);">
-    <h2>🧠 Comprendre les contextes du jeu</h2>
+  <div class="domain-head" style="background:linear-gradient(135deg,#1e3a8a,#1D4ED8);">
+    <h2>🤽 Jouer au service du collectif</h2>
   </div>
   <div class="domain-body" style="background:rgba(29,78,216,0.05);">
-    <div class="bloc-list">
-      <ul>
-        <li>Identification instantanée du système adverse</li>
-        <li>Exploitation des faiblesses détectées en temps réel</li>
-        <li>Anticipation collective — savoir où seront les coéquipiers dans 3 secondes</li>
-        <li>Synchronisation parfaite sur les phases critiques</li>
-        <li>Reproduction des conditions de match (score, temps limité, fatigue, pression)</li>
-        <li>Réagir aux nages des partenaires en attaque et en défense</li>
-        <li>Jeu sans ballon — mouvements pertinents</li>
-        <li>Utiliser la largeur et la profondeur du terrain</li>
-      </ul>
+    <p style="font-size:0.88em;color:#555;line-height:1.65;font-style:italic;">Connaître et maîtriser les schémas défensifs et offensifs. Fin de match : stratégies adaptées selon le score (conserver, rattraper, accélérer).</p>
+
+    <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--att);">Variantes 3-3, 4-2, combinaisons pré-établies.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Contre-attaque</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--att);">Contre-attaques ultra-rapides.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Supériorité numérique</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--att);">Variantes selon l'adversaire. Reconnaître et jouer un surnombre simplement.</div></div>
+      </div>
     </div>
+
+    <div style="margin-top:18px;"><div class="jc-section-title" style="background:var(--def);">🛡️ En défense</div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Défense placée</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--def);">Alternance pressing / zone / mixte, ajustements en temps réel.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Repli défensif</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--def);">Repli organisé en moins de 5 secondes.</div></div>
+      </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Infériorité numérique</h3></div>
+        <div class="sd-body"><div class="enjeu-bloc" style="border-left-color:var(--def);">Variantes selon l'adversaire. Reconnaître et jouer un sous-nombre simplement.</div></div>
+      </div>
+    </div>
+
+    <div class="intro-p" style="margin-top:4px;margin-bottom:0;">Faire des choix adaptés à la situation avec le ballon, prendre des initiatives : jouer au service du collectif, c'est aussi la volonté de gagner ses duels.</div>
   </div>
 </div>
 
 <div class="domain">
-  <div class="domain-head" style="background:linear-gradient(135deg,#10B981,#34d399);">
-    <h2>⚡ Reconnaître et adapter son effort</h2>
+  <div class="domain-head" style="background:linear-gradient(135deg,#5b3fa6,#8D71DE);">
+    <h2>🎯 Projet de jeu</h2>
   </div>
-  <div class="domain-body" style="background:rgba(16,185,129,0.05);">
+  <div class="domain-body" style="background:var(--p4-l);">
     <div class="bloc-list">
       <ul>
         <li>Périodisation double / triple / multiple selon le calendrier international</li>
@@ -44369,26 +44287,38 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 </div>
 
 <div class="domain">
-  <div class="domain-head" style="background:linear-gradient(135deg,#F59E0B,#fbbf24);">
-    <h2>🎲 Prise de décision selon les situations de jeu</h2>
+  <div class="domain-head" style="background:linear-gradient(135deg,#E2001A,#ef4444);">
+    <h2>🧠 Stratégie</h2>
   </div>
-  <div class="domain-body" style="background:rgba(245,158,11,0.05);">
+  <div class="domain-body" style="background:var(--p5-l);">
     <div class="bloc-list">
+      <h4>Lire et exploiter le contexte de jeu</h4>
       <ul>
-        <li>Faire des choix adaptés à la situation avec le ballon</li>
-        <li>Prendre des initiatives</li>
+        <li>Identification instantanée du système adverse</li>
+        <li>Exploitation des faiblesses détectées en temps réel</li>
+        <li>Anticipation collective — savoir où seront les coéquipiers dans 3 secondes</li>
+        <li>Synchronisation parfaite sur les phases critiques</li>
+        <li>Reproduction des conditions de match (score, temps limité, fatigue, pression)</li>
+        <li>Réagir aux nages des partenaires en attaque et en défense</li>
+        <li>Jeu sans ballon — mouvements pertinents</li>
+        <li>Utiliser la largeur et la profondeur du terrain</li>
+      </ul>
+    </div>
+    <div class="bloc-list">
+      <h4>Ajuster la stratégie en temps réel</h4>
+      <ul>
         <li>Communication ultra-rapide pour ajustements tactiques</li>
         <li>Changement de système en cours de match selon l'efficacité</li>
         <li>Réponse immédiate aux ajustements adverses</li>
         <li>Exploitation des moments clés (expulsion adverse, momentum positif)</li>
         <li>Gestion intelligente du temps selon le score</li>
         <li>Prise d'initiative tactique par les leaders</li>
-        <li>Jouer au service du collectif, volonté de gagner ses duels</li>
       </ul>
     </div>
   </div>
+</div>
 `,
-                        titre: "Tactique et jeu collectif",
+                        titre: "Jeu collectif",
                         introduction: "Haute performance collective, Les méthodes d'entraînement reproduisent au maximum les conditions réelles de la compétition internationale. Périodisation double, triple ou multiple pour maintenir les pics de forme sur les compétitions majeures.",
                         principes: [
                             {
