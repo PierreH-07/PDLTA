@@ -59478,7 +59478,7 @@ function ProfilDeveloppementView() {
                                 </div>
 
                                 {/* Colonne droite : répartition thématique ou pyramide WP */}
-                                {(((disciplineId === 1 || disciplineId === 3) && preconisations.repartitionThematique && preconisations.repartitionThematique.length > 0 && (period.id !== 2 || disciplineId === 1 || disciplineId === 3)) || (disciplineId === 2 && (period.id === 2 || period.id === 3))) && (
+                                {(((disciplineId === 1 || disciplineId === 3) && preconisations.repartitionThematique && preconisations.repartitionThematique.length > 0 && (period.id !== 2 || disciplineId === 1 || disciplineId === 3)) || (disciplineId === 2 && (period.id === 2 || period.id === 3 || period.id === 4 || period.id === 5))) && (
                                     <div style={{flexShrink: 0, width: '420px', maxWidth: '100%'}}>
 
                                         {/* Répartition thématique — NC et Plongeon */}
@@ -59671,15 +59671,15 @@ function ProfilDeveloppementView() {
                                                         <polygon points="244,224 436,224 484,316 196,316" fill="#10B981"/>
                                                         <polygon points="196,316 484,316 532,408 148,408" fill="#0090D4"/>
                                                         <polygon points="148,408 532,408 580,500 100,500" fill="#2563EB"/>
-                                                        <polygon points="292,132 100,500 292,500" fill="white" opacity="0.6"/>
-                                                        <polygon points="388,132 580,500 388,500" fill="white" opacity="0.6"/>
+                                                        <polygon points="292,132 100,500 242,500" fill="white" opacity="0.6"/>
+                                                        <polygon points="388,132 580,500 438,500" fill="white" opacity="0.6"/>
                                                         <line x1="292" y1="132" x2="388" y2="132" stroke="white" strokeWidth="1.5"/>
                                                         <line x1="244" y1="224" x2="436" y2="224" stroke="white" strokeWidth="1.5"/>
                                                         <line x1="196" y1="316" x2="484" y2="316" stroke="white" strokeWidth="1.5"/>
                                                         <line x1="148" y1="408" x2="532" y2="408" stroke="white" strokeWidth="1.5"/>
                                                         <polygon points="340,40 580,500 100,500" fill="none" stroke="white" strokeWidth="2.5"/>
-                                                        <line x1="292" y1="132" x2="292" y2="500" stroke="#1a1a2e" strokeWidth="3" strokeLinecap="round"/>
-                                                        <line x1="388" y1="132" x2="388" y2="500" stroke="#1a1a2e" strokeWidth="3" strokeLinecap="round"/>
+                                                        <line x1="292" y1="132" x2="242" y2="500" stroke="#1a1a2e" strokeWidth="3" strokeLinecap="round"/>
+                                                        <line x1="388" y1="132" x2="438" y2="500" stroke="#1a1a2e" strokeWidth="3" strokeLinecap="round"/>
                                                         <text x="340" y="95"  textAnchor="middle" fontFamily="sans-serif" fontSize="12" fontWeight="700" fill="white">Stratégie</text>
                                                         <text x="340" y="183" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fontWeight="700" fill="white">Projet de jeu</text>
                                                         <text x="340" y="275" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fontWeight="700" fill="white">Jouer au service du collectif</text>
