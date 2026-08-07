@@ -10023,7 +10023,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     {
                         id: "ecole-natation-francaise",
-                        icon: "🏊",
+                        icon: window.ICONS['nc-papillon'],
                         title: "Les 4 nages",
                         description: "Construire les 4 nages : principes et repères par technique",
                         detailDescription: "Construire les 4 nages : principes et repères par technique",
@@ -10033,7 +10033,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
                         <!-- BLOC : LES 4 NAGES -->
 <div style="padding: 10px;">
-    <h2 style="color: #0DBCF0; margin-bottom: 20px; font-size: 1.8em;">🏊 Les 4 nages</h2>
+   
 
      <!-- ========================================
              BLOC PRÉREQUIS ET PRINCIPES FONDAMENTAUX
@@ -46127,7 +46127,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     ,
                         contenuSpecifique: `<div class="subtheme-view period-2">
     <div class="detail-header">
-        <div class="icon-xl">🎯</div>
+        <div class="icon-xl"><img src="Images/emoji-disciplines/plg-depart-feminin.png" style="width:40px; vertical-align:middle; margin-right:8px;"></div>
         <h1 class="detail-title">Chandelles et entrées dans l&#x27;eau</h1>
         <p class="detail-subtitle">Progression du bord au tremplin de 1m puis de 3m - Maîtrise des sauts verticaux par les pieds (chandelles) et des entrées dans l&#x27;eau par la tête</p>
     </div>
@@ -47118,7 +47118,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                             }
                         ]
                     ,
-                        contenuSpecifique: `<div class="subtheme-view period-2"><div class="detail-header"><div class="icon-xl">🏊</div><h1 class="detail-title">Plongeons codifiés</h1><p class="detail-subtitle">Découvrir les 6 groupes de plongeons et construire ses premiers programmes de compétition</p></div><div></div><!-- =============================================BLOC PRÉREQUIS============================================= -->${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_PLG + LIEN_PRINCIPES)},<div class="plongeon-legende">
+                        contenuSpecifique: `<div class="subtheme-view period-2"><div class="detail-header"><div class="icon-xl"><img src="Images/emoji-disciplines/plg-position-groupee.png" style="width:40px; vertical-align:middle; margin-right:8px;"></div><h1 class="detail-title">Plongeons codifiés</h1><p class="detail-subtitle">Découvrir les 6 groupes de plongeons et construire ses premiers programmes de compétition</p></div><div></div><!-- =============================================BLOC PRÉREQUIS============================================= -->${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_PLG + LIEN_PRINCIPES)},<div class="plongeon-legende">
                             <div class="plongeon-legende-title">🎯 CODE COULEUR DES NIVEAUX D&#x27;APPRENTISSAGE</div>
                             <div class="plongeon-legende-items">
                                 <div class="plongeon-legende-item">
@@ -58928,7 +58928,7 @@ function ProfilDeveloppementView() {
                     if (plongeonData.chandellesEntrees) {
                         filteredThemes.push({
                             id: "chandelles-entrees",
-                            icon: "💦",
+                            icon: window.ICONS['plg-depart-feminin'],
                             title: plongeonData.chandellesEntrees.titre || "Chandelles et entrées",
                             detailDescription: plongeonData.chandellesEntrees.description || "Progression du bord au tremplin 3m",
                             specificTo: 'plongeon',
@@ -58942,7 +58942,7 @@ function ProfilDeveloppementView() {
                     if (plongeonData.plongeonsCodifies) {
                         filteredThemes.push({
                             id: "plongeons-codifies",
-                            icon: "🤸",
+                            icon: window.ICONS['plg-position-groupee'],
                             title: plongeonData.plongeonsCodifies.titre || "Plongeons codifiés",
                             detailDescription: plongeonData.plongeonsCodifies.description || "Apprentissage des plongeons de base",
                             specificTo: 'plongeon',
