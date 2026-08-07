@@ -56546,7 +56546,7 @@ function ProfilDeveloppementView() {
             const [selectedBlock, setSelectedBlock] = useState(null);
             const [selectedCard, setSelectedCard] = useState(null);
             const [selectedCardType, setSelectedCardType] = useState(null);
-            const [returnState, setReturnState] = useState(null);
+            const [returnStack, setReturnStack] = useState([]);
 
             const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -56573,6 +56573,22 @@ function ProfilDeveloppementView() {
             React.useEffect(() => { selectedCardRef.current = selectedCard; }, [selectedCard]);
             const selectedCardTypeRef = React.useRef(selectedCardType);
             React.useEffect(() => { selectedCardTypeRef.current = selectedCardType; }, [selectedCardType]);
+
+            // Empile l'état de navigation courant (lu via les refs pour éviter les stale closures),
+            // afin de permettre un retour arrière multi-niveaux vers ComprendreCardDetailView.
+            const pushReturnState = () => {
+                setReturnStack(prev => [...prev, {
+                    view: viewRef.current,
+                    selectedTheme: selectedThemeRef.current,
+                    selectedBlock: selectedBlockRef.current,
+                    selectedCard: selectedCardRef.current,
+                    selectedCardType: selectedCardTypeRef.current,
+                }]);
+            };
+
+            // Empêche l'effet [view] de re-pousser une entrée d'historique navigateur
+            // quand le changement de vue provient d'un popstate (bouton retour physique).
+            const isRestoringFromHistory = React.useRef(false);
 
             // Gestionnaire global de navigation vers les cartes Comprendre (liens data-card hors TransversalView)
             React.useEffect(() => {
@@ -56656,19 +56672,8 @@ function ProfilDeveloppementView() {
 
                     if (carte) {
                         const type = comprendreBlock.cartes_communes?.find(c => c.id === cardId) ? 'common' : 'discipline';
-                        // Mémoriser la vue d'origine pour permettre le retour arrière
-                        const originView = viewRef.current;
-                        if (originView !== 'comprendre') {
-                            setReturnState({
-                                view: originView,
-                                selectedTheme: selectedThemeRef.current,
-                                selectedBlock: selectedBlockRef.current,
-                                selectedCard: selectedCardRef.current,
-                                selectedCardType: selectedCardTypeRef.current,
-                            });
-                        } else {
-                            setReturnState(null);
-                        }
+                        // Empiler la vue d'origine pour permettre le retour arrière multi-niveaux
+                        pushReturnState();
                         setSelectedCard(carte);
                         setSelectedCardType(type);
                         setSelectedBlock('comprendre');
@@ -56686,10 +56691,77 @@ function ProfilDeveloppementView() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, [view]);
 
+            // --- Historique navigateur (bouton retour physique) ---
+            // Empile une entrée d'historique à chaque changement de vue, sauf quand ce changement
+            // provient lui-même d'un popstate (voir isRestoringFromHistory).
+            React.useEffect(() => {
+                if (isRestoringFromHistory.current) {
+                    isRestoringFromHistory.current = false;
+                    return;
+                }
+                history.pushState(
+                    {
+                        view,
+                        selectedPeriod,
+                        selectedDiscipline,
+                        selectedTheme: selectedTheme?.id,
+                        selectedCard: selectedCard?.id,
+                    },
+                    '',
+                    '#' + view
+                );
+            }, [view]);
+
+            // Restaure l'état React depuis event.state lors d'un retour arrière navigateur
+            React.useEffect(() => {
+                const handlePopState = (e) => {
+                    isRestoringFromHistory.current = true;
+                    const state = e.state;
+                    if (!state) {
+                        setView('home');
+                        setSelectedPeriod(null);
+                        setSelectedDiscipline(null);
+                        setSelectedTheme(null);
+                        setSelectedCard(null);
+                        setSelectedCardType(null);
+                        setReturnStack([]);
+                        return;
+                    }
+                    const period = state.selectedPeriod != null ? periodsData[state.selectedPeriod] : null;
+                    let theme = null;
+                    if (state.selectedTheme && period) {
+                        theme = resolvePeriodTheme(period, state.selectedDiscipline, state.selectedTheme);
+                    }
+                    let card = null;
+                    let cardType = null;
+                    if (state.selectedCard && period) {
+                        const comprendreBlock = period.transversal?.comprendre;
+                        if (comprendreBlock) {
+                            card = comprendreBlock.cartes_communes?.find(c => c.id === state.selectedCard);
+                            if (card) {
+                                cardType = 'common';
+                            } else {
+                                card = comprendreBlock.cartes_disciplines?.find(c => c.id === state.selectedCard);
+                                if (card) cardType = 'discipline';
+                            }
+                        }
+                    }
+                    setView(state.view || 'home');
+                    setSelectedPeriod(state.selectedPeriod ?? null);
+                    setSelectedDiscipline(state.selectedDiscipline ?? null);
+                    setSelectedTheme(theme);
+                    setSelectedCard(card ?? null);
+                    setSelectedCardType(cardType);
+                };
+                window.addEventListener('popstate', handlePopState);
+                return () => window.removeEventListener('popstate', handlePopState);
+            }, []);
+
             const handlePeriodClick = (periodId, disciplineId) => {
                 setSelectedPeriod(periodId);
                 setSelectedDiscipline(disciplineId);
                 setView('period');
+                setReturnStack([]);
             };
 
             const handleThemeClick = (theme) => {
@@ -56699,13 +56771,14 @@ function ProfilDeveloppementView() {
 
             const handleBack = () => {
                 if (view === 'comprendre-detail') {
-                    if (returnState) {
-                        setView(returnState.view);
-                        setSelectedTheme(returnState.selectedTheme);
-                        setSelectedBlock(returnState.selectedBlock);
-                        setSelectedCard(returnState.selectedCard ?? null);
-                        setSelectedCardType(returnState.selectedCardType ?? null);
-                        setReturnState(null);
+                    if (returnStack.length > 0) {
+                        const prevState = returnStack[returnStack.length - 1];
+                        setReturnStack(prev => prev.slice(0, -1));
+                        setView(prevState.view);
+                        setSelectedTheme(prevState.selectedTheme);
+                        setSelectedBlock(prevState.selectedBlock);
+                        setSelectedCard(prevState.selectedCard ?? null);
+                        setSelectedCardType(prevState.selectedCardType ?? null);
                     } else {
                         setView('comprendre');
                         setSelectedCard(null);
@@ -56768,6 +56841,7 @@ function ProfilDeveloppementView() {
             };
 
             const handleCardClick = (carte, cardType) => {
+                pushReturnState();
                 setSelectedCard(carte);
                 setSelectedCardType(cardType);
                 setView('comprendre-detail');
@@ -56775,13 +56849,7 @@ function ProfilDeveloppementView() {
 
             // Navigation depuis un autre bloc (ex: Compétition) vers une carte Comprendre
             const handleNavigateToCard = (carte, cardType) => {
-                setReturnState({
-                    view: viewRef.current,
-                    selectedTheme: selectedThemeRef.current,
-                    selectedBlock: selectedBlockRef.current,
-                    selectedCard: selectedCardRef.current,
-                    selectedCardType: selectedCardTypeRef.current,
-                });
+                pushReturnState();
                 setSelectedCard(carte);
                 setSelectedCardType(cardType);
                 setSelectedBlock('comprendre');
@@ -56797,6 +56865,7 @@ function ProfilDeveloppementView() {
                     if (!period) return;
                     const theme = resolvePeriodTheme(period, disciplineId, themeId);
                     if (!theme) return;
+                    pushReturnState();
                     setSelectedPeriod(parsedPeriodId);
                     setSelectedDiscipline(normalizeDisciplineId(disciplineId) ?? disciplineId);
                     setSelectedTheme(theme);
@@ -56959,6 +57028,7 @@ function ProfilDeveloppementView() {
                     setSelectedDiscipline(null);
                     setSelectedBlock(null);
                     setSelectedCard(null);
+                    setReturnStack([]);
                 } else if (target === 'disciplines') {
                     setView('disciplines');
                     setSelectedPeriod(null);
@@ -56977,9 +57047,12 @@ function ProfilDeveloppementView() {
                 }
             };
 
+            // Sommet de la pile de retour, pour l'affichage du lien "retour" dans le breadcrumb
+            const topReturnState = returnStack.length > 0 ? returnStack[returnStack.length - 1] : null;
+
             return (
                 <div className="container">
-                    {view !== 'home' && view !== 'disciplines' && (
+                    {view !== 'home' && (
                         <div className="logo-container">
                             <img src="Images/Logo_FFN.png" alt="Logo FFN" />
                             <div className="header">
@@ -56989,7 +57062,7 @@ function ProfilDeveloppementView() {
                         </div>
                     )}
 
-                    {view !== 'home' && view !== 'disciplines' && (
+                    {view !== 'home' && (
                         <>
                             <div className="breadcrumb">
                                 <span className="breadcrumb-item" onClick={() => handleBreadcrumbClick('home')}>
@@ -57017,7 +57090,7 @@ function ProfilDeveloppementView() {
                                         </span>
                                     </>
                                 )}
-                                {selectedTheme && !(view === 'comprendre-detail' && returnState) && (
+                                {selectedTheme && !(view === 'comprendre-detail' && topReturnState) && (
                                     <>
                                         <span className="breadcrumb-separator">›</span>
                                         <span className="breadcrumb-current">
@@ -57025,25 +57098,25 @@ function ProfilDeveloppementView() {
                                         </span>
                                     </>
                                 )}
-                                {view === 'comprendre-detail' && returnState ? (
+                                {view === 'comprendre-detail' && topReturnState ? (
                                     <>
                                         <span className="breadcrumb-separator">›</span>
                                         <span className="breadcrumb-item" onClick={() => {
-                                            setView(returnState.view);
-                                            setSelectedTheme(returnState.selectedTheme);
-                                            setSelectedBlock(returnState.selectedBlock);
-                                            setSelectedCard(returnState.selectedCard ?? null);
-                                            setSelectedCardType(returnState.selectedCardType ?? null);
-                                            setReturnState(null);
+                                            setReturnStack(prev => prev.slice(0, -1));
+                                            setView(topReturnState.view);
+                                            setSelectedTheme(topReturnState.selectedTheme);
+                                            setSelectedBlock(topReturnState.selectedBlock);
+                                            setSelectedCard(topReturnState.selectedCard ?? null);
+                                            setSelectedCardType(topReturnState.selectedCardType ?? null);
                                         }}>
-                                            {returnState.view === 'theme'
-                                                ? returnState.selectedTheme?.title
-                                                : returnState.view === 'transversal'
-                                                    ? (returnState.selectedBlock === 'accompagner' ? '👥 Accompagner' : returnState.selectedBlock === 'competition' ? '🏆 Compétition' : returnState.selectedBlock)
-                                                    : returnState.view === 'period'
+                                            {topReturnState.view === 'theme'
+                                                ? topReturnState.selectedTheme?.title
+                                                : topReturnState.view === 'transversal'
+                                                    ? (topReturnState.selectedBlock === 'accompagner' ? '👥 Accompagner' : topReturnState.selectedBlock === 'competition' ? '🏆 Compétition' : topReturnState.selectedBlock)
+                                                    : topReturnState.view === 'period'
                                                         ? (periodsData[selectedPeriod]?.title || '← Période')
-                                                        : returnState.view === 'comprendre-detail'
-                                                            ? (returnState.selectedCard?.titre || '← Carte')
+                                                        : topReturnState.view === 'comprendre-detail'
+                                                            ? (topReturnState.selectedCard?.titre || '← Carte')
                                                             : '← Retour'}
                                         </span>
                                         <span className="breadcrumb-separator">›</span>
