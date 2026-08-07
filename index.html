@@ -41315,6 +41315,45 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 .p4at-attitude-title{font-size:0.85em;font-weight:700;color:#333;margin-bottom:3px;}
 .p4at-attitude-text{font-size:0.95em;color:#555;line-height:1.6;}
 .p4at-section-head{font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#8D71DE;margin-bottom:10px;}
+:root{--p4:#8D71DE;--p4-l:rgba(141,113,222,0.08);--p4-dark:#5b3fa6;}
+.domain{border-radius:12px;margin-bottom:26px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
+.domain-head{padding:18px 22px;display:flex;align-items:center;gap:10px;}
+.domain-head h2{font-size:1.35em;margin:0;color:white;display:flex;align-items:center;gap:9px;}
+.domain-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px;}
+.section-label{font-size:0.75em;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:white;padding:5px 10px;border-radius:4px;display:inline-block;margin-bottom:8px;}
+.sd-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07);margin-bottom:10px;}
+.sd-card:last-child{margin-bottom:0;}
+.sd-head{padding:12px 18px;border-bottom:1px solid #eee;}
+.sd-head h3{font-size:1em;font-weight:700;margin:0 0 4px;}
+.sd-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;}
+.enjeu-bloc{background:rgba(249,115,22,0.05);border-left:4px solid #F97316;padding:11px 15px;border-radius:0 8px 8px 0;font-size:0.95em;line-height:1.65;color:#555;font-style:italic;}
+.ressources-grid{display:flex;flex-direction:column;gap:10px;}
+.r-tech-row{width:100%;}
+.r-sub-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.r-bloc{padding:12px 14px;border-radius:8px;font-size:0.95em;line-height:1.6;}
+.r-bloc h5{font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+.r-bloc ul{padding-left:13px;}
+.r-bloc ul li{margin-bottom:3px;color:#444;}
+.r-tech{background:rgba(249,115,22,0.07);border-top:3px solid #F97316;}
+.r-tech h5{color:#C2410C;}
+.r-phys{background:rgba(16,185,129,0.07);border-top:3px solid #10B981;}
+.r-phys h5{color:#065F46;}
+.r-cogn{background:rgba(139,92,246,0.07);border-top:3px solid #8B5CF6;}
+.r-cogn h5{color:#5B21B6;}
+.r-physio{background:rgba(239,68,68,0.07);border-top:3px solid #EF4444;}
+.r-physio h5{color:#991B1B;}
+.leviers{background:#f9fafb;border-radius:8px;padding:12px 15px;}
+.leviers h5{font-size:0.78em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1D4ED8;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+.leviers ul{padding-left:14px;}
+.leviers ul li{font-size:0.86em;color:#444;line-height:1.6;margin-bottom:3px;}
+.bottom-grid{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #eee;}
+.bottom-col{padding:12px 16px;}
+.bottom-col:first-child{border-right:1px solid #eee;}
+.bottom-col h4{font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+.bottom-col.vigi h4{color:#BF360C;}
+.bottom-col.indic h4{color:#065F46;}
+.bottom-col ul{padding-left:13px;}
+.bottom-col ul li{font-size:0.84em;line-height:1.65;color:#555;margin-bottom:2px;}
 </style>
 
 <!-- BLOC PRÉREQUIS -->
@@ -41350,233 +41389,140 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
 <!-- TECHNIQUE INDIVIDUELLE P4 -->
 
-    <!-- BLOC : MOUVEMENTS DE BASE (P4 WP) -->
-    <div style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;">
-        <h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;">💪 Mouvements de base</h2>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3>
-            <p style="line-height: 1.8; margin-bottom: 10px;">Mettre les mouvements de base à l'épreuve de l'intensité et de la durée. L'objectif n'est plus la maîtrise de la forme, mais la capacité à la maintenir sous contrainte physique croissante.</p>
-        </div>
-
-        <div style="background: linear-gradient(135deg, rgba(141,113,222,0.1), rgba(141,113,222,0.03)); padding: 20px; border-radius: 10px; margin-bottom: 15px; border: 2px solid #8D71DE;">
-            <h4 style="color: #6B4FBB; margin-bottom: 12px; font-size: 1.05em;">🏗️ Domaines à développer <span style="font-size: 0.7em; font-weight: 400; color: #888;">— placeholder, à réorganiser</span></h4>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Surcharge progressive</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Positions fondamentales avec résistances additionnelles : médecine-ball, ceinture lestée, élastique. La surcharge développe la force spécifique des membres inférieurs sans quitter le contexte aquatique.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Qualité sous fatigue</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Travailler les liaisons entre positions dans des séries progressives. La fluidité et la hauteur de maintien doivent rester accessibles en fin d'effort.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">En situation de jeu</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Duels prolongés, maintien sous pression défensive, sauts répétés en fin de match simulé. Le jeu lui-même est l'outil de développement prioritaire.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
+<!-- HABILETÉS FONDAMENTALES P4 -->
+<div class="domain">
+  <div class="domain-head" style="background:linear-gradient(135deg,#8D71DE,#a78bfa);">
+    <h2>🏊 Habiletés fondamentales</h2>
+  </div>
+  <div class="domain-body" style="background:var(--p4-l);">
+    <div><span class="section-label" style="background:#5b3fa6;">🔵 Mouvements de base</span>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(141,113,222,0.08);"><h3 style="color:var(--p4-dark);">Mouvements de base</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de maintenir la qualité des mouvements de base sous une intensité et une durée d'effort croissantes.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
             </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
+            <li><strong>Surcharge progressive</strong> — Positions fondamentales avec résistances additionnelles : médecine-ball, ceinture lestée, élastique. La surcharge développe la force spécifique des membres inférieurs sans quitter le contexte aquatique.</li>
+            <li><strong>Qualité sous fatigue</strong> — Travailler les liaisons entre positions dans des séries progressives. La fluidité et la hauteur de maintien doivent rester accessibles en fin d'effort.</li>
+            <li><strong>En situation de jeu</strong> — Duels prolongés, maintien sous pression défensive, sauts répétés en fin de match simulé. Le jeu lui-même est l'outil de développement prioritaire.</li>
+          </ul></div>
         </div>
-
-        <div style="background: rgba(141,113,222,0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🧩 Ressources à développer</h3>
-            <div style="background: white; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border-left: 4px solid #8D71DE;">
-                <h4 style="color: #6B4FBB; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">[PLACEHOLDER]</h4>
-                <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">[Placeholder — à compléter]</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
-                    <li>[Placeholder]</li>
-                </ul>
-            </div>
-            <div style="background: white; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border-left: 4px solid #8D71DE;">
-                <h4 style="color: #6B4FBB; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">[PLACEHOLDER]</h4>
-                <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">[Placeholder — à compléter]</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
-                    <li>[Placeholder]</li>
-                </ul>
-            </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #C62828; margin-bottom: 12px; font-size: 1.1em;">⚠️ Points de vigilance</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.1em;">✅ Indicateurs d'efficacité</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px;">
-            <h3 style="color: #8D71DE; margin-bottom: 12px; font-size: 1.1em;">🔧 Leviers d'apprentissage</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
+      </div>
     </div>
 
-    <!-- BLOC : SE DÉPLACER (P4 WP) -->
-    <div style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;">
-        <h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;">🌊 Se déplacer</h2>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3>
-            <p style="line-height: 1.8; margin-bottom: 10px;">Développer les qualités énergétiques spécifiques au water-polo. Le match est un enchaînement d'efforts intenses et répétés entrecoupés de récupérations incomplètes.</p>
-        </div>
-
-        <div style="background: linear-gradient(135deg, rgba(141,113,222,0.1), rgba(141,113,222,0.03)); padding: 20px; border-radius: 10px; margin-bottom: 15px; border: 2px solid #8D71DE;">
-            <h4 style="color: #6B4FBB; margin-bottom: 12px; font-size: 1.05em;">🏗️ Domaines à développer <span style="font-size: 0.7em; font-weight: 400; color: #888;">— placeholder, à réorganiser</span></h4>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Endurance aérobie</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Socle énergétique sur lequel reposent toutes les autres qualités. Nage continue, jeu à effectif réduit sur durée allongée.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Travail intermittent</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Efforts courts et intenses (10–40 sec) suivis de récupérations courtes. Contre-attaques répétées, jeu en surnombre à tempo élevé.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Capacité de récupération</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">La récupération est une qualité entraînable. Doser son engagement selon la phase du match et la fatigue accumulée.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
+    <div><span class="section-label" style="background:#5b3fa6;">💨 Se déplacer</span>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(141,113,222,0.08);"><h3 style="color:var(--p4-dark);">Se déplacer</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de mobiliser les qualités énergétiques spécifiques au water-polo, sur un match fait d'efforts intenses et répétés entrecoupés de récupérations incomplètes.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
             </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
+            <li><strong>Endurance aérobie</strong> — Socle énergétique sur lequel reposent toutes les autres qualités. Nage continue, jeu à effectif réduit sur durée allongée.</li>
+            <li><strong>Travail intermittent</strong> — Efforts courts et intenses (10–40 sec) suivis de récupérations courtes. Contre-attaques répétées, jeu en surnombre à tempo élevé.</li>
+            <li><strong>Capacité de récupération</strong> — La récupération est une qualité entraînable. Doser son engagement selon la phase du match et la fatigue accumulée.</li>
+          </ul></div>
         </div>
-
-        <div style="background: rgba(141,113,222,0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🧩 Ressources à développer</h3>
-            <div style="background: white; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border-left: 4px solid #8D71DE;">
-                <h4 style="color: #6B4FBB; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">[PLACEHOLDER]</h4>
-                <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">[Placeholder — à compléter]</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
-                    <li>[Placeholder]</li>
-                </ul>
-            </div>
-            <div style="background: white; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border-left: 4px solid #8D71DE;">
-                <h4 style="color: #6B4FBB; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">[PLACEHOLDER]</h4>
-                <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">[Placeholder — à compléter]</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
-                    <li>[Placeholder]</li>
-                </ul>
-            </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #C62828; margin-bottom: 12px; font-size: 1.1em;">⚠️ Points de vigilance</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.1em;">✅ Indicateurs d'efficacité</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px;">
-            <h3 style="color: #8D71DE; margin-bottom: 12px; font-size: 1.1em;">🔧 Leviers d'apprentissage</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <!-- BLOC : MAÎTRISE DU BALLON (P4 WP) -->
-    <div style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;">
-        <h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;">🤾 Maîtrise du ballon</h2>
+<!-- HABILETÉS TECHNIQUES P4 -->
+<div class="domain">
+  <div class="domain-head" style="background:linear-gradient(135deg,#5b3fa6,#8D71DE);">
+    <h2>🏐 Habiletés techniques — Maîtrise du ballon</h2>
+  </div>
+  <div class="domain-body" style="background:rgba(91,63,166,0.05);">
+    <div><span class="section-label" style="background:#4a3285;">🏐 Maîtrise du ballon</span>
 
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3>
-            <p style="line-height: 1.8; margin-bottom: 10px;">Automatiser les habiletés techniques pour qu'elles ne coûtent plus d'attention cognitive. La technique doit être disponible sous pression, sous fatigue, et dans toutes les situations de jeu.</p>
-        </div>
-
-        <div style="background: linear-gradient(135deg, rgba(141,113,222,0.1), rgba(141,113,222,0.03)); padding: 20px; border-radius: 10px; margin-bottom: 15px; border: 2px solid #8D71DE;">
-            <h4 style="color: #6B4FBB; margin-bottom: 12px; font-size: 1.05em;">🏗️ Domaines à développer <span style="font-size: 0.7em; font-weight: 400; color: #888;">— placeholder, à réorganiser</span></h4>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Développer la hauteur</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">La hauteur optimale doit rester accessible en fin de match. Le travail de surcharge se transfère directement sur la hauteur au tir et à la passe.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Réduire les temps de transition</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Enchaîner réception, position, passe ou tir en réduisant les temps d'arrêt. La vitesse d'exécution est la conséquence de l'automatisation.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
-                <div style="background:white; border-radius:8px; padding:14px 16px; border-left:4px solid #8D71DE;">
-                    <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">Affirmer son style</h5>
-                    <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Multiplier les expériences dans des situations variées. Chaque joueur développe ses solutions préférentielles à partir d'une base commune.</p>
-                    <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-                        <li>[Placeholder]</li>
-                    </ul>
-                </div>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Passe et réception</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de se replacer en position de tir dès la réception, et d'adapter trajectoire et puissance de passe à la situation de jeu.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
             </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
+            <li><strong>Développer la hauteur</strong> — La hauteur optimale doit rester accessible en fin de match ; le travail de surcharge se transfère directement sur la hauteur au tir et à la passe.</li>
+            <li><strong>Réduire les temps de transition</strong> — Enchaîner réception, position, passe ou tir en réduisant les temps d'arrêt. La vitesse d'exécution est la conséquence de l'automatisation.</li>
+          </ul></div>
         </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
 
-        <div style="background: rgba(141,113,222,0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🧩 Ressources à développer</h3>
-            <div style="background: white; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border-left: 4px solid #8D71DE;">
-                <h4 style="color: #6B4FBB; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">[PLACEHOLDER]</h4>
-                <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">[Placeholder — à compléter]</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
-                    <li>[Placeholder]</li>
-                </ul>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Tir</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de tirer efficacement depuis différentes situations de jeu, en affirmant ses solutions préférentielles.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
             </div>
-            <div style="background: white; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border-left: 4px solid #8D71DE;">
-                <h4 style="color: #6B4FBB; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">[PLACEHOLDER]</h4>
-                <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">[Placeholder — à compléter]</p>
-                <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
-                    <li>[Placeholder]</li>
-                </ul>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
+            <li><strong>Affirmer son style</strong> — Multiplier les expériences dans des situations variées ; chaque joueur développe ses solutions préférentielles à partir d'une base commune.</li>
+          </ul></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
+
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Déplacement avec ballon</h3></div>
+        <div class="sd-body">
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
             </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul><li>[Placeholder]</li></ul></div>
         </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #C62828; margin-bottom: 12px; font-size: 1.1em;">⚠️ Points de vigilance</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.1em;">✅ Indicateurs d'efficacité</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
-
-        <div style="background: white; padding: 20px; border-radius: 8px;">
-            <h3 style="color: #8D71DE; margin-bottom: 12px; font-size: 1.1em;">🔧 Leviers d'apprentissage</h3>
-            <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
-                <li>[Placeholder]</li>
-            </ul>
-        </div>
+      </div>
     </div>
+  </div>
+</div>
 
 <!-- SPECIALISATION PAR POSTE P4 -->
 <div class="p4at-section">
@@ -45089,6 +45035,45 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 .p5at-attitude-text{font-size:0.95em;color:#555;line-height:1.6;}
 .p5at-phys-group{margin-bottom:12px;}
 .p5at-phys-title{font-size:0.82em;font-weight:700;color:#333;margin-bottom:6px;}
+:root{--p5:#E2001A;--p5-l:rgba(226,0,26,0.08);--p5-dark:#a0001a;}
+.domain{border-radius:12px;margin-bottom:26px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
+.domain-head{padding:18px 22px;display:flex;align-items:center;gap:10px;}
+.domain-head h2{font-size:1.35em;margin:0;color:white;display:flex;align-items:center;gap:9px;}
+.domain-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px;}
+.section-label{font-size:0.75em;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:white;padding:5px 10px;border-radius:4px;display:inline-block;margin-bottom:8px;}
+.sd-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07);margin-bottom:10px;}
+.sd-card:last-child{margin-bottom:0;}
+.sd-head{padding:12px 18px;border-bottom:1px solid #eee;}
+.sd-head h3{font-size:1em;font-weight:700;margin:0 0 4px;}
+.sd-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;}
+.enjeu-bloc{background:rgba(249,115,22,0.05);border-left:4px solid #F97316;padding:11px 15px;border-radius:0 8px 8px 0;font-size:0.95em;line-height:1.65;color:#555;font-style:italic;}
+.ressources-grid{display:flex;flex-direction:column;gap:10px;}
+.r-tech-row{width:100%;}
+.r-sub-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.r-bloc{padding:12px 14px;border-radius:8px;font-size:0.95em;line-height:1.6;}
+.r-bloc h5{font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+.r-bloc ul{padding-left:13px;}
+.r-bloc ul li{margin-bottom:3px;color:#444;}
+.r-tech{background:rgba(249,115,22,0.07);border-top:3px solid #F97316;}
+.r-tech h5{color:#C2410C;}
+.r-phys{background:rgba(16,185,129,0.07);border-top:3px solid #10B981;}
+.r-phys h5{color:#065F46;}
+.r-cogn{background:rgba(139,92,246,0.07);border-top:3px solid #8B5CF6;}
+.r-cogn h5{color:#5B21B6;}
+.r-physio{background:rgba(239,68,68,0.07);border-top:3px solid #EF4444;}
+.r-physio h5{color:#991B1B;}
+.leviers{background:#f9fafb;border-radius:8px;padding:12px 15px;}
+.leviers h5{font-size:0.78em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1D4ED8;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+.leviers ul{padding-left:14px;}
+.leviers ul li{font-size:0.86em;color:#444;line-height:1.6;margin-bottom:3px;}
+.bottom-grid{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #eee;}
+.bottom-col{padding:12px 16px;}
+.bottom-col:first-child{border-right:1px solid #eee;}
+.bottom-col h4{font-size:0.76em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+.bottom-col.vigi h4{color:#BF360C;}
+.bottom-col.indic h4{color:#065F46;}
+.bottom-col ul{padding-left:13px;}
+.bottom-col ul li{font-size:0.84em;line-height:1.65;color:#555;margin-bottom:2px;}
 </style>
 
 <!-- BLOC PRÉREQUIS -->
@@ -45124,18 +45109,143 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 </div>
 
 <!-- TECHNIQUE INDIVIDUELLE P5 -->
+
+<!-- HABILETÉS FONDAMENTALES P5 -->
+<div class="domain">
+  <div class="domain-head" style="background:linear-gradient(135deg,#E2001A,#f2495a);">
+    <h2>🏊 Habiletés fondamentales</h2>
+  </div>
+  <div class="domain-body" style="background:var(--p5-l);">
+    <div><span class="section-label" style="background:#a0001a;">🔵 Mouvements de base</span>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(226,0,26,0.08);"><h3 style="color:var(--p5-dark);">Mon corps dans l'eau</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir l'excellence des mouvements de base en conditions de très haute intensité, sur l'intégralité d'un match ou d'une compétition internationale.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
+            </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul><li>[Placeholder]</li></ul></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div><span class="section-label" style="background:#a0001a;">💨 Se déplacer</span>
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(226,0,26,0.08);"><h3 style="color:var(--p5-dark);">Me déplacer</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir son efficacité de déplacement sur l'intégralité d'un match de haut niveau, malgré la fatigue accumulée.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
+            </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul><li>[Placeholder]</li></ul></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HABILETÉS TECHNIQUES P5 -->
+<div class="domain">
+  <div class="domain-head" style="background:linear-gradient(135deg,#a0001a,#E2001A);">
+    <h2>🏐 Habiletés techniques — Maîtrise du ballon</h2>
+  </div>
+  <div class="domain-body" style="background:rgba(160,0,26,0.05);">
+    <div><span class="section-label" style="background:#7d0014;">🏐 Maîtrise du ballon</span>
+
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Passe et réception</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de recevoir et de transmettre le ballon avec vitesse et précision, y compris au contact et sous pression défensive maximale.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
+            </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
+            <li>Recevoir et passer avec vitesse et précision</li>
+            <li>Mobiliser la technique adaptée à la situation</li>
+            <li>Passe au contact</li>
+            <li>Maîtriser le tempo de passe</li>
+          </ul></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
+
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Tir</h3></div>
+        <div class="sd-body">
+          <div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de tirer avec une qualité d'éjection optimale en masquant ses intentions, dans toutes les situations de jeu.</div>
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
+            </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
+            <li>Qualité d'éjection du ballon</li>
+            <li>Mobiliser la technique adaptée à la situation</li>
+            <li>Éviter les blocks</li>
+            <li>Tir CF 6m</li>
+            <li>Masquer ses intentions avec le ballon</li>
+          </ul></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
+
+      <div class="sd-card">
+        <div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Déplacement avec ballon</h3></div>
+        <div class="sd-body">
+          <div class="ressources-grid">
+            <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
+            <div class="r-sub-row">
+              <div class="r-bloc r-phys"><h5>💪 Physique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-physio"><h5>❤️ Physiologique</h5><ul><li>[Placeholder]</li></ul></div>
+              <div class="r-bloc r-cogn"><h5>🧠 Psychologique</h5><ul><li>[Placeholder]</li></ul></div>
+            </div>
+          </div>
+          <div class="leviers"><h5>🔧 Leviers d'action</h5><ul><li>[Placeholder]</li></ul></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="bottom-col vigi"><h4>⚠️ Points de vigilance</h4><ul><li>[Placeholder]</li></ul></div>
+          <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTRES COMPÉTENCES TECHNIQUES P5 (hors périmètre mouvements de base / se déplacer / maîtrise du ballon) -->
 <div class="p5at-section">
-  <div class="p5at-head">Technique individuelle</div>
-  <div class="p5at-domain"><div class="p5at-domain-title">Mon corps dans l'eau</div><div class="p5at-empty">Contenu à venir</div></div>
-  <div class="p5at-domain"><div class="p5at-domain-title">Me déplacer</div><div class="p5at-empty">Contenu à venir</div></div>
-  <div class="p5at-domain">
-    <div class="p5at-domain-title">Passer</div>
-    <ul class="p5at-items"><li>Recevoir et passer avec vitesse et précision</li><li>Mobiliser la technique adaptée à la situation</li><li>Passe au contact</li><li>Maîtriser le tempo de passe</li></ul>
-  </div>
-  <div class="p5at-domain">
-    <div class="p5at-domain-title">Tirer</div>
-    <ul class="p5at-items"><li>Qualité d'éjection du ballon</li><li>Mobiliser la technique adaptée à la situation</li><li>Éviter les blocks</li><li>Tir CF 6m</li><li>Masquer ses intentions avec le ballon</li></ul>
-  </div>
+  <div class="p5at-head">Autres compétences techniques</div>
   <div class="p5at-domain">
     <div class="p5at-domain-title">Bloquer</div>
     <ul class="p5at-items"><li>Qualité en zone moins (−5)</li><li>Qualité sur les secteurs</li><li>Qualité sur CF 6m</li></ul>
