@@ -10022,14 +10022,14 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         }
                     },
                     {
-                        id: "ecole-natation-francaise",
+                        id: "attendus-techniques",
                         icon: window.ICONS['nc-papillon'],
                         title: "Les 4 nages",
                         description: "Construire les 4 nages : principes et repères par technique",
                         detailDescription: "Construire les 4 nages : principes et repères par technique",
                         specificTo: 'natation-course',
-                        hasENFContent: true,
-                        enfContenu: `
+                        details: {
+                            contenuSpecifique: `
 
                         <!-- BLOC : LES 4 NAGES -->
 <div style="padding: 10px;">
@@ -10425,7 +10425,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
                                     
                         `
-                        
+                                } 
                     },
                     {
                         id: "attendus-techniques",
