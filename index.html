@@ -34,10 +34,34 @@
         }html{
             font-size: 15px;
         }
-        .attendus-bloc-summary { cursor: pointer; list-style: none; }
+        .attendus-bloc-summary { cursor: pointer; list-style: none; position: relative; padding-right: 46px; }
         .attendus-bloc-summary::-webkit-details-marker { display: none; }
-        .attendus-bloc-summary::after { content: '▾'; float: right; transition: transform 0.2s; }
-        details[open] > .attendus-bloc-summary::after { transform: rotate(180deg); }
+        .attendus-bloc-summary::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.07);
+            transition: background 0.2s ease;
+        }
+        .attendus-bloc-summary:hover::after { background: rgba(0,0,0,0.13); }
+        .attendus-bloc-summary::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 16px;
+            width: 9px;
+            height: 9px;
+            border-right: 2.5px solid rgba(0,0,0,0.55);
+            border-bottom: 2.5px solid rgba(0,0,0,0.55);
+            transform: rotate(45deg);
+            transition: transform 0.25s ease, top 0.25s ease;
+            z-index: 1;
+        }
+        details[open] > .attendus-bloc-summary::before { transform: rotate(225deg); top: 19px; }
         /* Global compact scale to match homepage view: reduce sizes & paddings
            This block centralises smaller typography and tighter paddings so
            each page has a better 'vue d'ensemble'. */
