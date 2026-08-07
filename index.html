@@ -2466,8 +2466,13 @@
         /* === Garde-fou anti-débordement horizontal mobile ===
            Le contenu est truffé de grilles CSS en style inline (grid-template-columns
            fixe à 2/3/4 colonnes) sans réflow mobile. Sous 700px, on les force en
-           une seule colonne pour éviter le débordement horizontal de la page. */
-        html, body { overflow-x: hidden; max-width: 100%; }
+           une seule colonne pour éviter le débordement horizontal de la page.
+           NB : pas de overflow-x:hidden sur html/body ici — tout ancêtre avec un
+           overflow non-visible casse le position:sticky du fil d'Ariane (.breadcrumb),
+           même sans scrollbar visible. Les fixes ci-dessous (grilles + .ptl-cards-row
+           + tables) traitent la cause réelle du débordement, donc ce filet n'est pas
+           nécessaire. */
+        html, body { max-width: 100%; }
         @media (max-width: 700px) {
             [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
             table { display: block; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
@@ -42324,6 +42329,54 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 <strong>Vigilance :</strong> une prise de masse musculaire trop importante peut détériorer la flottabilité et la vitesse de nage. La force développée doit rester transférable dans les conditions spécifiques du jeu.
             </p>
         </div>
+    </div>
+
+</div>
+`,
+                                placement: "after-competences"
+                            }
+                            ,
+                            {
+                                titre: "Préparer les tests du profil physique — compétences à construire en P4",
+                                contenu: `
+<div style="max-width: 900px;">
+
+    <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.93em;">
+        En P5, le poloïste réalise une batterie de tests évaluant son potentiel physique. Ces tests mobilisent des qualités qui se construisent dès la période lycée. Les compétences ci-dessous constituent les fondations à développer en P4.
+    </p>
+
+    <div style="margin-bottom: 16px; background: rgba(249,115,22,0.07); padding: 16px 18px; border-radius: 10px; border-left: 4px solid #F97316;">
+        <h4 style="color: #F97316; font-size: 1em; margin-bottom: 10px;">🏊 Vers le test de rendement de nage</h4>
+        <ul style="line-height: 1.8; margin-left: 18px; color: #444; font-size: 0.92em; margin-bottom: 0;">
+            <li>Développer la capacité aérobie sous-maximale</li>
+            <li>Maintenir une technique de nage efficace sous fatigue</li>
+            <li>Prendre conscience du ratio fréquence / amplitude (cycles par longueur)</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 16px; background: rgba(249,115,22,0.07); padding: 16px 18px; border-radius: 10px; border-left: 4px solid #F97316;">
+        <h4 style="color: #F97316; font-size: 1em; margin-bottom: 10px;">💧 Vers le test de force aquatique</h4>
+        <ul style="line-height: 1.8; margin-left: 18px; color: #444; font-size: 0.92em; margin-bottom: 0;">
+            <li>Développer la puissance des membres inférieurs hors eau (squat, fentes, poussée)</li>
+            <li>Initier le travail de force propulsive dans l'eau (éducatifs jambes)</li>
+            <li>Distinguer et travailler les deux actions : extension (rétropédalage) et adduction/abduction (ciseaux)</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 16px; background: rgba(249,115,22,0.07); padding: 16px 18px; border-radius: 10px; border-left: 4px solid #F97316;">
+        <h4 style="color: #F97316; font-size: 1em; margin-bottom: 10px;">🚴 Vers le test WattBike</h4>
+        <ul style="line-height: 1.8; margin-left: 18px; color: #444; font-size: 0.92em; margin-bottom: 0;">
+            <li>Développer la filière anaérobie alactique : sprints très courts (5–10"), maximaux, récupération longue</li>
+            <li>Développer la puissance explosive des membres inférieurs et la coordination neuromusculaire sous effort maximal</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 0; background: rgba(249,115,22,0.07); padding: 16px 18px; border-radius: 10px; border-left: 4px solid #F97316;">
+        <h4 style="color: #F97316; font-size: 1em; margin-bottom: 10px;">💪 Vers le test SkyErg</h4>
+        <ul style="line-height: 1.8; margin-left: 18px; color: #444; font-size: 0.92em; margin-bottom: 0;">
+            <li>Développer la force des membres supérieurs (tractions, tirage, développé)</li>
+            <li>Développer l'endurance de force : maintenir une puissance élevée sur 1'30 à 2'</li>
+        </ul>
     </div>
 
 </div>
