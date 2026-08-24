@@ -43501,19 +43501,18 @@ render();
 </style>
 <div class="wp-header">
   <div class="wp-title">🤽 WATER POLO — Attaque placée sans pointe</div>
-  <div class="wp-subtitle">Entrées et sorties alternées pour désorganiser la défense</div>
+  <div class="wp-subtitle">Chaque joueur peut descendre en position 6 depuis son poste extérieur</div>
 </div>
 <div class="carrier-ctrl">
   <button class="carousel-btn" onclick="prevSP()">&#8592;</button>
-  <div class="state-val" id="state-label-sp">Position initiale</div>
+  <div class="state-val" id="state-label-sp">Entrée : joueur 1 (coin droit) → position 6</div>
   <button class="carousel-btn" onclick="nextSP()">&#8594;</button>
 </div>
 <svg class="terrain" id="svg-main-sp" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Position actuelle</div>
-  <div class="legend-item"><div class="ld" style="background:#c62828;opacity:0.3"></div>Position précédente</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Entrée dans l'espace</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,255,255,0.15);border:1.5px dashed white"></div>Sortie / libère l'espace</div>
+  <div class="legend-item"><div class="ld" style="background:#c62828;opacity:0.3"></div>Poste extérieur vidé</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Mouvement vers la position 6</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -43564,67 +43563,17 @@ function drawTerrain(svg){
   svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
 }
 
-// Positions de base — arc 5m, pas de pointe
+// 6 postes extérieurs — position 6 (centre 2m) vide au départ
+const GPOS=[330,26];
+const POS6=[330,Y2M];
 const P={
-  G:[330,26],
-  1:[530,108], 2:[452,182], 3:[330,220], 4:[208,182], 5:[130,108],
-  6:[330,Y2M] // att6 reste en position haute
+  '1':[530,104], '2':[452,196], '3a':[372,232], '3b':[288,232], '4':[208,196], '5':[130,104]
 };
+const ORDER=['1','2','3a','3b','4','5'];
+const SLOT_LABEL={'1':'1','2':'2','3a':'3','3b':'3','4':'4','5':'5'};
+const SLOT_DESC={'1':'coin droit','2':'demi-droit','3a':'centre-droit','3b':'centre-gauche','4':'demi-gauche','5':'coin gauche'};
 
-// Arc élargi (positions sorties)
-const OUT1=[572,130], OUT5=[88,130]; // sorties vers l'extérieur
-// Positions entrées (dans l'espace libéré)
-const IN2=[490,140], IN4=[170,140]; // entrée vers le coin libéré
-
-const STATES=[
-  {
-    label:'Position initiale',
-    desc:'6 joueurs en arc — att6 en position haute, 1 à 5 sur l\\'arc 5m',
-    render(svg){
-      drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
-      drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
-      for(let n=1;n<=5;n++) drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1]);
-    }
-  },
-  {
-    label:'Sortie att1 — entrée att2',
-    desc:'Att1 sort vers l\\'extérieur, att2 entre dans l\\'espace libéré côté droit',
-    render(svg){
-      drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
-      drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
-      // Att1 sort (position précédente en fantôme)
-      drawTri(svg,P[1][0],P[1][1],'1','#c62828',[0,-1],0.25);
-      drawMovArrow(svg,P[1][0],P[1][1],OUT1[0],OUT1[1],'rgba(255,255,255,0.5)',true);
-      drawTri(svg,OUT1[0],OUT1[1],'1','#c62828',[0,-1]);
-      // Att2 entre dans l'espace
-      drawTri(svg,P[2][0],P[2][1],'2','#c62828',[0,-1],0.25);
-      drawMovArrow(svg,P[2][0],P[2][1],IN2[0],IN2[1],'#F97316');
-      drawTri(svg,IN2[0],IN2[1],'2','#c62828',[0,-1]);
-      // Att3, 4, 5 stables
-      for(const n of[3,4,5]) drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1]);
-      addLabel(svg,330,358,'Att2 occupe l\\'espace libéré par att1 — crée un surnombre côté droit');
-    }
-  },
-  {
-    label:'Sortie att5 — entrée att4',
-    desc:'Symétrique côté gauche — att5 sort, att4 entre',
-    render(svg){
-      drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
-      drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
-      // Att5 sort
-      drawTri(svg,P[5][0],P[5][1],'5','#c62828',[0,-1],0.25);
-      drawMovArrow(svg,P[5][0],P[5][1],OUT5[0],OUT5[1],'rgba(255,255,255,0.5)',true);
-      drawTri(svg,OUT5[0],OUT5[1],'5','#c62828',[0,-1]);
-      // Att4 entre
-      drawTri(svg,P[4][0],P[4][1],'4','#c62828',[0,-1],0.25);
-      drawMovArrow(svg,P[4][0],P[4][1],IN4[0],IN4[1],'#F97316');
-      drawTri(svg,IN4[0],IN4[1],'4','#c62828',[0,-1]);
-      // Stables
-      for(const n of[1,2,3]) drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1]);
-      addLabel(svg,330,358,'Att4 occupe l\\'espace libéré par att5 — crée un surnombre côté gauche');
-    }
-  },
-];
+const STATES=ORDER.map(key=>({key}));
 
 let sidx=0;
 
@@ -43635,11 +43584,24 @@ function addLabel(svg,x,y,txt){
 
 function render(){
   const s=STATES[sidx];
-  document.getElementById('state-label-sp').textContent=s.label;
+  const num=SLOT_LABEL[s.key],desc=SLOT_DESC[s.key];
+  document.getElementById('state-label-sp').textContent=\`Entrée : joueur \${num} (\${desc}) → position 6\`;
   const svg=document.getElementById('svg-main-sp');
   svg.innerHTML='';
   drawTerrain(svg);
-  s.render(svg);
+  drawTri(svg,GPOS[0],GPOS[1],'G','#2e7d32',[0,1]);
+  for(const key of ORDER){
+    const pos=P[key],label=SLOT_LABEL[key];
+    if(key===s.key){
+      // Poste extérieur vidé (fantôme) + mouvement vers la position 6
+      drawTri(svg,pos[0],pos[1],label,'#c62828',[0,-1],0.25);
+      drawMovArrow(svg,pos[0],pos[1],POS6[0],POS6[1],'#F97316');
+      drawTri(svg,POS6[0],POS6[1],label,'#c62828',[0,1]);
+    }else{
+      drawTri(svg,pos[0],pos[1],label,'#c62828',[0,-1]);
+    }
+  }
+  addLabel(svg,330,358,\`Joueur \${num} (\${desc}) descend en position 6 — les 5 autres restent en place\`);
 }
 
 function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
