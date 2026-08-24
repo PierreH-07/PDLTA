@@ -42286,7 +42286,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 #wp-pressing .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #F97316; }
 #wp-pressing .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
 #wp-pressing svg.terrain { width: 100%; max-width: 800px; height: auto; display: block; border-radius: 12px; box-shadow: 0 6px 28px rgba(0,0,0,0.55); }
-#wp-pressing .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+#wp-pressing .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; background: transparent; }
 #wp-pressing .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-pressing .ld { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
 #wp-pressing .lr { width: 20px; height: 10px; border-radius: 2px; flex-shrink: 0; }
@@ -42428,7 +42428,7 @@ render();
 #wp-zone .schema-label { font-family: 'Prompt', sans-serif; font-size: 12px; font-weight: 600; text-align: center; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 #wp-zone .badge { display: inline-block; border-radius: 12px; padding: 2px 10px; font-size: 11px; font-weight: 700; }
 #wp-zone svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-zone .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-zone .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
 #wp-zone .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-zone .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 #wp-zone .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
@@ -42445,7 +42445,7 @@ render();
 </div>
 <div class="schemas-wrapper">
   <div class="schema-block">
-    <div class="schema-label" style="color:#42a5f5;">🔒 Joueur 6 fermé <span class="badge" style="background:#0d47a1;color:white;">Z2</span></div>
+    <div class="schema-label" style="color:#16a34a;">🔒 Joueur 6 fermé <span class="badge" style="background:#0d47a1;color:white;">Z2</span></div>
     <svg class="terrain" id="svg-0" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg"></svg>
   </div>
   <div class="schema-block">
@@ -42456,7 +42456,7 @@ render();
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
   <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense H/H</div>
-  <div class="legend-item"><div class="ld" style="background:#42a5f5"></div>Zone (50% ligne att→6)</div>
+  <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Zone (50% ligne att→6)</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.18);border:1.5px dashed #F97316"></div>Triangle actif</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
@@ -42551,8 +42551,8 @@ function renderSlide(si,carrier){
   const px=-dy/len*triWidth,py=dx/len*triWidth;
   svg.appendChild(se('polygon',{
     points:\`\${s6[0]},\${s6[1]} \${pc[0]+px},\${pc[1]+py} \${pc[0]-px},\${pc[1]-py}\`,
-    fill:si===0?'rgba(66,165,245,0.13)':'rgba(255,200,0,0.16)',
-    stroke:si===0?'#42a5f5':'#F97316','stroke-width':'1.5','stroke-dasharray':'5,3'
+    fill:si===0?'rgba(22,163,74,0.13)':'rgba(255,200,0,0.16)',
+    stroke:si===0?'#16a34a':'#F97316','stroke-width':'1.5','stroke-dasharray':'5,3'
   }));
 
   svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
@@ -42570,7 +42570,7 @@ function renderSlide(si,carrier){
 
   // Lignes trajectoires zoneurs
   for(const n of zoners)
-    svg.appendChild(L(ATT[n][0],ATT[n][1],s6[0],s6[1],{stroke:'rgba(66,165,245,0.28)','stroke-width':'1','stroke-dasharray':'3,3'}));
+    svg.appendChild(L(ATT[n][0],ATT[n][1],s6[0],s6[1],{stroke:'rgba(22,163,74,0.28)','stroke-width':'1','stroke-dasharray':'3,3'}));
   svg.appendChild(L(pc[0],pc[1],s6[0],s6[1],{stroke:'rgba(255,255,100,0.5)','stroke-width':'1.5','stroke-dasharray':'5,3'}));
 
   // Gardien — tête vers le bas (face au jeu)
@@ -42587,7 +42587,7 @@ function renderSlide(si,carrier){
   for(const n of zoners){
     const zp=zonerPos(n);
     const[ux,uy]=norm(ATT[n][0]-zp[0],ATT[n][1]-zp[1]);
-    drawTri(svg,zp[0],zp[1],'Z','#42a5f5',[ux,uy],false);
+    drawTri(svg,zp[0],zp[1],'Z','#16a34a',[ux,uy],false);
   }
   // Def H/H restants — tête vers leur att
   for(let n=1;n<=5;n++){
@@ -42635,7 +42635,7 @@ render();
 #wp-deux-pointes .carrier-label { font-family: 'Prompt', sans-serif; font-size: 13px; color: rgba(255,255,255,0.8); min-width: 200px; text-align: center; }
 #wp-deux-pointes #wp-deux-pointes .carrier-label span { color: #ffd740; font-weight: 700; }
 #wp-deux-pointes svg.terrain { width: 100%; max-width: 800px; height: auto; display: block; border-radius: 12px; box-shadow: 0 6px 28px rgba(0,0,0,0.55); }
-#wp-deux-pointes .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+#wp-deux-pointes .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; background: transparent; }
 #wp-deux-pointes .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-deux-pointes .ld { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
 #wp-deux-pointes .lr { width: 20px; height: 10px; border-radius: 2px; flex-shrink: 0; }
@@ -42653,10 +42653,10 @@ render();
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
   <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense H/H</div>
-  <div class="legend-item"><div class="ld" style="background:#42a5f5"></div>Défense Zone</div>
+  <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défense Zone</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.18);border:1.5px dashed #F97316"></div>Secteur droit</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(100,180,255,0.18);border:1.5px dashed #42a5f5"></div>Secteur gauche</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(22,163,74,0.18);border:1.5px dashed #16a34a"></div>Secteur gauche</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -42716,7 +42716,7 @@ function render(){
   svg.appendChild(se('polygon',{points:\`\${s6a[0]},\${s6a[1]} \${a1[0]+22},\${a1[1]} \${a2[0]+16},\${a2[1]+30} \${a2[0]},\${a2[1]+30}\`,
     fill:'rgba(255,200,0,0.11)',stroke:'#F97316','stroke-width':'1.8','stroke-dasharray':'7,5'}));
   svg.appendChild(se('polygon',{points:\`\${s6b[0]},\${s6b[1]} \${a4[0]-16},\${a4[1]+30} \${a5[0]-22},\${a5[1]} \${a4[0]},\${a4[1]+30}\`,
-    fill:'rgba(100,180,255,0.11)',stroke:'#42a5f5','stroke-width':'1.8','stroke-dasharray':'7,5'}));
+    fill:'rgba(22,163,74,0.11)',stroke:'#16a34a','stroke-width':'1.8','stroke-dasharray':'7,5'}));
 
   // Couloir central
   svg.appendChild(R(Z2X1,Y2M,Z2X2-Z2X1,H-Y2M-M,{fill:'rgba(0,0,0,0.12)',stroke:'rgba(255,255,255,0.08)','stroke-width':'1','stroke-dasharray':'4,4'}));
@@ -42735,8 +42735,8 @@ function render(){
   // Trajectoires de passe
   svg.appendChild(L(a1[0],a1[1],s6a[0],s6a[1],{stroke:'rgba(255,200,0,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
   svg.appendChild(L(a2[0],a2[1],s6a[0],s6a[1],{stroke:'rgba(255,200,0,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
-  svg.appendChild(L(a4[0],a4[1],s6b[0],s6b[1],{stroke:'rgba(100,180,255,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
-  svg.appendChild(L(a5[0],a5[1],s6b[0],s6b[1],{stroke:'rgba(100,180,255,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
+  svg.appendChild(L(a4[0],a4[1],s6b[0],s6b[1],{stroke:'rgba(22,163,74,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
+  svg.appendChild(L(a5[0],a5[1],s6b[0],s6b[1],{stroke:'rgba(22,163,74,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
 
   // Porteur
   const pc=ATT[carrier];
@@ -42768,13 +42768,13 @@ function render(){
 
   // Zoneurs secteur droit (face à leur att)
   const zR1=zonerAt50(s6a,a1),zR2=zonerAt50(s6a,a2);
-  drawTri(svg,zR1[0],zR1[1],'Z','#42a5f5',norm(a1[0]-zR1[0],a1[1]-zR1[1]),false);
-  drawTri(svg,zR2[0],zR2[1],'Z','#42a5f5',norm(a2[0]-zR2[0],a2[1]-zR2[1]),false);
+  drawTri(svg,zR1[0],zR1[1],'Z','#16a34a',norm(a1[0]-zR1[0],a1[1]-zR1[1]),false);
+  drawTri(svg,zR2[0],zR2[1],'Z','#16a34a',norm(a2[0]-zR2[0],a2[1]-zR2[1]),false);
 
   // Zoneurs secteur gauche
   const zL4=zonerAt50(s6b,a4),zL5=zonerAt50(s6b,a5);
-  drawTri(svg,zL4[0],zL4[1],'Z','#42a5f5',norm(a4[0]-zL4[0],a4[1]-zL4[1]),false);
-  drawTri(svg,zL5[0],zL5[1],'Z','#42a5f5',norm(a5[0]-zL5[0],a5[1]-zL5[1]),false);
+  drawTri(svg,zL4[0],zL4[1],'Z','#16a34a',norm(a4[0]-zL4[0],a4[1]-zL4[1]),false);
+  drawTri(svg,zL5[0],zL5[1],'Z','#16a34a',norm(a5[0]-zL5[0],a5[1]-zL5[1]),false);
 }
 
 function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
@@ -42808,7 +42808,7 @@ render();
 #wp-intervalle .carrier-label { font-family: 'Prompt', sans-serif; font-size: 13px; color: rgba(255,255,255,0.8); min-width: 180px; text-align: center; }
 #wp-intervalle #wp-intervalle .carrier-label span { color: #ffd740; font-weight: 700; }
 #wp-intervalle svg.terrain { width: 100%; max-width: 800px; height: auto; display: block; border-radius: 12px; box-shadow: 0 6px 28px rgba(0,0,0,0.55); }
-#wp-intervalle .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+#wp-intervalle .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; background: transparent; }
 #wp-intervalle .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-intervalle .ld { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
 #wp-intervalle .lr { width: 20px; height: 10px; border-radius: 2px; flex-shrink: 0; }
@@ -42967,7 +42967,7 @@ render();
 #wp-zone-moins #wp-zone-moins .carousel-btn:hover { background: #ea6500; }
 #wp-zone-moins #wp-zone-moins .carousel-btn.invis { visibility: hidden; }
 #wp-zone-moins svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-zone-moins .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-zone-moins .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
 #wp-zone-moins .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-zone-moins .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 #wp-zone-moins .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
@@ -42996,7 +42996,7 @@ render();
     <div class="schema-top">
       <button class="carousel-btn invis">&#8592;</button>
       <div>
-        <div class="schema-label" style="color:#42a5f5;">Attaque en 3/3</div>
+        <div class="schema-label" style="color:#16a34a;">Attaque en 3/3</div>
         <div class="schema-sub">Configuration classique — zone totale sauf att6</div>
       </div>
       <button class="carousel-btn invis">&#8594;</button>
@@ -43008,7 +43008,7 @@ render();
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
   <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense individuel</div>
-  <div class="legend-item"><div class="ld" style="background:#42a5f5"></div>Défense zone</div>
+  <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défense zone</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px dashed #F97316"></div>Côté fort</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
@@ -43163,11 +43163,11 @@ function render42(){
 
     // Def zone entre att6 et att2p (couvre passe 6→2p)
     const dz1=[p6[0]+(p2[0]-p6[0])*.5, p6[1]+(p2[1]-p6[1])*.5];
-    drawTri(svg,dz1[0],dz1[1],'Z','#42a5f5',norm(p2[0]-dz1[0],p2[1]-dz1[1]),false);
+    drawTri(svg,dz1[0],dz1[1],'Z','#16a34a',norm(p2[0]-dz1[0],p2[1]-dz1[1]),false);
 
     // Def zone entre att2p et att1 (couvre passe 2p→1, pousse vers att5 côté faible)
     const dz2=[p2[0]+(p1[0]-p2[0])*.45, p2[1]+(p1[1]-p2[1])*.45];
-    drawTri(svg,dz2[0],dz2[1],'Z','#42a5f5',norm(p1[0]-dz2[0],p1[1]-dz2[1]),false);
+    drawTri(svg,dz2[0],dz2[1],'Z','#16a34a',norm(p1[0]-dz2[0],p1[1]-dz2[1]),false);
     // Flèche "pousse vers extérieur/côté faible"
     drawArrow(svg,dz2[0],dz2[1],dz2[0]-28,dz2[1]+10,'#F97316',true);
 
@@ -43191,11 +43191,11 @@ function render42(){
 
     // Def zone entre att6 et att4p
     const dz1=[p6[0]+(p4[0]-p6[0])*.5, p6[1]+(p4[1]-p6[1])*.5];
-    drawTri(svg,dz1[0],dz1[1],'Z','#42a5f5',norm(p4[0]-dz1[0],p4[1]-dz1[1]),false);
+    drawTri(svg,dz1[0],dz1[1],'Z','#16a34a',norm(p4[0]-dz1[0],p4[1]-dz1[1]),false);
 
     // Def zone entre att4p et att5
     const dz2=[p4[0]+(p5[0]-p4[0])*.45, p4[1]+(p5[1]-p4[1])*.45];
-    drawTri(svg,dz2[0],dz2[1],'Z','#42a5f5',norm(p5[0]-dz2[0],p5[1]-dz2[1]),false);
+    drawTri(svg,dz2[0],dz2[1],'Z','#16a34a',norm(p5[0]-dz2[0],p5[1]-dz2[1]),false);
     drawArrow(svg,dz2[0],dz2[1],dz2[0]+28,dz2[1]+10,'#F97316',true);
 
     // Def individuel sur att2 et att3
@@ -43227,7 +43227,7 @@ function render33(){
   // Lignes de passe att→att6 (zone à couper)
   for(let n=1;n<=5;n++){
     svg.appendChild(L(POS33[n][0],POS33[n][1],s6[0],s6[1],{
-      stroke:'rgba(66,165,245,0.25)','stroke-width':'1','stroke-dasharray':'3,3'
+      stroke:'rgba(22,163,74,0.25)','stroke-width':'1','stroke-dasharray':'3,3'
     }));
   }
   // Lignes latérales att
@@ -43258,13 +43258,13 @@ function render33(){
   for(const n of ZONES){
     const an=POS33[n];
     const zp=[an[0]+(s6[0]-an[0])*.50, an[1]+(s6[1]-an[1])*.50];
-    drawTri(svg,zp[0],zp[1],'Z','#42a5f5',norm(an[0]-zp[0],an[1]-zp[1]),false);
+    drawTri(svg,zp[0],zp[1],'Z','#16a34a',norm(an[0]-zp[0],an[1]-zp[1]),false);
   }
 
   // Att3 : légèrement couvert par un def en retrait (zone lâche)
   const a3=POS33[3];
   const zp3=[a3[0]+(s6[0]-a3[0])*.38, a3[1]+(s6[1]-a3[1])*.38];
-  drawTri(svg,zp3[0],zp3[1],'Z','#42a5f5',norm(a3[0]-zp3[0],a3[1]-zp3[1]),false,8);
+  drawTri(svg,zp3[0],zp3[1],'Z','#16a34a',norm(a3[0]-zp3[0],a3[1]-zp3[1]),false,8);
 
   // Annotation
   const lbl=se('text',{x:'220',y:'265','text-anchor':'middle','font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.4)','font-style':'italic'});
@@ -43307,7 +43307,7 @@ render33();
 #wp-zone-plus #wp-zone-plus .carousel-btn:hover { background: #ea6500; }
 #wp-zone-plus .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 180px; text-align: center; }
 #wp-zone-plus svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-zone-plus .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-zone-plus .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
 #wp-zone-plus .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-zone-plus .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 #wp-zone-plus .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
@@ -43494,7 +43494,7 @@ render();
 #wp-sans-pointe #wp-sans-pointe .carousel-btn:hover { background: #ea6500; }
 #wp-sans-pointe .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 200px; text-align: center; }
 #wp-sans-pointe svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-sans-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-sans-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
 #wp-sans-pointe .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-sans-pointe .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 #wp-sans-pointe .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
@@ -43671,7 +43671,7 @@ render();
 #wp-avec-pointe #wp-avec-pointe .carousel-btn:hover { background: #ea6500; }
 #wp-avec-pointe .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 220px; text-align: center; }
 #wp-avec-pointe svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-avec-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-avec-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
 #wp-avec-pointe .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-avec-pointe .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 #wp-avec-pointe .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
