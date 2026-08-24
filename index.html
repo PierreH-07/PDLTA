@@ -42255,7 +42255,14 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <h2>🎯 Projet de jeu</h2>
   </div>
   <div class="domain-body" style="background:var(--p4-l);">
-    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Des principes aux tactiques</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des <strong>tactiques et un projet de jeu</strong> : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble.</p></div></details>
+    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Des principes aux tactiques</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des <strong>tactiques et un projet de jeu</strong> : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble.</p>
+<div style="margin-top:28px;padding:18px 22px;background:rgba(249,115,22,0.06);border-radius:10px;border-left:4px solid #F97316;">
+  <h4 style="color:#F97316;font-size:1em;font-weight:700;margin-bottom:12px;font-family:'Prompt',Arial,sans-serif;">⏱️ Gérer l'espace et le temps</h4>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;margin-bottom:10px;">L'espace et le temps sont les deux ressources que l'attaque cherche à créer et que la défense cherche à supprimer.</p>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;margin-bottom:10px;"><strong>En attaque</strong>, circuler le ballon sert à faire bouger les défenseurs, pas à occuper le temps. Chaque passe doit ouvrir une ligne ou libérer un joueur. Quand le déséquilibre apparaît, il faut l'exploiter avant que la défense ne se réorganise : l'espace existe rarement deux fois.</p>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;margin-bottom:10px;"><strong>En défense</strong>, tenir ses lignes contraint l'attaque à prendre du temps. Plus l'attaque tarde, plus la défense retrouve ses positions. Un défenseur bien placé n'a pas besoin d'intervenir : sa position seule ferme une option.</p>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;"><strong>Le lien</strong> : une attaque rapide met la défense sous pression temporelle. Une défense compacte force l'attaque à trouver des solutions dans des espaces réduits. Toutes les tactiques travaillées en P4 jouent sur ce rapport.</p>
+</div></div></details>
     <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Qu'est-ce qu'un projet de jeu ?</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
         <div class="p4jc-sub-card"><div class="p4jc-sub-title">Définition</div><div class="p4jc-sub-text">Un projet de jeu est le cadre tactique dans lequel une équipe choisit d'évoluer. Il n'est pas universel : il se construit à partir des forces et des faiblesses de l'effectif, du temps disponible pour le développer, et des adversaires rencontrés.</div></div>
         <div class="p4jc-sub-card"><div class="p4jc-sub-title">Philosophie</div><div class="p4jc-sub-text">Un projet de jeu efficace <strong>impose les choix à l'adversaire</strong> plutôt que de subir les siens. Il cherche à limiter les options adverses, à créer des déséquilibres reproductibles, et à mettre la pression de manière organisée. C'est un outil de cohérence collective, pas un carcan.</div></div>
@@ -42937,6 +42944,869 @@ function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
 function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
 function prev(){cidx=(cidx-1+CARRIERS.length)%CARRIERS.length;render();}
 function next(){cidx=(cidx+1)%CARRIERS.length;render();}
+render();
+<\/script>
+</div>
+<div style="margin-top:40px;border-top:3px solid #DC2626;padding-top:32px;">
+  <h3 style="color:#DC2626;font-size:1.35em;font-weight:700;margin-bottom:8px;font-family:'Prompt',Arial,sans-serif;">⚡ Les grandes familles de tactiques offensives</h3>
+  <p style="font-size:0.88em;color:#666;font-style:italic;margin-bottom:28px;line-height:1.6;">L'objectif de toute attaque placée est de faire sortir un défenseur de sa zone pour libérer un tireur. Les trois familles ci-dessous organisent cet objectif selon la configuration choisie.</p>
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <div style="background:linear-gradient(135deg,#b91c1c 0%,#dc2626 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.4em;">➕</span>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Zone + (supériorité numérique)</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">4/2 ou 3/3 selon le côté choisi</div></div>
+      </div>
+      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">En supériorité numérique, l'attaque choisit sa configuration selon le placement défensif adverse. Un attaquant monte au poteau (sur la ligne 6 vers 1 ou vers 5) pour créer un 4/2 et forcer la défense à se repositionner. La circulation de balle suit la progression : porteur de côté vers le poteau, puis vers la pointe.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#b91c1c10;color:#b91c1c;border:1px solid #b91c1c30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Configuration 3/3 ou 4/2</span><span style="background:#b91c1c10;color:#b91c1c;border:1px solid #b91c1c30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Circulation de balle structurée</span></div></div>
+    </div>
+    <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <div style="background:linear-gradient(135deg,#c2410c 0%,#ea580c 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.4em;">🔄</span>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Attaque placée sans pointe</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Entrées et sorties alternées pour désorganiser</div></div>
+      </div>
+      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">Sans attaquant fixe en pointe, l'attaque fait circuler les joueurs sur l'arc 5m. Les entrées et sorties alternées créent des déséquilibres locaux en forçant les défenseurs à choisir entre suivre leur joueur ou couvrir l'espace libéré.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#c2410c10;color:#c2410c;border:1px solid #c2410c30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Rotations sur l'arc 5m</span><span style="background:#c2410c10;color:#c2410c;border:1px solid #c2410c30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Exploitation des espaces libérés</span></div></div>
+    </div>
+    <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <div style="background:linear-gradient(135deg,#92400e 0%,#d97706 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.4em;">🎯</span>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Attaque placée avec pointe</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Circulation pour atteindre att6 en position de tir</div></div>
+      </div>
+      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">Att6 est fixe en pointe, dos au but. La circulation de balle entre att1 à att5 cherche à isoler un joueur proche du 6 pour une passe directe vers la pointe. Chaque séquence est structurée en 2 passes : porteur vers relayeur, relayeur vers att6.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#92400e10;color:#92400e;border:1px solid #92400e30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Att6 fixe dos au but</span><span style="background:#92400e10;color:#92400e;border:1px solid #92400e30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Séquences de 2 passes numérotées</span></div></div>
+    </div>
+  </div>
+</div>
+<div style="margin-top:26px;margin-bottom:6px;"><h4 style="color:#42a5f5;font-size:1em;font-weight:700;margin-bottom:6px;font-family:'Prompt',Arial,sans-serif;">🛡️ En réponse : la défense en infériorité numérique</h4><p style="font-size:0.85em;color:#666;font-style:italic;line-height:1.6;margin-bottom:0;">Face à une attaque en supériorité (Zone +), la défense doit couvrir le terrain à 5 contre 6. L'outil suivant montre comment elle s'organise selon la configuration adverse — c'est la réponse défensive, pas une famille offensive.</p></div>
+<div id="wp-zone-moins" style="background:#0f172a;border-radius:12px;padding:24px 20px;margin:28px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+#wp-zone-moins { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; }
+#wp-zone-moins .wp-header { text-align: center; margin-bottom: 14px; }
+#wp-zone-moins .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #F97316; }
+#wp-zone-moins .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+#wp-zone-moins .schemas-wrapper { display: flex; gap: 14px; justify-content: center; }
+#wp-zone-moins .schema-block { flex: 1; max-width: 460px; }
+#wp-zone-moins .schema-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 6px; }
+#wp-zone-moins .schema-label { font-family: 'Prompt', sans-serif; font-size: 12px; font-weight: 600; text-align: center; flex: 1; }
+#wp-zone-moins .schema-sub { font-size: 11px; color: rgba(255,255,255,0.55); text-align: center; margin-bottom: 6px; min-height: 16px; }
+#wp-zone-moins .carousel-btn { background: #F97316; border: none; color: white; width: 30px; height: 30px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; }
+#wp-zone-moins #wp-zone-moins .carousel-btn:hover { background: #ea6500; }
+#wp-zone-moins #wp-zone-moins .carousel-btn.invis { visibility: hidden; }
+#wp-zone-moins svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+#wp-zone-moins .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-zone-moins .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
+#wp-zone-moins .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+#wp-zone-moins .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+</style>
+<div class="wp-header">
+  <div class="wp-title">🤽 WATER POLO — Défense en infériorité numérique (5c6)</div>
+  <div class="wp-subtitle">Zone adaptée selon la configuration offensive adverse</div>
+</div>
+
+<div class="schemas-wrapper">
+  <!-- SLIDE GAUCHE : 4/2 avec carrousel -->
+  <div class="schema-block">
+    <div class="schema-top">
+      <button class="carousel-btn" onclick="prev42()">&#8592;</button>
+      <div>
+        <div class="schema-label" style="color:#F97316;">Attaque en 4/2</div>
+        <div class="schema-sub" id="sub-42">Variante A — att2 au poteau droit</div>
+      </div>
+      <button class="carousel-btn" onclick="next42()">&#8594;</button>
+    </div>
+    <svg class="terrain" id="svg-42" viewBox="0 0 440 310" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+
+  <!-- SLIDE DROIT : 3/3 fixe -->
+  <div class="schema-block">
+    <div class="schema-top">
+      <button class="carousel-btn invis">&#8592;</button>
+      <div>
+        <div class="schema-label" style="color:#42a5f5;">Attaque en 3/3</div>
+        <div class="schema-sub">Configuration classique — zone totale sauf att6</div>
+      </div>
+      <button class="carousel-btn invis">&#8594;</button>
+    </div>
+    <svg class="terrain" id="svg-33" viewBox="0 0 440 310" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense individuel</div>
+  <div class="legend-item"><div class="ld" style="background:#42a5f5"></div>Défense zone</div>
+  <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px dashed #F97316"></div>Côté fort</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+
+window.prev42=prev42;window.next42=next42;
+const W=440,H=310,M=18;
+const Y2M=72,Y5M=158;
+const Z2X1=162,Z2X2=278,BX1=192,BX2=248,BY=M;
+
+function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+
+// ── drawTri identique aux autres schémas ──
+function drawTri(svg,x,y,label,color,headDir,isCarrier,r=9){
+  const[hx,hy]=headDir,sx=-hy,sy=hx,arm=r*2.2,spread=r*1.1;
+  const g=se('g',{transform:\`translate(\${x},\${y})\`});
+  g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2'}));
+  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  const tx=hx*(r+6),ty=hy*(r+6);
+  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
+  const fs=r>9?'9.5':'8';
+  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':fs,'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  if(isCarrier){
+    const bx=sx*(r+13),by=sy*(r+13);
+    g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'5',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.2'}));
+    g.appendChild(L(bx,by-5,bx,by+5,{stroke:'#92400e','stroke-width':'0.8'}));
+    g.appendChild(L(bx-5,by,bx+5,by,{stroke:'#92400e','stroke-width':'0.8'}));
+  }
+  svg.appendChild(g);
+}
+
+function drawArrow(svg,x1,y1,x2,y2,color,dashed=false){
+  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*3.5,py=ux*3.5;
+  const attrs={stroke:color,'stroke-width':'1.8','stroke-linecap':'round'};
+  if(dashed) attrs['stroke-dasharray']='5,3';
+  svg.appendChild(L(x1,y1,x2,y2,attrs));
+  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*7+px},\${y2-uy*7+py} \${x2-ux*7-px},\${y2-uy*7-py}\`,fill:color}));
+}
+
+function drawTerrain(svg){
+  const defs=se('defs');
+  const id='wg'+svg.id;
+  const grad=se('linearGradient',{id,x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad);svg.appendChild(defs);
+  svg.appendChild(R(0,0,W,H,{fill:\`url(#\${id})\`,rx:'6'}));
+  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
+  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'8,5'}));
+  svg.appendChild(T(W-M+2,Y5M+4,'5m',{fill:'#ffd740','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
+  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(BX1,BY,BX2-BX1,22,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
+  svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,14,{fill:'rgba(255,255,255,0.15)'}));
+}
+
+// ══════════════════════════════════════════════════════════════
+// SLIDE 4/2
+// ══════════════════════════════════════════════════════════════
+// Positions att fixes
+const A1=[362,90],A5=[78,90],A6=[220,Y2M];
+// Poteau droit (sur ligne 6→1) et poteau gauche (sur ligne 6→5)
+const POTEAUD=[norm(A1[0]-A6[0],A1[1]-A6[1])].map(([ux,uy])=>[A6[0]+ux*72,A6[1]+uy*72])[0];
+const POTEAUG=[norm(A5[0]-A6[0],A5[1]-A6[1])].map(([ux,uy])=>[A6[0]+ux*72,A6[1]+uy*72])[0];
+// Att à 5m
+const A3=[220,200],A4=[130,165],A2_5m=[310,165];
+
+// Variante A : att2 monte au poteau droit, att4 reste à 5m avec att3
+// Variante B : att4 monte au poteau gauche, att2 reste à 5m avec att3
+const VARIANTS={
+  A:{
+    label:'Variante A — att2 au poteau droit',
+    att:{
+      1:A1, 6:A6, 5:A5,
+      '2p':POTEAUD,   // att2 au poteau droit
+      3:A3, 4:A4,     // att3 et att4 à 5m
+    },
+    cotefort:'right', // fort à droite (1, 2p, 6), faible à gauche (5 seul)
+    labels:{1:'1','2p':'2',6:'6',3:'3',4:'4',5:'5'},
+  },
+  B:{
+    label:'Variante B — att4 au poteau gauche',
+    att:{
+      1:A1, 6:A6, 5:A5,
+      '4p':POTEAUG,   // att4 au poteau gauche
+      3:A3, 2:A2_5m,  // att2 et att3 à 5m
+    },
+    cotefort:'left', // fort à gauche (5, 4p, 6), faible à droite (1 seul)
+    labels:{1:'1',6:'6',5:'5','4p':'4',3:'3',2:'2'},
+  }
+};
+
+const VKEYS=['A','B'];
+let vidx=0;
+
+function render42(){
+  const vk=VKEYS[vidx];
+  const v=VARIANTS[vk];
+  document.getElementById('sub-42').textContent=v.label;
+  const svg=document.getElementById('svg-42');
+  svg.innerHTML='';
+  drawTerrain(svg);
+
+  const att=v.att;
+  const cotefort=v.cotefort;
+
+  // Zone côté fort (semi-transparent jaune)
+  if(cotefort==='right'){
+    // Fort = droite (att1, att2p, att6)
+    svg.appendChild(se('polygon',{
+      points:\`\${att[6][0]},\${att[6][1]} \${att['2p'][0]},\${att['2p'][1]} \${att[1][0]+20},\${att[1][1]} \${att[1][0]+20},\${att[1][1]+40} \${att[6][0]},\${att[6][1]+30}\`,
+      fill:'rgba(255,200,0,0.10)',stroke:'#F97316','stroke-width':'1','stroke-dasharray':'5,4'
+    }));
+  } else {
+    // Fort = gauche (att5, att4p, att6)
+    svg.appendChild(se('polygon',{
+      points:\`\${att[6][0]},\${att[6][1]} \${att['4p'][0]},\${att['4p'][1]} \${att[5][0]-20},\${att[5][1]} \${att[5][0]-20},\${att[5][1]+40} \${att[6][0]},\${att[6][1]+30}\`,
+      fill:'rgba(255,200,0,0.10)',stroke:'#F97316','stroke-width':'1','stroke-dasharray':'5,4'
+    }));
+  }
+
+  // Gardien
+  drawTri(svg,220,26,'G','#2e7d32',[0,1],false);
+
+  // Attaquants
+  for(const[key,pos] of Object.entries(att)){
+    const lbl=v.labels[key]||String(key);
+    const isAt2m=pos[1]<=Y2M+5;
+    const dir=isAt2m?[0,1]:[0,-1]; // 2m=dos au but, 5m=face au but
+    drawTri(svg,pos[0],pos[1],lbl,'#c62828',dir,false);
+  }
+
+  // ── Défense à 5 ──
+  // Cas A : fort droite → 3 def à 2m (sur att6, att2p, entre att1 et att2p)
+  //         + 2 def individuel sur att3 et att4 à 5m
+  // Cas B : fort gauche → 3 def à 2m (sur att6, att4p, entre att5 et att4p)
+  //         + 2 def individuel sur att2 et att3 à 5m
+
+  if(cotefort==='right'){
+    const p2=att['2p'],p1=att[1],p6=att[6],p3=att[3],p4=att[4];
+
+    // Def sur att6 (individuel H/H)
+    const d6=[p6[0],p6[1]-20];
+    drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
+    drawArrow(svg,d6[0],d6[1]+6,d6[0]+18,d6[1]+18,'#F97316');
+
+    // Def zone entre att6 et att2p (couvre passe 6→2p)
+    const dz1=[p6[0]+(p2[0]-p6[0])*.5, p6[1]+(p2[1]-p6[1])*.5];
+    drawTri(svg,dz1[0],dz1[1],'Z','#42a5f5',norm(p2[0]-dz1[0],p2[1]-dz1[1]),false);
+
+    // Def zone entre att2p et att1 (couvre passe 2p→1, pousse vers att5 côté faible)
+    const dz2=[p2[0]+(p1[0]-p2[0])*.45, p2[1]+(p1[1]-p2[1])*.45];
+    drawTri(svg,dz2[0],dz2[1],'Z','#42a5f5',norm(p1[0]-dz2[0],p1[1]-dz2[1]),false);
+    // Flèche "pousse vers extérieur/côté faible"
+    drawArrow(svg,dz2[0],dz2[1],dz2[0]-28,dz2[1]+10,'#F97316',true);
+
+    // Def individuel sur att3 et att4 (à 5m)
+    const dp3=[p3[0],p3[1]-20];
+    drawTri(svg,dp3[0],dp3[1],'H','#0d47a1',norm(p3[0]-dp3[0],p3[1]-dp3[1]),false);
+    const dp4=[p4[0]+(220-p4[0])*.15,p4[1]-18];
+    drawTri(svg,dp4[0],dp4[1],'H','#0d47a1',norm(p4[0]-dp4[0],p4[1]-dp4[1]),false);
+
+    // Annotation côté faible (att5 seul)
+    const lbl=se('text',{x:String(att[5][0]-12),y:String(att[5][1]+30),'font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.45)','font-style':'italic'});
+    lbl.textContent='côté faible';svg.appendChild(lbl);
+
+  } else {
+    const p4=att['4p'],p5=att[5],p6=att[6],p2=att[2],p3=att[3];
+
+    // Def sur att6
+    const d6=[p6[0],p6[1]-20];
+    drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
+    drawArrow(svg,d6[0],d6[1]+6,d6[0]-18,d6[1]+18,'#F97316');
+
+    // Def zone entre att6 et att4p
+    const dz1=[p6[0]+(p4[0]-p6[0])*.5, p6[1]+(p4[1]-p6[1])*.5];
+    drawTri(svg,dz1[0],dz1[1],'Z','#42a5f5',norm(p4[0]-dz1[0],p4[1]-dz1[1]),false);
+
+    // Def zone entre att4p et att5
+    const dz2=[p4[0]+(p5[0]-p4[0])*.45, p4[1]+(p5[1]-p4[1])*.45];
+    drawTri(svg,dz2[0],dz2[1],'Z','#42a5f5',norm(p5[0]-dz2[0],p5[1]-dz2[1]),false);
+    drawArrow(svg,dz2[0],dz2[1],dz2[0]+28,dz2[1]+10,'#F97316',true);
+
+    // Def individuel sur att2 et att3
+    const dp2=[p2[0],p2[1]-20];
+    drawTri(svg,dp2[0],dp2[1],'H','#0d47a1',norm(p2[0]-dp2[0],p2[1]-dp2[1]),false);
+    const dp3=[p3[0]+(220-p3[0])*.15,p3[1]-18];
+    drawTri(svg,dp3[0],dp3[1],'H','#0d47a1',norm(p3[0]-dp3[0],p3[1]-dp3[1]),false);
+
+    const lbl=se('text',{x:String(att[1][0]-10),y:String(att[1][1]+30),'font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.45)','font-style':'italic'});
+    lbl.textContent='côté faible';svg.appendChild(lbl);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// SLIDE 3/3
+// ══════════════════════════════════════════════════════════════
+const POS33={
+  G:[220,26], 6:[220,Y2M],
+  1:[362,90], 2:[300,162], 3:[220,228], 4:[140,162], 5:[78,90]
+};
+
+function render33(){
+  const svg=document.getElementById('svg-33');
+  svg.innerHTML='';
+  drawTerrain(svg);
+
+  const s6=POS33[6];
+
+  // Lignes de passe att→att6 (zone à couper)
+  for(let n=1;n<=5;n++){
+    svg.appendChild(L(POS33[n][0],POS33[n][1],s6[0],s6[1],{
+      stroke:'rgba(66,165,245,0.25)','stroke-width':'1','stroke-dasharray':'3,3'
+    }));
+  }
+  // Lignes latérales att
+  [[1,2],[2,3],[3,4],[4,5]].forEach(([a,b])=>{
+    svg.appendChild(L(POS33[a][0],POS33[a][1],POS33[b][0],POS33[b][1],{
+      stroke:'rgba(255,255,255,0.10)','stroke-width':'1','stroke-dasharray':'3,4'
+    }));
+  });
+
+  // Gardien
+  drawTri(svg,POS33.G[0],POS33.G[1],'G','#2e7d32',[0,1],false);
+
+  // Att6 dos au but
+  drawTri(svg,s6[0],s6[1],'6','#c62828',[0,1],false);
+
+  // Att 1-5 face au but
+  for(let n=1;n<=5;n++) drawTri(svg,POS33[n][0],POS33[n][1],String(n),'#c62828',[0,-1],false);
+
+  // ── Défense à 5 ──
+  // 1 def individuel sur att6 (H/H)
+  const d6=[s6[0],s6[1]-20];
+  drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(s6[0]-d6[0],s6[1]-d6[1]),false);
+  drawArrow(svg,d6[0],d6[1]+6,d6[0]+16,d6[1]+18,'#F97316');
+
+  // 4 def en zone — à 50% de la ligne attN→att6, orientés face à leur att
+  // On couvre att1, att2, att4, att5 (att3 laissé plus loin = côté le moins dangereux)
+  const ZONES=[1,2,4,5];
+  for(const n of ZONES){
+    const an=POS33[n];
+    const zp=[an[0]+(s6[0]-an[0])*.50, an[1]+(s6[1]-an[1])*.50];
+    drawTri(svg,zp[0],zp[1],'Z','#42a5f5',norm(an[0]-zp[0],an[1]-zp[1]),false);
+  }
+
+  // Att3 : légèrement couvert par un def en retrait (zone lâche)
+  const a3=POS33[3];
+  const zp3=[a3[0]+(s6[0]-a3[0])*.38, a3[1]+(s6[1]-a3[1])*.38];
+  drawTri(svg,zp3[0],zp3[1],'Z','#42a5f5',norm(a3[0]-zp3[0],a3[1]-zp3[1]),false,8);
+
+  // Annotation
+  const lbl=se('text',{x:'220',y:'265','text-anchor':'middle','font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.4)','font-style':'italic'});
+  lbl.textContent='zone totale — lignes de passe coupées';svg.appendChild(lbl);
+}
+
+function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
+function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
+function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
+function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
+function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
+
+function prev42(){vidx=(vidx-1+VKEYS.length)%VKEYS.length;render42();}
+function next42(){vidx=(vidx+1)%VKEYS.length;render42();}
+
+render42();
+render33();
+<\/script>
+</div>
+<div id="wp-zone-plus" style="background:#0f172a;border-radius:12px;padding:24px 20px;margin:28px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+#wp-zone-plus { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; }
+#wp-zone-plus .wp-header { text-align: center; margin-bottom: 14px; }
+#wp-zone-plus .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #F97316; }
+#wp-zone-plus .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+#wp-zone-plus .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
+#wp-zone-plus .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+#wp-zone-plus #wp-zone-plus .carousel-btn:hover { background: #ea6500; }
+#wp-zone-plus .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 180px; text-align: center; }
+#wp-zone-plus svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+#wp-zone-plus .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-zone-plus .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
+#wp-zone-plus .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+#wp-zone-plus .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+</style>
+<div class="wp-header">
+  <div class="wp-title">🤽 WATER POLO — Zone + (supériorité numérique)</div>
+  <div class="wp-subtitle">Faire sortir un défenseur pour libérer un tireur</div>
+</div>
+<div class="carrier-ctrl">
+  <button class="carousel-btn" onclick="prevZP()">&#8592;</button>
+  <div class="state-val" id="state-label-zp">3/3 — position initiale</div>
+  <button class="carousel-btn" onclick="nextZP()">&#8594;</button>
+</div>
+<svg class="terrain" id="svg-main-zp" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="legend">
+  <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque (6 joueurs)</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1;opacity:0.5"></div>Défense (5 joueurs)</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Mouvement attaque</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+
+window.prevZP=prev;window.nextZP=next;
+const W=660,H=400,M=20;
+const Y2M=88,Y5M=196;
+const Z2X1=236,Z2X2=424,BX1=278,BX2=382,BY=M;
+
+function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+
+function drawTri(svg,x,y,label,color,headDir,r=10){
+  const[hx,hy]=headDir,sx=-hy,sy=hx,arm=r*2.2,spread=r*1.1;
+  const g=se('g',{transform:\`translate(\${x},\${y})\`});
+  g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2'}));
+  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  const tx=hx*(r+6),ty=hy*(r+6);
+  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
+  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':String(r*0.9),'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  svg.appendChild(g);
+}
+
+function drawMovArrow(svg,x1,y1,x2,y2,color,num=''){
+  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:color,'stroke-width':'2','stroke-dasharray':'6,4','stroke-linecap':'round'}));
+  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*8+px},\${y2-uy*8+py} \${x2-ux*8-px},\${y2-uy*8-py}\`,fill:color}));
+  if(num){
+    const mx=(x1+x2)/2+px*1.5,my=(y1+y2)/2+py*1.5;
+    const c=se('circle',{cx:String(mx),cy:String(my),r:'8',fill:color});
+    svg.appendChild(c);
+    const t=se('text',{x:String(mx),y:String(my+3.5),'text-anchor':'middle','font-size':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'});
+    t.textContent=num; svg.appendChild(t);
+  }
+}
+
+function drawPassArrow(svg,x1,y1,x2,y2,num){
+  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:'white','stroke-width':'1.8','stroke-linecap':'round'}));
+  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*7+px},\${y2-uy*7+py} \${x2-ux*7-px},\${y2-uy*7-py}\`,fill:'white'}));
+  if(num){
+    const mx=(x1+x2)/2-px,my=(y1+y2)/2-py;
+    svg.appendChild(se('circle',{cx:String(mx),cy:String(my),r:'8',fill:'rgba(0,0,0,0.5)'}));
+    const t=se('text',{x:String(mx),y:String(my+3.5),'text-anchor':'middle','font-size':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'});
+    t.textContent=num; svg.appendChild(t);
+  }
+}
+
+function drawTerrain(svg){
+  const defs=se('defs');
+  const grad=se('linearGradient',{id:'wgzp',x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad); svg.appendChild(defs);
+  svg.appendChild(R(0,0,W,H,{fill:'url(#wgzp)',rx:'8'}));
+  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
+  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'8,5'}));
+  svg.appendChild(T(W-M+2,Y5M+4,'5m',{fill:'#ffd740','font-size':'9','font-weight':'bold'}));
+  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
+  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'9','font-weight':'bold'}));
+  svg.appendChild(R(BX1,BY,BX2-BX1,24,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
+  svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
+}
+
+// Positions de base 3/3
+const BASE={
+  G:[330,26], 6:[330,Y2M],
+  1:[530,108], 2:[452,200], 3:[330,270], 4:[208,200], 5:[130,108]
+};
+// Poteau droit (sur ligne 6→1) et poteau gauche (sur ligne 6→5)
+function poteauPos(from,to,ratio){
+  return[from[0]+(to[0]-from[0])*ratio, from[1]+(to[1]-from[1])*ratio];
+}
+const POTEAUD=poteauPos(BASE[6],BASE[1],0.62);
+const POTEAUG=poteauPos(BASE[6],BASE[5],0.62);
+
+const STATES=[
+  {label:'3/3 — position initiale',         key:'33'},
+  {label:'4/2 variante A — att2 monte',     key:'42A'},
+  {label:'4/2 variante B — att4 monte',     key:'42B'},
+];
+let sidx=0;
+
+function render(){
+  document.getElementById('state-label-zp').textContent=STATES[sidx].label;
+  const svg=document.getElementById('svg-main-zp');
+  svg.innerHTML='';
+  drawTerrain(svg);
+  const key=STATES[sidx].key;
+
+  // Gardien
+  drawTri(svg,BASE.G[0],BASE.G[1],'G','#2e7d32',[0,1]);
+
+  if(key==='33'){
+    // Att 3/3 en position
+    drawTri(svg,BASE[6][0],BASE[6][1],'6','#c62828',[0,1]);
+    for(let n=1;n<=5;n++) drawTri(svg,BASE[n][0],BASE[n][1],String(n),'#c62828',[0,-1]);
+    // Flèches de mouvement vers la config 4/2 (les deux options)
+    drawMovArrow(svg,BASE[2][0],BASE[2][1],POTEAUD[0],POTEAUD[1],'#F97316','A');
+    drawMovArrow(svg,BASE[4][0],BASE[4][1],POTEAUG[0],POTEAUG[1],'#F97316','B');
+    // Label
+    addLabel(svg,330,345,'Att2 ou Att4 monte au poteau selon le côté choisi');
+
+  } else if(key==='42A'){
+    // Att2 monté au poteau droit, att4 reste avec att3
+    drawTri(svg,BASE[6][0],BASE[6][1],'6','#c62828',[0,1]);
+    drawTri(svg,BASE[1][0],BASE[1][1],'1','#c62828',[0,-1]);
+    drawTri(svg,POTEAUD[0],POTEAUD[1],'2','#c62828',[0,1]); // au poteau, dos au but
+    drawTri(svg,BASE[3][0],BASE[3][1],'3','#c62828',[0,-1]);
+    drawTri(svg,BASE[4][0],BASE[4][1],'4','#c62828',[0,-1]);
+    drawTri(svg,BASE[5][0],BASE[5][1],'5','#c62828',[0,-1]);
+    // Circulation de balle : 1 → 2 → 6 (tir ou passe)
+    drawPassArrow(svg,BASE[1][0],BASE[1][1],POTEAUD[0],POTEAUD[1],'1');
+    drawPassArrow(svg,POTEAUD[0],POTEAUD[1],BASE[6][0],BASE[6][1],'2');
+    addLabel(svg,330,345,'Circulation droite : att1 → att2 (poteau) → att6 (pointe)');
+
+  } else {
+    // Att4 monté au poteau gauche, att2 reste avec att3
+    drawTri(svg,BASE[6][0],BASE[6][1],'6','#c62828',[0,1]);
+    drawTri(svg,BASE[1][0],BASE[1][1],'1','#c62828',[0,-1]);
+    drawTri(svg,BASE[2][0],BASE[2][1],'2','#c62828',[0,-1]);
+    drawTri(svg,BASE[3][0],BASE[3][1],'3','#c62828',[0,-1]);
+    drawTri(svg,POTEAUG[0],POTEAUG[1],'4','#c62828',[0,1]); // au poteau, dos au but
+    drawTri(svg,BASE[5][0],BASE[5][1],'5','#c62828',[0,-1]);
+    // Circulation : 5 → 4 → 6
+    drawPassArrow(svg,BASE[5][0],BASE[5][1],POTEAUG[0],POTEAUG[1],'1');
+    drawPassArrow(svg,POTEAUG[0],POTEAUG[1],BASE[6][0],BASE[6][1],'2');
+    addLabel(svg,330,345,'Circulation gauche : att5 → att4 (poteau) → att6 (pointe)');
+  }
+}
+
+function addLabel(svg,x,y,txt){
+  const t=se('text',{x:String(x),y:String(y),'text-anchor':'middle','font-size':'9','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.5)','font-style':'italic'});
+  t.textContent=txt; svg.appendChild(t);
+}
+
+function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
+function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
+function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
+function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
+function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
+function prev(){sidx=(sidx-1+STATES.length)%STATES.length;render();}
+function next(){sidx=(sidx+1)%STATES.length;render();}
+render();
+<\/script>
+</div>
+<div id="wp-sans-pointe" style="background:#0f172a;border-radius:12px;padding:24px 20px;margin:28px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+#wp-sans-pointe { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; }
+#wp-sans-pointe .wp-header { text-align: center; margin-bottom: 14px; }
+#wp-sans-pointe .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #F97316; }
+#wp-sans-pointe .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+#wp-sans-pointe .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
+#wp-sans-pointe .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+#wp-sans-pointe #wp-sans-pointe .carousel-btn:hover { background: #ea6500; }
+#wp-sans-pointe .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 200px; text-align: center; }
+#wp-sans-pointe svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+#wp-sans-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-sans-pointe .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
+#wp-sans-pointe .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+#wp-sans-pointe .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+</style>
+<div class="wp-header">
+  <div class="wp-title">🤽 WATER POLO — Attaque placée sans pointe</div>
+  <div class="wp-subtitle">Entrées et sorties alternées pour désorganiser la défense</div>
+</div>
+<div class="carrier-ctrl">
+  <button class="carousel-btn" onclick="prevSP()">&#8592;</button>
+  <div class="state-val" id="state-label-sp">Position initiale</div>
+  <button class="carousel-btn" onclick="nextSP()">&#8594;</button>
+</div>
+<svg class="terrain" id="svg-main-sp" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="legend">
+  <div class="legend-item"><div class="ld" style="background:#c62828"></div>Position actuelle</div>
+  <div class="legend-item"><div class="ld" style="background:#c62828;opacity:0.3"></div>Position précédente</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Entrée dans l'espace</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,255,255,0.15);border:1.5px dashed white"></div>Sortie / libère l'espace</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+
+window.prevSP=prev;window.nextSP=next;
+const W=660,H=400,M=20;
+const Y2M=88,Y5M=196;
+const Z2X1=236,Z2X2=424,BX1=278,BX2=382,BY=M;
+
+function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+
+function drawTri(svg,x,y,label,color,headDir,alpha=1,r=10){
+  const[hx,hy]=headDir,sx=-hy,sy=hx,arm=r*2.2,spread=r*1.1;
+  const g=se('g',{transform:\`translate(\${x},\${y})\`,opacity:String(alpha)});
+  g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2'}));
+  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  const tx=hx*(r+6),ty=hy*(r+6);
+  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
+  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':String(r*0.9),'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  svg.appendChild(g);
+}
+
+function drawMovArrow(svg,x1,y1,x2,y2,color,dashed=false){
+  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
+  const attrs={stroke:color,'stroke-width':'2','stroke-linecap':'round'};
+  if(dashed) attrs['stroke-dasharray']='5,4';
+  svg.appendChild(L(x1,y1,x2,y2,attrs));
+  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*8+px},\${y2-uy*8+py} \${x2-ux*8-px},\${y2-uy*8-py}\`,fill:color}));
+}
+
+function drawTerrain(svg){
+  const defs=se('defs');
+  const grad=se('linearGradient',{id:'wgsp',x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad); svg.appendChild(defs);
+  svg.appendChild(R(0,0,W,H,{fill:'url(#wgsp)',rx:'8'}));
+  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
+  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'8,5'}));
+  svg.appendChild(T(W-M+2,Y5M+4,'5m',{fill:'#ffd740','font-size':'9','font-weight':'bold'}));
+  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
+  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'9','font-weight':'bold'}));
+  svg.appendChild(R(BX1,BY,BX2-BX1,24,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
+  svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
+}
+
+// Positions de base — arc 5m, pas de pointe
+const P={
+  G:[330,26],
+  1:[530,108], 2:[452,182], 3:[330,220], 4:[208,182], 5:[130,108],
+  6:[330,Y2M] // att6 reste en position haute
+};
+
+// Arc élargi (positions sorties)
+const OUT1=[572,130], OUT5=[88,130]; // sorties vers l'extérieur
+// Positions entrées (dans l'espace libéré)
+const IN2=[490,140], IN4=[170,140]; // entrée vers le coin libéré
+
+const STATES=[
+  {
+    label:'Position initiale',
+    desc:'6 joueurs en arc — att6 en position haute, 1 à 5 sur l\\'arc 5m',
+    render(svg){
+      drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
+      drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
+      for(let n=1;n<=5;n++) drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1]);
+    }
+  },
+  {
+    label:'Sortie att1 — entrée att2',
+    desc:'Att1 sort vers l\\'extérieur, att2 entre dans l\\'espace libéré côté droit',
+    render(svg){
+      drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
+      drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
+      // Att1 sort (position précédente en fantôme)
+      drawTri(svg,P[1][0],P[1][1],'1','#c62828',[0,-1],0.25);
+      drawMovArrow(svg,P[1][0],P[1][1],OUT1[0],OUT1[1],'rgba(255,255,255,0.5)',true);
+      drawTri(svg,OUT1[0],OUT1[1],'1','#c62828',[0,-1]);
+      // Att2 entre dans l'espace
+      drawTri(svg,P[2][0],P[2][1],'2','#c62828',[0,-1],0.25);
+      drawMovArrow(svg,P[2][0],P[2][1],IN2[0],IN2[1],'#F97316');
+      drawTri(svg,IN2[0],IN2[1],'2','#c62828',[0,-1]);
+      // Att3, 4, 5 stables
+      for(const n of[3,4,5]) drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1]);
+      addLabel(svg,330,358,'Att2 occupe l\\'espace libéré par att1 — crée un surnombre côté droit');
+    }
+  },
+  {
+    label:'Sortie att5 — entrée att4',
+    desc:'Symétrique côté gauche — att5 sort, att4 entre',
+    render(svg){
+      drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
+      drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
+      // Att5 sort
+      drawTri(svg,P[5][0],P[5][1],'5','#c62828',[0,-1],0.25);
+      drawMovArrow(svg,P[5][0],P[5][1],OUT5[0],OUT5[1],'rgba(255,255,255,0.5)',true);
+      drawTri(svg,OUT5[0],OUT5[1],'5','#c62828',[0,-1]);
+      // Att4 entre
+      drawTri(svg,P[4][0],P[4][1],'4','#c62828',[0,-1],0.25);
+      drawMovArrow(svg,P[4][0],P[4][1],IN4[0],IN4[1],'#F97316');
+      drawTri(svg,IN4[0],IN4[1],'4','#c62828',[0,-1]);
+      // Stables
+      for(const n of[1,2,3]) drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1]);
+      addLabel(svg,330,358,'Att4 occupe l\\'espace libéré par att5 — crée un surnombre côté gauche');
+    }
+  },
+];
+
+let sidx=0;
+
+function addLabel(svg,x,y,txt){
+  const t=se('text',{x:String(x),y:String(y),'text-anchor':'middle','font-size':'9','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.45)','font-style':'italic'});
+  t.textContent=txt; svg.appendChild(t);
+}
+
+function render(){
+  const s=STATES[sidx];
+  document.getElementById('state-label-sp').textContent=s.label;
+  const svg=document.getElementById('svg-main-sp');
+  svg.innerHTML='';
+  drawTerrain(svg);
+  s.render(svg);
+}
+
+function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
+function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
+function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
+function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
+function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
+function prev(){sidx=(sidx-1+STATES.length)%STATES.length;render();}
+function next(){sidx=(sidx+1)%STATES.length;render();}
+render();
+<\/script>
+</div>
+<div id="wp-avec-pointe" style="background:#0f172a;border-radius:12px;padding:24px 20px;margin:28px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+#wp-avec-pointe { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; }
+#wp-avec-pointe .wp-header { text-align: center; margin-bottom: 14px; }
+#wp-avec-pointe .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #F97316; }
+#wp-avec-pointe .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+#wp-avec-pointe .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
+#wp-avec-pointe .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+#wp-avec-pointe #wp-avec-pointe .carousel-btn:hover { background: #ea6500; }
+#wp-avec-pointe .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 220px; text-align: center; }
+#wp-avec-pointe svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+#wp-avec-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+#wp-avec-pointe .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
+#wp-avec-pointe .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+#wp-avec-pointe .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+</style>
+<div class="wp-header">
+  <div class="wp-title">🤽 WATER POLO — Attaque placée avec pointe</div>
+  <div class="wp-subtitle">Séquence de passes pour déséquilibrer et atteindre att6</div>
+</div>
+<div class="carrier-ctrl">
+  <button class="carousel-btn" onclick="prevAP()">&#8592;</button>
+  <div class="state-val" id="state-label-ap">Porteur : Joueur 1</div>
+  <button class="carousel-btn" onclick="nextAP()">&#8594;</button>
+</div>
+<svg class="terrain" id="svg-main-ap" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="legend">
+  <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,255,255,0.2);border:1.5px solid white"></div>Passe numérotée</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Passe finale vers pointe</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+
+window.prevAP=prev;window.nextAP=next;
+const W=660,H=400,M=20;
+const Y2M=88,Y5M=196;
+const Z2X1=236,Z2X2=424,BX1=278,BX2=382,BY=M;
+
+function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+
+function drawTri(svg,x,y,label,color,headDir,r=10,isCarrier=false){
+  const[hx,hy]=headDir,sx=-hy,sy=hx,arm=r*2.2,spread=r*1.1;
+  const g=se('g',{transform:\`translate(\${x},\${y})\`});
+  g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2'}));
+  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  const tx=hx*(r+6),ty=hy*(r+6);
+  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
+  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':String(r*0.9),'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  if(isCarrier){
+    const bx=sx*(r+13),by=sy*(r+13);
+    g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'5',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.2'}));
+    g.appendChild(L(bx,by-5,bx,by+5,{stroke:'#92400e','stroke-width':'0.8'}));
+    g.appendChild(L(bx-5,by,bx+5,by,{stroke:'#92400e','stroke-width':'0.8'}));
+  }
+  svg.appendChild(g);
+}
+
+function drawPass(svg,x1,y1,x2,y2,num,isFinal=false){
+  const color=isFinal?'#F97316':'white';
+  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:color,'stroke-width':isFinal?'2.2':'1.8','stroke-linecap':'round'}));
+  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*8+px},\${y2-uy*8+py} \${x2-ux*8-px},\${y2-uy*8-py}\`,fill:color}));
+  const mx=(x1+x2)/2-px*1.5,my=(y1+y2)/2-py*1.5;
+  svg.appendChild(se('circle',{cx:String(mx),cy:String(my),r:'8',fill:isFinal?'#F97316':'rgba(0,0,0,0.55)','stroke':color,'stroke-width':'1'}));
+  const t=se('text',{x:String(mx),y:String(my+3.5),'text-anchor':'middle','font-size':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'});
+  t.textContent=num; svg.appendChild(t);
+}
+
+function drawTerrain(svg){
+  const defs=se('defs');
+  const grad=se('linearGradient',{id:'wgap',x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad); svg.appendChild(defs);
+  svg.appendChild(R(0,0,W,H,{fill:'url(#wgap)',rx:'8'}));
+  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
+  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'8,5'}));
+  svg.appendChild(T(W-M+2,Y5M+4,'5m',{fill:'#ffd740','font-size':'9','font-weight':'bold'}));
+  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
+  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'9','font-weight':'bold'}));
+  svg.appendChild(R(BX1,BY,BX2-BX1,24,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
+  svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
+}
+
+const P={
+  G:[330,26], 6:[330,Y2M],
+  1:[530,108], 2:[452,196], 3:[330,265], 4:[208,196], 5:[130,108]
+};
+
+// Séquences : porteur initial → passes numérotées → passe finale vers 6
+// [from, to, isFinal]
+const SEQUENCES=[
+  {label:'Porteur : Joueur 1', carrier:1, passes:[
+    [1,2,false,'1'],[2,6,true,'2']
+  ]},
+  {label:'Porteur : Joueur 2', carrier:2, passes:[
+    [2,1,false,'1'],[1,6,true,'2']
+  ]},
+  {label:'Porteur : Joueur 3', carrier:3, passes:[
+    [3,2,false,'1'],[2,6,true,'2']
+  ]},
+  {label:'Porteur : Joueur 3 (variante)', carrier:3, passes:[
+    [3,4,false,'1'],[4,6,true,'2']
+  ]},
+  {label:'Porteur : Joueur 4', carrier:4, passes:[
+    [4,5,false,'1'],[5,6,true,'2']
+  ]},
+  {label:'Porteur : Joueur 5', carrier:5, passes:[
+    [5,4,false,'1'],[4,6,true,'2']
+  ]},
+];
+
+let sidx=0;
+
+function render(){
+  const s=SEQUENCES[sidx];
+  document.getElementById('state-label-ap').textContent=s.label;
+  const svg=document.getElementById('svg-main-ap');
+  svg.innerHTML='';
+  drawTerrain(svg);
+
+  // Gardien
+  drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
+  // Att6 dos au but
+  drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
+  // Att 1-5
+  for(let n=1;n<=5;n++){
+    drawTri(svg,P[n][0],P[n][1],String(n),'#c62828',[0,-1],10,n===s.carrier);
+  }
+  // Passes numérotées
+  for(const[from,to,isFinal,num] of s.passes){
+    const f=P[from],t=P[to];
+    drawPass(svg,f[0],f[1],t[0],t[1],num,isFinal);
+  }
+}
+
+function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
+function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
+function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
+function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
+function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
+function prev(){sidx=(sidx-1+SEQUENCES.length)%SEQUENCES.length;render();}
+function next(){sidx=(sidx+1)%SEQUENCES.length;render();}
 render();
 <\/script>
 </div></div></details>
