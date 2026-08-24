@@ -34,34 +34,18 @@
         }html{
             font-size: 15px;
         }
-        .attendus-bloc-summary { cursor: pointer; list-style: none; position: relative; padding-right: 46px; }
+        .attendus-bloc-summary { cursor: pointer; list-style: none; }
         .attendus-bloc-summary::-webkit-details-marker { display: none; }
-        .attendus-bloc-summary::after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            right: 4px;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.07);
-            transition: background 0.2s ease;
+        .attendus-bloc-cta {
+          display: inline-flex; align-items: center; gap: 6px;
+          font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+          padding: 5px 10px; border: 1.5px solid currentColor; border-radius: 20px;
+          margin-top: 8px;
         }
-        .attendus-bloc-summary:hover::after { background: rgba(0,0,0,0.13); }
-        .attendus-bloc-summary::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            right: 16px;
-            width: 9px;
-            height: 9px;
-            border-right: 2.5px solid rgba(0,0,0,0.55);
-            border-bottom: 2.5px solid rgba(0,0,0,0.55);
-            transform: rotate(45deg);
-            transition: transform 0.25s ease, top 0.25s ease;
-            z-index: 1;
-        }
-        details[open] > .attendus-bloc-summary::before { transform: rotate(225deg); top: 19px; }
+        .attendus-bloc-cta svg { transition: transform 0.2s; }
+        details[open] .attendus-bloc-cta svg { transform: rotate(180deg); }
+        details[open] .attendus-bloc-cta::before { content: 'Réduire'; }
+        details:not([open]) .attendus-bloc-cta::before { content: 'Détail'; }
         /* Global compact scale to match homepage view: reduce sizes & paddings
            This block centralises smaller typography and tighter paddings so
            each page has a better 'vue d'ensemble'. */
@@ -8887,7 +8871,7 @@
         <!-- BLOC 1 : LE CORPS PROJECTILE -->
         <details style="background: rgba(13, 188, 240, 0.05); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #0DBCF0;"><summary class="attendus-bloc-summary"><h2 style="color: #0DBCF0; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
                 🚀 Le corps projectile
-            </h2></summary>
+            </h2><span class="attendus-bloc-cta" style="color: #0DBCF0;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <div style="margin-bottom: 20px; overflow: hidden; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.3);">
                 <table style="width: 100%; border-collapse: collapse;">
@@ -8938,7 +8922,7 @@
         <!-- BLOC 2 : ÉBAUCHE DU CORPS PROPULSEUR -->
         <details style="background: rgba(13, 188, 240, 0.05); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #0DBCF0;"><summary class="attendus-bloc-summary"><h2 style="color: #0DBCF0; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
                 💪 Ébauche du corps propulseur : se déplacer sans perturber les postures projectiles
-            </h2></summary>
+            </h2><span class="attendus-bloc-cta" style="color: #0DBCF0;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <div style="margin-bottom: 20px; overflow: hidden; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.3);">
                 <table style="width: 100%; border-collapse: collapse;">
@@ -8999,7 +8983,7 @@
         <!-- BLOC 3 : INTÉGRATION DES SOLUTIONS VENTILATOIRES -->
         <details style="background: rgba(13, 188, 240, 0.05); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #0DBCF0;"><summary class="attendus-bloc-summary"><h2 style="color: #0DBCF0; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
                 🌬️ Intégration des solutions ventilatoires : passer d'une ventilation de terrien à une ventilation adaptée au déplacement en milieu aquatique
-            </h2></summary>
+            </h2><span class="attendus-bloc-cta" style="color: #0DBCF0;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <div style="margin-bottom: 20px; overflow: hidden; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.3);">
                 <table style="width: 100%; border-collapse: collapse;">
@@ -9118,7 +9102,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
 
     <!-- DOMAINE : TECHNIQUE (P2) -->
-    <details style="background: rgba(236,72,153,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;"><strong>Construire les premiers repères d'alignement, d'étirement, de mobilité et de contrôle corporel afin de développer des lignes corporelles stables, lisibles et esthétiques.</strong> <strong>En natation artistique, la qualité des lignes corporelles constitue un fondement de la performance. Dès les premières années de pratique, l'athlète apprend à allonger son corps, contrôler ses segments et produire des formes corporelles identifiables, quel que soit son environnement d'évolution (surface, immersion ou hors de l'eau)</strong>.</p></summary>
+    <details style="background: rgba(236,72,153,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;"><strong>Construire les premiers repères d'alignement, d'étirement, de mobilité et de contrôle corporel afin de développer des lignes corporelles stables, lisibles et esthétiques.</strong> <strong>En natation artistique, la qualité des lignes corporelles constitue un fondement de la performance. Dès les premières années de pratique, l'athlète apprend à allonger son corps, contrôler ses segments et produire des formes corporelles identifiables, quel que soit son environnement d'évolution (surface, immersion ou hors de l'eau)</strong>.</p><span class="attendus-bloc-cta" style="color: #EC4899;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -9299,7 +9283,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : AQUATIQUE (P2) -->
-    <details style="background: rgba(236,72,153,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;"><strong>Construire la confiance dans le milieu aquatique et les premiers repères permettant d'évoluer avec aisance dans les différents niveaux et orientations d'évolution afin de préparer les apprentissages spécifiques de la natation artistique.</strong> <strong>En natation artistique, la maîtrise du milieu aquatique conditionne la réalisation des exigences techniques, artistiques et collectives. Dès les premières années de pratique, l'athlète apprend à utiliser les propriétés de l'eau pour se déplacer, produire des appuis, contrôler son équilibre et évoluer efficacement dans toutes les orientations.</strong></p></summary>
+    <details style="background: rgba(236,72,153,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;"><strong>Construire la confiance dans le milieu aquatique et les premiers repères permettant d'évoluer avec aisance dans les différents niveaux et orientations d'évolution afin de préparer les apprentissages spécifiques de la natation artistique.</strong> <strong>En natation artistique, la maîtrise du milieu aquatique conditionne la réalisation des exigences techniques, artistiques et collectives. Dès les premières années de pratique, l'athlète apprend à utiliser les propriétés de l'eau pour se déplacer, produire des appuis, contrôler son équilibre et évoluer efficacement dans toutes les orientations.</strong></p><span class="attendus-bloc-cta" style="color: #EC4899;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -9529,7 +9513,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : ARTISTIQUE (P2) -->
-    <details style="background: rgba(236,72,153,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Construire progressivement les premiers repères artistiques et collectifs afin d'agir avec les autres, d'interpréter la musique et de contribuer à une réalisation collective simple.</p></summary>
+    <details style="background: rgba(236,72,153,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Construire progressivement les premiers repères artistiques et collectifs afin d'agir avec les autres, d'interpréter la musique et de contribuer à une réalisation collective simple.</p><span class="attendus-bloc-cta" style="color: #EC4899;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -14413,7 +14397,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🏊 Déplacement efficace
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 15px;">
                     Être capable de <strong>varier son allure</strong> en contrôlant l'augmentation du nombre d'actions motrices, tout en continuant à <strong>limiter les freins</strong>. L'objectif prioritaire et final du déplacement efficace reste <strong> la vitesse </strong>.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -14571,7 +14555,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 💨 Ventilation
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable de <strong>se ventiler efficacement</strong> par le biais d'une expiration complète et d'une inspiration brève intégrée dans le cycle de nage afin de limiter l'augmentation des résistances. La ventilation doit être au service de la propulsion.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -14675,7 +14659,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
         <!-- BLOC 3 : ENDURANCE TECHNIQUE -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
                 🔄 Endurance technique
-            </h2></summary>
+            </h2><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -14769,7 +14753,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🧠 Tactique de course
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8">
                     Être capable de projeter un modèle stratégique en fonction de la course.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -15003,7 +14987,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
         <h3 style="color: #FF9800; margin-bottom: 12px; font-size: 1.2em;">⚠️ Point de vigilance</h3>
         <p style="line-height: 1.8; margin: 0;">
             En compétition, la distance de coulée doit être ajustée à court terme en fonction de l'expertise du nageur. L'objectif n'est pas d'aller le plus loin possible à chaque coulée mais bien d'aller le plus vite possible au global à chaque compétition. Néanmoins, <strong>dans le cadre de l'entraînement</strong>, il est important de s'efforcer d'effectuer des coulées longues le plus régulièrement possible afin de permettre au nageur de se développer. En effet, à haut niveau, la capacité à être performant dans ces phases est un déterminant majeur de la performance.
-        </p></summary>
+        </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -15682,7 +15666,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
     
     <!-- DOMAINE : TECHNIQUE (P3) -->
-    <details style="background: rgba(213,159,73,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Construire et stabiliser les habiletés techniques spécifiques de la discipline afin de développer une exécution de plus en plus précise, efficace et reproductible.</p></summary>
+    <details style="background: rgba(213,159,73,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Construire et stabiliser les habiletés techniques spécifiques de la discipline afin de développer une exécution de plus en plus précise, efficace et reproductible.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -15905,7 +15889,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : AQUATIQUE (P3) -->
-    <details style="background: rgba(213,159,73,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Développer une utilisation plus efficace du milieu aquatique au service de l'exécution technique, artistique et collective. Après avoir découvert les différentes formes de déplacement, d'immersion, de sustentation et d'orientation, l'athlète apprend à les utiliser avec davantage d'efficacité, de fluidité et d'économie. Les exigences portent progressivement sur la capacité à maintenir son efficacité malgré la fatigue, les changements d'orientation, les contraintes respiratoires ou l'augmentation de la complexité des enchaînements.</p></summary>
+    <details style="background: rgba(213,159,73,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Développer une utilisation plus efficace du milieu aquatique au service de l'exécution technique, artistique et collective. Après avoir découvert les différentes formes de déplacement, d'immersion, de sustentation et d'orientation, l'athlète apprend à les utiliser avec davantage d'efficacité, de fluidité et d'économie. Les exigences portent progressivement sur la capacité à maintenir son efficacité malgré la fatigue, les changements d'orientation, les contraintes respiratoires ou l'augmentation de la complexité des enchaînements.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -16145,7 +16129,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : ARTISTIQUE (P3) -->
-    <details style="background: rgba(213,159,73,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Structurer les repères artistiques et collectifs afin de développer la synchronisation, l'interprétation, la qualité des réalisations collectives et la compréhension progressive du rôle de chacun dans la performance artistique commune. Après une première découverte de la musique, de l'expression et de l'action collective, l'athlète apprend à coordonner plus précisément ses actions avec celles des partenaires, à comprendre les exigences de la réalisation collective et à développer une interprétation plus cohérente et plus intentionnelle.</p></summary>
+    <details style="background: rgba(213,159,73,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Structurer les repères artistiques et collectifs afin de développer la synchronisation, l'interprétation, la qualité des réalisations collectives et la compréhension progressive du rôle de chacun dans la performance artistique commune. Après une première découverte de la musique, de l'expression et de l'action collective, l'athlète apprend à coordonner plus précisément ses actions avec celles des partenaires, à comprendre les exigences de la réalisation collective et à développer une interprétation plus cohérente et plus intentionnelle.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -22322,7 +22306,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🏊 Déplacement efficace
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'enjeu est de <strong>construire un répertoire d'allures</strong> et d'apprendre à <strong>adapter ses modalités (DPC et fréquence) en fonction de l'allure cible</strong>.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -22415,7 +22399,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 💨 Ventilation
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'enjeu de la ventilation évolue : il ne s'agit plus seulement de <strong>bien ventiler</strong>, mais d'<strong>optimiser la ventilation</strong> pour :
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -22517,7 +22501,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
         <!-- BLOC 3 : ENDURANCE TECHNIQUE -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
                 🔄 Endurance technique
-            </h2></summary>
+            </h2><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -22664,7 +22648,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🧠 Tactique de course
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'athlète commence à <strong>construire sa propre stratégie de course</strong> en fonction de ses qualités physiques, de ses distances de spécialisation et du contexte de course.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -22773,7 +22757,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🚀 Parties non-nagées
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'enjeu des parties non-nagées évolue vers une <strong>logique de liaison</strong> entre les différentes phases pour <strong>maximiser la vitesse globale</strong>.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -23934,7 +23918,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
     
     <!-- DOMAINE : TECHNIQUE (P4) -->
-    <details style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, fiabiliser et individualiser l'exécution technique afin de produire une performance efficace, reproductible en situation de stress et adaptable aux exigences de la compétition et du projet de performance. Après avoir construit et stabilisé les habiletés fondamentales de la discipline, l'athlète cherche désormais à améliorer leur rendement, leur précision et leur robustesse. Les exigences portent progressivement sur la capacité à maintenir une qualité d'exécution élevée malgré l'augmentation de la difficulté, de la fatigue, de la pression ou de la complexité des situations rencontrées.</p></summary>
+    <details style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, fiabiliser et individualiser l'exécution technique afin de produire une performance efficace, reproductible en situation de stress et adaptable aux exigences de la compétition et du projet de performance. Après avoir construit et stabilisé les habiletés fondamentales de la discipline, l'athlète cherche désormais à améliorer leur rendement, leur précision et leur robustesse. Les exigences portent progressivement sur la capacité à maintenir une qualité d'exécution élevée malgré l'augmentation de la difficulté, de la fatigue, de la pression ou de la complexité des situations rencontrées.</p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -24157,7 +24141,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : AQUATIQUE (P4) -->
-    <details style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser l'utilisation du milieu aquatique afin d'améliorer durablement le rendement de la performance technique, artistique et collective dans des contextes de plus en plus exigeants. Après avoir développé une utilisation efficace des différentes formes de propulsion, de sustentation, d'immersion et de déplacement, l'athlète recherche désormais une meilleure efficience de ses actions. Les exigences portent progressivement sur la capacité à maintenir son efficacité malgré la fatigue, à mieux gérer ses ressources énergétiques et respiratoires, et à adapter ses stratégies aux contraintes de la performance individuelle et collective.</p></summary>
+    <details style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser l'utilisation du milieu aquatique afin d'améliorer durablement le rendement de la performance technique, artistique et collective dans des contextes de plus en plus exigeants. Après avoir développé une utilisation efficace des différentes formes de propulsion, de sustentation, d'immersion et de déplacement, l'athlète recherche désormais une meilleure efficience de ses actions. Les exigences portent progressivement sur la capacité à maintenir son efficacité malgré la fatigue, à mieux gérer ses ressources énergétiques et respiratoires, et à adapter ses stratégies aux contraintes de la performance individuelle et collective.</p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -24379,7 +24363,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : ARTISTIQUE (P4) -->
-    <details style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser sa capacité à interpréter, communiquer et coopérer afin de renforcer durablement la qualité artistique, chorégraphique et collective de la performance. Après avoir construit les bases de la synchronisation, de la musicalité et de l'action collective, l'athlète développe une compréhension plus fine des exigences artistiques et collectives de la discipline. Les attentes portent progressivement sur sa capacité à ajuster son interprétation, son rôle et ses interactions afin de renforcer l'impact, la cohérence et l'efficacité de la performance collective.</p></summary>
+    <details style="background: rgba(141,113,222,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser sa capacité à interpréter, communiquer et coopérer afin de renforcer durablement la qualité artistique, chorégraphique et collective de la performance. Après avoir construit les bases de la synchronisation, de la musicalité et de l'action collective, l'athlète développe une compréhension plus fine des exigences artistiques et collectives de la discipline. Les attentes portent progressivement sur sa capacité à ajuster son interprétation, son rôle et ses interactions afin de renforcer l'impact, la cohérence et l'efficacité de la performance collective.</p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -24929,7 +24913,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 Apprendre à <strong>lire et comprendre le plan d'eau</strong> pour identifier les enjeux du site
                 (courants, marées, vagues) et <strong>préparer sa prise de cap</strong> en repérant les éléments visuels
                 de référence.
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #FF9800;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -25174,7 +25158,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <details style="background: rgba(255, 152, 0, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #FF9800;"><summary class="attendus-bloc-summary"><h2 style="color: #FF9800; margin-bottom: 20px; font-size: 1.8em;">🥤 Transitions</h2><h3 style="color: #FF9800; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 Développer une <strong>approche stratégique du ravitaillement</strong> : préparer le contenu adapté
                 aux besoins, identifier la position du ravitailleur pour se placer dans le peloton de façon adéquate et expérimenter différentes stratégies, y compris sauter un ou plusieurs ravitaillements.
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #FF9800;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -25290,7 +25274,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <details style="background: rgba(255, 152, 0, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #FF9800;"><summary class="attendus-bloc-summary"><h2 style="color: #FF9800; margin-bottom: 20px; font-size: 1.8em;">💪 Capacités physiques</h2><h3 style="color: #FF9800; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 Développer une <strong>palette complète de capacités physiques</strong> : endurance étendue (&#8776; 2h),
                 variations d'allures dans l'effort long, sprint sur fatigue, et efficacité à toutes les intensités.
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #FF9800;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -28568,7 +28552,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
     
     <!-- DOMAINE : TECHNIQUE (P5) -->
-    <details style="background: rgba(226,0,26,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, faire évoluer et transmettre son modèle technique afin de maximiser durablement la performance individuelle et collective au plus haut niveau. À ce stade, l'objectif n'est plus seulement d'optimiser l'exécution technique mais de développer une véritable expertise permettant d'adapter en permanence ses choix aux exigences de la compétition, du collectif et de l'évolution de la discipline. L'athlète cherche à maximiser le rendement de ses habiletés, à exploiter pleinement ses caractéristiques individuelles et à contribuer à l'évolution du modèle de performance collectif.</p></summary>
+    <details style="background: rgba(226,0,26,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-jambe.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation technique</h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, faire évoluer et transmettre son modèle technique afin de maximiser durablement la performance individuelle et collective au plus haut niveau. À ce stade, l'objectif n'est plus seulement d'optimiser l'exécution technique mais de développer une véritable expertise permettant d'adapter en permanence ses choix aux exigences de la compétition, du collectif et de l'évolution de la discipline. L'athlète cherche à maximiser le rendement de ses habiletés, à exploiter pleinement ses caractéristiques individuelles et à contribuer à l'évolution du modèle de performance collectif.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -28772,7 +28756,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : AQUATIQUE (P5) -->
-    <details style="background: rgba(226,0,26,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, adapter et faire évoluer son utilisation du milieu aquatique afin de maximiser durablement la performance individuelle et collective au plus haut niveau. L'athlète recherche désormais l'utilisation la plus efficiente du milieu aquatique en optimisant en permanence ses stratégies de déplacement, de propulsion, de sustentation, de hauteur, de gestion respiratoire et d'effort. Il développe une expertise lui permettant d'optimiser et d'adapter en permanence ses stratégies aux contraintes du collectif, de la compétition, du règlement et de l'environnement.</p></summary>
+    <details style="background: rgba(226,0,26,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, adapter et faire évoluer son utilisation du milieu aquatique afin de maximiser durablement la performance individuelle et collective au plus haut niveau. L'athlète recherche désormais l'utilisation la plus efficiente du milieu aquatique en optimisant en permanence ses stratégies de déplacement, de propulsion, de sustentation, de hauteur, de gestion respiratoire et d'effort. Il développe une expertise lui permettant d'optimiser et d'adapter en permanence ses stratégies aux contraintes du collectif, de la compétition, du règlement et de l'environnement.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -28983,7 +28967,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : ARTISTIQUE (P5) -->
-    <details style="background: rgba(226,0,26,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, faire évoluer et transmettre la performance artistique collective afin de contribuer pleinement à l'identité, à l'impact et à l'efficacité du projet chorégraphique au plus haut niveau. À ce stade, l'athlète ne se limite plus à interpréter et à s'adapter au projet artistique : il contribue activement à sa qualité, à sa cohérence et à son évolution. Les exigences portent sur la capacité à ajuster son interprétation, à influencer positivement la dynamique collective, à renforcer l'impact de la performance et à mettre son expertise au service du collectif. L'athlète développe une expertise lui permettant d'influencer positivement la performance artistique, de transmettre les standards du collectif et de contribuer à l'évolution de la discipline.</p></summary>
+    <details style="background: rgba(226,0,26,0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/acro-ejecte-trio.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Formation artistique et collective</h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;">Optimiser, faire évoluer et transmettre la performance artistique collective afin de contribuer pleinement à l'identité, à l'impact et à l'efficacité du projet chorégraphique au plus haut niveau. À ce stade, l'athlète ne se limite plus à interpréter et à s'adapter au projet artistique : il contribue activement à sa qualité, à sa cohérence et à son évolution. Les exigences portent sur la capacité à ajuster son interprétation, à influencer positivement la dynamique collective, à renforcer l'impact de la performance et à mettre son expertise au service du collectif. L'athlète développe une expertise lui permettant d'influencer positivement la performance artistique, de transmettre les standards du collectif et de contribuer à l'évolution de la discipline.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -29494,7 +29478,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🎯 Tactique de course
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     <strong>Connaître et maîtriser sa stratégie de course personnelle</strong>, appuyée sur ses points forts. C'est le niveau le plus <strong>personnel</strong> de toutes les compétences. Il n'y a pas deux courses identiques entre deux nageurs.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -29595,7 +29579,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🏃 Endurance technique
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable de <strong>maintenir l'efficacité et la cadence à l'intensité de la course, sur toute la durée de la course</strong>. Il ne s'agit plus de nager vite "parfois" mais de nager vite "du début à la fin".
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -29690,7 +29674,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🏊 Déplacement efficace
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable de <strong>mettre en œuvre le niveau de force adapté pour se déplacer à une allure cible</strong>. Il ne s'agit pas de nager "le plus fort possible" mais de nager avec la force exactement nécessaire pour atteindre ma vitesse de course. Ce niveau de force est différent selon les courses (durées, types de nage).
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -29818,7 +29802,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 💨 Ventilation
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable de <strong>réaliser des coulées efficaces et rapides à chaque virage sans être limité par le temps d'apnée</strong>. À ce niveau, la ventilation ne limite plus la course : elle est intégrée, automatisée, elle ne coûte rien en termes d'efficacité.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -29916,7 +29900,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 🚀 Parties non-nagées
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable d'<strong>optimiser chaque départ, virage, coulée et arrivée</strong> pour maximiser la vitesse moyenne sur la course. Les parties non-nagées représentent 20-30% du temps total en bassin et peuvent faire gagner ou perdre plusieurs dixièmes, voire secondes.
-                </p></summary>
+                </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <!-- ENJEUX -->
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -30060,7 +30044,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <!-- BLOC 1 : RAVITAILLEMENT -->
     <details style="background: rgba(244, 67, 54, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #F44336;"><summary class="attendus-bloc-summary"><h2 style="color: #F44336; margin-bottom: 20px; font-size: 1.8em;">🥤 Ravitaillement</h2><h3 style="color: #F44336; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 À ce niveau, les aspects tactiques du ravitaillement (position du ravitailleur, signaux, choix de sauter ou non) sont maîtrisés. L'enjeu de la période est d'affiner la <strong>gestion nutritionnelle individuelle</strong> : estimer sa dépense énergétique réelle et adapter les dosages et quantités en conséquence, en s'appuyant sur des professionnels de santé.
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #F44336;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -30181,7 +30165,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <details style="background: rgba(244, 67, 54, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #F44336;"><summary class="attendus-bloc-summary"><h2 style="color: #F44336; margin-bottom: 20px; font-size: 1.8em;">🌡️ Lecture du plan d'eau</h2><h3 style="color: #F44336; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 Gérer le <strong>stress lié aux conditions environnementales</strong> (température, vagues) et
                 <strong>adapter son plan de course</strong> aux conditions réelles (échauffement, ravitaillement, stratégie).
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #F44336;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -30299,7 +30283,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <!-- BLOC 3 : DÉCISIONS STRATÉGIQUES -->
     <details style="background: rgba(244, 67, 54, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #F44336;"><summary class="attendus-bloc-summary"><h2 style="color: #F44336; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-peloton-groupe.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Stratégie et placement dans le groupe</h2><h3 style="color: #F44336; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 Maîtriser l'ensemble <strong>des configurations de peloton</strong>, développer la capacité à <strong>lire le plan d'eau en temps réel</strong> et <strong>prendre des décisions tactiques</strong> pendant la course.
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #F44336;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -30412,7 +30396,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <details style="background: rgba(244, 67, 54, 0.08); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #F44336;"><summary class="attendus-bloc-summary"><h2 style="color: #F44336; margin-bottom: 20px; font-size: 1.8em;">⚡ Capacités physiques</h2><h3 style="color: #F44336; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 Maîtriser un <strong>répertoire moteur expert</strong> incluant la notion de <strong>réserve de fréquence</strong>,
                 le duel physique par le rythme, et l'<strong>efficience à toutes les intensités</strong> (basse, soutenue, maximale).
-            </p></summary>
+            </p><span class="attendus-bloc-cta" style="color: #F44336;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -40000,7 +39984,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div class="wp2-famille-body hab">
         <p class="wp2-intro">Positions fondamentales à maîtriser pour jouer au water-polo</p>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Position horizontale</span></div><p class="wp2-intention">Être disponible à tout instant pour agir sur le jeu depuis une position stable à la surface.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Position horizontale</span></div><p class="wp2-intention">Être disponible à tout instant pour agir sur le jeu depuis une position stable à la surface.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40017,7 +40001,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Position verticale</span></div><p class="wp2-intention">Être capable de s'élever et d'agir immédiatement depuis une position d'attente stable.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Position verticale</span></div><p class="wp2-intention">Être capable de s'élever et d'agir immédiatement depuis une position d'attente stable.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40034,7 +40018,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Saut</span></div><p class="wp2-intention">Être capable de couvrir une très grande distance avec un seul mouvement.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Saut</span></div><p class="wp2-intention">Être capable de couvrir une très grande distance avec un seul mouvement.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40051,7 +40035,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Position costale</span></div><p class="wp2-intention">Être capable de couvrir un espace, protéger une zone ou préparer un changement de position en créant un avantage.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Position costale</span></div><p class="wp2-intention">Être capable de couvrir un espace, protéger une zone ou préparer un changement de position en créant un avantage.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40068,7 +40052,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Liaisons entre les positions</span></div><p class="wp2-intention">Être capable de passer fluidement d'une position à l'autre.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Liaisons entre les positions</span></div><p class="wp2-intention">Être capable de passer fluidement d'une position à l'autre.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40091,7 +40075,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div class="wp2-famille-body hab">
         <p class="wp2-intro">Déplacement en milieu aquatique avec maintien de la lecture du jeu.</p>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Crawl polo (tête hors de l'eau)</span></div><p class="wp2-intention">Être capable de se déplacer en crawl, la tête hors de l'eau.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Crawl polo (tête hors de l'eau)</span></div><p class="wp2-intention">Être capable de se déplacer en crawl, la tête hors de l'eau.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40108,7 +40092,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Dos polo</span></div><p class="wp2-intention">Être capable de se déplacer sur le dos, la tête hors de l'eau.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Dos polo</span></div><p class="wp2-intention">Être capable de se déplacer sur le dos, la tête hors de l'eau.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40125,7 +40109,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Nage avec ballon</span></div><p class="wp2-intention">Être capable de se déplacer en crawl polo avec un ballon.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head hab"><span>Nage avec ballon</span></div><p class="wp2-intention">Être capable de se déplacer en crawl polo avec un ballon.</p><span class="attendus-bloc-cta" style="color: var(--wp-hab);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40162,7 +40146,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div class="wp2-famille-body tech">
         <p class="wp2-intro">Contrôle, protection et utilisation du ballon en situation statique et dynamique.</p>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Position verticale avec ballon</span></div><p class="wp2-intention">Être capable de tenir le ballon en position haute.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Position verticale avec ballon</span></div><p class="wp2-intention">Être capable de tenir le ballon en position haute.</p><span class="attendus-bloc-cta" style="color: var(--wp-tech);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40178,7 +40162,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Passes et réception statique</span></div><p class="wp2-intention">Être capable de transmettre le ballon à un partenaire en étant précis et le recevoir sans le faire tomber.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Passes et réception statique</span></div><p class="wp2-intention">Être capable de transmettre le ballon à un partenaire en étant précis et le recevoir sans le faire tomber.</p><span class="attendus-bloc-cta" style="color: var(--wp-tech);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40194,7 +40178,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Tirs statiques</span></div><p class="wp2-intention">Être capable de lancer le ballon vers le but de manière efficace.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Tirs statiques</span></div><p class="wp2-intention">Être capable de lancer le ballon vers le but de manière efficace.</p><span class="attendus-bloc-cta" style="color: var(--wp-tech);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -40210,7 +40194,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </div>
           </div></details>
 
-        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Déplacement avec ballon</span></div><p class="wp2-intention">Être capable de se déplacer balle en main.</p></summary><div class="wp2-card-body">
+        <details class="wp2-card"><summary class="attendus-bloc-summary"><div class="wp2-card-head tech"><span>Déplacement avec ballon</span></div><p class="wp2-intention">Être capable de se déplacer balle en main.</p><span class="attendus-bloc-cta" style="color: var(--wp-tech);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="wp2-card-body">
             <div>
               <div class="wp2-section-label">Ressources à mobiliser</div>
               <div class="wp2-ressources">
@@ -41308,7 +41292,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   </div>
   <div class="domain-body" style="background:var(--p4-l);">
     <div><span class="section-label" style="background:#5b3fa6;">🔵 Mouvements de base</span>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(141,113,222,0.08);"><h3 style="color:var(--p4-dark);">Mouvements de base</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de maintenir la qualité des mouvements de base sous une intensité et une durée d'effort croissantes.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(141,113,222,0.08);"><h3 style="color:var(--p4-dark);">Mouvements de base</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de maintenir la qualité des mouvements de base sous une intensité et une durée d'effort croissantes.</div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -41330,7 +41314,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </div>
 
     <div><span class="section-label" style="background:#5b3fa6;">💨 Se déplacer</span>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(141,113,222,0.08);"><h3 style="color:var(--p4-dark);">Se déplacer</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de mobiliser les qualités énergétiques spécifiques au water-polo, sur un match fait d'efforts intenses et répétés entrecoupés de récupérations incomplètes.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(141,113,222,0.08);"><h3 style="color:var(--p4-dark);">Se déplacer</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de mobiliser les qualités énergétiques spécifiques au water-polo, sur un match fait d'efforts intenses et répétés entrecoupés de récupérations incomplètes.</div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -41361,7 +41345,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   <div class="domain-body" style="background:rgba(91,63,166,0.05);">
     <div><span class="section-label" style="background:#4a3285;">🏐 Maîtrise du ballon</span>
 
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Passe et réception</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de se replacer en position de tir dès la réception, et d'adapter trajectoire et puissance de passe à la situation de jeu.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Passe et réception</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de se replacer en position de tir dès la réception, et d'adapter trajectoire et puissance de passe à la situation de jeu.</div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -41380,7 +41364,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div></details>
 
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de tirer efficacement depuis différentes situations de jeu, en affirmant ses solutions préférentielles.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable de tirer efficacement depuis différentes situations de jeu, en affirmant ses solutions préférentielles.</div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -41398,7 +41382,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div></details>
 
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Déplacement avec ballon</h3></div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Déplacement avec ballon</h3></div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -42260,14 +42244,14 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <p style="font-size:0.95em;color:#555;line-height:1.65;font-style:italic;">La maîtrise des habiletés tactiques individuelles est le prérequis de toute tactique collective. Ces compétences, développées en P2 et P3, doivent être disponibles sous pression et en situation de match réel.</p>
 
     <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Continuité du jeu</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Rester disponible, créer des solutions, maintenir la pression offensive.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Agir sous pression</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Tirer, passer ou recevoir en déplacement malgré la présence d'un défenseur.</div></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Continuité du jeu</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Rester disponible, créer des solutions, maintenir la pression offensive.</div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Agir sous pression</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Tirer, passer ou recevoir en déplacement malgré la présence d'un défenseur.</div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
     </div>
 
     <div style="margin-top:18px;"><div class="jc-section-title" style="background:var(--def);">🛡️ En défense</div>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Presser sans commettre de faute</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Récupérer le ballon ou gêner la circulation sans interrompre le temps.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Stopper le jeu</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Interrompre intentionnellement une progression adverse en assumant la conséquence réglementaire.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Bloquer le ballon</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Réduire les espaces de tir par une élévation synchronisée avec l'action du tireur.</div></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Presser sans commettre de faute</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Récupérer le ballon ou gêner la circulation sans interrompre le temps.</div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Stopper le jeu</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Interrompre intentionnellement une progression adverse en assumant la conséquence réglementaire.</div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Bloquer le ballon</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Réduire les espaces de tir par une élévation synchronisée avec l'action du tireur.</div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
     </div>
   </div>
 </div>
@@ -42277,12 +42261,12 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <h2>🎯 Projet de jeu</h2>
   </div>
   <div class="domain-body" style="background:var(--p4-l);">
-    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Des principes aux tactiques</h3></div></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des <strong>tactiques et un projet de jeu</strong> : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble.</p></div></details>
-    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Qu'est-ce qu'un projet de jeu ?</h3></div></summary><div class="sd-body">
+    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Des principes aux tactiques</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">Les grands principes de jeu collectif travaillés en P3 (contre-attaque, attaque placée, supériorité numérique, repli défensif, défense placée, infériorité numérique) restent le fondement de toute action collective. À cette période, ils s'expriment à travers des <strong>tactiques et un projet de jeu</strong> : ce ne sont plus des intentions individuelles, mais des schémas que l'équipe choisit et met en œuvre ensemble.</p></div></details>
+    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Qu'est-ce qu'un projet de jeu ?</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
         <div class="p4jc-sub-card"><div class="p4jc-sub-title">Définition</div><div class="p4jc-sub-text">Un projet de jeu est le cadre tactique dans lequel une équipe choisit d'évoluer. Il n'est pas universel : il se construit à partir des forces et des faiblesses de l'effectif, du temps disponible pour le développer, et des adversaires rencontrés.</div></div>
         <div class="p4jc-sub-card"><div class="p4jc-sub-title">Philosophie</div><div class="p4jc-sub-text">Un projet de jeu efficace <strong>impose les choix à l'adversaire</strong> plutôt que de subir les siens. Il cherche à limiter les options adverses, à créer des déséquilibres reproductibles, et à mettre la pression de manière organisée. C'est un outil de cohérence collective, pas un carcan.</div></div>
       </div></details>
-    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Les grandes familles tactiques</h3></div></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">À cette période, l'objectif est de <strong>découvrir et comprendre</strong> les principales familles tactiques : pourquoi elles existent, dans quelles situations de jeu elles sont pertinentes, et comment elles s'articulent avec le projet de jeu de l'équipe. Le détail des schémas s'acquiert progressivement par la pratique.</p></div></details>
+    <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Les grandes familles tactiques</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">À cette période, l'objectif est de <strong>découvrir et comprendre</strong> les principales familles tactiques : pourquoi elles existent, dans quelles situations de jeu elles sont pertinentes, et comment elles s'articulent avec le projet de jeu de l'équipe. Le détail des schémas s'acquiert progressivement par la pratique.</p></div></details>
   </div>
 </div>
 `,
@@ -42746,7 +42730,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div><span class="section-label" style="background:#92670a;">🔵 Mouvements de base</span>
 
         <!-- POS HORIZONTALE P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Position horizontale</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être disponible à tout instant pour agir sur le jeu depuis une position stable à la surface.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Position horizontale</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être disponible à tout instant pour agir sur le jeu depuis une position stable à la surface.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech">
                 <h5>🏊 Ressource Technique — Organisation motrice</h5>
@@ -42798,7 +42782,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- POS VERTICALE P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Position verticale</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de s'élever et d'agir immédiatement depuis une position d'attente stable.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Position verticale</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de s'élever et d'agir immédiatement depuis une position d'attente stable.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech">
                 <h5>🏊 Ressource Technique — Organisation motrice</h5>
@@ -42851,7 +42835,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- SAUT P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Saut</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de couvrir une très grande distance avec un seul mouvement.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Saut</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de couvrir une très grande distance avec un seul mouvement.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech">
                 <h5>🏊 Ressource Technique — Organisation motrice</h5>
@@ -42901,7 +42885,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- POSITION COSTALE P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Position costale</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de couvrir un espace, protéger une zone ou préparer un changement de position en créant un avantage.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Position costale</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de couvrir un espace, protéger une zone ou préparer un changement de position en créant un avantage.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech">
                 <h5>🏊 Ressource Technique — Organisation motrice</h5>
@@ -42951,7 +42935,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- LIAISONS P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Liaisons entre les positions</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de passer fluidement d'une position à l'autre.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Liaisons entre les positions</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de passer fluidement d'une position à l'autre.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech">
                 <h5>🏊 Ressource Technique — Organisation motrice</h5>
@@ -43003,7 +42987,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
       <!-- SE DÉPLACER P3 -->
       <div><span class="section-label" style="background:#92670a;">💨 Se déplacer</span>
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Crawl polo</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Crawl polo</h3></div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Tête relevée et fixe, coudes hauts</li>
@@ -43028,7 +43012,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>Corps aligné sur la trajectoire ; nage stable dans la durée</li></ul></div>
           </div></details>
 
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Dos polo</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Dos polo</h3></div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Position semi-assise, tête perpendiculaire, coordination continue</li>
@@ -43052,7 +43036,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>Déplacement fluide sans temps d'arrêt ; nage stable dans la durée</li></ul></div>
           </div></details>
 
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Nage avec ballon</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Nage avec ballon</h3></div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Conservation du ballon entre les bras, propulsion par la vague</li>
@@ -43088,7 +43072,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div><span class="section-label" style="background:#6b4c07;">🏐 Maîtrise du ballon</span>
 
         <!-- POSITION VERTICALE AVEC BALLON P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Position verticale avec ballon</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de se mettre rapidement en position stable à la réception du ballon et de réaliser des fixations sans perturber l'équilibre.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Position verticale avec ballon</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de se mettre rapidement en position stable à la réception du ballon et de réaliser des fixations sans perturber l'équilibre.</div><span class="attendus-bloc-cta" style="color: #6b4c07;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Hauteur de maintien de la position verticale</li>
@@ -43120,7 +43104,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- PASSE ET RÉCEPTION P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Passe et réception</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable, lors de la réception, de se mettre en position de tir en un minimum de temps. Être capable de varier les trajectoires et les puissances de passe, et d'effectuer une passe de qualité après fixation.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Passe et réception</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable, lors de la réception, de se mettre en position de tir en un minimum de temps. Être capable de varier les trajectoires et les puissances de passe, et d'effectuer une passe de qualité après fixation.</div><span class="attendus-bloc-cta" style="color: #6b4c07;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Hauteur de la position verticale à la réception</li>
@@ -43151,7 +43135,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- TIR P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de tirer au but de différentes manières et dans différentes positions.</div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de tirer au but de différentes manières et dans différentes positions.</div><span class="attendus-bloc-cta" style="color: #6b4c07;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Adaptation du choix de tir à la situation de jeu</li>
@@ -43182,7 +43166,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- DÉPLACEMENT AVEC BALLON P3 -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Déplacement avec ballon</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(146,103,10,0.07);"><h3 style="color:#6b4c07;">Déplacement avec ballon</h3></div><span class="attendus-bloc-cta" style="color: #6b4c07;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul>
                 <li>Augmentation de la vitesse d'exécution sans perte de contrôle du ballon</li>
@@ -43870,7 +43854,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
 
         <!-- Contre-attaque -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Contre-attaque <span style="font-size:0.75em;font-weight:400;color:#888;font-style:italic;">— Privilégier les situations jusqu'à 4 contre 3</span></h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Contre-attaque <span style="font-size:0.75em;font-weight:400;color:#888;font-style:italic;">— Privilégier les situations jusqu'à 4 contre 3</span></h3></div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
                 <li>Identifier une supériorité numérique claire et la zone du joueur disponible</li>
@@ -43896,7 +43880,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- Attaque placée -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
                 <li>Identifier le joueur qui peut avoir un avantage</li>
@@ -43922,7 +43906,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- Zone + -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Supériorité numérique / Zone +</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Supériorité numérique / Zone +</h3></div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
                 <li>Suite à une exclusion, identifier immédiatement le défenseur manquant</li>
@@ -43952,7 +43936,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div style="margin-top:18px;"><div class="jc-section-title" style="background:var(--def);">🛡️ En défense</div>
 
         <!-- Repli défensif -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Repli défensif</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Repli défensif</h3></div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
                 <li>Identifier immédiatement, suite à la perte de balle, la position des attaquants et les zones de désavantage</li>
@@ -43978,7 +43962,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- Défense placée -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Défense placée</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Défense placée</h3></div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
                 <li>Identifier les conditions d'un pressing ou d'une défense en zone</li>
@@ -44004,7 +43988,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </div></details>
 
         <!-- Zone - -->
-        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Infériorité numérique / Zone –</h3></div></summary><div class="sd-body">
+        <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Infériorité numérique / Zone –</h3></div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
               <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
                 <li>Identifier quel joueur est exclu et où se situe le déséquilibre</li>
@@ -44924,7 +44908,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   </div>
   <div class="domain-body" style="background:var(--p5-l);">
     <div><span class="section-label" style="background:#a0001a;">🔵 Mouvements de base</span>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(226,0,26,0.08);"><h3 style="color:var(--p5-dark);">Mon corps dans l'eau</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir l'excellence des mouvements de base en conditions de très haute intensité, sur l'intégralité d'un match ou d'une compétition internationale.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(226,0,26,0.08);"><h3 style="color:var(--p5-dark);">Mon corps dans l'eau</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir l'excellence des mouvements de base en conditions de très haute intensité, sur l'intégralité d'un match ou d'une compétition internationale.</div><span class="attendus-bloc-cta" style="color: var(--p5-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -44942,7 +44926,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </div>
 
     <div><span class="section-label" style="background:#a0001a;">💨 Se déplacer</span>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(226,0,26,0.08);"><h3 style="color:var(--p5-dark);">Me déplacer</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir son efficacité de déplacement sur l'intégralité d'un match de haut niveau, malgré la fatigue accumulée.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(226,0,26,0.08);"><h3 style="color:var(--p5-dark);">Me déplacer</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir son efficacité de déplacement sur l'intégralité d'un match de haut niveau, malgré la fatigue accumulée.</div><span class="attendus-bloc-cta" style="color: var(--p5-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -44969,7 +44953,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   <div class="domain-body" style="background:rgba(160,0,26,0.05);">
     <div><span class="section-label" style="background:#7d0014;">🏐 Maîtrise du ballon</span>
 
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Passe et réception</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de recevoir et de transmettre le ballon avec vitesse et précision, y compris au contact et sous pression défensive maximale.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Passe et réception</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de recevoir et de transmettre le ballon avec vitesse et précision, y compris au contact et sous pression défensive maximale.</div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -44990,7 +44974,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div></details>
 
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de tirer avec une qualité d'éjection optimale en masquant ses intentions, dans toutes les situations de jeu.</div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de tirer avec une qualité d'éjection optimale en masquant ses intentions, dans toutes les situations de jeu.</div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -45012,7 +44996,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           <div class="bottom-col indic"><h4>✅ Indicateurs d'efficacité</h4><ul><li>[Placeholder]</li></ul></div>
         </div></details>
 
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Déplacement avec ballon</h3></div></summary><div class="sd-body">
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Déplacement avec ballon</h3></div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
           <div class="ressources-grid">
             <div class="r-tech-row"><div class="r-bloc r-tech"><h5>🏊 Ressource Technique — Organisation motrice</h5><ul><li>[Placeholder]</li></ul></div></div>
             <div class="r-sub-row">
@@ -45430,15 +45414,15 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <p style="font-size:0.95em;color:#555;line-height:1.65;font-style:italic;">Connaître et maîtriser les schémas défensifs et offensifs. Fin de match : stratégies adaptées selon le score (conserver, rattraper, accélérer).</p>
 
     <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Variantes 3-3, 4-2, combinaisons pré-établies.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Contre-attaque</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Contre-attaques ultra-rapides.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Supériorité numérique</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Variantes selon l'adversaire. Reconnaître et jouer un surnombre simplement.</div></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Variantes 3-3, 4-2, combinaisons pré-établies.</div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Contre-attaque</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Contre-attaques ultra-rapides.</div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Supériorité numérique</h3></div><div class="enjeu-bloc" style="border-left-color:var(--att);">Variantes selon l'adversaire. Reconnaître et jouer un surnombre simplement.</div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
     </div>
 
     <div style="margin-top:18px;"><div class="jc-section-title" style="background:var(--def);">🛡️ En défense</div>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Défense placée</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Alternance pressing / zone / mixte, ajustements en temps réel.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Repli défensif</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Repli organisé en moins de 5 secondes.</div></summary><div class="sd-body"></div></details>
-      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Infériorité numérique</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Variantes selon l'adversaire. Reconnaître et jouer un sous-nombre simplement.</div></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Défense placée</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Alternance pressing / zone / mixte, ajustements en temps réel.</div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Repli défensif</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Repli organisé en moins de 5 secondes.</div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
+      <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Infériorité numérique</h3></div><div class="enjeu-bloc" style="border-left-color:var(--def);">Variantes selon l'adversaire. Reconnaître et jouer un sous-nombre simplement.</div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"></div></details>
     </div>
 
     <div class="intro-p" style="margin-top:4px;margin-bottom:0;">Faire des choix adaptés à la situation avec le ballon, prendre des initiatives : jouer au service du collectif, c'est aussi la volonté de gagner ses duels.</div>
@@ -48953,7 +48937,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     </div>
                                 </div>
                             </div>
-                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🏊 Plonger efficacement</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Disposer d&#x27;un répertoire de plongeons simples réussis régulièrement. L&#x27;objectif prioritaire du bon plongeon reste l&#x27;efficacité de la technique.</p></summary>
+                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🏊 Plonger efficacement</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Disposer d&#x27;un répertoire de plongeons simples réussis régulièrement. L&#x27;objectif prioritaire du bon plongeon reste l&#x27;efficacité de la technique.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                 <div style="background:white;padding:20px;border-radius:8px;margin-bottom:20px">
                                     
                                 </div>
@@ -49039,7 +49023,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     </div>
                                 </div>
                             </details>
-                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🔄 Endurance technique</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Maintenir des modalités techniques cibles dans la durée, en développant la capacité à répéter avec exigence sur l&#x27;ensemble d&#x27;une séance.</p></summary>
+                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🔄 Endurance technique</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Maintenir des modalités techniques cibles dans la durée, en développant la capacité à répéter avec exigence sur l&#x27;ensemble d&#x27;une séance.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                 <div style="background:white;padding:20px;border-radius:8px;margin-bottom:20px">
                                     
                                 </div>
@@ -49095,7 +49079,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     </div>
                                 </div>
                             </details>
-                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🧠 Tactique de concours</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Construire et projeter un modèle stratégique en fonction de la compétition.</p></summary>
+                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🧠 Tactique de concours</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Construire et projeter un modèle stratégique en fonction de la compétition.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                 <div style="background:white;padding:20px;border-radius:8px;margin-bottom:20px">
                                     
                                 </div>
@@ -49246,7 +49230,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     </div>
                                 </div>
                             </details>
-                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🚀 Parties sans plongeon</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Maîtriser les mimes à sec des plongeons simples pour augmenter la mémorisation des gestes techniques et optimiser la préparation entre deux plongeons.</p></summary>
+                            <details style="background:rgba(213, 159, 73, 0.08);padding:30px;border-radius:12px;margin-bottom:30px;border-left:6px solid #D59F49"><summary class="attendus-bloc-summary"><h2 style="color:#D59F49;margin-bottom:20px;font-size:1.8em;display:flex;align-items:center;gap:10px">🚀 Parties sans plongeon</h2><h3 style="color:#D59F49;margin-bottom:15px;font-size:1.3em">🎯 Enjeux de la période</h3><p style="line-height:1.8">Maîtriser les mimes à sec des plongeons simples pour augmenter la mémorisation des gestes techniques et optimiser la préparation entre deux plongeons.</p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                 <div style="background:white;padding:20px;border-radius:8px;margin-bottom:20px">
                                     
                                 </div>
@@ -52361,7 +52345,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     </div>
                                     <!--PROG_ANCHOR-->
                                     <!-- BLOC 1 : PLONGER EFFICACEMENT -->
-                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🏊 Plonger efficacement </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 15px;">Au lycée, l'enjeu est de <strong>construire un répertoire de plongeons</strong> et d'apprendre à adapter ses répétitions en visant une haute efficacité.</p></summary>
+                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🏊 Plonger efficacement </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 15px;">Au lycée, l'enjeu est de <strong>construire un répertoire de plongeons</strong> et d'apprendre à adapter ses répétitions en visant une haute efficacité.</p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -52427,7 +52411,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         </div>
                                     </details>
                                     <!-- BLOC 2 : ENDURANCE TECHNIQUE -->
-                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🔄 Endurance technique </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 15px;"><strong>L'endurance technique, c'est la capacité à répéter une performance ou à la maintenir dans la durée.</strong></p></summary>
+                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🔄 Endurance technique </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 15px;"><strong>L'endurance technique, c'est la capacité à répéter une performance ou à la maintenir dans la durée.</strong></p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -52516,7 +52500,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         </div>
                                     </details>
                                     <!-- BLOC 3 : TACTIQUE DE CONCOURS -->
-                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🧠 Tactique de concours </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Au lycée, l'athlète commence à construire <strong>sa propre stratégie de plongeons</strong> (choix des plongeons, ordre dans la série) en fonction de ses qualités physiques, de ses hauteurs de compétition et du contexte lié à la compétition elle-même.</p></summary>
+                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🧠 Tactique de concours </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Au lycée, l'athlète commence à construire <strong>sa propre stratégie de plongeons</strong> (choix des plongeons, ordre dans la série) en fonction de ses qualités physiques, de ses hauteurs de compétition et du contexte lié à la compétition elle-même.</p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -52597,7 +52581,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         </div>
                                     </details>
                                     <!-- BLOC 4 : PARTIES SANS PLONGEON -->
-                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🚀 Parties sans plongeon </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Au lycée, l'enjeu des parties sans plongeon évolue vers une logique de <strong>gestion des temps d'attente</strong> entre les différents passages pour maximiser la réussite.</p></summary>
+                                    <details style="background: rgba(141,113,222,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #8D71DE;"><summary class="attendus-bloc-summary"><h2 style="color: #8D71DE; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🚀 Parties sans plongeon </h2><h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Au lycée, l'enjeu des parties sans plongeon évolue vers une logique de <strong>gestion des temps d'attente</strong> entre les différents passages pour maximiser la réussite.</p><span class="attendus-bloc-cta" style="color: #8D71DE;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -54803,7 +54787,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     </div>
                                     <!--PROG_ANCHOR-->
                                     <!-- BLOC 1 : TACTIQUE DE CONCOURS -->
-                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🎯 Tactique de concours </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Connaître et maîtriser sa stratégie personnelle de plongeons (choix, ordre), appuyée sur ses points forts. C'est le niveau le plus personnel de toutes les compétences.</p></summary>
+                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🎯 Tactique de concours </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Connaître et maîtriser sa stratégie personnelle de plongeons (choix, ordre), appuyée sur ses points forts. C'est le niveau le plus personnel de toutes les compétences.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -54871,7 +54855,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         </div>
                                     </details>
                                     <!-- BLOC 2 : ENDURANCE TECHNIQUE -->
-                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🏃 Endurance technique </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">Maintenir l'efficacité et la qualité technique (régularité) à l'intensité des plongeons, sur toute la durée d'un entraînement ou d'un concours. Il ne s'agit plus de plonger juste <em>parfois</em>, mais de plonger juste <strong>du début à la fin</strong>.</p></summary>
+                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🏃 Endurance technique </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">Maintenir l'efficacité et la qualité technique (régularité) à l'intensité des plongeons, sur toute la durée d'un entraînement ou d'un concours. Il ne s'agit plus de plonger juste <em>parfois</em>, mais de plonger juste <strong>du début à la fin</strong>.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -54940,7 +54924,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         </div>
                                     </details>
                                     <!-- BLOC 3 : PLONGER EFFICACEMENT -->
-                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🏊 Plonger efficacement </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Construire un répertoire de plongeons et apprendre à adapter ses répétitions en visant une haute efficacité.</p></summary>
+                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🏊 Plonger efficacement </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Construire un répertoire de plongeons et apprendre à adapter ses répétitions en visant une haute efficacité.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
@@ -55055,7 +55039,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         </div>
                                     </details>
                                     <!-- BLOC 4 : PARTIES SANS PLONGEON -->
-                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🚀 Parties sans plongeon </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Une maîtrise parfaite et en autonomie de la gestion des temps d'attente entre les passages pour maximiser la réussite.</p></summary>
+                                    <details style="background: rgba(226,0,26,0.06); padding: 30px; border-radius: 12px; margin-bottom: 30px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;"> 🚀 Parties sans plongeon </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">Une maîtrise parfaite et en autonomie de la gestion des temps d'attente entre les passages pour maximiser la réussite.</p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
                                         <!-- ENJEUX -->
                                         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             
