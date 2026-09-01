@@ -479,9 +479,9 @@
             margin-right: 6px;
             flex-shrink: 0;
             vertical-align: middle;
-        }.discipline-matrix-header:not(.discipline-matrix-header-repeat) > .discipline-header-cell:first-child{
+        }.discipline-header-cell:first-child{
             border-radius: 12px 0 0 0;
-        }.discipline-matrix-header:not(.discipline-matrix-header-repeat) > .discipline-header-cell:last-child{
+        }.discipline-header-cell:last-child{
             border-radius: 0 12px 0 0;
         }.discipline-row{
             display: contents;
@@ -59653,12 +59653,12 @@ function ProfilDeveloppementView() {
                       </a>
                     </div>
 
-                    {/* Colonne P1 verticale — s'étend sur toutes les lignes de disciplines (+ bandeaux d'en-tête répétés) */}
+                    {/* Colonne P1 verticale — s'étend sur toutes les lignes de disciplines */}
                     <div
                         onClick={() => onPeriodClick(1, 1)}
                         style={{
                             gridColumn: '2',
-                            gridRow: '5 / span 10',
+                            gridRow: '5 / span 5',
                             background: '#55CC85',
                             borderRadius: '0 0 0 12px',
                             display: 'flex',
@@ -59707,16 +59707,7 @@ function ProfilDeveloppementView() {
 
                     {/* Lignes de disciplines */}
                     {disciplines.map((discipline, index) => (
-                    <React.Fragment key={discipline.id}>
-                        {/* Bandeau de périodes répété — flottant, s'intercale au-dessus de chaque ligne */}
-                        <div className="discipline-matrix-header discipline-matrix-header-repeat">
-                            {periods.slice(1).map(period => (
-                                <div key={period.id} className="discipline-header-cell" style={{'--period-color': period.color, gridColumn: period.id + 1}}>
-                                    <span className="discipline-header-badge">{period.id}</span><strong>{period.title}</strong>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="discipline-row">
+                        <div key={discipline.id} className="discipline-row">
                             <div className="discipline-label" style={{
                                 backgroundColor: discipline.color,
                                 cursor: 'pointer',
@@ -59760,7 +59751,6 @@ function ProfilDeveloppementView() {
                                 );
                             })}
                         </div>
-                    </React.Fragment>
                     ))}
                     </div>
                 </div>
