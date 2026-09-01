@@ -447,7 +447,7 @@
             animation: fadeIn 0.6s ease-in;
         }.discipline-matrix{
             display: grid;
-            grid-template-columns: 120px 200px repeat(4, 1fr);
+            grid-template-columns: 200px 120px repeat(4, 1fr);
             gap: 0;
             row-gap: 15px;
             animation: fadeIn 0.6s ease-in;
@@ -462,9 +462,26 @@
             color: white;
             border-bottom: 3px solid #0090D4;
             font-size: 0.9em;
-        }.discipline-header-cell:first-child{
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }.discipline-header-badge{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-right: 6px;
+            flex-shrink: 0;
+            vertical-align: middle;
+        }.discipline-matrix-header:not(.discipline-matrix-header-repeat) > .discipline-header-cell:first-child{
             border-radius: 12px 0 0 0;
-        }.discipline-header-cell:last-child{
+        }.discipline-matrix-header:not(.discipline-matrix-header-repeat) > .discipline-header-cell:last-child{
             border-radius: 0 12px 0 0;
         }.discipline-row{
             display: contents;
@@ -59489,25 +59506,25 @@ function ProfilDeveloppementView() {
                     <div className="discipline-matrix">
                         {/* En-tête avec les noms de périodes */}
                         <div className="discipline-matrix-header">
-                            <div className="discipline-header-cell" style={{background: 'white', color: '#0E1655', gridColumn: 'span 2'}}>Disciplines</div>
-                        {periods.slice(1).map(period => (
+                            <div className="discipline-header-cell" style={{background: 'white', color: '#0E1655'}}>Disciplines</div>
+                        {periods.map(period => (
                             <div key={period.id} className="discipline-header-cell" style={{'--period-color': period.color}}>
-                                <strong>{period.title}</strong>
+                                <span className="discipline-header-badge">{period.id}</span><strong>{period.title}</strong>
                             </div>
                         ))}
                     </div>
 
                     {/* ═══════════════════════════════════════════════════════
                         SECTION ÂGES — pleine largeur, au-dessus des disciplines
-                        Structure : col P1 vide | col labels | cols tracks P2-P5
+                        Structure : col labels | col P1 vide | cols tracks P2-P5
                     ═══════════════════════════════════════════════════════ */}
-                    <div style={{gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: '120px 200px repeat(4, 1fr)', padding: '10px 0 4px 0'}}>
+                    <div style={{gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: '200px 120px repeat(4, 1fr)', padding: '10px 0 4px 0'}}>
 
                       {/* Colonne P1 — vide dans la zone âges */}
-                      <div style={{gridColumn: '1', background: 'rgba(85,204,133,0.06)', borderRight: '1px solid rgba(85,204,133,0.15)'}}></div>
+                      <div style={{gridColumn: '2', background: 'rgba(85,204,133,0.06)', borderRight: '1px solid rgba(85,204,133,0.15)'}}></div>
 
                       {/* Colonne labels */}
-                      <div style={{gridColumn: '2', borderRight: '1px solid rgba(255,255,255,0.08)'}}>
+                      <div style={{gridColumn: '1', borderRight: '1px solid rgba(255,255,255,0.08)'}}>
 
                         {/* — Âges fixes — */}
                         <div style={{fontSize: '0.72em', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', padding: '4px 12px', background: 'rgba(255,255,255,0.03)'}}>Âges fixes</div>
@@ -59636,12 +59653,12 @@ function ProfilDeveloppementView() {
                       </a>
                     </div>
 
-                    {/* Colonne P1 verticale — s'étend sur toutes les lignes de disciplines */}
+                    {/* Colonne P1 verticale — s'étend sur toutes les lignes de disciplines (+ bandeaux d'en-tête répétés) */}
                     <div
                         onClick={() => onPeriodClick(1, 1)}
                         style={{
-                            gridColumn: '1',
-                            gridRow: '5 / span 5',
+                            gridColumn: '2',
+                            gridRow: '5 / span 10',
                             background: '#55CC85',
                             borderRadius: '0 0 0 12px',
                             display: 'flex',
@@ -59649,38 +59666,22 @@ function ProfilDeveloppementView() {
                             alignItems: 'center',
                             justifyContent: 'center',
                             cursor: 'pointer',
-                            padding: '12px 6px',
+                            padding: '12px 10px',
                             transition: 'all 0.3s ease',
-                            boxShadow: '0 2px 10px rgba(14, 22, 85, 0.1)',
-                            gap: '10px'
+                            boxShadow: '0 2px 10px rgba(14, 22, 85, 0.1)'
                         }}
                         onMouseEnter={e => e.currentTarget.style.filter = 'brightness(1.1)'}
                         onMouseLeave={e => e.currentTarget.style.filter = 'brightness(1)'}
                     >
-                        <span style={{
-                            background: 'rgba(255,255,255,0.3)',
-                            width: '30px',
-                            height: '30px',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontWeight: 700,
+                        <p style={{
                             color: 'white',
-                            fontSize: '1em',
-                            flexShrink: 0
-                        }}>1</span>
-                        <span style={{
-                            color: 'white',
-                            fontWeight: 700,
+                            fontWeight: 600,
                             fontSize: '0.82em',
-                            writingMode: 'vertical-rl',
-                            textOrientation: 'mixed',
-                            transform: 'rotate(180deg)',
+                            lineHeight: 1.5,
                             textAlign: 'center',
                             textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
-                            letterSpacing: '0.05em'
-                        }}>Je découvre</span>
+                            margin: 0
+                        }}>Découvrir et explorer le milieu aquatique. Acquérir de l'aisance et de la confiance dans l'eau.</p>
                     </div>
 
                     {/* Bandeau au-dessus de la première discipline */}
@@ -59706,7 +59707,16 @@ function ProfilDeveloppementView() {
 
                     {/* Lignes de disciplines */}
                     {disciplines.map((discipline, index) => (
-                        <div key={discipline.id} className="discipline-row">
+                    <React.Fragment key={discipline.id}>
+                        {/* Bandeau de périodes répété — flottant, s'intercale au-dessus de chaque ligne */}
+                        <div className="discipline-matrix-header discipline-matrix-header-repeat">
+                            {periods.slice(1).map(period => (
+                                <div key={period.id} className="discipline-header-cell" style={{'--period-color': period.color, gridColumn: period.id + 1}}>
+                                    <span className="discipline-header-badge">{period.id}</span><strong>{period.title}</strong>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="discipline-row">
                             <div className="discipline-label" style={{
                                 backgroundColor: discipline.color,
                                 cursor: 'pointer',
@@ -59750,6 +59760,7 @@ function ProfilDeveloppementView() {
                                 );
                             })}
                         </div>
+                    </React.Fragment>
                     ))}
                     </div>
                 </div>
