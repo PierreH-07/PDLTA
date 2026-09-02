@@ -453,13 +453,18 @@
             animation: fadeIn 0.6s ease-in;
             margin-bottom: 30px;
         }.discipline-matrix-header{
-            display: grid;
-            grid-template-columns: 200px 120px repeat(4, 1fr);
-            grid-column: 1 / -1;
+            display: flex;
             position: sticky;
             top: 0;
             z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto 15px;
+        }.discipline-matrix-header .discipline-header-cell:nth-child(1){
+            flex: 0 0 200px;
+        }.discipline-matrix-header .discipline-header-cell:nth-child(2){
+            flex: 0 0 120px;
         }.discipline-header-cell{
+            flex: 1 1 0;
             background: var(--period-color, white);
             padding: 12px 15px;
             font-weight: 600;
@@ -59519,6 +59524,16 @@ function ProfilDeveloppementView() {
 
             return (
                 <div>
+                    {/* En-tête avec les noms de périodes — hors de la grille, flottant indépendamment */}
+                    <div className="discipline-matrix-header">
+                        <div className="discipline-header-cell" style={{background: 'white', color: '#0E1655'}}>Disciplines</div>
+                        {periods.map(period => (
+                            <div key={period.id} className="discipline-header-cell" style={{'--period-color': period.color}}>
+                                <span className="discipline-header-badge">{period.id}</span><strong>{period.title}</strong>
+                            </div>
+                        ))}
+                    </div>
+
                     <div className="discipline-matrix">
                         {/* Bandeau ENF/ADN — tout en haut, au-dessus du bandeau des périodes */}
                         <div className="discipline-banner-1">
@@ -59541,17 +59556,7 @@ function ProfilDeveloppementView() {
                             </div>
                         </div>
 
-                        {/* En-tête avec les noms de périodes */}
-                        <div className="discipline-matrix-header">
-                            <div className="discipline-header-cell" style={{background: 'white', color: '#0E1655'}}>Disciplines</div>
-                        {periods.map(period => (
-                            <div key={period.id} className="discipline-header-cell" style={{'--period-color': period.color}}>
-                                <span className="discipline-header-badge">{period.id}</span><strong>{period.title}</strong>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* ═══════════════════════════════════════════════════════
+                        {/* ═══════════════════════════════════════════════════════
                         SECTION ÂGES — pleine largeur, au-dessus des disciplines
                         Structure : col labels | col P1 vide | cols tracks P2-P5
                     ═══════════════════════════════════════════════════════ */}
