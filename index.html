@@ -42517,11 +42517,12 @@ window.prevCarrier=prevCarrier;window.nextCarrier=nextCarrier;
 const W=420,H=300,M=16,Y2M=68,Y5M=148;
 const Z2X1=148,Z2X2=272,BX1=178,BX2=242,BY=M;
 const ATT={G:[210,22],6:[210,Y2M],1:[355,88],2:[300,150],3:[210,225],4:[120,150],5:[65,88]};
-const CARRIERS=[1,2,3,4,5];
+const CARRIERS=[1,2,'3a','3b',4,5];
+const CARRIER_LABELS={1:'J.1',2:'J.2','3a':'J.3 (zone 2/3)','3b':'J.3 (zone 3/4)',4:'J.4',5:'J.5'};
 let cidx=0;
 const CONFIG={
-  0:{nZone:2,triWidth:22},
-  1:{nZone:3,triWidth:55}
+  0:{nZone:2},
+  1:{nZone:3}
 };
 
 // ── Dessin joueur triangle ──────────────────────────────────────────────────
@@ -42560,13 +42561,24 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
 
 function getZoners(carrier,nZone){
   if(nZone===2){
-    if(carrier===1)return[1,2];if(carrier===2)return[1,2];
-    if(carrier===3)return[2,4];if(carrier===4)return[4,5];if(carrier===5)return[4,5];
+    if(carrier===1)   return[1,2];
+    if(carrier===2)   return[1,2];
+    if(carrier==='3a') return[2,3];
+    if(carrier==='3b') return[3,4];
+    if(carrier===4)   return[4,5];
+    if(carrier===5)   return[4,5];
   }else{
-    if(carrier===1)return[1,2,3];if(carrier===2)return[1,2,3];
-    if(carrier===3)return[2,3,4];if(carrier===4)return[3,4,5];if(carrier===5)return[3,4,5];
+    if(carrier===1||carrier==='3a')   return[1,2,3];
+    if(carrier===2)   return[1,2,3];
+    if(carrier==='3b')   return[2,3,4];
+    if(carrier===4)   return[3,4,5];
+    if(carrier===5)   return[3,4,5];
   }
   return[];
+}
+
+function zoneName(zoners){
+  return 'Zone ' + zoners.slice().sort((a,b)=>a-b).join('/');
 }
 function zonerPos(n){const an=ATT[n],s6=ATT[6];return[an[0]+(s6[0]-an[0])*.5,an[1]+(s6[1]-an[1])*.5];}
 function defHHPos(n){const a=ATT[n],g=ATT.G,dx=g[0]-a[0],dy=g[1]-a[1],l=Math.sqrt(dx*dx+dy*dy);return[a[0]+dx/l*18,a[1]+dy/l*18];}
@@ -42574,17 +42586,37 @@ function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return[dx/l,dy/l];}
 
 function render(){
   const carrier=CARRIERS[cidx];
-  document.getElementById('carrier-val').textContent='J.'+carrier;
+  document.getElementById('carrier-val').textContent=CARRIER_LABELS[carrier];
   renderSlide(0,carrier);renderSlide(1,carrier);
 }
 
 function renderSlide(si,carrier){
   const cfg=CONFIG[si];
-  const{nZone,triWidth}=cfg;
+  const{nZone}=cfg;
   const zoners=getZoners(carrier,nZone);
-  const s6=ATT[6],pc=ATT[carrier];
-  // Att6 toujours tourné vers le porteur, largeur du triangle seule change
-  const dir6=norm(pc[0]-s6[0],pc[1]-s6[1]);
+  const carrierKey=(carrier==='3a'||carrier==='3b')?3:carrier;
+  const s6=ATT[6],pc=ATT[carrierKey];
+  // Att6 tourné vers le porteur ; pour les sous-variantes 3a/3b (porteur 3, slide fermé),
+  // orientation légèrement décalée vers att2 (3a) ou att4 (3b)
+  let dir6;
+  if(carrier==='3a'){
+    const toP=norm(pc[0]-s6[0],pc[1]-s6[1]);
+    const toAtt2=norm(ATT[2][0]-s6[0],ATT[2][1]-s6[1]);
+    dir6=norm(toP[0]*0.6+toAtt2[0]*0.4,toP[1]*0.6+toAtt2[1]*0.4);
+  }else if(carrier==='3b'){
+    const toP=norm(pc[0]-s6[0],pc[1]-s6[1]);
+    const toAtt4=norm(ATT[4][0]-s6[0],ATT[4][1]-s6[1]);
+    dir6=norm(toP[0]*0.6+toAtt4[0]*0.4,toP[1]*0.6+toAtt4[1]*0.4);
+  }else{
+    dir6=norm(pc[0]-s6[0],pc[1]-s6[1]);
+  }
+  const znLabel=se('text',{
+    x:String(W/2),y:String(H-12),
+    'text-anchor':'middle','font-size':'11','font-weight':'700',
+    'font-family':'Prompt,Arial,sans-serif',
+    fill:si===0?'#16a34a':'#F97316'
+  });
+  znLabel.textContent=zoneName(zoners);
 
   const svg=document.getElementById('svg-'+si);
   svg.innerHTML='';
@@ -42595,11 +42627,20 @@ function renderSlide(si,carrier){
   defs.appendChild(grad);svg.appendChild(defs);
   svg.appendChild(R(0,0,W,H,{fill:\`url(#wg\${si})\`,rx:'6'}));
 
-  // Triangle actif
-  const dx=pc[0]-s6[0],dy=pc[1]-s6[1],len=Math.sqrt(dx*dx+dy*dy);
-  const px=-dy/len*triWidth,py=dx/len*triWidth;
+  // Triangle actif : sommet = att6, base = englobant les zoneurs
+  const zonerPositions=zoners.map(n=>ATT[n]);
+  const baseCenter=zonerPositions.reduce((acc,p)=>[acc[0]+p[0]/zonerPositions.length,acc[1]+p[1]/zonerPositions.length],[0,0]);
+  const dx=baseCenter[0]-s6[0],dy=baseCenter[1]-s6[1],len=Math.sqrt(dx*dx+dy*dy);
+  const px=-dy/len,py=dx/len;
+  let maxLat=0;
+  for(const n of zoners){
+    const vx=ATT[n][0]-s6[0],vy=ATT[n][1]-s6[1];
+    const lat=Math.abs(vx*px+vy*py);
+    if(lat>maxLat)maxLat=lat;
+  }
+  const triHalfWidth=maxLat+18;
   svg.appendChild(se('polygon',{
-    points:\`\${s6[0]},\${s6[1]} \${pc[0]+px},\${pc[1]+py} \${pc[0]-px},\${pc[1]-py}\`,
+    points:\`\${s6[0]},\${s6[1]} \${baseCenter[0]+px*triHalfWidth},\${baseCenter[1]+py*triHalfWidth} \${baseCenter[0]-px*triHalfWidth},\${baseCenter[1]-py*triHalfWidth}\`,
     fill:si===0?'rgba(22,163,74,0.13)':'rgba(255,200,0,0.16)',
     stroke:si===0?'#16a34a':'#F97316','stroke-width':'1.5','stroke-dasharray':'5,3'
   }));
@@ -42627,7 +42668,12 @@ function renderSlide(si,carrier){
   // Att6 — dos au but (tête vers le bas = vers le jeu, bras vers le bas)
   drawTri(svg,s6[0],s6[1],'6','#c62828',dir6,false);
   // Att 1-5 — face au but (tête vers le haut, bras en éventail vers le haut)
-  for(let n=1;n<=5;n++) drawTri(svg,ATT[n][0],ATT[n][1],String(n),'#c62828',[0,-1],n===carrier);
+  for(let n=1;n<=5;n++){
+    const an=ATT[n];
+    const goal=[W/2,BY+11];
+    const dir=norm(goal[0]-an[0],goal[1]-an[1]);
+    drawTri(svg,an[0],an[1],String(n),'#c62828',dir,n===carrierKey);
+  }
   // Def6 H/H
   const arrowDir=pc[0]>s6[0]?-1:1;
   drawTri(svg,s6[0],s6[1]-22,'H','#0d47a1',[0,-1],false); // tête vers le bas = face à att6
@@ -42646,6 +42692,7 @@ function renderSlide(si,carrier){
       drawTri(svg,hp[0],hp[1],'H','#0d47a1',[ux,uy],false);
     }
   }
+  svg.appendChild(znLabel);
 }
 
 function drawArrow(svg,x1,y1,x2,y2,color){
