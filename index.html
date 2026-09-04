@@ -42894,7 +42894,7 @@ render();
 <div id="wp-intervalle" style="background:#0f172a;border-radius:12px;padding: 20px 20px;margin: 20px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-#wp-intervalle { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 32px 24px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+#wp-intervalle { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
 #wp-intervalle .wp-header { text-align: center; }
 #wp-intervalle .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #F97316; }
 #wp-intervalle .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
@@ -42921,9 +42921,9 @@ render();
 <svg class="terrain" id="svg-main-iv" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense intervalle</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
+  <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défense en intervalle</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,150,0,0.15);border:1.5px solid rgba(255,150,0,0.4)"></div>Espace couvert</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -42933,31 +42933,105 @@ window.prevIV=prev;window.nextIV=next;
 const W=760,H=460,M=24,Y2M=95,Y5M=210;
 const Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
 const ATT={G:[380,28],6:[380,Y2M],1:[660,124],2:[548,222],3:[380,300],4:[212,222],5:[100,124]};
-const INNER={1:2,2:3,3:2,4:3,5:4};
 const CARRIERS=[null,1,2,3,4,5];
 const CNAMES={null:'aucun',1:'Joueur 1',2:'Joueur 2',3:'Joueur 3',4:'Joueur 4',5:'Joueur 5'};
 let cidx=0;
 
 function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
 
-function intervalPos(n){
-  const s6=ATT[6],an=ATT[n];
-  const bx=s6[0]+(an[0]-s6[0])*.80,by=s6[1]+(an[1]-s6[1])*.80;
-  const vn=INNER[n],vx=ATT[vn][0],vy=ATT[vn][1];
-  return[bx+(vx-an[0])*.20,by+(vy-an[1])*.20];
+function defPos(n){
+  const s6=ATT[6],g=ATT.G;
+
+  if(n===6){
+    return[
+      s6[0]+(g[0]-s6[0])*0.40,
+      s6[1]+(g[1]-s6[1])*0.40
+    ];
+  }
+
+  if(n===3){
+    const a3=ATT[3];
+    return[
+      a3[0]+(s6[0]-a3[0])*0.50,
+      a3[1]+(s6[1]-a3[1])*0.50
+    ];
+  }
+
+  if(n===2){
+    const a2=ATT[2],a3=ATT[3];
+    return[(a2[0]+a3[0])/2,(a2[1]+a3[1])/2];
+  }
+
+  if(n===4){
+    const a3=ATT[3],a4=ATT[4];
+    return[(a3[0]+a4[0])/2,(a3[1]+a4[1])/2];
+  }
+
+  if(n===1){
+    const a1=ATT[1];
+    return[
+      a1[0]+(g[0]-a1[0])*0.18,
+      a1[1]+(g[1]-a1[1])*0.18
+    ];
+  }
+
+  if(n===5){
+    const a5=ATT[5];
+    return[
+      a5[0]+(g[0]-a5[0])*0.18,
+      a5[1]+(g[1]-a5[1])*0.18
+    ];
+  }
 }
 
-// Direction défenseur : face à son att par défaut
-// Si porteur proche → bisectrice pondérée att + ballon
 function defDir(n,carrier){
-  const dp=intervalPos(n),an=ATT[n];
-  const ua=norm(an[0]-dp[0],an[1]-dp[1]);
-  if(carrier===null)return ua;
-  const pb=ATT[carrier];
-  const ub=norm(pb[0]-dp[0],pb[1]-dp[1]);
-  const w=carrier===n?0.50:INNER[n]===carrier?0.78:0.94;
-  const mx=ua[0]*w+ub[0]*(1-w),my=ua[1]*w+ub[1]*(1-w);
-  return norm(mx,my);
+  const dp=defPos(n);
+
+  if(n===6){
+    return norm(ATT[6][0]-dp[0],ATT[6][1]-dp[1]);
+  }
+
+  if(n===3){
+    const toAtt3=norm(ATT[3][0]-dp[0],ATT[3][1]-dp[1]);
+    if(carrier===null)return toAtt3;
+    const toB=norm(ATT[carrier][0]-dp[0],ATT[carrier][1]-dp[1]);
+    const w=(carrier===3)?0.5:(carrier===2||carrier===4)?0.75:0.92;
+    return norm(toAtt3[0]*w+toB[0]*(1-w),toAtt3[1]*w+toB[1]*(1-w));
+  }
+
+  if(n===2){
+    const toAtt2=norm(ATT[2][0]-dp[0],ATT[2][1]-dp[1]);
+    const toAtt3=norm(ATT[3][0]-dp[0],ATT[3][1]-dp[1]);
+    const base=norm(toAtt2[0]+toAtt3[0],toAtt2[1]+toAtt3[1]);
+    if(carrier===null)return base;
+    const toB=norm(ATT[carrier][0]-dp[0],ATT[carrier][1]-dp[1]);
+    const w=(carrier===2||carrier===3)?0.60:0.88;
+    return norm(base[0]*w+toB[0]*(1-w),base[1]*w+toB[1]*(1-w));
+  }
+
+  if(n===4){
+    const toAtt3=norm(ATT[3][0]-dp[0],ATT[3][1]-dp[1]);
+    const toAtt4=norm(ATT[4][0]-dp[0],ATT[4][1]-dp[1]);
+    const base=norm(toAtt3[0]+toAtt4[0],toAtt3[1]+toAtt4[1]);
+    if(carrier===null)return base;
+    const toB=norm(ATT[carrier][0]-dp[0],ATT[carrier][1]-dp[1]);
+    const w=(carrier===3||carrier===4)?0.60:0.88;
+    return norm(base[0]*w+toB[0]*(1-w),base[1]*w+toB[1]*(1-w));
+  }
+
+  if(n===1){
+    const toAtt1=norm(ATT[1][0]-dp[0],ATT[1][1]-dp[1]);
+    if(carrier===null||carrier!==1)return toAtt1;
+    return norm(toAtt1[0]*0.55+(ATT[2][0]-dp[0])/50,toAtt1[1]*0.55+(ATT[2][1]-dp[1])/50);
+  }
+
+  if(n===5){
+    const toAtt5=norm(ATT[5][0]-dp[0],ATT[5][1]-dp[1]);
+    if(carrier===null||carrier!==5)return toAtt5;
+    return norm(toAtt5[0]*0.55+(ATT[4][0]-dp[0])/50,toAtt5[1]*0.55+(ATT[4][1]-dp[1])/50);
+  }
+
+  return[0,1];
 }
 
 function drawTri(svg,x,y,label,color,headDir,isCarrier){
@@ -42992,19 +43066,25 @@ function render(){
 
   const s6=ATT[6];
 
-  // Espaces couverts
-  for(let n=1;n<=5;n++){
-    const dp=intervalPos(n),an=ATT[n],vp=ATT[INNER[n]];
-    svg.appendChild(se('polygon',{points:\`\${dp[0]},\${dp[1]} \${an[0]},\${an[1]} \${vp[0]},\${vp[1]}\`,fill:'rgba(255,150,0,0.07)',stroke:'none'}));
+  // Lignes de passe latérales (intervalles couverts par def2 et def4)
+  svg.appendChild(L(ATT[2][0],ATT[2][1],ATT[3][0],ATT[3][1],{
+    stroke:'rgba(22,163,74,0.3)','stroke-width':'1.2','stroke-dasharray':'3,3'
+  }));
+  svg.appendChild(L(ATT[3][0],ATT[3][1],ATT[4][0],ATT[4][1],{
+    stroke:'rgba(22,163,74,0.3)','stroke-width':'1.2','stroke-dasharray':'3,3'
+  }));
+
+  // Ligne axe central att3→att6 (couverte par def3)
+  svg.appendChild(L(ATT[3][0],ATT[3][1],ATT[6][0],ATT[6][1],{
+    stroke:'rgba(22,163,74,0.2)','stroke-width':'1','stroke-dasharray':'3,4'
+  }));
+
+  // Ligne porteur→att6 si porteur actif
+  if(carrier!==null){
+    svg.appendChild(L(ATT[carrier][0],ATT[carrier][1],ATT[6][0],ATT[6][1],{
+      stroke:'rgba(255,255,100,0.55)','stroke-width':'1.8','stroke-dasharray':'5,3'
+    }));
   }
-  // Lignes de passe att→att6
-  for(let n=1;n<=5;n++){
-    const isP=carrier===n;
-    svg.appendChild(L(ATT[n][0],ATT[n][1],s6[0],s6[1],{stroke:isP?'rgba(255,255,100,0.55)':'rgba(255,255,255,0.12)','stroke-width':isP?'1.8':'1','stroke-dasharray':'4,4'}));
-  }
-  [[1,2],[2,3],[3,4],[4,5]].forEach(([a,b])=>{
-    svg.appendChild(L(ATT[a][0],ATT[a][1],ATT[b][0],ATT[b][1],{stroke:'rgba(255,255,255,0.10)','stroke-width':'1','stroke-dasharray':'3,4'}));
-  });
 
   svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.8',rx:'4'}));
   svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'9,6'}));
@@ -43021,13 +43101,16 @@ function render(){
   drawTri(svg,s6[0],s6[1],'6','#c62828',[0,1],false);
   // Att 1-5 — face au but (tête vers le haut)
   for(let n=1;n<=5;n++) drawTri(svg,ATT[n][0],ATT[n][1],String(n),'#c62828',[0,-1],carrier===n);
-  // Def sur att6 H/H
-  drawTri(svg,s6[0],s6[1]-28,'6','#0d47a1',[0,1],false);
-  // Défenseurs en intervalle
-  for(let n=1;n<=5;n++){
-    const dp=intervalPos(n),dir=defDir(n,carrier);
-    drawTri(svg,dp[0],dp[1],String(n),'#0d47a1',dir,false);
-  }
+
+  // Def 6 entre att6 et le but
+  drawTri(svg,defPos(6)[0],defPos(6)[1],'6','#0d47a1',defDir(6,carrier),false);
+  // Def 1 et 5 en pressing
+  drawTri(svg,defPos(1)[0],defPos(1)[1],'1','#0d47a1',defDir(1,carrier),false);
+  drawTri(svg,defPos(5)[0],defPos(5)[1],'5','#0d47a1',defDir(5,carrier),false);
+  // Def 2, 3, 4 en intervalle
+  drawTri(svg,defPos(2)[0],defPos(2)[1],'2','#16a34a',defDir(2,carrier),false);
+  drawTri(svg,defPos(3)[0],defPos(3)[1],'3','#16a34a',defDir(3,carrier),false);
+  drawTri(svg,defPos(4)[0],defPos(4)[1],'4','#16a34a',defDir(4,carrier),false);
 }
 
 function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
@@ -43040,6 +43123,7 @@ function next(){cidx=(cidx+1)%CARRIERS.length;render();}
 render();
 <\/script>
 </div>
+
 <div style="margin-top:24px;"><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
       <div style="background:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
         <span style="font-size:1.4em;">🔢</span>
