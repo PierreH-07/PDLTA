@@ -60202,37 +60202,6 @@ function ProfilDeveloppementView() {
                       </a>
                     </div>
 
-                    {/* Colonne P1 verticale — s'étend sur toutes les lignes de disciplines */}
-                    <div
-                        onClick={() => onPeriodClick(1, 1)}
-                        style={{
-                            gridColumn: '2',
-                            gridRow: '5 / span 5',
-                            background: '#55CC85',
-                            borderRadius: '0 0 0 12px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            cursor: 'pointer',
-                            padding: '12px 10px',
-                            transition: 'all 0.3s ease',
-                            boxShadow: '0 2px 10px rgba(14, 22, 85, 0.1)'
-                        }}
-                        onMouseEnter={e => e.currentTarget.style.filter = 'brightness(1.1)'}
-                        onMouseLeave={e => e.currentTarget.style.filter = 'brightness(1)'}
-                    >
-                        <p style={{
-                            color: 'white',
-                            fontWeight: 600,
-                            fontSize: '0.82em',
-                            lineHeight: 1.5,
-                            textAlign: 'center',
-                            textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
-                            margin: 0
-                        }}>Découvrir et explorer le milieu aquatique. Acquérir de l'aisance et de la confiance dans l'eau.</p>
-                    </div>
-
                     {/* Lignes de disciplines */}
                     {disciplines.map((discipline, index) => (
                         <div key={discipline.id} className="discipline-row">
@@ -60259,6 +60228,42 @@ function ProfilDeveloppementView() {
                                     letterSpacing: '0.02em'
                                 }}>ℹ</span>
                             </div>
+
+                            {/* Colonne P1 verticale — placee dans la 1re ligne de disciplines et
+                                etendue sur toutes les suivantes. La ligne de depart est laissee a
+                                la grille : ne jamais la coder en dur, elle se decale des qu'un bloc
+                                pleine largeur est ajoute au-dessus. */}
+                            {index === 0 && (
+                            <div
+                                onClick={() => onPeriodClick(1, 1)}
+                                style={{
+                                    gridColumn: '2',
+                                    gridRow: `span ${disciplines.length}`,
+                                    background: '#55CC85',
+                                    borderRadius: '0 0 0 12px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer',
+                                    padding: '12px 10px',
+                                    transition: 'all 0.3s ease',
+                                    boxShadow: '0 2px 10px rgba(14, 22, 85, 0.1)'
+                                }}
+                                onMouseEnter={e => e.currentTarget.style.filter = 'brightness(1.1)'}
+                                onMouseLeave={e => e.currentTarget.style.filter = 'brightness(1)'}
+                            >
+                                <p style={{
+                                    color: 'white',
+                                    fontWeight: 600,
+                                    fontSize: '0.82em',
+                                    lineHeight: 1.5,
+                                    textAlign: 'center',
+                                    textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                                    margin: 0
+                                }}>Découvrir et explorer le milieu aquatique. Acquérir de l'aisance et de la confiance dans l'eau.</p>
+                            </div>
+                            )}
 
                             {/* Périodes 2-5 */}
                             {periods.slice(1).map(period => {
