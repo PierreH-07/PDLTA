@@ -43118,7 +43118,7 @@ const NS='http://www.w3.org/2000/svg';
 window.prevDP=prev;window.nextDP=next;
 const W=760,H=460,M=24,Y2M=95,Y5M=210;
 const Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
-const ATT={G:[380,28],'6a':[Z2X2,Y2M],'6b':[Z2X1,Y2M],1:[660,124],2:[548,222],4:[212,222],5:[100,124]};
+const ATT={G:[380,28],'6a':[Z2X2-30,Y2M],'6b':[Z2X1+30,Y2M],1:[660,124],2:[548,222],4:[212,222],5:[100,124]};
 const CARRIERS=[1,2,'6a','6b',4,5];
 const CNAMES={1:'Joueur 1',2:'Joueur 2','6a':'Joueur 6a (poteau droit)','6b':'Joueur 6b (poteau gauche)',4:'Joueur 4',5:'Joueur 5'};
 let cidx=0;
@@ -43212,13 +43212,15 @@ function render(){
 
   // Def H/H sur 6a (tête vers 6a = vers le bas + légèrement vers ext)
   const d6aDir=norm(s6a[0]-ATT.G[0]+20,s6a[1]-ATT.G[1]);
-  drawTri(svg,s6a[0],s6a[1]-24,'H','#0d47a1',d6aDir,false);
-  drawArrow(svg,s6a[0],s6a[1]-18,s6a[0]+20,s6a[1]-6,'#F97316');
+  const d6aPos=[s6a[0]-14,s6a[1]-24];
+  drawTri(svg,d6aPos[0],d6aPos[1],'H','#0d47a1',d6aDir,false);
+  drawArrow(svg,d6aPos[0],d6aPos[1]+6,d6aPos[0]+24,d6aPos[1]+12,'#F97316');
 
   // Def H/H sur 6b
   const d6bDir=norm(s6b[0]-ATT.G[0]-20,s6b[1]-ATT.G[1]);
-  drawTri(svg,s6b[0],s6b[1]-24,'H','#0d47a1',d6bDir,false);
-  drawArrow(svg,s6b[0],s6b[1]-18,s6b[0]-20,s6b[1]-6,'#F97316');
+  const d6bPos=[s6b[0]+14,s6b[1]-24];
+  drawTri(svg,d6bPos[0],d6bPos[1],'H','#0d47a1',d6bDir,false);
+  drawArrow(svg,d6bPos[0],d6bPos[1]+6,d6bPos[0]-24,d6bPos[1]+12,'#F97316');
 
   // Zoneurs secteur droit (face à leur att)
   const zR1=zonerAt50(s6a,a1),zR2=zonerAt50(s6a,a2);
