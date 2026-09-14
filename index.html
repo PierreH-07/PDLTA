@@ -2680,6 +2680,12 @@
          * @property {number|number[]|null} specificTo   discipline(s) concernée(s) ou null
          * @property {number|number[]|null} periodFilter période(s) concernée(s) ou null
          */
+        // ─── Constante : item "Nouveaux bras de levier" ───
+        // Déclarée avant periodsData et disciplineObjectives : ces deux objets
+        // l'interpolent dans leurs littéraux, donc elle doit exister au moment
+        // où ils sont évalués, sinon l'interpolation produit "undefined".
+        const LI_BRAS_LEVIER = `<li><strong>Nouveaux "bras de levier" :</strong> Des bras plus longs = plus de force potentielle mais aussi plus de difficulté à contrôler la trajectoire</li>`;
+
                 // Données complètes des périodes avec blocs transversaux
         const periodsData = {
             1: {
@@ -3489,32 +3495,29 @@
 
                             <h3 style="color: #0E1655; margin-bottom: 15px; font-size: 1.2em;">📚 Principes pédagogiques</h3>
 
-                            <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #0090D4; margin-bottom: 12px;">🎯 S'appuyer sur l'apprentissage implicite par des situations variées et ludiques</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                    Le jeu est un outil très efficace pour apprendre à se dépasser et à rechercher la performance. Favoriser l'exploration, la découverte et l'adaptation sans surcharger en consignes.
-                                </p>
-                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🎯 S'appuyer sur l'apprentissage implicite par des situations variées et ludiques</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Le jeu est un outil très efficace pour apprendre à se dépasser et à rechercher la performance. Favoriser l'exploration, la découverte et l'adaptation sans surcharger en consignes permet à l'enfant d'extraire spontanément les régularités qui construisent ses habiletés.</p>
+                                </div>
+                                <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔄 Multiplier les expériences motrices pour construire un socle riche et adaptable</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">L'enfant extrait spontanément des régularités à partir de situations répétées. Proposer de nombreuses situations différentes tout en maintenant une cohérence globale développe la coordination, l'aisance et la capacité à s'adapter.</p>
+                                </div>
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">💬 Jouer à devenir meilleur nageur</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Créer les conditions du sentiment de compétence et du plaisir d'agir. Valoriser la réussite, l'engagement et le progrès perçu installe une relation durable et positive à l'entraînement.</p>
+                                </div>
+                                <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #E91E63; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">👥 Utiliser le groupe comme levier d'engagement et d'apprentissage</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les interactions entre pairs stimulent l'envie de pratiquer et accélèrent les apprentissages. Favoriser la coopération, l'observation mutuelle et les défis collectifs renforce à la fois la motivation et l'appartenance au groupe.</p>
+                                </div>
 
-                            <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #4CAF50; margin-bottom: 12px;">🔄 Multiplier les expériences motrices pour construire un socle riche et adaptable</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                    L'enfant extrait spontanément des régularités à partir de situations répétées.
-                                    Proposer de nombreuses situations différentes tout en maintenant une cohérence globale permet de développer la coordination et l'aisance.
-                                </p>
-                            </div>
-
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #9C27B0; margin-bottom: 12px;">💬 Jouer à devenir meilleur nageur</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                     Créer les conditions du sentiment de compétences et du plaisir d'agir. Valoriser la réussite, l'engagement et le progrès perçu. 
-                                </p>
-                            </div>
-
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
                                     <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
                                     <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
                                 </div>
+                            </div>
 
                             <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #E91E63;">
                                 <h4 style="color: #E91E63; margin-bottom: 12px;">🎯 Actions de l’éducateur</h4>
@@ -3529,7 +3532,7 @@
                                 </ul>
                             </div>
 
-                            
+                           
 
 
                         `,
@@ -32984,6 +32987,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     <h4 style="margin-bottom: 8px;">👥 Utiliser le groupe comme levier d'engagement et d'apprentissage</h4>
                                     <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les interactions entre pairs stimulent l'envie de pratiquer et accélèrent les apprentissages. Favoriser la coopération, l'observation mutuelle et les défis collectifs renforce à la fois la motivation et l'appartenance au groupe.</p>
                                 </div>
+
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
+                                </div>
                             </div>
 
                             <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #E91E63;">
@@ -35066,6 +35074,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                 <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #E91E63; margin-bottom: 20px;">
                                     <h4 style="margin-bottom: 8px;">👥 Utiliser le groupe comme levier d'engagement et d'apprentissage</h4>
                                     <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les interactions entre pairs stimulent l'envie de pratiquer et accélèrent les apprentissages. Favoriser la coopération, l'observation mutuelle et les défis collectifs renforce à la fois la motivation et l'appartenance au groupe.</p>
+                                </div>
+
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
                                 </div>
                             </div>
 
@@ -37476,6 +37489,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                 <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #E91E63; margin-bottom: 20px;">
                                     <h4 style="margin-bottom: 8px;">👥 Utiliser le groupe comme levier d'engagement et d'apprentissage</h4>
                                     <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les interactions entre pairs stimulent l'envie de pratiquer et accélèrent les apprentissages. Favoriser la coopération, l'observation mutuelle et les défis collectifs renforce à la fois la motivation et l'appartenance au groupe.</p>
+                                </div>
+
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
                                 </div>
                             </div>
 
@@ -41284,30 +41302,33 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
         </p>
     </div>
 </div>
+
                             <h3 style="color: #0E1655; margin-bottom: 15px; font-size: 1.2em;">📚 Principes pédagogiques</h3>
-                            <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #0090D4; margin-bottom: 12px;">🎯 S'appuyer sur l'apprentissage implicite par des situations variées et ludiques</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                    Le jeu est un outil très efficace pour apprendre à se dépasser et à rechercher la performance. Favoriser l'exploration, la découverte et l'adaptation sans surcharger en consignes.
-                                </p>
-                            </div>
-                            <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #4CAF50; margin-bottom: 12px;">🔄 Multiplier les expériences motrices pour construire un socle riche et adaptable</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                    L'enfant extrait spontanément des régularités à partir de situations répétées.
-                                    Proposer de nombreuses situations différentes tout en maintenant une cohérence globale permet de développer la coordination et l'aisance.
-                                </p>
-                            </div>
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #9C27B0; margin-bottom: 12px;">💬 Jouer à devenir meilleur nageur</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                     Créer les conditions du sentiment de compétences et du plaisir d'agir. Valoriser la réussite, l'engagement et le progrès perçu. 
-                                </p>
-                            </div>
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🎯 S'appuyer sur l'apprentissage implicite par des situations variées et ludiques</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Le jeu est un outil très efficace pour apprendre à se dépasser et à rechercher la performance. Favoriser l'exploration, la découverte et l'adaptation sans surcharger en consignes permet à l'enfant d'extraire spontanément les régularités qui construisent ses habiletés.</p>
+                                </div>
+                                <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔄 Multiplier les expériences motrices pour construire un socle riche et adaptable</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">L'enfant extrait spontanément des régularités à partir de situations répétées. Proposer de nombreuses situations différentes tout en maintenant une cohérence globale développe la coordination, l'aisance et la capacité à s'adapter.</p>
+                                </div>
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">💬 Jouer à devenir meilleur nageur</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Créer les conditions du sentiment de compétence et du plaisir d'agir. Valoriser la réussite, l'engagement et le progrès perçu installe une relation durable et positive à l'entraînement.</p>
+                                </div>
+                                <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #E91E63; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">👥 Utiliser le groupe comme levier d'engagement et d'apprentissage</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les interactions entre pairs stimulent l'envie de pratiquer et accélèrent les apprentissages. Favoriser la coopération, l'observation mutuelle et les défis collectifs renforce à la fois la motivation et l'appartenance au groupe.</p>
+                                </div>
+
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
                                     <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
                                     <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
                                 </div>
+                            </div>
+
                             <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #E91E63;">
                                 <h4 style="color: #E91E63; margin-bottom: 12px;">🎯 Actions de l’éducateur</h4>
                                 <ul class="actions-list">
@@ -41320,7 +41341,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                     <li><strong>Responsabiliser :</strong> Donner des rôles, impliquer dans des choix limités, construire progressivement les objectifs avec l’enfant.</li>
                                 </ul>
                             </div>
-                            
+
+                           
+
+
                         `,
                     roleParents: `
 
@@ -44322,85 +44346,134 @@ render();
                         titre: "Jeu collectif"
                     },
                     accompagner: {
-                    titre: "Accompagner l'enfant d'école primaire",
+                    titre: "Accompagner l'affirmation",
                     besoins: `
                             <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
                                 <h3 style="color: #0E1655; margin-bottom: 15px;">💙 Besoins psychologiques</h3>
                                 <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Respect du rythme :</strong> Chaque enfant avance à son rythme, les régressions sont normales, la pression est contre-productive.</li>
-                                    <li><strong>Gestion des peurs :</strong> Il a besoin d'être rassuré face à ses peurs</li>
-                                    <li><strong>Célébrer les progrès :</strong> Valoriser les petits progrès plutôt que viser la performance</li>
-                                    <li><strong>Approbation :</strong> Il recherche l'approbation et la validation de l'adulte.</li>
-                                    <li><strong>Réassurance constante :</strong> L'enfant a besoin de se sentir en sécurité physiquement et affectivement</li>
-                                    <li><strong>Gestion des blocages :</strong> Ne jamais comparer avec les autres enfants, accepter les refus et revenir plus tard, proposer des alternatives</li>
+                                    <li><strong>Confiance en soi :</strong> Renforcer la confiance face aux enjeux de performance et d'orientation</li>
+                                    <li><strong>Gestion de la pression :</strong> Accompagner dans la gestion du stress lié à la performance et aux compétitions</li>
+                                    <li><strong>Motivation et sens :</strong> Clarifier les objectifs sportifs et leur articulation avec le projet de vie</li>
+                                    <li><strong>Résilience :</strong> Développer la capacité à rebondir après les échecs et les contre-performances</li>
+                                    <li><strong>Équilibre psychologique :</strong> Préserver le plaisir malgré l'intensification de la pratique</li>
+                                    <li>→ <a href="#" class="link-to-card" data-card="plaisir-engagement-p4" data-type="common" style="color: #8D71DE;">Comprendre les sources du plaisir au lycée</a></li>
                                 </ul>
+
+                                <div style="background: rgba(141,113,222,0.08); padding: 20px; border-radius: 8px; border-left: 4px solid #8D71DE; margin-top: 20px;">
+                                    <p style="margin: 0 0 8px 0; line-height: 1.7;">
+                                        🎭 <strong>Besoins émotionnels :</strong> Les émotions ne sont pas des parasites de la performance, ce sont des signaux : elles indiquent que quelque chose compte. Chaque athlète possède son propre profil émotionnel de performance. Il n'existe pas une seule « bonne » émotion pour performer, mais une <strong>bonne température émotionnelle pour un athlète donné, dans un contexte donné</strong>.
+                                    </p>
+                                    <p style="margin: 0; line-height: 1.7;">
+                                        <a href="#" class="link-to-card" data-card="emotions-ressource-performance" data-type="common"
+                                           style="color: #8D71DE; font-weight: 600; text-decoration: none;">
+                                            📚 Voir la carte « Les émotions, une ressource pour la performance »
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <p style="line-height: 1.8; margin-top: 20px; padding: 20px; background: rgba(156, 39, 176, 0.08); border-left: 4px solid #9C27B0; border-radius: 8px; margin-bottom: 20px;">
+                                    <strong>💜 Le plaisir reste central au lycée</strong> : Même avec l'augmentation du volume
+                                    d'entraînement et l'intensification de la préparation, <strong>le plaisir demeure un moteur
+                                    essentiel de la motivation et de la performance</strong>. À cet âge, le plaisir passe par
+                                    <strong>le sentiment de progression</strong>, la <strong>réussite de ses objectifs</strong>,
+                                    l'<strong>appartenance au groupe</strong> et la <strong>fierté de se dépasser</strong>.
+                                    Il est important que l'entraîneur préserve un climat positif, valorise les progrès et
+                                    maintienne une dynamique de groupe saine.
+                                </p>
                             </div>
+
+                            <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                <h3 style="color: #0E1655; margin-bottom: 15px;">😴 Sommeil et récupération</h3>
+
+                                <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">⏰ Besoins de sommeil (15-18 ans et jeunes adultes)</h4>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li><strong>Ados 15-17 ans orientés performance :</strong> Garder 9h de nuit quand la charge augmente, intégrer des siestes courtes les jours d'entraînement lourd ou de compétition</li>
+                                        <li><strong>Jeunes adultes :</strong> Viser 8-9h par nuit, ajuster en fonction des signes de fatigue</li>
+                                        <li><strong>Cible minimale athlètes :</strong> Au moins 8h pour optimiser la récupération (même si beaucoup dorment moins de 7h en pratique)</li>
+                                        <li><strong>Extension du sommeil :</strong> Allonger le sommeil de 45 à 110 minutes par nuit sur quelques semaines améliore les performances physiques et cognitives chez les sportifs dormant autour de 7h.</li>
+                                    </ul>
+                                </div>
+
+                                <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">💡 Recommandations pratiques</h4>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li><strong>Régularité circadienne :</strong> Des heures de coucher/lever stables protègent le rythme circadien et rendent le sommeil plus réparateur à durée égale</li>
+                                        <li><strong>Siestes stratégiques :</strong> Les siestes de 20-30 min (ou jusqu'à 90 min quand la nuit a été courte) peuvent aider à normaliser la performance après une restriction de sommeil.</li>
+                                        <li><strong>Planification des siestes :</strong> Intégrer des siestes courtes les jours d'entraînement lourd ou de compétition</li>
+                                        <li><strong>Vigilance sur la qualité :</strong> Surveiller non seulement la durée mais aussi la qualité du sommeil</li>
+                                    </ul>
+                                </div>
+
+                                <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                    <h4 style="color: #E53935; margin-bottom: 10px;">⚠️ Gestion de la charge et prévention</h4>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li><strong>Suivi des indicateurs :</strong> Suivre régulièrement les indicateurs de fatigue et adapter l'entraînement</li>
+                                        <li><strong>Micro-périodes de décharge :</strong> Planifier des micro-périodes de décharge toutes les quelques semaines</li>
+                                        <li><strong>Allègement si besoin :</strong> Prévoir des périodes d'allègement de l'entraînement quand le sommeil devient insuffisant ou fragmenté.</li>
+                                        <li><strong>Prévention du surentraînement :</strong> Identifier les signes de fatigue chronique</li>
+                                    </ul>
+                                </div>
+
+                                <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">🔄 Stratégies de récupération</h4>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li><strong>Récupération active :</strong> Étirements, mobilité, travail de préparation physique</li>
+                                        <li><strong>Récupération passive :</strong> Massage, compression, repos complet</li>
+                                        <li><strong>Optimisation du sommeil :</strong> Créer les conditions d'un sommeil de qualité (environnement, routine, limitation des écrans)</li>
+                                        <li><strong>Périodes de régénération :</strong> Intégrer régulièrement des phases de récupération complète</li>
+                                    </ul>
+                                </div>
+                            </div>
+
                             <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
-                                <h3 style="color: #0E1655; margin-bottom: 15px;">🤝 Besoins pour l'apprentissage</h3>
+                                <h3 style="color: #0E1655; margin-bottom: 15px;">🍎 Nutrition et hygiène de vie</h3>
                                 <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Anticipation :</strong> L'enfant a besoin d'anticiper, l'inconnu génère de l'anxiété, le rituel rassure</li>
-                                    <li><strong>Expérimentation :</strong> L'enfant a besoin de tester par lui-même, il veut faire "comme les grands", il cherche à comprendre par l'action.</li>
-                                    <li><strong>Imitation des pairs :</strong> L'enfant apprend en observant et en imitant ses camarades, le groupe est un levier puissant d'apprentissage.</li>
-                                    <li><strong>Compréhension :</strong> Besoin de comprendre ce qui va se passer</li>
+                                    <li><strong>Alimentation de performance :</strong> Stratégies nutritionnelles adaptées à la charge d'entraînement</li>
+                                    <li><strong>Hydratation optimale :</strong> Protocoles d'hydratation personnalisés</li>
+                                    <li><strong>Timing nutritionnel :</strong> Gestion des apports avant, pendant et après l'effort</li>
+                                    <li><strong>Complémentation raisonnée :</strong> Si besoin, sous contrôle médical</li>
                                 </ul>
                             </div>
-                            <div style="background: rgba(255, 87, 34, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FF5722; margin-bottom: 20px;">
-                                <h3 style="color: #0E1655; margin-bottom: 15px;">👥 Besoins sociaux</h3>
+
+                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                <h3 style="color: #0E1655; margin-bottom: 15px;">🤝 Besoins sociaux et d'autonomie</h3>
                                 <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Amitiés stables :</strong> L'enfant se fait des amis plus durables, la notion de "meilleur ami" apparaît et compte beaucoup pour lui.</li>
-                                    <li><strong>Appartenance au groupe :</strong> Il aime faire partie d'un groupe (équipe, club) et s'y identifie, il sait coopérer et travailler en équipe.</li>
-                                    <li><strong>Acceptation et inclusion :</strong> Il comprend ce que signifie être accepté ou rejeté et peut souffrir d'exclusion ou de moqueries.</li>
-                                    <li><strong>Compréhension des règles :</strong> Il comprend de mieux en mieux les règles, leur utilité et les conséquences de leur non-respect</li>
-                                    <li><strong>Empathie et respect :</strong> Il commence à prendre en compte le point de vue d'autrui et développe un respect réfléchi pour les autres.</li>
-                                    <li><strong>Sens de la justice :</strong> Son sens de l'équité se renforce, avec des réactions aux situations perçues comme "injustes".</li>
+                                    <li><strong>Appartenance au groupe :</strong> Renforcer la cohésion et l'esprit d'équipe</li>
+                                    <li><strong>Autonomie complète :</strong> Responsabilisation dans la gestion de son entraînement</li>
+                                    <li><strong>Projet personnel :</strong> Construction d'un projet sportif cohérent avec ses aspirations</li>
+                                    <li><strong>Double projet :</strong> Articulation réussie entre scolarité et pratique sportive intensive</li>
                                 </ul>
                             </div>
-                            <div style="background: rgba(255, 193, 7, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FFC107; margin-bottom: 20px;">
-                                <h3 style="color: #0E1655; margin-bottom: 15px;">💤 Besoins hygiène de vie</h3>
-                                <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Sommeil :</strong> 9 à 11h de sommeil par nuit pour récupération et croissance</li>
-                                    <li><strong>Nutrition :</strong> Alimentation équilibrée et hydratation régulière</li>
-                                    <li><strong>Température de l'eau :</strong> Eau à température adaptée (idéalement 30°C)</li>
-                                </ul>
-                            </div>
-                            <div style="background: rgba(213, 159, 73, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #D59F49; margin-bottom: 20px;">
-                                <h3 style="color: #0E1655; margin-bottom: 15px;">🏊 Besoins en activité sportive</h3>
-                                <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Clarté et répétition :</strong> Besoin de clarté et de répétition, consignes courtes et précises</li>
-                                    <li><strong>Progression :</strong> Répéter les mêmes situations régulièrement, fractionner les apprentissages en petites étapes</li>
-                                    <li><strong>Pluri-disciplinarité :</strong> Varier les activités aquatiques (natation, jeux d'eau, waterpolo adapté), intégrer des activités complémentaires hors de l'eau.</li>
-                                    <li><strong>Développement global :</strong> Favoriser la découverte de différentes formes de pratique, développer les habiletés motrices générales avant la spécialisation</li>
-                                </ul>
-                            </div>
+
                             <div class="cross-link-box">
                                 <h4>📚 Pour comprendre ces besoins</h4>
                                 <p>
-                                    Ces besoins sont expliqués scientifiquement dans la carte du bloc <strong>"Comprendre"</strong> :
-                                    <a href="#" class="link-to-card" data-card="apprentissage-enfant-6-12" data-type="common">Comment l'enfant de 6-12 ans apprend</a>.
+                                    L'accompagnement de l'athlète Junior s'appuie sur des fondements scientifiques détaillés dans les cartes du bloc <strong>"Comprendre"</strong> :
+                                    <a href="#" class="link-to-card" data-card="rapport-corps" data-type="common">Rapport au corps</a>,
+                                    <a href="#" class="link-to-card" data-card="cycle-menstruel" data-type="common">Cycle menstruel et performance</a> et
+                                    <a href="#" class="link-to-card" data-card="relation-coach" data-type="common">Relation coach-athlète</a>.
                                 </p>
                             </div>
-                            <div class="cross-link-box" style="margin-top: 20px;">
-                                <h4>📚 Pour comprendre ces besoins</h4>
-                                <p>
-                                    Le développement des <strong>compétences psychosociales</strong> (CPS) est essentiel pour répondre aux besoins psychologiques de l'enfant.
-                                    <a href="#" class="link-to-card" data-card="cps-ecole-primaire" data-type="common">
-                                        Découvrez les 9 CPS et comment les favoriser en natation
-                                    </a>
-                                </p>
-                            </div>
-                            <div style="background: rgba(33, 150, 243, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
-                                <h4 style="color: #2196F3; margin-bottom: 12px;">⚖️ La règle 50/50 : la "période très favorable" à 6-12 ans</h4>
+
+                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                <h4 style="color: #9C27B0; margin-bottom: 12px;">💪 Spécialisation + préparation physique : 70-80% + 20-30%</h4>
                                 <p style="line-height: 1.8; margin-bottom: 12px;">
-                                    Entre 6 et 12 ans, l'enfant entre dans la <strong>période très favorable de l'apprentissage moteur</strong>.
-                                    Son cerveau assimile rapidement de nouveaux gestes. Maintenir un équilibre 50/50 entre natation
-                                    et autres activités <strong>enrichit son vocabulaire moteur</strong> et facilite tous ses apprentissages futurs.
-                                    Les <strong>pratiques nautiques</strong> (surf, voile, kayak...) sont particulièrement intéressantes pour apprendre à appréhender l'environnement aquatique naturel.
+                                    À 15-19 ans, l'athlète entre dans la <strong>phase de spécialisation</strong>. Son corps a
+                                    atteint une maturité physique suffisante pour tolérer des charges d'entraînement élevées.
+                                    Cependant, la natation sollicite de manière répétitive certains groupes musculaires
+                                    (épaules, dos). La <strong>préparation physique complémentaire devient donc essentielle</strong>
+                                    pour équilibrer le développement musculaire et prévenir les blessures.
+                                </p>
+                                <p style="line-height: 1.8; margin-bottom: 12px;">
+                                    C'est une évolution normale et nécessaire : l'athlète ne diversifie plus ses activités, il concentre son énergie sur sa discipline et intègre la préparation physique comme composante à part entière de son entraînement, au même titre que les séances dans l'eau.
                                 </p>
                                 <p style="line-height: 1.8; margin: 0;">
-                                    <strong>💡 Résultat :</strong> +15% de motricité globale et progression plus rapide à long terme.
-                                    <a href="#" class="link-to-card" data-card="diversification-primaire" data-type="common"
-                                       style="color: #2196F3; font-weight: 600; text-decoration: none; margin-left: 8px;">
-                                        📚 Comprendre la diversification sportive
+                                    <strong>💡 Transition clé :</strong> Fini le temps des "autres sports", place au travail
+                                    physique spécifique et complémentaire.
+                                    <a href="#" class="link-to-card" data-card="preparation-physique-lycee" data-type="common"
+                                       style="color: #9C27B0; font-weight: 600; text-decoration: none; margin-left: 8px;">
+                                        📚 Comprendre la préparation physique au lycée
                                     </a>
                                 </p>
                             </div>
@@ -44420,43 +44493,121 @@ render();
         </p>
     </div>
 </div>
-                            <h3 style="color: #0E1655; margin-bottom: 15px; font-size: 1.2em;">📚 Principes pédagogiques</h3>
-                            <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #0090D4; margin-bottom: 12px;">🎯 S'appuyer sur l'apprentissage implicite par des situations variées et ludiques</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                    Le jeu est un outil très efficace pour apprendre à se dépasser et à rechercher la performance. Favoriser l'exploration, la découverte et l'adaptation sans surcharger en consignes.
-                                </p>
-                            </div>
-                            <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #4CAF50; margin-bottom: 12px;">🔄 Multiplier les expériences motrices pour construire un socle riche et adaptable</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                    L'enfant extrait spontanément des régularités à partir de situations répétées.
-                                    Proposer de nombreuses situations différentes tout en maintenant une cohérence globale permet de développer la coordination et l'aisance.
-                                </p>
-                            </div>
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #9C27B0; margin-bottom: 12px;">💬 Jouer à devenir meilleur nageur</h4>
-                                <p style="line-height: 1.7; margin-bottom: 10px;">
-                                     Créer les conditions du sentiment de compétences et du plaisir d'agir. Valoriser la réussite, l'engagement et le progrès perçu. 
-                                </p>
-                            </div>
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
-                                    <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
-                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
+
+                            <h3>📚 Principes pédagogiques</h3>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🎯 Spécialiser progressivement les contenus en fonction du profil et du projet de performance</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">C'est la période où l'entraînement commence à ressembler à ce que l'athlète veut vraiment devenir. Orienter les contenus vers les exigences de la discipline et du projet personnel suppose d'accepter de bousculer des automatismes bien installés pour en construire de plus efficaces, tout en préservant la capacité d'adaptation qui restera une ressource tout au long de la carrière.</p>
                                 </div>
-                            <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #E91E63;">
-                                <h4 style="color: #E91E63; margin-bottom: 12px;">🎯 Actions de l’éducateur</h4>
-                                <ul class="actions-list">
-                                    <li><strong>Être observateur :</strong> Repérer les régularités que l’enfant découvre implicitement ; les attendus techniques sont des repères d’observation, pas une liste de défauts à corriger.</li>
-                                    <li><strong>Être facilitateur :</strong> Créer les conditions d’un apprentissage riche et varié, proposer des situations-problèmes ouvertes.</li>
-                                    <li><strong>Être médiateur :</strong> Aider à mettre des mots sur les découvertes motrices, encourager l’auto-évaluation et la mise en mots des ressentis.</li>
-                                    <li><strong>Respecter le rythme :</strong> Ne jamais forcer, accepter les refus et les régressions, ne pas comparer avec les autres enfants.</li>
-                                    <li><strong>Valoriser :</strong> Célébrer chaque petite réussite, encourager les initiatives même maladroites.</li>
-                                    <li><strong>Structurer sans rigidifier :</strong> Instaurer des rituels, fractionner les apprentissages en petites étapes, consignes courtes et précises.</li>
-                                    <li><strong>Responsabiliser :</strong> Donner des rôles, impliquer dans des choix limités, construire progressivement les objectifs avec l’enfant.</li>
-                                </ul>
+                                <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🧩 Individualiser les parcours d'apprentissage et d'entraînement</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Chaque athlète a une histoire, un corps et un rythme qui lui appartiennent. Adapter les charges, les contenus et les approches à ces caractéristiques propres, c'est reconnaître ce qu'il est autant que ce qu'il peut devenir.</p>
+                                </div>
+                                <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">⚡ Utiliser des situations exigeantes et spécifiques pour développer la performance</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">L'adaptation ne se produit qu'en présence d'une sollicitation suffisamment forte et proche des conditions réelles. Intégrer contrainte, incertitude et pression dans les situations d'entraînement, c'est créer délibérément les conditions dans lesquelles l'athlète se transforme, et pas seulement s'améliore.</p>
+                                </div>
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔄 Accompagner le développement de l'autonomie et de la capacité d'auto-régulation</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Planifier, analyser, ajuster : l'athlète apprend progressivement à piloter sa propre progression. L'entraîneur délègue davantage tout en restant un référent exigeant et disponible, ce qui rend la relation plus riche et la progression plus durable.</p>
+                                </div>
                             </div>
-                            
+
+                            <h3>🎯 Actions de l'éducateur</h3>
+                            <ul class="actions-list">
+                                <li><strong>Être exigeant avec bienveillance :</strong> Maintenir des standards élevés tout en soutenant l'athlète.</li>
+                                <li><strong>Rendre acteur de son projet :</strong> Impliquer l'athlète dans les décisions d'entraînement et de compétition, planifier ensemble les objectifs à court, moyen et long terme et ajuster le plan d'entraînement</li>
+                                <li><strong>Préparation mentale :</strong> Développer des stratégies de gestion du stress et de la pression</li>
+                                <li><strong>Individualisation poussée :</strong> Adapter finement les contenus selon les profils et objectifs</li>
+                                <li><strong>Accompagnement global :</strong> Prendre en compte les dimensions physiques, techniques, tactiques et mentales</li>
+                                <li><strong>Suivi de la charge :</strong> Monitorer régulièrement fatigue, motivation et état de forme</li>
+                                <li><strong>Développement de l'expertise :</strong> Former l'athlète à l'analyse de sa pratique.</li>
+                            </ul>
+
+                            <div style="margin-top: 30px;"></div>
+
+                            <div style="background: rgba(156, 39, 176, 0.08); padding: 20px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #9C27B0;">
+                                <p style="line-height: 1.8; margin: 0;">
+                                    📊 <strong>Éducation à la donnée :</strong> Apprendre à lire, interpréter et analyser les données d'entraînement avec recul et intelligence.
+                                    <a href="#" class="link-to-card" data-card="education-donnee-esprit-critique" data-type="common"
+                                       style="color: #9C27B0; font-weight: 600; text-decoration: none; margin-left: 8px;">
+                                        📚 Voir la carte "Comprendre" dédiée
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div style="background: rgba(141,113,222,0.08); padding: 20px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #8D71DE;">
+                                <p style="line-height: 1.8; margin: 0 0 8px 0;">
+                                    🎭 <strong>Le rôle émotionnel de l'entraîneur :</strong> Un entraîneur n'est jamais neutre dans le paysage émotionnel de son athlète. Il ne peut pas supprimer l'émotion, mais il influence la manière dont l'athlète comprend ce qui lui arrive, et il façonne le climat que le groupe respire. L'exigence fait progresser quand elle s'appuie sur un cadre suffisamment sécurisant : sans sécurité elle devient menace, sans exigence elle devient confort.
+                                </p>
+                                <p style="line-height: 1.8; margin: 0;">
+                                    <a href="#" class="link-to-card" data-card="relation-coach" data-type="common"
+                                       style="color: #8D71DE; font-weight: 600; text-decoration: none;">
+                                        📚 Voir la carte « Relation coach-athlète »
+                                    </a>
+                                </p>
+                            </div>
+
+                            <h3>⚠️ Points de vigilance à cet âge</h3>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #E91E63; margin-bottom: 20px;">
+                                    <h4 style="color: #E91E63; margin-bottom: 15px;">👩 Pour les sportives de haut niveau</h4>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">⚖️ Rapport au corps</h5>
+                                        <p style="line-height: 1.8;">Éviter les considérations esthétiques, adopter un discours fonctionnel. Favoriser la collaboration avec des professionnels de santé</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🔄 Cycle</h5>
+                                        <p style="line-height: 1.8;">Normaliser le sujet, monitorer son cycle pour apprendre à se connaître (noter les dates de début et de fin, les symptômes associés,..</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">👥 Relation</h5>
+                                        <p style="line-height: 1.8;">Feedbacks clairs, dissocier personne/performance</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🤝 Groupe</h5>
+                                        <p style="line-height: 1.8;">Favoriser parole encadrée, prévenir tensions</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(33, 150, 243, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
+                                    <h4 style="color: #2196F3; margin-bottom: 15px;">👦 Pour les sportifs de haut niveau</h4>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">⚖️ Rapport au corps</h5>
+                                        <p style="line-height: 1.8;">Même discours fonctionnel, vigilance sur comportements à risque</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🎯 Objectifs</h5>
+                                        <p style="line-height: 1.8;">Clarté maximale, défis stimulants</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">💬 Feedbacks</h5>
+                                        <p style="line-height: 1.8;">Directs et factuels, sans détour</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">✅ Autonomie</h5>
+                                        <p style="line-height: 1.8;">Responsabiliser, encourager prise de décision</p>
+                                    </div>
+
+                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🤝 Groupe</h5>
+                                        <p style="line-height: 1.8;">Structurer les rôles, canaliser les compétitions internes au groupe</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
                         `,
                     roleParents: `
 
@@ -44464,12 +44615,13 @@ render();
                                 <p style="margin: 0; font-size: 1.05em; font-weight: 600; font-style: italic; color: #222; line-height: 1.6;">⚠️ Respecter le rôle de l'éducateur : ne pas remettre en cause sa compétence technique et ses analyses. L'éducateur est le référent de la pratique sportive.</p>
                             </div>
                             <ul class="parents-list">
-                                <li><strong>Soutien sans pression :</strong> Ne pas comparer avec d'autres enfants, ne jamais forcer, accepter les régressions et le temps que prend l'apprentissage</li>
-                                <li><strong>Présence rassurante :</strong> Rester visible mais à distance pendant la séance, parler positivement de la pratique à la maison</li>
-                                <li><strong>Régularité et ponctualité :</strong> Assurer une fréquence régulière des séances, arriver à l'heure pour respecter les rituels du groupe</li>
-                                <li><strong>Valorisation :</strong> Parler des progrès même minimes, célébrer les petites réussites</li>
-                                <li><strong>Environnement favorable :</strong> Maintenir de bonnes habitudes de sommeil (9-11h), assurer une nutrition équilibrée</li>
+                                <li><strong>Soutien sans pression :</strong> Encourager sans fixer d'objectifs de résultats, respecter les choix du jeune concernant son projet, s'intéresser à sa pratique sans jugement</li>
+                                <li><strong>Soutien logistique :</strong> Faciliter l'organisation du double projet scolaire et sportif</li>
+                                <li><strong>Écoute et disponibilité :</strong> Être disponible pour échanger sur les doutes et les difficultés</li>
+                                <li><strong>Nutrition et santé :</strong> Assurer une alimentation de qualité adaptée aux besoins, s'assurer d'un suivi régulier de l'état de santé</li>
+                                <li><strong>Anticipation de l'avenir :</strong> Accompagner la réflexion sur l'après-lycée pour le choix d'une structure d'entraînement si besoin</li>
                             </ul>
+
                         `,
                     },
                     competition: {
@@ -46511,70 +46663,93 @@ render();
                         ]
                                         },
                     accompagner: {
-                        titre: "Accompagner l'affirmation",
+                        titre: "Accompagner l'organisation",
                         besoins: `
                             <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
                                 <h3 style="color: #0E1655; margin-bottom: 15px;">💙 Besoins psychologiques</h3>
                                 <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Confiance en soi :</strong> Renforcer la confiance face aux enjeux de performance et d'orientation</li>
-                                    <li><strong>Gestion de la pression :</strong> Accompagner dans la gestion du stress lié à la performance et aux compétitions</li>
-                                    <li><strong>Motivation et sens :</strong> Clarifier les objectifs sportifs et leur articulation avec le projet de vie</li>
-                                    <li><strong>Résilience :</strong> Développer la capacité à rebondir après les échecs et les contre-performances</li>
-                                    <li><strong>Équilibre psychologique :</strong> Préserver le plaisir malgré l'intensification de la pratique</li>
-                                    <li>→ <a href="#" class="link-to-card" data-card="plaisir-engagement-p4" data-type="common" style="color: #8D71DE;">Comprendre les sources du plaisir au lycée</a></li>
+                                    <li><strong>Estime de soi :</strong> L'adolescent a besoin de renforcer son estime de soi face aux transformations physiques et psychologiques</li>
+                                    <li><strong>Gestion du stress :</strong> Accompagner dans la gestion de la pression scolaire et sportive</li>
+                                    <li><strong>Acceptation du corps :</strong> Soutien face aux transformations pubertaires et à l'image corporelle</li>
+                                    <li><strong>Motivation intrinsèque :</strong> Développer le plaisir de nager et l'autonomie dans la pratique</li>
+                                    <li><strong>Sources du plaisir :</strong> Comprendre d'où vient le plaisir à cet âge permet de le nourrir activement, <a href="#" class="link-to-card" data-card="plaisir-engagement-p3" data-type="common" style="color: #FF9800;">voir la carte dédiée.</a></li>
                                 </ul>
+                            </div>
 
-                                <p style="line-height: 1.8; margin-top: 20px; padding: 20px; background: rgba(156, 39, 176, 0.08); border-left: 4px solid #9C27B0; border-radius: 8px; margin-bottom: 20px;">
-                                    <strong>💜 Le plaisir reste central au lycée</strong> : Même avec l'augmentation du volume
-                                    d'entraînement et l'intensification de la préparation, <strong>le plaisir demeure un moteur
-                                    essentiel de la motivation et de la performance</strong>. À cet âge, le plaisir passe par
-                                    <strong>le sentiment de progression</strong>, la <strong>réussite de ses objectifs</strong>,
-                                    l'<strong>appartenance au groupe</strong> et la <strong>fierté de se dépasser</strong>.
-                                    Il est important que l'entraîneur préserve un climat positif, valorise les progrès et
-                                    maintienne une dynamique de groupe saine.
+                            <div style="background: rgba(244, 67, 54, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #F44336; margin-bottom: 20px;">
+                                <h3 style="color: #0E1655; margin-bottom: 15px;">🦴 Besoins physiques : comprendre les transformations morphologiques</h3>
+                                <p style="line-height: 1.8; margin-bottom: 15px;">
+                                    La croissance rapide des membres pendant la puberté <strong>bouleverse le schéma corporel</strong> du nageur.
+                                    Ce qui fonctionnait parfaitement peut soudainement devenir maladroit. <strong>C'est normal et transitoire.</strong>
                                 </p>
+                                <ul style="line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                                    <li><strong>Croissance asynchrone :</strong> Les membres grandissent plus vite que le tronc, modifiant les leviers et les sensations</li>
+                                    ${LI_BRAS_LEVIER}
+                                    <li><strong>Centre de gravité modifié :</strong> Position dans l'eau perturbée, équilibre à reconstruire</li>
+                                    <li><strong>Schéma corporel décalé :</strong> Le cerveau a une "carte du corps" qui n'est plus à jour → coordination temporairement dégradée.</li>
+                                </ul>
                             </div>
 
                             <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
                                 <h3 style="color: #0E1655; margin-bottom: 15px;">😴 Sommeil et récupération</h3>
 
                                 <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                    <h4 style="color: #FF9800; margin-bottom: 10px;">⏰ Besoins de sommeil (15-18 ans et jeunes adultes)</h4>
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">⏰ Besoins de sommeil (11-15 ans)</h4>
                                     <ul style="line-height: 1.8; margin-left: 20px;">
-                                        <li><strong>Ados 15-17 ans orientés performance :</strong> Garder 9h de nuit quand la charge augmente, intégrer des siestes courtes les jours d'entraînement lourd ou de compétition</li>
-                                        <li><strong>Jeunes adultes :</strong> Viser 8-9h par nuit, ajuster en fonction des signes de fatigue</li>
-                                        <li><strong>Cible minimale athlètes :</strong> Au moins 8h pour optimiser la récupération (même si beaucoup dorment moins de 7h en pratique)</li>
-                                        <li><strong>Extension du sommeil :</strong> Allonger le sommeil de 45 à 110 minutes par nuit sur quelques semaines améliore les performances physiques et cognitives chez les sportifs dormant autour de 7h.</li>
+                                        <li><strong>Durée recommandée :</strong> Viser minimum 9h de sommeil par nuit pour les préados et ados</li>
+                                        <li><strong>Limiter les entraînements tardifs ou trop tôt le matin :</strong> Éviter les séances très tardives qui retardent le coucher ou trop tôt qui réduisent le temps de sommeil.</li>
+                                        <li><strong>Conservation d'un jour sans charge :</strong> Au moins 1 jour par semaine sans entraînement</li>
+                                        <li><strong>Ajustement individuel :</strong> Adapter selon les signes de fatigue (sommeil non réparateur, irritabilité, baisse de performance, blessures répétées)</li>
+                                    </ul>
+                                </div>
+
+                                <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">🧬 Rôle du sommeil chez l'adolescent</h4>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li><strong>Soutien à la croissance :</strong> Le sommeil profond favorise la sécrétion d'hormone de croissance, essentielle pendant la puberté.</li>
+                                        <li><strong>Développement immunitaire :</strong> Renforcement du système immunitaire pendant le sommeil</li>
+                                        <li><strong>Consolidation des apprentissages :</strong> Le sommeil permet d'ancrer les nouvelles compétences motrices et tactiques.</li>
+                                    </ul>
+                                </div>
+
+                                <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                                    <h4 style="color: #E53935; margin-bottom: 10px;">⚠️ Signes de dette de sommeil</h4>
+                                    <p style="line-height: 1.8; margin-bottom: 10px;">Une dette de sommeil répétée se traduit souvent par :</p>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li>Baisse de concentration à l'école</li>
+                                        <li>Humeur changeante et irritabilité accrue</li>
+                                        <li>Plus grande vulnérabilité aux blessures et infections</li>
+                                        <li>Stagnation des performances sportives</li>
                                     </ul>
                                 </div>
 
                                 <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
                                     <h4 style="color: #FF9800; margin-bottom: 10px;">💡 Recommandations pratiques</h4>
                                     <ul style="line-height: 1.8; margin-left: 20px;">
+                                        <li><strong>Coucher régulier :</strong> Horaire relativement fixe, avec assez de marge pour atteindre 9-10h de sommeil</li>
+                                        <li><strong>Limitation des écrans :</strong> Éviter les écrans le soir (lumière bleue) afin de faciliter l'endormissement et préserver le sommeil profond</li>
                                         <li><strong>Régularité circadienne :</strong> Des heures de coucher/lever stables protègent le rythme circadien et rendent le sommeil plus réparateur à durée égale</li>
                                         <li><strong>Siestes stratégiques :</strong> Les siestes de 20-30 min (ou jusqu'à 90 min quand la nuit a été courte) peuvent aider à normaliser la performance après une restriction de sommeil.</li>
-                                        <li><strong>Planification des siestes :</strong> Intégrer des siestes courtes les jours d'entraînement lourd ou de compétition</li>
-                                        <li><strong>Vigilance sur la qualité :</strong> Surveiller non seulement la durée mais aussi la qualité du sommeil</li>
                                     </ul>
                                 </div>
 
                                 <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                    <h4 style="color: #E53935; margin-bottom: 10px;">⚠️ Gestion de la charge et prévention</h4>
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">🔄 Organisation de la récupération</h4>
+                                    <p style="line-height: 1.8; margin-bottom: 10px;">Pour les jeunes sportifs, prévoir de vrais jours sans entraînement intensif, surtout en période de croissance ou de charge scolaire élevée :</p>
                                     <ul style="line-height: 1.8; margin-left: 20px;">
-                                        <li><strong>Suivi des indicateurs :</strong> Suivre régulièrement les indicateurs de fatigue et adapter l'entraînement</li>
-                                        <li><strong>Micro-périodes de décharge :</strong> Planifier des micro-périodes de décharge toutes les quelques semaines</li>
-                                        <li><strong>Allègement si besoin :</strong> Prévoir des périodes d'allègement de l'entraînement quand le sommeil devient insuffisant ou fragmenté.</li>
-                                        <li><strong>Prévention du surentraînement :</strong> Identifier les signes de fatigue chronique</li>
+                                        <li><strong>Récupération hebdomadaire :</strong> 1 jour complet de coupure par semaine sans séance exigeante (uniquement jeu libre / activité très légère)</li>
+                                        <li><strong>Régénération périodique :</strong> Toutes les 6-8 semaines, une "semaine allégée" avec réduction du volume/intensité pour laisser le système nerveux et les tissus se régénérer, en gardant le sommeil au haut de la plage recommandée</li>
+                                        <li><strong>Récupération active :</strong> Importance des étirements et de la mobilité pour prévenir les blessures</li>
                                     </ul>
                                 </div>
 
                                 <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                    <h4 style="color: #FF9800; margin-bottom: 10px;">🔄 Stratégies de récupération</h4>
+                                    <h4 style="color: #FF9800; margin-bottom: 10px;">🏖️ Gestion des vacances</h4>
+                                    <p style="line-height: 1.8; margin-bottom: 10px;">Sur les vacances, surtout pour les plus jeunes :</p>
                                     <ul style="line-height: 1.8; margin-left: 20px;">
-                                        <li><strong>Récupération active :</strong> Étirements, mobilité, travail de préparation physique</li>
-                                        <li><strong>Récupération passive :</strong> Massage, compression, repos complet</li>
-                                        <li><strong>Optimisation du sommeil :</strong> Créer les conditions d'un sommeil de qualité (environnement, routine, limitation des écrans)</li>
-                                        <li><strong>Périodes de régénération :</strong> Intégrer régulièrement des phases de récupération complète</li>
+                                        <li><strong>Objectif :</strong> Réduire les contraintes plutôt que supprimer le sport</li>
+                                        <li><strong>Approche :</strong> Moins de compétitions, plus de jeu, plus de temps de sommeil et de siestes possibles</li>
+                                        <li><strong>Équilibre :</strong> Éviter de dérégler complètement les horaires de coucher et de lever pour préserver le rythme circadien</li>
                                     </ul>
                                 </div>
                             </div>
@@ -46582,51 +46757,55 @@ render();
                             <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
                                 <h3 style="color: #0E1655; margin-bottom: 15px;">🍎 Nutrition et hygiène de vie</h3>
                                 <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Alimentation de performance :</strong> Stratégies nutritionnelles adaptées à la charge d'entraînement</li>
-                                    <li><strong>Hydratation optimale :</strong> Protocoles d'hydratation personnalisés</li>
-                                    <li><strong>Timing nutritionnel :</strong> Gestion des apports avant, pendant et après l'effort</li>
-                                    <li><strong>Complémentation raisonnée :</strong> Si besoin, sous contrôle médical</li>
+                                    <li><strong>Alimentation adaptée :</strong> Besoins accrus liés à la croissance et à l'intensité de l'entraînement</li>
+                                    <li><strong>Hydratation optimale :</strong> Développer de bonnes habitudes d'hydratation avant, pendant et après l'effort</li>
+                                    <li><strong>Prévention nutritionnelle :</strong> Sensibilisation aux <a href="#" class="link-to-card" data-card="troubles-comportement-alimentaire" data-type="common" style="color: #FF9800; font-weight: 600;">troubles du comportement alimentaire</a></li>
+                                    <li><strong>Complémentation si nécessaire :</strong> Suivi médical pour identifier d'éventuelles carences</li>
                                 </ul>
                             </div>
 
                             <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
-                                <h3 style="color: #0E1655; margin-bottom: 15px;">🤝 Besoins sociaux et d'autonomie</h3>
+                                <h3 style="color: #0E1655; margin-bottom: 15px;">🤝 Besoins sociaux</h3>
                                 <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Appartenance au groupe :</strong> Renforcer la cohésion et l'esprit d'équipe</li>
-                                    <li><strong>Autonomie complète :</strong> Responsabilisation dans la gestion de son entraînement</li>
-                                    <li><strong>Projet personnel :</strong> Construction d'un projet sportif cohérent avec ses aspirations</li>
-                                    <li><strong>Double projet :</strong> Articulation réussie entre scolarité et pratique sportive intensive</li>
+                                    <li><strong>Appartenance au groupe :</strong> Besoin d'être reconnu et accepté par ses pairs</li>
+                                    <li><strong>Communication :</strong> Dialogue ouvert sur les difficultés rencontrées</li>
+                                    <li><strong>Autonomie progressive :</strong> Encourager la prise de décision et la responsabilisation</li>
                                 </ul>
                             </div>
 
                             <div class="cross-link-box">
                                 <h4>📚 Pour comprendre ces besoins</h4>
                                 <p>
-                                    L'accompagnement de l'athlète Junior s'appuie sur des fondements scientifiques détaillés dans les cartes du bloc <strong>"Comprendre"</strong> :
-                                    <a href="#" class="link-to-card" data-card="rapport-corps" data-type="common">Rapport au corps</a>,
-                                    <a href="#" class="link-to-card" data-card="cycle-menstruel" data-type="common">Cycle menstruel et performance</a> et
-                                    <a href="#" class="link-to-card" data-card="relation-coach" data-type="common">Relation coach-athlète</a>.
+                                    Ces aspects sont expliqués dans les cartes du bloc <strong>"Comprendre"</strong> :
+                                    <a href="#" class="link-to-card" data-card="developpement-college" data-type="common">Développement psychomoteur au collège</a>,
+                                    <a href="#" class="link-to-card" data-card="developpement-college" data-type="common">Développement physique et différences individuelles</a> et
+                                    <a href="#" class="link-to-card" data-card="troubles-comportement-alimentaire" data-type="common">Troubles du comportement alimentaire</a>.
                                 </p>
                             </div>
 
-                            <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
-                                <h4 style="color: #9C27B0; margin-bottom: 12px;">💪 Spécialisation + préparation physique : 70-80% + 20-30%</h4>
-                                <p style="line-height: 1.8; margin-bottom: 12px;">
-                                    À 15-19 ans, l'athlète entre dans la <strong>phase de spécialisation</strong>. Son corps a
-                                    atteint une maturité physique suffisante pour tolérer des charges d'entraînement élevées.
-                                    Cependant, la natation sollicite de manière répétitive certains groupes musculaires
-                                    (épaules, dos). La <strong>préparation physique complémentaire devient donc essentielle</strong>
-                                    pour équilibrer le développement musculaire et prévenir les blessures.
+                            <div class="cross-link-box" style="margin-top: 20px;">
+                                <h4>📚 Pour comprendre ces besoins</h4>
+                                <p>
+                                    Le développement des <strong>compétences psychosociales</strong> (CPS) est un levier crucial pour accompagner l'adolescent face aux transformations de cette période.
+                                    <a href="#" class="link-to-card" data-card="cps-college" data-type="common">
+                                        Découvrez les 9 CPS et leur rôle au collège
+                                    </a>
                                 </p>
+                            </div>
+
+                            <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                <h4 style="color: #FF9800; margin-bottom: 12px;">⚖️ Orientation progressive : 60-70% + 30-40%</h4>
                                 <p style="line-height: 1.8; margin-bottom: 12px;">
-                                    C'est une évolution normale et nécessaire : l'athlète ne diversifie plus ses activités, il concentre son énergie sur sa discipline et intègre la préparation physique comme composante à part entière de son entraînement, au même titre que les séances dans l'eau.
+                                    À 12-15 ans, l'adolescent traverse une période de <strong>transformations physiques intenses</strong>
+                                    (pic de croissance, puberté). Maintenir 30-40% d'activités complémentaires permet de
+                                    <strong>compenser les déséquilibres temporaires</strong>, de préserver la coordination malgré
+                                    les changements morphologiques, et de <strong>prévenir les blessures</strong>.
                                 </p>
                                 <p style="line-height: 1.8; margin: 0;">
-                                    <strong>💡 Transition clé :</strong> Fini le temps des "autres sports", place au travail
-                                    physique spécifique et complémentaire.
-                                    <a href="#" class="link-to-card" data-card="preparation-physique-lycee" data-type="common"
-                                       style="color: #9C27B0; font-weight: 600; text-decoration: none; margin-left: 8px;">
-                                        📚 Comprendre la préparation physique au lycée
+                                    <strong>💡 Objectif :</strong> Construire une base athlétique solide sans spécialisation excessive.
+                                    <a href="#" class="link-to-card" data-card="orientation-progressive-college" data-type="common"
+                                       style="color: #FF9800; font-weight: 600; text-decoration: none; margin-left: 8px;">
+                                        📚 Comprendre l'orientation progressive
                                     </a>
                                 </p>
                             </div>
@@ -46651,118 +46830,115 @@ render();
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
                                 <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
-                                    <h4 style="margin-bottom: 8px;">🎯 Spécialiser progressivement les contenus en fonction du profil et du projet de performance</h4>
-                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">C'est la période où l'entraînement commence à ressembler à ce que l'athlète veut vraiment devenir. Orienter les contenus vers les exigences de la discipline et du projet personnel suppose d'accepter de bousculer des automatismes bien installés pour en construire de plus efficaces, tout en préservant la capacité d'adaptation qui restera une ressource tout au long de la carrière.</p>
+                                    <h4 style="margin-bottom: 8px;">🦴 Adapter les apprentissages aux transformations individuelles</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">La croissance, la variabilité développementale et les profils individuels font de cette période l'une des plus complexes à accompagner. Prendre en compte ces transformations, c'est ajuster les exigences sans les réduire, et maintenir l'engagement sans forcer l'adaptation.</p>
                                 </div>
                                 <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
-                                    <h4 style="margin-bottom: 8px;">🧩 Individualiser les parcours d'apprentissage et d'entraînement</h4>
-                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Chaque athlète a une histoire, un corps et un rythme qui lui appartiennent. Adapter les charges, les contenus et les approches à ces caractéristiques propres, c'est reconnaître ce qu'il est autant que ce qu'il peut devenir.</p>
+                                    <h4 style="margin-bottom: 8px;">⚖️ Maintenir la variabilité tout en structurant des repères techniques</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Stabiliser sans rigidifier : l'objectif n'est pas d'imposer un modèle figé mais de construire des repères solides que l'athlète peut réinvestir dans des contextes variés. La cohérence globale reste le fil conducteur.</p>
                                 </div>
                                 <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
-                                    <h4 style="margin-bottom: 8px;">⚡ Utiliser des situations exigeantes et spécifiques pour développer la performance</h4>
-                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">L'adaptation ne se produit qu'en présence d'une sollicitation suffisamment forte et proche des conditions réelles. Intégrer contrainte, incertitude et pression dans les situations d'entraînement, c'est créer délibérément les conditions dans lesquelles l'athlète se transforme, et pas seulement s'améliore.</p>
+                                    <h4 style="margin-bottom: 8px;">🎯 Développer progressivement l'autonomie dans l'engagement et les choix</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Responsabiliser l'athlète dans des cadres guidés. Lui confier des décisions progressives sur ses choix d'entraînement, ses objectifs et son organisation développe la capacité à s'engager de manière active et consciente.</p>
                                 </div>
                                 <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
-                                    <h4 style="margin-bottom: 8px;">🔄 Accompagner le développement de l'autonomie et de la capacité d'auto-régulation</h4>
-                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Planifier, analyser, ajuster : l'athlète apprend progressivement à piloter sa propre progression. L'entraîneur délègue davantage tout en restant un référent exigeant et disponible, ce qui rend la relation plus riche et la progression plus durable.</p>
+                                    <h4 style="margin-bottom: 8px;">🏫 Soutenir l'équilibre entre pratique sportive, scolaire et sociale</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Le collège concentre des transformations simultanées dans tous les domaines de vie. Maintenir la motivation, le bien-être et un équilibre durable entre sport, études et vie sociale est une condition indispensable à la progression à long terme.</p>
                                 </div>
                             </div>
 
                             <h3>🎯 Actions de l'éducateur</h3>
                             <ul class="actions-list">
-                                <li><strong>Être exigeant avec bienveillance :</strong> Maintenir des standards élevés tout en soutenant l'athlète.</li>
-                                <li><strong>Rendre acteur de son projet :</strong> Impliquer l'athlète dans les décisions d'entraînement et de compétition, planifier ensemble les objectifs à court, moyen et long terme et ajuster le plan d'entraînement</li>
-                                <li><strong>Préparation mentale :</strong> Développer des stratégies de gestion du stress et de la pression</li>
-                                <li><strong>Individualisation poussée :</strong> Adapter finement les contenus selon les profils et objectifs</li>
-                                <li><strong>Accompagnement global :</strong> Prendre en compte les dimensions physiques, techniques, tactiques et mentales</li>
-                                <li><strong>Suivi de la charge :</strong> Monitorer régulièrement fatigue, motivation et état de forme</li>
-                                <li><strong>Développement de l'expertise :</strong> Former l'athlète à l'analyse de sa pratique.</li>
+                                <li><strong>Être à l'écoute :</strong> Disponibilité pour échanger sur les difficultés (physiques, émotionnelles, scolaires).</li>
+                                <li><strong>Adapter les exigences :</strong> Tenir compte des phases de croissance, des fluctuations de performance et du rythme de maturation de chaque adolescent. Expliquer que la "régression" technique est normale et temporaire, pas un signe d'échec.</li>
+                                <li><strong>Encourager sans pression :</strong> Valoriser les progrès et les efforts, pas seulement les résultats, tout en respectant les limites individuelles. Accepter une baisse temporaire de performance technique sans pression excessive.</li>
+                                <li><strong>Développer l'autonomie :</strong> Impliquer l'adolescent dans la planification et l'analyse de sa pratique, dans un climat de confiance permettant d'échanger sur les difficultés.</li>
+                                <li><strong>Reconstruire les repères :</strong> Aider le nageur à retrouver de nouvelles sensations adaptées à son nouveau corps en multipliant les exercices qui développent la conscience corporelle dans l'eau. Laisser le temps au cerveau de "recartographier" le corps.</li>
+                                <li><strong>Éviter les corrections excessives :</strong> Trop de feedback technique pendant cette période peut surcharger et frustrer.</li>
                             </ul>
+
+                               <div style="background: rgba(255, 152, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                <h4>🎯 Points de vigilance</h4>
+                                <ul style="line-height: 1.8; margin-left: 20px;">
+                                    <li>L'adolescence est une période de forte sensibilité au regard des autres ; les transformations physiques peuvent générer des complexes qu'il faut veiller à ne pas aggraver par des remarques sur le corps.</li>
+                                    <li>Les commentaires sur la composition corporelle, même anodins, peuvent favoriser l'apparition de Troubles du Comportement Alimentaire (TCA) qui s'installent souvent durablement.</li>
+                                </ul>
+                            </div>
 
                             <div style="margin-top: 30px;"></div>
 
-                            <div style="background: rgba(156, 39, 176, 0.08); padding: 20px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #9C27B0;">
-                                <p style="line-height: 1.8; margin: 0;">
-                                    📊 <strong>Éducation à la donnée :</strong> Apprendre à lire, interpréter et analyser les données d'entraînement avec recul et intelligence.
-                                    <a href="#" class="link-to-card" data-card="education-donnee-esprit-critique" data-type="common"
-                                       style="color: #9C27B0; font-weight: 600; text-decoration: none; margin-left: 8px;">
-                                        📚 Voir la carte "Comprendre" dédiée
-                                    </a>
-                                </p>
-                            </div>
-
-                            <h3>⚠️ Points de vigilance à cet âge</h3>
+                            <h3>🔧 Leviers d'action</h3>
+                            <p style="line-height: 1.8; margin-bottom: 20px;">Voici des leviers d'action concrets pour répondre aux besoins différenciés :</p>
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                                 <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #E91E63; margin-bottom: 20px;">
-                                    <h4 style="color: #E91E63; margin-bottom: 15px;">👩 Pour les sportives de haut niveau</h4>
+                                    <h4 style="color: #E91E63; margin-bottom: 15px;">👩 Leviers pour les filles (tendances)</h4>
 
                                     <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">⚖️ Rapport au corps</h5>
-                                        <p style="line-height: 1.8;">Éviter les considérations esthétiques, adopter un discours fonctionnel. Favoriser la collaboration avec des professionnels de santé</p>
+                                        <h5 style="color: #0E1655; margin-bottom: 8px; font-size: 0.95em;">🤝 Affiliation (besoin prioritaire)</h5>
+                                        <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.9em;">
+                                            <li>Sécuriser la relation coach-athlète et proposer de nombreux feedbacks.</li>
+                                            <li>Créer un climat de confiance stable basé sur une communication bienveillante et <strong>fréquente.</strong></li>
+                                            <li>Valoriser la cohésion du groupe.</li>
+                                        </ul>
                                     </div>
 
                                     <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🔄 Cycle</h5>
-                                        <p style="line-height: 1.8;">Normaliser le sujet, monitorer son cycle pour apprendre à se connaître (noter les dates de début et de fin, les symptômes associés,..</p>
+                                        <h5 style="color: #0E1655; margin-bottom: 8px; font-size: 0.95em;">💪 Compétence</h5>
+                                        <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.9em;">
+                                            <li>Valoriser les progrès régulièrement.</li>
+                                            <li>Définir des objectifs de processus clairs.</li>
+                                            <li>Normaliser l'erreur comme outil d'apprentissage</li>
+                                        </ul>
                                     </div>
 
                                     <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">👥 Relation</h5>
-                                        <p style="line-height: 1.8;">Feedbacks clairs, dissocier personne/performance</p>
-                                    </div>
-
-                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🤝 Groupe</h5>
-                                        <p style="line-height: 1.8;">Favoriser parole encadrée, prévenir tensions</p>
+                                        <h5 style="color: #0E1655; margin-bottom: 8px; font-size: 0.95em;">✅ Autonomie</h5>
+                                        <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.9em;">
+                                            <li>Donner du sens et expliquer davantage les obejctifs et intérêts des situations d'entraînement.</li>
+                                            <li>Proposer des choix dans l'entraînement.</li>
+                                            <li>Encourager la prise de décision.</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <div style="background: rgba(33, 150, 243, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
-                                    <h4 style="color: #2196F3; margin-bottom: 15px;">👦 Pour les sportifs de haut niveau</h4>
+                                    <h4 style="color: #2196F3; margin-bottom: 15px;">👦 Leviers pour les garçons (tendances)</h4>
 
                                     <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">⚖️ Rapport au corps</h5>
-                                        <p style="line-height: 1.8;">Même discours fonctionnel, vigilance sur comportements à risque</p>
+                                        <h5 style="color: #0E1655; margin-bottom: 8px; font-size: 0.95em;">💪 Compétence (besoin prioritaire)</h5>
+                                        <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.9em;">
+                                            <li>Proposer des défis clairs et mesurables.</li>
+                                            <li>Valoriser la progression objective.</li>
+                                            <li>Utiliser la compétition comme moteur.</li>
+                                        </ul>
                                     </div>
 
                                     <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🎯 Objectifs</h5>
-                                        <p style="line-height: 1.8;">Clarté maximale, défis stimulants</p>
+                                        <h5 style="color: #0E1655; margin-bottom: 8px; font-size: 0.95em;">✅ Autonomie</h5>
+                                        <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.9em;">
+                                            <li>Structurer les objectifs clairement.</li>
+                                            <li>Responsabiliser (rôles dans le groupe).</li>
+                                            <li>Encourager l'auto-évaluation.</li>
+                                        </ul>
                                     </div>
 
                                     <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">💬 Feedbacks</h5>
-                                        <p style="line-height: 1.8;">Directs et factuels, sans détour</p>
-                                    </div>
-
-                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">✅ Autonomie</h5>
-                                        <p style="line-height: 1.8;">Responsabiliser, encourager prise de décision</p>
-                                    </div>
-
-                                    <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                        <h5 style="color: #0E1655; margin-bottom: 10px;">🤝 Groupe</h5>
-                                        <p style="line-height: 1.8;">Structurer les rôles, canaliser les compétitions internes au groupe</p>
+                                        <h5 style="color: #0E1655; margin-bottom: 8px; font-size: 0.95em;">🤝 Affiliation</h5>
+                                        <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.9em;">
+                                            <li>Canaliser l'énergie du groupe</li>
+                                            <li>Créer un cadre stable et ferme.</li>
+                                            <li>Favoriser l'entraide et le mentorat.</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #4CAF50; margin-bottom: 20px;">
-                                <h3 style="color: #4CAF50; margin-bottom: 15px;">🌱 Développer l'autonomie (15-19 ans) : Autonomie confirmée</h3>
-                                <p style="line-height: 1.8; margin-bottom: 15px;">
-                                    À cet âge, le nageur devient <strong>pleinement acteur de son projet</strong>.
-                                    L'entraîneur passe progressivement d'un rôle de directeur à un rôle de co-pilote.
-                                </p>
-                                <ul style="line-height: 1.8; margin-left: 20px;">
-                                    <li><strong>Responsabiliser pleinement :</strong> Le nageur gère son échauffement, sa récupération, ses routines.</li>
-                                    <li><strong>Co-piloter l'entraînement :</strong> Construire le programme ensemble en fonction des objectifs et sensations</li>
-                                    <li><strong>Développer l'auto-régulation :</strong> "Comment tu te sens ? Tu penses qu'on doit adapter la séance ?".</li>
-                                    <li><strong>Encourager la prise de décision tactique :</strong> Laisser le nageur décider de sa stratégie de course.</li>
-                                    <li><strong>Favoriser l'analyse réflexive :</strong> "Qu'est-ce que tu aurais pu faire différemment ?".</li>
-                                    <li><strong>Préparer l'après-carrière :</strong> Discuter des projets d'études, de reconversion.</li>
-                                </ul>
+                            <div style="background: rgba(255, 152, 0, 0.1); padding: 20px; border-radius: 6px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                <p style="line-height: 1.8; margin: 0;">💡 <strong>Note importante :</strong> L'ordre de priorité des besoins peut varier selon chaque individu. Ces leviers sont des pistes d'adaptation, à ajuster selon l'observation de chaque athlète.</p>
                             </div>
+
+                           
                         `,
                         roleParents: `
 
@@ -46770,11 +46946,10 @@ render();
                                 <p style="margin: 0; font-size: 1.05em; font-weight: 600; font-style: italic; color: #222; line-height: 1.6;">⚠️ Respecter le rôle de l'éducateur : ne pas remettre en cause sa compétence technique et ses analyses. L'éducateur est le référent de la pratique sportive.</p>
                             </div>
                             <ul class="parents-list">
-                                <li><strong>Soutien sans pression :</strong> Encourager sans fixer d'objectifs de résultats, respecter les choix du jeune concernant son projet, s'intéresser à sa pratique sans jugement</li>
-                                <li><strong>Soutien logistique :</strong> Faciliter l'organisation du double projet scolaire et sportif</li>
-                                <li><strong>Écoute et disponibilité :</strong> Être disponible pour échanger sur les doutes et les difficultés</li>
-                                <li><strong>Nutrition et santé :</strong> Assurer une alimentation de qualité adaptée aux besoins, s'assurer d'un suivi régulier de l'état de santé</li>
-                                <li><strong>Anticipation de l'avenir :</strong> Accompagner la réflexion sur l'après-lycée pour le choix d'une structure d'entraînement si besoin</li>
+                                <li><strong>Soutien sans pression :</strong> Encourager sans fixer d'objectifs de résultats, respecter les choix de l'adolescent, laisser l'adolescent gérer progressivement sa pratique</li>
+                                <li><strong>Gestion du quotidien :</strong> Faciliter l'organisation entre école et natation, veiller aux horaires de sommeil</li>
+                                <li><strong>Écoute active :</strong> Être disponible pour échanger sur les difficultés sans jugement</li>
+                                <li><strong>Nutrition et santé :</strong> Proposer une alimentation variée adaptée aux besoins accrus, s'assurer d'un suivi médical régulier (croissance, fatigue, carences éventuelles)</li>
                             </ul>
 
                         `
@@ -50598,6 +50773,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                     <h4 style="margin-bottom: 8px;">👥 Utiliser le groupe comme levier d'engagement et d'apprentissage</h4>
                                     <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les interactions entre pairs stimulent l'envie de pratiquer et accélèrent les apprentissages. Favoriser la coopération, l'observation mutuelle et les défis collectifs renforce à la fois la motivation et l'appartenance au groupe.</p>
                                 </div>
+
+                                <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #9C27B0; margin-bottom: 20px;">
+                                    <h4 style="margin-bottom: 8px;">🔍 Observer pour orienter, pas pour corriger</h4>
+                                    <p style="margin: 0; font-size: 0.95em; line-height: 1.6;">Les attendus techniques sont des repères d'observation, pas une liste de défauts à traiter. Face à une lacune identifiée, la réponse est de concevoir une tâche avec un but clair, qui permet à l'athlète de trouver lui-même une organisation plus efficace, pas de demander directement de modifier son geste.</p>
+                                </div>
                             </div>
 
                             <div style="background: rgba(233, 30, 99, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #E91E63;">
@@ -50613,7 +50793,8 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                 </ul>
                             </div>
 
-                            
+                           
+
 
                         `,
                         roleParents: `
@@ -60536,8 +60717,6 @@ function ProfilDeveloppementView() {
                                     </table>`;
         }
 
-        // ─── Constante : item "Nouveaux bras de levier" ───
-        const LI_BRAS_LEVIER = `<li><strong>Nouveaux "bras de levier" :</strong> Des bras plus longs = plus de force potentielle mais aussi plus de difficulté à contrôler la trajectoire</li>`;
         // ============================================================
         // normalizeDisciplineId / getDisciplineKey / getDisciplineName / resolvePeriodTheme
         // Rôle   : Utilitaires de résolution discipline et thème
