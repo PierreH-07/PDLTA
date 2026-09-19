@@ -46,6 +46,17 @@
         details[open] .attendus-bloc-cta svg { transform: rotate(180deg); }
         details[open] .attendus-bloc-cta::before { content: 'Réduire'; }
         details:not([open]) .attendus-bloc-cta::before { content: 'Détail'; }
+        .domaine-card-summary { cursor: pointer; list-style: none; margin: 8px 0 2px; }
+        .domaine-card-summary::-webkit-details-marker { display: none; }
+        .domaine-card-cta {
+          display: inline-flex; align-items: center; gap: 5px;
+          font-size: 0.72em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+          padding: 3px 8px; border: 1.2px solid currentColor; border-radius: 16px;
+        }
+        .domaine-card-cta svg { transition: transform 0.2s; }
+        details[open] .domaine-card-cta svg { transform: rotate(180deg); }
+        details[open] .domaine-card-cta::before { content: 'Réduire'; }
+        details:not([open]) .domaine-card-cta::before { content: 'Développer'; }
         /* Global compact scale to match homepage view: reduce sizes & paddings
            This block centralises smaller typography and tighter paddings so
            each page has a better 'vue d'ensemble'. */
@@ -3985,38 +3996,38 @@
                                                 <li>J'ai trouvé une solution stable.</li>
                                                 <li>Elle devient <strong>automatique</strong></li>
                                                 <li>Je me suis <strong>transformé</strong></li>
-                                                <li>C'est durable, je ne vais pas l'oublier.</li>
+                                                <li>Je peux mobiliser cette compétence dans différentes situations, y compris sous contrainte, en situation de stress ou d'évaluation.</li>
                                             </ul>
                                             <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                                <em>"Cette adaptation durable correspond à l'acquisition d'une compétence. L'athlète ayant acquis une nouvelle compétence disposera de celle-ci « à vie » tant que les moyens qu'elle suppose pour fonctionner sont à sa disposition."</em>
+                                                <em>"Cette adaptation durable correspond à l'acquisition d'une compétence. L'athlète est capable de la mobiliser dans différentes situations, y compris lorsque les contraintes augmentent ou en situation de stress ou d'évaluation."</em>
                                             </div>
                                         </div>
 
                                         <!-- SECTION 4 : QUANTITÉ DE TRAVAIL -->
                                         <h3 style="color: #9C27B0; margin-top: 35px; margin-bottom: 15px; border-bottom: 2px solid #9C27B0; padding-bottom: 8px;">
-                                            ⚡ Plus je progresse, plus la transformation demande du travail
+                                            ⚡ À mesure que je progresse, certaines transformations peuvent demander davantage de travail
                                         </h3>
 
                                         <div style="background: rgba(156, 39, 176, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                                             <div style="background: rgba(255, 193, 7, 0.15); padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #FFC107;">
-                                                <em>"Plus le niveau à atteindre est élevé et plus je suis entraîné, plus la quantité de travail à fournir est importante pour m'adapter."</em>
+                                                <em>"Lorsque mon niveau d'expertise augmente, certaines adaptations peuvent demander davantage de temps, de répétitions ou d'ajustements pour être acquises."</em>
                                             </div>
 
                                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                                                 <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                                    <strong style="color: #4CAF50;">Au début :</strong>
+                                                    <strong style="color: #4CAF50;">Au début, certaines transformations peuvent être :</strong>
                                                     <ul style="line-height: 1.6; margin-left: 15px; margin-top: 8px;">
-                                                        <li>Transformations rapides</li>
-                                                        <li>Quelques séances suffisent</li>
-                                                        <li>Progrès visibles</li>
+                                                        <li>Rapides</li>
+                                                        <li>Acquises en quelques séances</li>
+                                                        <li>Rapidement visibles</li>
                                                     </ul>
                                                 </div>
                                                 <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-                                                    <strong style="color: #FF9800;">Quand je deviens fort :</strong>
+                                                    <strong style="color: #FF9800;">À un niveau plus avancé, certaines transformations peuvent nécessiter :</strong>
                                                     <ul style="line-height: 1.6; margin-left: 15px; margin-top: 8px;">
-                                                        <li>Transformations plus lentes</li>
-                                                        <li>Plus de répétitions nécessaires</li>
-                                                        <li>Plus de temps pour s'adapter</li>
+                                                        <li>Plus de temps</li>
+                                                        <li>Davantage de répétitions</li>
+                                                        <li>Des ajustements plus fins</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -4052,7 +4063,7 @@
                                                     <ul style="line-height: 1.7; margin-left: 15px; font-size: 0.95em;">
                                                         <li><strong>Apprendre = se transformer</strong> durablement.</li>
                                                         <li><strong>Être perturbé = bon signe</strong> (tu es en train d'apprendre).</li>
-                                                        <li>Plus tu progresses, plus c'est long (c'est normal).</li>
+                                                        <li>Plus tu progresses, plus cela peut être long (c'est normal).</li>
                                                     </ul>
                                                 </div>
                                                 <div>
@@ -5704,7 +5715,12 @@
 <!-- ============================================================ -->
 <!-- FICHE : LA QUALITÉ DU MOUVEMENT -->
 <!-- ============================================================ -->
-<div id="fiche-qualite_mouvement" style="margin-bottom: 50px; padding-top: 10px;">
+<div id="fiche-qualite_mouvement" style="margin-bottom: 50px; padding-top: 10px; scroll-margin-top: 90px;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px solid #EC4899;">
+    <span style="font-size:1.6em;">🌀</span>
+    <h2 style="color: #BE185D; margin: 0; font-size: 1.4em;">La qualité du mouvement</h2>
+  </div>
 
   <div style="background: white; border: 1px solid rgba(236,72,153,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <h3 style="color: #BE185D; margin-bottom: 12px; font-size: 1.15em;">❓ Pourquoi est-ce un déterminant de la performance ?</h3>
@@ -6060,7 +6076,12 @@
 <!-- ============================================================ -->
 <!-- FICHE : LA SYNCHRONISATION -->
 <!-- ============================================================ -->
-<div id="fiche-synchronisation" style="margin-bottom: 50px; padding-top: 10px;">
+<div id="fiche-synchronisation" style="margin-bottom: 50px; padding-top: 10px; scroll-margin-top: 90px;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px solid #EC4899;">
+    <span style="font-size:1.6em;">🤝</span>
+    <h2 style="color: #BE185D; margin: 0; font-size: 1.4em;">La synchronisation</h2>
+  </div>
 
   <div style="background: white; border: 1px solid rgba(236,72,153,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <h3 style="color: #BE185D; margin-bottom: 12px; font-size: 1.15em;">❓ Pourquoi est-ce un déterminant de la performance ?</h3>
@@ -6395,7 +6416,12 @@
 <!-- ============================================================ -->
 <!-- FICHE : L'INTERPRÉTATION -->
 <!-- ============================================================ -->
-<div id="fiche-interpretation" style="margin-bottom: 50px; padding-top: 10px;">
+<div id="fiche-interpretation" style="margin-bottom: 50px; padding-top: 10px; scroll-margin-top: 90px;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px solid #EC4899;">
+    <span style="font-size:1.6em;">🎭</span>
+    <h2 style="color: #BE185D; margin: 0; font-size: 1.4em;">L'interprétation</h2>
+  </div>
 
   <div style="background: white; border: 1px solid rgba(236,72,153,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <h3 style="color: #BE185D; margin-bottom: 12px; font-size: 1.15em;">❓ Pourquoi est-ce un déterminant de la performance ?</h3>
@@ -6726,7 +6752,12 @@
 <!-- ============================================================ -->
 <!-- FICHE : LA SOUPLESSE -->
 <!-- ============================================================ -->
-<div id="fiche-souplesse" style="margin-bottom: 50px; padding-top: 10px;">
+<div id="fiche-souplesse" style="margin-bottom: 50px; padding-top: 10px; scroll-margin-top: 90px;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px solid #EC4899;">
+    <span style="font-size:1.6em;">🤸</span>
+    <h2 style="color: #BE185D; margin: 0; font-size: 1.4em;">La souplesse</h2>
+  </div>
 
   <div style="background: white; border: 1px solid rgba(236,72,153,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <h3 style="color: #BE185D; margin-bottom: 12px; font-size: 1.15em;">❓ Pourquoi est-ce un déterminant de la performance ?</h3>
@@ -7048,7 +7079,12 @@
 <!-- ============================================================ -->
 <!-- FICHE : LA HAUTEUR -->
 <!-- ============================================================ -->
-<div id="fiche-hauteur" style="margin-bottom: 50px; padding-top: 10px;">
+<div id="fiche-hauteur" style="margin-bottom: 50px; padding-top: 10px; scroll-margin-top: 90px;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px solid #EC4899;">
+    <span style="font-size:1.6em;">⬆️</span>
+    <h2 style="color: #BE185D; margin: 0; font-size: 1.4em;">La hauteur</h2>
+  </div>
 
   <div style="background: white; border: 1px solid rgba(236,72,153,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <h3 style="color: #BE185D; margin-bottom: 12px; font-size: 1.15em;">❓ Pourquoi est-ce un déterminant de la performance ?</h3>
@@ -7370,7 +7406,12 @@
 <!-- ============================================================ -->
 <!-- FICHE : LES PORTÉS ET LES ÉLÉMENTS ACROBATIQUES -->
 <!-- ============================================================ -->
-<div id="fiche-portes_acrobaties" style="margin-bottom: 50px; padding-top: 10px;">
+<div id="fiche-portes_acrobaties" style="margin-bottom: 50px; padding-top: 10px; scroll-margin-top: 90px;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px solid #EC4899;">
+    <span style="font-size:1.6em;">🤾</span>
+    <h2 style="color: #BE185D; margin: 0; font-size: 1.4em;">Les portés et les éléments acrobatiques</h2>
+  </div>
 
   <div style="background: white; border: 1px solid rgba(236,72,153,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
     <h3 style="color: #BE185D; margin-bottom: 12px; font-size: 1.15em;">❓ Pourquoi est-ce un déterminant de la performance ?</h3>
@@ -8122,7 +8163,7 @@
 <ul style="margin:0 0 12px 0; padding-left:20px; line-height:1.85; color:#444; font-size:0.88em;">
 <li>l'organisation corporelle ;</li>
 <li>les placements ;</li>
-<li>la qualité des lignes ;</li>
+<li>la qualité des lignes (alignements) ;</li>
 <li>les coordinations spécifiques ;</li>
 <li>la précision gestuelle ;</li>
 <li>la qualité du mouvement ;</li>
@@ -8140,7 +8181,6 @@
 <li>l'interprétation ;</li>
 <li>la présence ;</li>
 <li>le regard ;</li>
-<li>la qualité du mouvement ;</li>
 <li>les variations d'énergie ;</li>
 <li>les qualités de mouvement ;</li>
 <li>l'expression corporelle.</li>
@@ -9196,7 +9236,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 </div>
 
 <div style="background: rgba(13,188,240,0.06); border-left: 4px solid #0DBCF0; border-radius: 8px; padding: 20px 16px; margin-bottom: 20px; font-size: 0.88em; color: #444; line-height: 1.6;">
-    <p style="margin:0;"><strong><img src="Images/emoji-disciplines/wp-entraineur-bord.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Rôle de l'entraîneur :</strong> Créer et proposer des <strong>tâches d'entraînement</strong> permettant l'<strong>adaptation durable</strong> et l'<strong>adoption de comportements efficaces</strong> par l'athlète. Il anime, régule la séance et en mobilise l'attention, l'engagement et les interactions au sein du groupe, afin de soutenir les apprentissages et la progression des athlètes.</p>
+    <p style="margin:0;"><strong><img src="Images/emoji-disciplines/wp-entraineur-bord.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Rôle de l'entraîneur :</strong> Créer et proposer des <strong>tâches d'entraînement</strong> permettant l'<strong>adaptation durable</strong> et l'<strong>adoption de comportements efficaces</strong> par l'athlète. Il anime, régule la séance et mobilise l'attention, l'engagement et les interactions au sein du groupe, afin de soutenir les apprentissages et la progression des athlètes.</p>
 </div>
 
 
@@ -9216,6 +9256,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">CONSTRUCTION DES FORMES CORPORELLES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Découvrir, réaliser et reproduire les formes corporelles fondamentales de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">POSITIONS ET ÉQUILIBRES FONDAMENTAUX</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser les principales positions fondamentales de la discipline (ventrales, dorsales, verticales, groupées, cambrées et carpées).</li>
 <li>Réaliser les premiers équilibres en position inversée.</li>
@@ -9227,7 +9268,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Réaliser des ouvertures et fermetures simples des jambes.</li>
 <li>Réaliser des montées de jambes contrôlées.</li>
 <li>Réaliser des ports de bras simples.</li>
-<li>Réaliser des dessins de bras simples.</li>
+<li>Réaliser des mouvements de bras simples.</li>
 <li>Coordonner les actions des bras et des jambes dans des mouvements simples.</li>
 </ul><div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">SOUPLESSE ET LIGNES CORPORELLES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Rechercher un auto-grandissement actif.</li>
@@ -9235,9 +9276,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Réaliser les principales positions de souplesse (cambré, groupé, fermeture tronc-jambes, château, écart facial, écarts antéro-postérieurs).</li>
 <li>Maintenir progressivement des lignes corporelles lisibles.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">COORDINATION ET CONTRÔLE CORPOREL</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Développer les capacités de coordination, de dissociation et d'adaptation motrice afin de construire un répertoire de mouvements varié et évolutif.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LES ORGANISATIONS MOTRICES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Explorer différentes organisations corporelles.</li>
 <li>Construire la bilatéralité en réalisant une même habileté technique des deux côtés du corps.</li>
@@ -9246,9 +9288,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Réaliser une même action selon différentes organisations corporelles.</li>
 <li>Construire des repères liés à l'organisation du mouvement et à l'orientation du corps dans l'espace.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">RÉPERTOIRE TECHNIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Découvrir, réaliser et reproduire les habiletés techniques fondamentales de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LES COMPOSANTES TECHNIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser les principales composantes techniques fondamentales de la discipline.</li>
 <li>Réaliser les premières figures.</li>
@@ -9273,7 +9316,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Ajuster progressivement sa réalisation à partir d'un retour extérieur.</li>
 <li>Stabiliser progressivement les réalisations techniques.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -9383,7 +9426,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- DOMAINE : AQUATIQUE (P2) -->
-    <details style="background: rgba(236,72,153,0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;"><strong>Construire la confiance dans le milieu aquatique et les premiers repères permettant d'évoluer avec aisance dans les différents niveaux et orientations d'évolution afin de préparer les apprentissages spécifiques de la natation artistique.</strong> <strong>En natation artistique, la maîtrise du milieu aquatique conditionne la réalisation des exigences techniques, artistiques et collectives. Dès les premières années de pratique, l'athlète apprend à utiliser les propriétés de l'eau pour se déplacer, produire des appuis, contrôler son équilibre et évoluer efficacement dans toutes les orientations.</strong></p><span class="attendus-bloc-cta" style="color: #EC4899;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
+    <details style="background: rgba(236,72,153,0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #EC4899;"><summary class="attendus-bloc-summary"><h2 style="color: #EC4899; margin-bottom: 20px; font-size: 1.6em; display: flex; align-items: center; gap: 10px;"><img src="Images/emoji-na/technique-ecart.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Efficacité dans le milieu aquatique</h2><h3 style="color: #EC4899; margin-bottom: 15px; font-size: 1.2em;">🎯 Enjeu</h3><p style="line-height: 1.8; margin-bottom: 10px;"><strong>Construire la confiance dans le milieu aquatique et les premiers repères permettant d'évoluer avec aisance dans les différents niveaux et orientations d'évolution afin de préparer les apprentissages spécifiques,</strong> <strong>la maîtrise du milieu aquatique conditionne la réalisation des exigences techniques, artistiques et collectives. Dès les premières années de pratique, l'athlète apprend à utiliser l'eau et ses propriétés pour se déplacer, produire des appuis, contrôler son équilibre et évoluer efficacement dans toutes les orientations.</strong></p><span class="attendus-bloc-cta" style="color: #EC4899;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             
@@ -9397,6 +9440,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">APPUIS ET PROPULSION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire un répertoire varié d'appuis aquatiques afin d'explorer les différentes formes d'actions spécifiques de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LE RÉPERTOIRE D'APPUIS AQUATIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">APPUIS DES MEMBRES SUPÉRIEURS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -9420,9 +9464,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Utiliser différentes formes d'appuis pour se stabiliser.</li>
 <li>S'initier aux premiers appuis dissociés.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ORIENTATIONS, ROTATIONS ET CHANGEMENTS DE REPÈRES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;"></p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Construire les premiers repères d'orientation afin de contrôler progressivement la position et l'orientation du corps dans le milieu aquatique.</li>
 </ul><div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LE RÉPERTOIRE DE ROTATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -9446,9 +9491,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Se réorienter après une immersion.</li>
 <li>Maintenir son orientation par rapport à des repères externes.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">IMMERSIONS ET GESTION RESPIRATOIRE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire les premières habiletés liées à l'immersion afin de gérer progressivement les contraintes respiratoires de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LE RÉPERTOIRE D'IMMERSIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser des immersions complètes contrôlées.</li>
 <li>Réaliser des descentes contrôlées.</li>
@@ -9461,9 +9507,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Identifier les moments favorables à la respiration.</li>
 <li>Réaliser les premières reprises ventilatoires contrôlées.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ÉMERGENCES ET MAÎTRISE DE LA HAUTEUR</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire les premières habiletés permettant de produire, contrôler et maintenir différentes hauteurs d'évolution du corps dans le milieu aquatique.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LE RÉPERTOIRE D'ÉMERGENCES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser les principales formes d'émergence à partir de différents appuis.</li>
 <li>Réaliser des émergences à différentes vitesses d'exécution.</li>
@@ -9479,7 +9526,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Atteindre une hauteur d'évolution donnée.</li>
 <li>Enchaîner différentes hauteurs d'évolution avec continuité.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -9554,14 +9601,14 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
           </ul>
             </div>
             <div style="background: white; border-radius: 8px; padding: 20px 18px; margin-bottom: 20px; border-left: 4px solid #EC4899;">
-                <h4 style="color: #BE185D; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">AISANCE EN RENVERSEMENT</h4>
+                <h4 style="color: #BE185D; margin: 0 0 8px 0; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.03em;">AISANCE EN RENVERSEMENT (POSITIONS INVERSÉES)</h4>
                 <p style="color: #555; font-size: 0.95em; font-style: italic; margin: 0 0 10px 0;">Capacité à évoluer avec confiance et contrôle dans des positions inversées et des situations de renversement.</p>
                 <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444; font-size: 0.95em;">
             <li>Acceptation des positions inversées.</li>
             <li>Contrôle lors des changements de niveau.</li>
             <li>Adaptation aux situations tête en bas.</li>
-            <li>Construction des premiers repères en renversement.</li>
-            <li>Exploration de différentes positions de renversement.</li>
+            <li>Construction des premiers repères dans les positions de renversement.</li>
+            <li>Exploration de différentes positions inversées.</li>
           </ul>
             </div>
         </div>
@@ -9627,6 +9674,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">SYNCHRONISATION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire les premiers repères de synchronisation afin de coordonner progressivement ses actions avec celles des partenaires.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser des actions simultanément avec un ou plusieurs partenaires.</li>
 <li>Reproduire un mouvement commun.</li>
@@ -9634,18 +9682,19 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Coordonner son action avec un partenaire.</li>
 <li>Maintenir progressivement une synchronisation sur des séquences collectives de plus en plus longues.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">INTERPRÉTATION ARTISTIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire progressivement les ressources artistiques et les premières capacités d'interprétation afin de donner du sens au mouvement au service de la chorégraphie.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LES RESSOURCES ARTISTIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">MUSICALITÉ</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-<li>Écouter la pulsation.</li>
+<li>Identifier et suivre la pulsation (battement régulier de la musique).</li>
 <li>Réaliser des actions en lien avec le rythme.</li>
 <li>Adapter le mouvement à la vitesse musicale.</li>
 <li>Identifier les changements de tempo.</li>
 <li>Suivre un comptage simple.</li>
-<li>Identifier une musique de rythme binaire ou ternaire.</li>
+<li>Identifier une organisation rythmique binaire (division en 2 temps) ou ternaire (division en 3 temps).</li>
 <li>Identifier une phrase musicale.</li>
 <li>Réaliser une action sur des phrases de 4, 6 ou 8 temps.</li>
 <li>Reproduire une séquence rythmique.</li>
@@ -9668,9 +9717,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Oser se produire devant les autres.</li>
 <li>Adopter progressivement une attitude engagée face au public.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">MÉMOIRE ET MAÎTRISE CHORÉGRAPHIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire les premières capacités de mémorisation afin de reproduire progressivement une chorégraphie simple.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LA MÉMOIRE CHORÉGRAPHIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Mémoriser une succession de mouvements simples.</li>
 <li>Mémoriser des déplacements et des formations simples.</li>
@@ -9682,9 +9732,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Construire des séquences courtes.</li>
 <li>Contribuer à une création collective simple.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">FORMATIONS ET DÉPLACEMENTS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire les premiers repères spatiaux collectifs afin de se déplacer et d'évoluer progressivement au sein des formations.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LES FORMATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Identifier sa place dans une formation.</li>
 <li>Conserver sa place dans une formation simple.</li>
@@ -9698,9 +9749,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Réaliser des changements simples de formation en bras et en position inversée.</li>
 <li>Réaliser des changements de formation simples dans un temps donné.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #EC4899; margin-bottom: 20px;">
     <h5 style="color:#BE185D; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">PORTÉS, ACROBATIES ET EFFETS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Construire progressivement les compétences permettant de réaliser des portés, des acrobaties et des effets collectifs simples en sécurité et dans la continuité de la chorégraphie.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#BE185D;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">CONSTRUIRE LES ACTIONS COLLECTIVES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#BE185D; font-size:0.82em; margin:8px 0 4px;">PORTÉS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -9721,7 +9773,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Se placer correctement avant et pendant l'action collective.</li>
 <li>Respecter les exigences de sécurité.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -15864,6 +15916,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">CONSTRUCTION DES FORMES CORPORELLES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser et contrôler les formes corporelles afin de garantir leur qualité dans des situations variées.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">POSITIONS ET ÉQUILIBRES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Stabiliser les positions fondamentales dans différentes orientations.</li>
 <li>Maintenir les positions lors des changements d'orientation.</li>
@@ -15884,9 +15937,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Contrôler les amplitudes en fonction des positions réalisées.</li>
 <li>Réaliser des positions comprenant des angles et des flexions simples.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">COORDINATION ET CONTRÔLE CORPOREL</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser et diversifier les organisations motrices afin de répondre à des contraintes techniques de plus en plus variées.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">STABILISER ET DIVERSIFIER LES ORGANISATIONS MOTRICES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Stabiliser la bilatéralité dans des habiletés techniques variées.</li>
 <li>Stabiliser les dissociations entre les différents segments corporels.</li>
@@ -15896,9 +15950,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Adapter les organisations motrices aux exigences des différentes composantes techniques.</li>
 <li>Stabiliser les repères liés à l'organisation du mouvement et à l'orientation du corps dans l'espace.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">RÉPERTOIRE TECHNIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser, diversifier et relier les habiletés techniques afin de répondre aux exigences de la catégorie.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">STABILISER ET ENRICHIR LE RÉPERTOIRE TECHNIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser les composantes techniques de la catégorie.</li>
 <li>Réaliser des composantes issues des différentes familles techniques.</li>
@@ -15921,7 +15976,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Adapter la réalisation technique aux contraintes de temps et d'espace.</li>
 <li>Ajuster sa réalisation à partir de repères internes et externes.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -16087,6 +16142,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">APPUIS ET PROPULSION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser et faire varier les paramètres des appuis aquatiques afin d'améliorer l'efficacité des actions réalisées.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">FAIRE VARIER LES PARAMÈTRES DES APPUIS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Faire varier la vitesse d'exécution des appuis.</li>
 <li>Faire varier l'amplitude des appuis.</li>
@@ -16096,9 +16152,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Stabiliser les appuis dans des actions prolongées.</li>
 <li>Adapter les appuis à l'action recherchée.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ORIENTATIONS, ROTATIONS ET CHANGEMENTS DE REPÈRES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser les rotations, les orientations et les repères afin de contrôler efficacement son corps dans le milieu aquatique.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">DIVERSIFIER LE RÉPERTOIRE DE ROTATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Faire varier le sens des rotations.</li>
 <li>Faire varier l'amplitude des rotations.</li>
@@ -16117,9 +16174,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir son orientation par rapport à des repères externes.</li>
 <li>Utiliser les repères externes pour guider ses déplacements.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">IMMERSIONS ET GESTION RESPIRATOIRE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser les habiletés liées à l'immersion afin de gérer efficacement les contraintes respiratoires de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">FAIRE VARIER LES PARAMÈTRES DE L'IMMERSION</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Faire varier la vitesse des immersions.</li>
 <li>Faire varier la durée des immersions.</li>
@@ -16134,9 +16192,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Anticiper les phases d'apnée.</li>
 <li>Répartir les ressources respiratoires sur une séquence.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ÉMERGENCES ET MAÎTRISE DE LA HAUTEUR</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser et faire varier les hauteurs d'évolution afin de répondre aux exigences techniques de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">FAIRE VARIER LES PARAMÈTRES DES ÉMERGENCES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Améliorer l'efficience des appuis lors des émergences.</li>
 <li>Faire varier la vitesse des émergences.</li>
@@ -16151,7 +16210,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Contrôler les phases de montée et de retour sous l'eau.</li>
 <li>Enchaîner différentes hauteurs d'évolution avec continuité.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -16327,6 +16386,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">SYNCHRONISATION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser la synchronisation afin de maintenir la coordination des actions collectives malgré l'augmentation de leur complexité.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Se synchroniser avec la musique.</li>
 <li>Respecter les comptes.</li>
@@ -16339,14 +16399,15 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Synchroniser les immersions et les sorties d'eau.</li>
 <li>Synchroniser les actions techniques et artistiques.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">INTERPRÉTATION ARTISTIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser les ressources artistiques afin de construire une interprétation cohérente avec la musique et le projet chorégraphique.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">STABILISER LES RESSOURCES ARTISTIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">MUSICALITÉ</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Identifier les accents musicaux et les phrases musicales.</li>
-<li>Réaliser des actions sur une même chorégraphie combinant des rythmes binaires et ternaires.</li>
+<li>Réaliser des actions sur une même chorégraphie combinant des rythmes binaires (division en 2 temps) et ternaires (division en 3 temps).</li>
 <li>Adapter le mouvement aux variations de rythme, aux nuances musicales et aux caractéristiques de la musique.</li>
 <li>Réaliser des mouvements sur des contretemps.</li>
 <li>Mémoriser des repères musicaux plus complexes.</li>
@@ -16364,9 +16425,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Interpréter progressivement différents rôles chorégraphiques.</li>
 <li>Maintenir un engagement artistique tout au long de la prestation.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">MÉMOIRE ET MAÎTRISE CHORÉGRAPHIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser la mémorisation chorégraphique afin de reproduire de manière fiable des contenus plus variés.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">STABILISER LA MÉMOIRE CHORÉGRAPHIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Mémoriser des chorégraphies plus longues et plus variées.</li>
 <li>Mémoriser simultanément mouvements, déplacements, formations et repères musicaux.</li>
@@ -16378,9 +16440,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Construire des séquences plus longues et plus variées.</li>
 <li>Contribuer à l'évolution d'une création collective.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">FORMATIONS ET DÉPLACEMENTS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser les repères spatiaux collectifs afin de maintenir la précision des formations malgré l'évolution des déplacements.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">STABILISER LES FORMATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Respecter les espacements.</li>
 <li>Respecter les trajectoires collectives.</li>
@@ -16397,9 +16460,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Réaliser des changements de formation dans des délais maîtrisés.</li>
 <li>Adapter ses déplacements à l'espace disponible.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #D59F49; margin-bottom: 20px;">
     <h5 style="color:#B8860B; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">PORTÉS, ACROBATIES ET EFFETS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Stabiliser les actions collectives afin de réaliser des portés, des acrobaties et des effets collectifs de manière fiable et coordonnée.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B8860B;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">STABILISER LES ACTIONS COLLECTIVES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#B8860B; font-size:0.82em; margin:8px 0 4px;">PORTÉS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -16422,7 +16486,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Respecter les exigences de sécurité.</li>
 <li>Comprendre le rôle de chacun dans la réussite de l'acrobatie.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -24343,6 +24407,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">CONSTRUCTION DES FORMES CORPORELLES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les formes corporelles aux exigences techniques afin d'optimiser leur efficacité dans des contextes de réalisation complexes.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">POSITIONS ET ÉQUILIBRES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser avec précision des positions complexes comprenant des angles et des flexions.</li>
 <li>Maintenir des positions de qualité dans des contextes techniques exigeants.</li>
@@ -24360,9 +24425,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir des lignes corporelles de qualité malgré la fatigue.</li>
 <li>Adapter les amplitudes aux exigences des composants techniques.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">COORDINATION ET CONTRÔLE CORPOREL</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les organisations motrices afin de répondre aux contraintes croissantes de la performance.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES ORGANISATIONS MOTRICES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Mobiliser la bilatéralité dans des réalisations techniques complexes.</li>
 <li>Exploiter les dissociations au service de la qualité technique.</li>
@@ -24371,9 +24437,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Réguler l'organisation motrice pendant la réalisation.</li>
 <li>Maintenir une organisation motrice efficace dans des contextes exigeants.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">RÉPERTOIRE TECHNIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les réalisations techniques aux exigences croissantes de la performance.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LE RÉPERTOIRE TECHNIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser des hybrides complexes.</li>
 <li>Combiner plusieurs familles techniques au sein d'une même réalisation.</li>
@@ -24394,7 +24461,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la qualité technique malgré l'enchaînement des réalisations.</li>
 <li>Adapter rapidement sa réalisation aux variations rencontrées.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -24506,7 +24573,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             <h3 style="color: #C62828; margin-bottom: 12px; font-size: 1.1em;">⚠️ Points de vigilance</h3>
             <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
             <li>Veiller à ce que la recherche de difficulté ou de valeur technique ne se fasse jamais au détriment de la qualité d'exécution.</li>
-            <li>Développer la robustesse technique afin de maintenir la qualité des réalisations malgré la fatigue, la pression ou l'augmentation de la complexité.</li>
+            <li>Développer la capacité à maintenir une qualité technique stable malgré la fatigue, la pression ou l'augmentation de la complexité.</li>
             <li>Favoriser l'adaptation des solutions techniques aux exigences de la compétition, du collectif et du rôle occupé.</li>
             <li>Développer une connaissance objective de ses points forts, de ses axes de progrès et des facteurs influençant la performance.</li>
             <li>Veiller à maintenir l'engagement, la stabilité émotionnelle et la qualité technique face à la réussite, à l'erreur ou à la contre-performance.</li>
@@ -24566,6 +24633,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">APPUIS ET PROPULSION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les paramètres des appuis aquatiques aux contraintes techniques, chorégraphiques et collectives afin d'améliorer l'efficacité des actions réalisées.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES PARAMÈTRES DES APPUIS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Adapter les paramètres des appuis aux contraintes techniques, chorégraphiques et collectives.</li>
 <li>Adapter les combinaisons d'appuis à la situation.</li>
@@ -24573,9 +24641,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir l'efficacité des appuis malgré la fatigue.</li>
 <li>Préserver la qualité des appuis dans des séquences techniques complexes.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ORIENTATIONS, ROTATIONS ET CHANGEMENTS DE REPÈRES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les rotations, les orientations et les repères aux contraintes techniques, chorégraphiques et collectives.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES PARAMÈTRES DES ROTATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Adapter les paramètres des rotations aux contraintes techniques.</li>
 <li>Adapter les paramètres des rotations aux contraintes temporelles.</li>
@@ -24587,9 +24656,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Gérer simultanément les repères individuels et collectifs.</li>
 <li>Conserver ses repères malgré la fatigue.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">IMMERSIONS ET GESTION RESPIRATOIRE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter la gestion de l'immersion et de la respiration aux exigences techniques et physiologiques de la discipline.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES PARAMÈTRES DE L'IMMERSION</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Adapter les immersions aux actions réalisées.</li>
 <li>Adapter les trajectoires sous-marines.</li>
@@ -24603,9 +24673,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la lucidité sous contrainte ventilatoire.</li>
 <li>Maintenir la qualité d'exécution malgré la fatigue respiratoire.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ÉMERGENCES ET MAÎTRISE DE LA HAUTEUR</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les émergences et les hauteurs d'évolution aux exigences techniques, chorégraphiques et collectives.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES PARAMÈTRES DES ÉMERGENCES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Adapter les paramètres des émergences aux exigences techniques.</li>
 <li>Adapter les paramètres des émergences aux exigences chorégraphiques et collectives.</li>
@@ -24622,7 +24693,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Adapter les actions explosives de hauteur aux exigences techniques et chorégraphiques.</li>
 <li>Maintenir l'efficacité des actions explosives sous fatigue.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -24788,6 +24859,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">SYNCHRONISATION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les paramètres de la synchronisation aux contraintes techniques, musicales et collectives afin de préserver la précision des actions communes.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser une synchronisation précise des actions.</li>
 <li>Identifier et adapter les paramètres influençant la synchronisation (tempo, vitesse d'exécution, amplitude, trajectoire, orientation, moteurs du mouvement, repères spatiaux...) afin d'ajuster son action.</li>
@@ -24795,9 +24867,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la synchronisation malgré la fatigue, la pression ou la complexité des séquences.</li>
 <li>S'ajuster en temps réel aux partenaires.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">INTERPRÉTATION ARTISTIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les ressources artistiques et l'interprétation aux exigences artistiques, techniques et collectives de la performance.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES RESSOURCES ARTISTIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">MUSICALITÉ</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -24819,9 +24892,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la qualité de l'interprétation malgré la fatigue ou la pression.</li>
 <li>Communiquer avec le jury et le public.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">MÉMOIRE ET MAÎTRISE CHORÉGRAPHIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter la maîtrise chorégraphiques aux exigences techniques, artistiques et collectives.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LA MÉMOIRE CHORÉGRAPHIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Mémoriser rapidement des contenus chorégraphiques complexes.</li>
 <li>Intégrer de nouvelles séquences dans des délais réduits.</li>
@@ -24833,9 +24907,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Contribuer à l'évolution de certaines séquences chorégraphiques.</li>
 <li>Enrichir une chorégraphie au service du projet artistique.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">FORMATIONS ET DÉPLACEMENTS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les formations et les déplacements collectifs aux exigences techniques, chorégraphiques et collectives afin de renforcer la qualité visuelle des formations.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES FORMATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Lire les formations collectives.</li>
 <li>S'adapter aux changements de rôle.</li>
@@ -24846,9 +24921,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la précision des formations malgré l'augmentation de la vitesse des déplacements.</li>
 <li>Maintenir la précision des formations lors des déplacements sans repères visuels directs.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #8D71DE; margin-bottom: 20px;">
     <h5 style="color:#6B4FBB; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">PORTÉS, ACROBATIES ET EFFETS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Adapter les actions collectives aux exigences techniques, chorégraphiques et collectives afin d'en améliorer l'efficacité.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#6B4FBB;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">ADAPTER LES ACTIONS COLLECTIVES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#6B4FBB; font-size:0.82em; margin:8px 0 4px;">PORTÉS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -24870,7 +24946,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la qualité d'exécution sous fatigue.</li>
 <li>Gérer son engagement physique et émotionnel dans des situations complexes.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -26958,7 +27034,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                         <li><strong>Anticiper la fin de carrière</strong> : Préparer l'après dès maintenant.</li>
                                         <li><strong>Identifier ses compétences</strong> : Qu'ai-je développé grâce au sport ?</li>
                                         <li><strong>Explorer des pistes</strong> : Entraîneur, métiers du sport, reconversion hors sport.</li>
-                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formations continues</li>
+                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formation professionnelle fédérale (MSN), formations continues</li>
                                     </ul>
                                 </div>
 
@@ -28977,6 +29053,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">CONSTRUCTION DES FORMES CORPORELLES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser et individualiser les formes corporelles afin de répondre aux exigences stratégiques et aux standards de performance du plus haut niveau.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES FORMES CORPORELLES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Mobiliser des formes corporelles répondant aux standards internationaux de performance.</li>
 <li>Mobiliser des formes corporelles optimisées dans des contextes de forte complexité technique.</li>
@@ -28985,9 +29062,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Individualiser l'utilisation des amplitudes et des lignes corporelles en fonction de son profil.</li>
 <li>Optimiser le rapport entre amplitude, stabilité, efficacité et coût énergétique.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">COORDINATION ET CONTRÔLE CORPOREL</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les organisations motrices afin d'améliorer durablement l'efficacité technique et la capacité d'adaptation.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES ORGANISATIONS MOTRICES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Exploiter la bilatéralité au service de l'efficacité technique.</li>
 <li>Exploiter les dissociations pour optimiser la qualité d'exécution.</li>
@@ -28996,9 +29074,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Adapter instantanément son organisation motrice aux contraintes rencontrées.</li>
 <li>Optimiser les repères moteurs afin de fiabiliser les réalisations techniques.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">RÉPERTOIRE TECHNIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser durablement son répertoire technique afin de répondre aux exigences du plus haut niveau de performance.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES RÉALISATIONS TECHNIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Optimiser les choix des composantes techniques au regard des objectifs de performance.</li>
 <li>Optimiser le rapport risque / gain des composantes techniques retenues.</li>
@@ -29007,7 +29086,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Optimiser les liaisons entre les composantes techniques.</li>
 <li>Maintenir la qualité d'exécution dans des contextes de très forte pression.</li>
 </ul><div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">EXPLOITER SON RÉPERTOIRE TECHNIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
-<li>Exploiter stratégiquement les différentes familles techniques.</li>
+<li>Adapter l'utilisation des différentes familles techniques aux situations et aux enjeux de performance.</li>
 <li>Exploiter ses caractéristiques individuelles au service de l'efficacité technique.</li>
 <li>Individualiser son répertoire technique selon son profil.</li>
 <li>Adapter son répertoire technique aux évolutions réglementaires.</li>
@@ -29019,7 +29098,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Contribuer à l'évolution des choix techniques.</li>
 <li>Transmettre les standards techniques de la discipline.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -29123,7 +29202,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             <li>Veiller à maintenir une recherche permanente d'optimisation sans remettre en cause la stabilité des acquis les plus performants.</li>
             <li>Développer la capacité à adapter le modèle technique aux évolutions du règlement, des standards internationaux et des exigences du collectif.</li>
             <li>Favoriser des choix techniques cohérents avec le profil de l'athlète, les objectifs de performance et le rapport bénéfice/risque.</li>
-            <li>Préserver l'équilibre entre recherche de performance, efficience technique et intégrité physique afin de favoriser la longévité sportive.</li>
+            <li>Préserver l'équilibre entre recherche de performance, efficience technique et intégrité physique à court comme à long terme.</li>
             <li>Développer une compréhension globale des interactions entre les dimensions techniques, artistiques, aquatiques, acrobatiques et réglementaires de la performance.</li>
             <li>Encourager une analyse critique, objective et argumentée des performances afin d'orienter les choix techniques et stratégiques.</li>
             <li>Favoriser l'innovation et la recherche de solutions tout en préservant la fiabilité et la reproductibilité de l'exécution.</li>
@@ -29153,12 +29232,11 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             <h3 style="color: #E2001A; margin-bottom: 12px; font-size: 1.1em;">🔧 Leviers d'apprentissage</h3>
             <ul style="margin: 0; padding-left: 18px; line-height: 1.8; color: #444;">
             <li><strong>Situations d'entraînement individualisées</strong> permettant d'optimiser le modèle technique de l'athlète à partir de ses caractéristiques, de son rôle, de son profil de performance et des exigences du plus haut niveau.</li>
-            <li><strong>Situations confrontant l'athlète à des contraintes techniques, tactiques, réglementaires ou environnementales variées</strong>, afin de développer sa capacité d'adaptation et la robustesse de son modèle technique.</li>
-            <li><strong>Travail d'optimisation du rapport bénéfice/risque</strong> des choix techniques, à partir de comparaisons, d'expérimentations et d'analyses de rendement, afin d'orienter les décisions vers les solutions les plus performantes.</li>
-            <li><strong>Situations favorisant l'identification des leviers prioritaires de progression</strong>, à partir de l'analyse vidéo, de données objectivées, d'indicateurs de performance et de bilans individualisés, afin d'optimiser durablement le projet de performance.</li>
+            <li><strong>Situations confrontant l'athlète à des contraintes techniques, tactiques, réglementaires ou environnementales variées</strong>, afin de développer sa capacité d'adaptation, ainsi que la stabilité et la fiabilité de son modèle technique.</li>
+            <li><strong>Travail d'optimisation du rapport bénéfice/risque</strong> des choix techniques, à partir de comparaisons, d'expérimentations et d'analyses de l'efficacité des solutions techniques, afin d'orienter les décisions vers les solutions les plus performantes.</li>
             <li><strong>Mises en situation reproduisant les contraintes des compétitions internationales</strong>, afin de développer la capacité à maintenir un haut niveau d'efficacité technique quelles que soient les exigences rencontrées.</li>
             <li><strong>Analyse approfondie des performances internationales, des évolutions réglementaires et des tendances de la discipline</strong>, afin d'anticiper les adaptations nécessaires du modèle technique.</li>
-            <li><strong>Utilisation d'outils d'analyse avancés</strong> (vidéo, données biomécaniques, statistiques de performance, feedbacks objectivés) afin d'affiner la compréhension des déterminants de la performance et de guider les ajustements techniques.</li>
+            <li><strong>Utilisation d'outils d'analyse avancés</strong> (vidéo, données biomécaniques, statistiques de performance, feedbacks objectivés, bilans individualisés) afin de comprendre les déterminants de la performance, d'identifier les leviers prioritaires de progression et de proposer des situations d'apprentissage adaptées.</li>
             <li><strong>Temps de réflexion, d'échanges et de co-construction avec l'encadrement</strong>, permettant d'élaborer, d'ajuster et d'évaluer les stratégies techniques au regard des objectifs de performance.</li>
             <li><strong>Situations favorisant la transmission des savoir-faire, des exigences et des standards de performance</strong>, par l'accompagnement de partenaires, le partage d'expérience et la participation à la dynamique collective.</li>
             <li><strong>Démarche permanente d'amélioration continue</strong>, fondée sur l'analyse critique des performances, l'expérimentation de nouvelles solutions techniques et la remise en question constructive des pratiques, afin de maintenir durablement un niveau d'expertise international.</li>
@@ -29181,6 +29259,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">APPUIS ET PROPULSION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les paramètres des appuis aquatiques afin de maximiser l'efficacité des actions réalisées.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES PARAMÈTRES DES APPUIS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Optimiser les paramètres des appuis selon les objectifs de performance.</li>
 <li>Individualiser les paramètres des appuis selon son profil.</li>
@@ -29188,23 +29267,25 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Exploiter stratégiquement les paramètres des appuis selon les objectifs de performance.</li>
 <li>Créer des combinaisons d'appuis individualisées adaptées aux exigences de performance.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ORIENTATIONS, ROTATIONS ET CHANGEMENTS DE REPÈRES</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les rotations, les orientations et les repères afin de répondre aux exigences du plus haut niveau.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES PARAMÈTRES DES ROTATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Optimiser les paramètres des rotations selon les objectifs de performance.</li>
 <li>Individualiser les paramètres des rotations selon son profil.</li>
 <li>Exploiter stratégiquement les rotations au service de la performance</li>
 </ul><div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES REPÈRES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Adapter les repères aux caractéristiques du bassin.</li>
-<li>Adapter les repères au rôD7le occupé dans la chorégraphie.</li>
+<li>Adapter les repères au rôle occupé dans la chorégraphie.</li>
 <li>Adapter les repères aux contraintes du collectif.</li>
 <li>Adapter les repères aux exigences de la compétition internationale.</li>
 <li>Exploiter les repères au service de la performance collective.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">IMMERSIONS ET GESTION RESPIRATOIRE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser la gestion de l'immersion et de la respiration afin de maintenir durablement la performance.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES PARAMÈTRES DE L'IMMERSION ET DE LA RESPIRATION</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Individualiser les stratégies ventilatoires selon son profil.</li>
 <li>Optimiser les temps de récupération.</li>
@@ -29212,9 +29293,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la performance malgré les contraintes physiologiques.</li>
 <li>Exploiter stratégiquement les stratégies respiratoires selon les exigences du programme.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">ÉMERGENCES ET MAÎTRISE DE LA HAUTEUR</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les émergences et les hauteurs d'évolution afin de répondre aux exigences du plus haut niveau.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES PARAMÈTRES DES ÉMERGENCES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Optimiser les paramètres des émergences selon les objectifs de performance.</li>
 <li>Individualiser les stratégies d'émergence selon son profil.</li>
@@ -29230,7 +29312,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Adapter la production explosive de hauteur aux exigences du programme et du rôle occupé.</li>
 <li>Exploiter stratégiquement les actions explosives au service de la performance.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -29392,6 +29474,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">SYNCHRONISATION</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les paramètres de la synchronisation afin de contribuer durablement à la stabilité et à la performance du collectif.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Réaliser une synchronisation extrêmement fine des actions.</li>
 <li>S'ajuster instantanément aux partenaires.</li>
@@ -29399,9 +29482,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Compenser certaines variations de synchronisation du groupe.</li>
 <li>Contribuer à la stabilité de la synchronisation du collectif.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">INTERPRÉTATION ARTISTIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les ressources artistiques et l'interprétation afin de renforcer l'impact artistique et la performance collective.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES RESSOURCES ARTISTIQUES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">MUSICALITÉ</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -29422,9 +29506,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Utiliser son interprétation au service de la performance collective.</li>
 <li>Contribuer aux choix artistiques et à l'évolution du projet chorégraphique.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">MÉMOIRE ET MAÎTRISE CHORÉGRAPHIQUE</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser la maîtrise chorégraphique afin de renforcer la performance collective et artistique.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LA MÉMOIRE CHORÉGRAPHIQUE</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Intégrer rapidement de nouveaux contenus chorégraphiques.</li>
 <li>Mémoriser efficacement des chorégraphies à forte densité technique, collective et artistique.</li>
@@ -29436,9 +29521,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Adapter ses propositions aux objectifs artistiques et stratégiques.</li>
 <li>Mettre sa créativité au service de la performance collective.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">FORMATIONS ET DÉPLACEMENTS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les formations et les déplacements collectifs afin d'optimiser la performance collective et l'impact visuel des formations.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES FORMATIONS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 <li>Contribuer à l'optimisation de la qualité visuelle des formations collectives.</li>
 <li>Adapter son action aux évolutions stratégiques du collectif.</li>
@@ -29448,9 +29534,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Maintenir la précision collective dans des changements de formation à très haute vitesse.</li>
 <li>Enchaîner des changements complexes de formation avec un minimum de temps de transition.</li>
 </ul>
-</div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
+</details></div><div style="background:white; border-radius:8px; padding: 20px 16px; border-left:4px solid #E2001A; margin-bottom: 20px;">
     <h5 style="color:#B00015; margin:0 0 6px 0; font-size:0.9em; text-transform:uppercase; letter-spacing:0.02em;">PORTÉS, ACROBATIES ET EFFETS COLLECTIFS</h5>
     <p style="color:#666; font-size:0.95em; font-style:italic; margin:0 0 8px 0;">Optimiser les actions collectives afin de maximiser leur efficacité, leur sécurité et leur impact visuel.</p>
+    <details class="domaine-card-details"><summary class="domaine-card-summary" style="color:#B00015;"><span class="domaine-card-cta"><svg width="8" height="6" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
     <div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">OPTIMISER LES ACTIONS COLLECTIVES</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
 
 </ul><div style="font-weight:600; color:#B00015; font-size:0.82em; margin:8px 0 4px;">PORTÉS</div><ul style="margin:0 0 6px 0; padding-left:16px; line-height:1.6; color:#444; font-size:0.95em;">
@@ -29473,7 +29560,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <li>Contribuer à la sécurisation et à la fiabilisation des réalisations collectives.</li>
 <li>Assurer une mise en place optimale des acrobaties quelles que soient les contraintes.</li>
 </ul>
-</div>
+</details></div>
     </div>
 </div>
 
@@ -31971,7 +32058,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                             <div style="border-left: 4px solid #E2001A; padding-left: 20px; margin-bottom: 25px;">
                                 <h4 style="color: #E2001A; margin-bottom: 15px; font-size: 1.2em;">🎯 Maintenir l'excellence et l'équilibre</h4>
                                 <p style="line-height: 1.7; color: #555; margin-bottom: 12px;">
-                                    Gérer l'équilibre entre études supérieures et pratique de haut niveau, développement de l'autonomie et de la responsabilité dans la planification des entraînements et compétitions.
+                                    Gérer l'équilibre entre études supérieures et pratique de haut niveau, développement de l'autonomie et de la responsabilité dans la conduite de son projet de vie et de son projet sportif sur du long terme.
                                 </p>
                             </div>
                             <div style="border-left: 4px solid #E2001A; padding-left: 20px; margin-bottom: 25px;">
@@ -31979,7 +32066,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                 <div style="margin-bottom: 0;">
                                     <h5 style="color: #333; margin-bottom: 8px; font-size: 1.05em; font-weight: 600;">🥇 CNE, Centre National d'Entraînement</h5>
                                     <ul style="line-height: 1.7; color: #555; margin-left: 20px;">
-                                        <li>Maintien de l'excellence sportive et participation aux compétitions internationales seniors</li>
+                                        <li>Développement de l'excellence sportive et participation aux compétitions internationales seniors</li>
                                         <li>Suivi personnalisé selon les besoins des athlètes</li>
                                         <li>Structure d'excellence répondant aux exigences de la natation artistique internationale senior</li>
                                     </ul>
@@ -31990,7 +32077,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                 <ul style="line-height: 1.7; color: #555; margin-left: 20px; margin-bottom: 0;">
                                     <li>Gestion du double projet études / sport</li>
                                     <li>Développement de l'autonomie et responsabilité</li>
-                                    <li>Préparation à la vie adulte et au haut niveau</li>
+                                    <li>Soutien à la capacité à concilier harmonieusement vie d'adulte et haut niveau</li>
                                 </ul>
                             </div>
                             <div style="background: rgba(226, 0, 26, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #E2001A; margin-bottom: 20px;">
@@ -34765,7 +34852,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                         <li><strong>Anticiper la fin de carrière</strong> : Préparer l'après dès maintenant.</li>
                                         <li><strong>Identifier ses compétences</strong> : Qu'ai-je développé grâce au sport ?</li>
                                         <li><strong>Explorer des pistes</strong> : Entraîneur, métiers du sport, reconversion hors sport.</li>
-                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formations continues</li>
+                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formation professionnelle fédérale (MSN), formations continues</li>
                                     </ul>
                                 </div>
 
@@ -36757,7 +36844,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                         <li><strong>Anticiper la fin de carrière</strong> : Préparer l'après dès maintenant.</li>
                                         <li><strong>Identifier ses compétences</strong> : Qu'ai-je développé grâce au sport ?</li>
                                         <li><strong>Explorer des pistes</strong> : Entraîneur, métiers du sport, reconversion hors sport.</li>
-                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formations continues</li>
+                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formation professionnelle fédérale (MSN), formations continues</li>
                                     </ul>
                                 </div>
 
@@ -39602,7 +39689,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
         <li>Capacité à concilier engagement sportif, études supérieures et/ou insertion professionnelle</li>
         <li>Longévité et engagement dans la pratique compétitive</li>
         <li>Transmission et engagement progressif dans la vie de la discipline : entraîneur, juge, encadrant, bénévole
-        <li> Au très haut-niveau : finales, podiums et médailles aux Championnats du Monde, d'Europe, ou aux Jeux Olympiques</li>
+        <li> Au très haut-niveau : finales, podiums et médailles aux Championnats d'Europe, du Monde, ou aux Jeux Olympiques</li>
     </ul>
 </div>
 
@@ -39709,7 +39796,7 @@ Dans les deux parcours, elle favorise le perfectionnement, l’autonomie, la res
     <ul style="line-height: 1.8; margin-left: 20px;">
         <li>Des épreuves diversifiées et exigeantes, adaptées au niveau et au projet de chaque athlète</li>
         <li>Des contenus techniques et artistiques avancés, permettant de continuer à progresser et à se perfectionner</li>
-        <li><Des ballets collectifs développant synchronisation, cohésion et engagement au service du groupe</li>
+        <li>Des ballets collectifs développant synchronisation, cohésion et engagement au service du groupe</li>
         <li>Des épreuves individuelles permettant d’exprimer et de valoriser ses qualités personnelles</li>
         <li>Un niveau d’engagement choisi, conciliant pratique sportive, études supérieures et/ou vie professionnelle</li>
         <li>Pour le haut niveau, des formats et exigences spécifiques préparant à la performance internationale</li>
@@ -39724,7 +39811,7 @@ Dans les deux parcours, elle favorise le perfectionnement, l’autonomie, la res
         <li>Prise en charge croissante de son entraînement, de sa préparation et de son suivi</li>
         <li>Capacité à concilier pratique sportive, études supérieures et/ou vie professionnelle</li>
         <li>Maintien du plaisir, de la motivation et de l’engagement dans la durée</li>
-        <li>Pour les athlètes de haut niveau, capacité à répondre aux exigences de la performance internationale<li>
+        <li>Pour les athlètes de haut niveau, capacité à répondre aux exigences de la performance internationale</li>
     </ul>
 </div>
 `
@@ -40228,7 +40315,7 @@ Au niveau international, elle comprend des ballets techniques, libres et acrobat
                                         <li><strong>Anticiper la fin de carrière</strong> : Préparer l'après dès maintenant.</li>
                                         <li><strong>Identifier ses compétences</strong> : Qu'ai-je développé grâce au sport ?</li>
                                         <li><strong>Explorer des pistes</strong> : Entraîneur, métiers du sport, reconversion hors sport.</li>
-                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formations continues</li>
+                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formation professionnelle fédérale (MSN), formations continues</li>
                                     </ul>
                                 </div>
 
@@ -48084,7 +48171,7 @@ render();
                                         <li><strong>Anticiper la fin de carrière</strong> : Préparer l'après dès maintenant.</li>
                                         <li><strong>Identifier ses compétences</strong> : Qu'ai-je développé grâce au sport ?</li>
                                         <li><strong>Explorer des pistes</strong> : Entraîneur, métiers du sport, reconversion hors sport.</li>
-                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formations continues</li>
+                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formation professionnelle fédérale (MSN), formations continues</li>
                                     </ul>
                                 </div>
 
@@ -54003,7 +54090,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                 <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em; display: flex; align-items: center; gap: 8px;">✅ Fondements et attendus de la période</h3>
                 <p style="line-height: 1.8; margin-bottom: 15px;">Les attendus de cette période supposent que ceux de la période précédente sont stabilisés. Les principes fondamentaux restent les mêmes, seul le niveau d'expertise dans la réalisation par l'athlète évolue. <strong>Les attendus décrivent des résultats observables par l'entraîneur</strong> et non les actions et les intentions à mobiliser pour y parvenir.</p>
                 <div style="background: rgba(33,150,243,0.08); padding: 20px; border-radius: 8px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
-                    <p style="margin: 0; line-height: 1.8;"><strong><img src="Images/emoji-disciplines/wp-entraineur-bord.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Rôle de l'entraîneur :</strong> Créer et proposer des <strong>tâches d'entraînement</strong> permettant l'<strong>adaptation durable</strong> et l'<strong>adoption de comportements efficaces</strong> par l'athlète. Il anime, régule la séance et en mobilise l'attention, l'engagement et les interactions au sein du groupe, afin de soutenir les apprentissages et la progression des athlètes.</p>
+                    <p style="margin: 0; line-height: 1.8;"><strong><img src="Images/emoji-disciplines/wp-entraineur-bord.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Rôle de l'entraîneur :</strong> Créer et proposer des <strong>tâches d'entraînement</strong> permettant l'<strong>adaptation durable</strong> et l'<strong>adoption de comportements efficaces</strong> par l'athlète. Il anime, régule la séance et mobilise l'attention, l'engagement et les interactions au sein du groupe, afin de soutenir les apprentissages et la progression des athlètes.</p>
                 </div>
             </div>
             <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid rgba(141,113,222,0.2); margin-bottom: 20px;">
@@ -54624,7 +54711,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                             <h3 style="color: #8D71DE; margin-bottom: 15px; font-size: 1.3em; display: flex; align-items: center; gap: 8px;">✅ Fondements et attendus de la période</h3>
                                             <p style="line-height: 1.8; margin-bottom: 15px;">Les attendus de cette période supposent que ceux de la période précédente sont stabilisés. Les principes fondamentaux restent les mêmes, seul le niveau d'expertise dans la réalisation par l'athlète évolue. <strong>Les attendus décrivent des résultats observables par l'entraîneur</strong> et non les actions et les intentions à mobiliser pour y parvenir.</p>
                                             <div style="background: rgba(33,150,243,0.08); padding: 20px; border-radius: 8px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
-                                                <p style="margin: 0; line-height: 1.8;"><strong><img src="Images/emoji-disciplines/wp-entraineur-bord.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Rôle de l'entraîneur :</strong> Créer et proposer des <strong>tâches d'entraînement</strong> permettant l'<strong>adaptation durable</strong> et l'<strong>adoption de comportements efficaces</strong> par l'athlète. Il anime, régule la séance et en mobilise l'attention, l'engagement et les interactions au sein du groupe, afin de soutenir les apprentissages et la progression des athlètes.</p>
+                                                <p style="margin: 0; line-height: 1.8;"><strong><img src="Images/emoji-disciplines/wp-entraineur-bord.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Rôle de l'entraîneur :</strong> Créer et proposer des <strong>tâches d'entraînement</strong> permettant l'<strong>adaptation durable</strong> et l'<strong>adoption de comportements efficaces</strong> par l'athlète. Il anime, régule la séance et mobilise l'attention, l'engagement et les interactions au sein du groupe, afin de soutenir les apprentissages et la progression des athlètes.</p>
                                             </div>
                                         </div>
                                         <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid rgba(141,113,222,0.2); margin-bottom: 20px;">
@@ -56435,7 +56522,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
                                         <li><strong>Anticiper la fin de carrière</strong> : Préparer l'après dès maintenant.</li>
                                         <li><strong>Identifier ses compétences</strong> : Qu'ai-je développé grâce au sport ?</li>
                                         <li><strong>Explorer des pistes</strong> : Entraîneur, métiers du sport, reconversion hors sport.</li>
-                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formations continues</li>
+                                        <li><strong>Se former</strong> : Diplômes d'entraîneur (BPJEPS, DEJEPS), formation professionnelle fédérale (MSN), formations continues</li>
                                     </ul>
                                 </div>
 
@@ -59843,6 +59930,7 @@ function ProfilDeveloppementView() {
                                     <li><strong>1984</strong> : entrée de la discipline au programme olympique lors des Jeux de Los Angeles.</li>
                                     <li><strong>1996</strong> : apparition de l'épreuve par équipe aux Jeux Olympiques.</li>
                                     <li><strong>2000</strong> : introduction du duo comme épreuve olympique.</li>
+                                    <li><strong>2015</strong> : Championnats du Monde de Kazan, apparition du duo mixte.</li>
                                     <li><strong>2017</strong> : ouverture des compétitions internationales masculines par la World Aquatics.</li>
                                     <li><strong>2024</strong> : participation des hommes aux Jeux Olympiques au sein des épreuves par équipe.</li>
                                 </ul>
@@ -61092,7 +61180,7 @@ function ProfilDeveloppementView() {
                     signal: "L'enfant essaie de faire beau spontanément, pas seulement de tenir la position."
                 },
                 2: {
-                    enjeu: "À cette période, on s'approprie les figures fondamentales et les éléments de base. La précision des positions et la synchronisation avec les partenaires se construisent. L'athlète découvre que la réussite dépend des autres, apprend à partager des repères communs, à respecter un cadre collectif et à comprendre que sa réalisation influence progressivement celle du groupe.",
+                    enjeu: "À cette période, on s'approprie les figures fondamentales et les éléments de base. La précision des positions et la synchronisation avec les partenaires se construisent. L'athlète découvre que la réussite dépend aussi des autres, apprend à partager des repères communs, à respecter un cadre collectif et à comprendre que sa réalisation influence progressivement celle du groupe.",
                     transformations: [
                         "L'eau devient un espace d'expression autant que d'effort",
                         "Les figures imposées et les techniques de base sont apprises et reconnues",
