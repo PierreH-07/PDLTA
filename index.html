@@ -42905,16 +42905,26 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 #wp-pressing .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-pressing .ld { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
 #wp-pressing .lr { width: 20px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+#wp-pressing .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; }
+#wp-pressing .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+#wp-pressing .carousel-btn:hover { background: #ea6500; }
+#wp-pressing .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 180px; text-align: center; }
 </style>
 <div class="wp-header">
   <div class="wp-title">🤽 WATER POLO — Pressing 1 contre 1</div>
-  <div class="wp-subtitle">Un défenseur par attaquant · collé à son joueur · def 6 pousse vers l'extérieur</div>
+  <div class="wp-subtitle">Un défenseur par attaquant · collé à son joueur · le défenseur du 6 se place devant lui, côté ballon</div>
+</div>
+<div class="carrier-ctrl">
+  <button class="carousel-btn" id="wpp-prev">&#8592;</button>
+  <div class="state-val" id="wpp-state">Ballon : joueur 2</div>
+  <button class="carousel-btn" id="wpp-next">&#8594;</button>
 </div>
 <svg class="terrain" id="svg-main" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
   <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
+  <div class="legend-item"><div class="ld" style="background:#F97316"></div>Bras de blocage côté ballon</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -42960,7 +42970,35 @@ function drawArrow(svg,x1,y1,x2,y2,color){
   svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*9+px},\${y2-uy*9+py} \${x2-ux*9-px},\${y2-uy*9-py}\`,fill:color}));
 }
 
+// Position du ballon : elle commande le côté du défenseur du 6
+var BALLS=[1,2,4,5];
+var bidx=1;
+// +1 : ballon aux postes 1 ou 2 (côté droit) · -1 : postes 4 ou 5 (côté gauche)
+function ballSide(b){ return (b===1||b===2)?1:-1; }
+
+// Défenseur du 6 : entre l'attaquant 6 et les autres attaquants, bras autour du 6,
+// corps orienté du côté du ballon, bras côté ballon tendu pour bloquer la ligne de passe
+function drawDef6(svg,ball){
+  var s6=ATT[6], bp=ATT[ball], side=ballSide(ball);
+  var dx6=s6[0]+side*18, dy6=s6[1]+24, r=11;
+  // bras côté opposé au ballon : enroulé autour de l'attaquant 6
+  var d='M'+(dx6-side*9)+','+(dy6-4)+' Q'+(s6[0]-side*28)+','+(s6[1]+14)+' '+(s6[0]-side*15)+','+(s6[1]-7);
+  svg.appendChild(se('path',{d:d,fill:'none',stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+  // bras côté ballon : tendu vers la ligne de passe
+  var bd=norm(bp[0]-dx6,bp[1]-dy6);
+  svg.appendChild(L(dx6+side*9,dy6-2,dx6+bd[0]*46,dy6+bd[1]*46,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+  svg.appendChild(C(dx6+bd[0]*46,dy6+bd[1]*46,4.5,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  // corps, tête orientée vers le 6 et inclinée du côté du ballon
+  var hd=norm((s6[0]-dx6)+side*24,s6[1]-dy6);
+  svg.appendChild(C(dx6,dy6,r,{fill:'#ffccbc',stroke:'#0d47a1','stroke-width':'2.2'}));
+  var px=-hd[1],py=hd[0];
+  svg.appendChild(se('polygon',{points:(dx6+hd[0]*19)+','+(dy6+hd[1]*19)+' '+(dx6+px*5)+','+(dy6+py*5)+' '+(dx6-px*5)+','+(dy6-py*5),fill:'#0d47a1',opacity:'0.75'}));
+  svg.appendChild(T(dx6,dy6+4,'6',{'text-anchor':'middle','font-size':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+}
+
 function render(){
+  const ball=BALLS[bidx];
+  document.getElementById('wpp-state').textContent='Ballon : joueur '+ball;
   const svg=document.getElementById('svg-main');
   svg.innerHTML='';
   const defs=se('defs');
@@ -42988,6 +43026,9 @@ function render(){
     svg.appendChild(L(dp[0],dp[1],an[0],an[1],{stroke:'rgba(255,255,255,0.15)','stroke-width':'1','stroke-dasharray':'2,3'}));
   }
 
+  // Ligne de passe que le défenseur du 6 cherche à couper
+  svg.appendChild(L(ATT[ball][0],ATT[ball][1],s6[0],s6[1],{stroke:'rgba(255,255,255,0.35)','stroke-width':'1.5','stroke-dasharray':'5,5'}));
+
   // Gardien
   drawTri(svg,ATT.G[0],ATT.G[1],'G','#2e7d32',[0,1],false);
 
@@ -42999,13 +43040,11 @@ function render(){
     const an=ATT[n];
     const goal=[W/2,BY+11];
     const dir=norm(goal[0]-an[0],goal[1]-an[1]);
-    drawTri(svg,an[0],an[1],String(n),'#c62828',dir,false);
+    drawTri(svg,an[0],an[1],String(n),'#c62828',dir,n===ball);
   }
 
-  // Def6 H/H — entre att6 et le but, pousse vers la droite (exemple)
-  const d6=[s6[0],s6[1]-22];
-  drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(s6[0]-d6[0]+30,s6[1]-d6[1]),false);
-  drawArrow(svg,d6[0],d6[1]+8,d6[0]+28,d6[1]+20,'#F97316');
+  // Défenseur du 6
+  drawDef6(svg,ball);
 
   // Def 1-5 pressing — collés à leur att, face à lui
   for(let n=1;n<=5;n++){
@@ -43021,6 +43060,8 @@ function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
 function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
 function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
 function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+document.getElementById('wpp-prev').addEventListener('click',function(){bidx=(bidx+BALLS.length-1)%BALLS.length;render();});
+document.getElementById('wpp-next').addEventListener('click',function(){bidx=(bidx+1)%BALLS.length;render();});
 render();
 <\/script>
 </div>
