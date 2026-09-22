@@ -2575,6 +2575,11 @@
     "plg-position-carpee": "Images/emoji-disciplines/plg-position-carpee.png",
     "plg-position-groupee": "Images/emoji-disciplines/plg-position-groupee.png",
 
+    // --- Période 1 : Je découvre ---
+    "DECOUVRE-explore": "Images/emoji-disciplines/DECOUVRE-explore.png",
+    "DECOUVRE-confiance": "Images/emoji-disciplines/DECOUVRE-confiance.png",
+    "DECOUVRE-deplacement": "Images/emoji-disciplines/DECOUVRE-deplacement.png",
+
     // --- Water-polo ---
     "wp-attaque-ballon": "Images/emoji-disciplines/wp-attaque-ballon.png",
     "wp-celebration-bonnet": "Images/emoji-disciplines/wp-celebration-bonnet.png",
@@ -2708,7 +2713,7 @@
                 themes: [
                     {
                         id: "confiance",
-                        icon: "😊",
+                        icon: window.ICONS['DECOUVRE-confiance'],
                         title: "Explorer et construire la confiance",
                         description: "Les défis à surmonter, les blocages",
                         hasPeurs: true,
@@ -2811,7 +2816,7 @@
                     },
                     {
                         id: "decouverte-milieu",
-                        icon: "💧",
+                        icon: window.ICONS['DECOUVRE-explore'],
                         title: "Explorer et découvrir le milieu aquatique",
                         description: "Quelles sont les étapes et les attendus",
                         hasEtapes: true,
@@ -3000,7 +3005,7 @@
                     },
                     {
                         id: "premiers-deplacement",
-                        icon: "🏊",
+                        icon: window.ICONS['DECOUVRE-deplacement'],
                         title: "Explorer les premiers déplacements",
                         description: "Modes de déplacement, comment et pourquoi",
                         hasModesDeplacement: true,
@@ -63914,7 +63919,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                                {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                    <img src={theme.icon} style={{width: '1em', height: '1em', objectFit: 'contain'}} alt="" />
+                                    : theme.icon
+                                }
+                            </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -63971,7 +63981,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                                {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                    <img src={theme.icon} style={{width: '1em', height: '1em', objectFit: 'contain'}} alt="" />
+                                    : theme.icon
+                                }
+                            </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -64022,7 +64037,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                                {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                    <img src={theme.icon} style={{width: '1em', height: '1em', objectFit: 'contain'}} alt="" />
+                                    : theme.icon
+                                }
+                            </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
