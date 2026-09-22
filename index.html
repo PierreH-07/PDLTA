@@ -42984,10 +42984,15 @@ function drawDef6(svg,ball){
   // bras côté opposé au ballon : enroulé autour de l'attaquant 6
   var d='M'+(dx6-side*9)+','+(dy6-4)+' Q'+(s6[0]-side*28)+','+(s6[1]+14)+' '+(s6[0]-side*15)+','+(s6[1]-7);
   svg.appendChild(se('path',{d:d,fill:'none',stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
-  // bras côté ballon : tendu vers la ligne de passe
-  var bd=norm(bp[0]-dx6,bp[1]-dy6);
-  svg.appendChild(L(dx6+side*9,dy6-2,dx6+bd[0]*46,dy6+bd[1]*46,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
-  svg.appendChild(C(dx6+bd[0]*46,dy6+bd[1]*46,4.5,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  // bras côté ballon : perpendiculaire à la ligne de passe porteur -> 6, pour la barrer
+  var u=norm(s6[0]-bp[0],s6[1]-bp[1]);
+  var vx=dx6-s6[0], vy=dy6-s6[1], dot=vx*u[0]+vy*u[1];
+  var wx=vx-dot*u[0], wy=vy-dot*u[1];
+  // perpendiculaire dirigée du défenseur vers la ligne de passe
+  var pd=(Math.abs(wx)+Math.abs(wy)<0.5)?[-u[1],u[0]]:norm(-wx,-wy);
+  var ex=dx6+pd[0]*(r+34), ey=dy6+pd[1]*(r+34);
+  svg.appendChild(L(dx6+pd[0]*r,dy6+pd[1]*r,ex,ey,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+  svg.appendChild(C(ex,ey,4.5,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
   // corps, tête orientée vers le 6 et inclinée du côté du ballon
   var hd=norm((s6[0]-dx6)+side*24,s6[1]-dy6);
   svg.appendChild(C(dx6,dy6,r,{fill:'#ffccbc',stroke:'#0d47a1','stroke-width':'2.2'}));
