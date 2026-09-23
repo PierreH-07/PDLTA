@@ -58249,7 +58249,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES_
         // Rôle   : Outil de profilage : courbes de développement par dimension (cognitif, physique…) avec Chart.js
         // Lien   : Rendu par ComprendreCardDetailView quand carte.id === "les-differents-ages"
         // ============================================================
-function ProfilDeveloppementView() {
+function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
 
   const PERIODS = [
     { id:'p2', label:'P2', age:'7–11 ans',  color:'#2563EB' },
@@ -58260,10 +58260,15 @@ function ProfilDeveloppementView() {
   const SNAP_AGES = [9, 13, 17, 21];
   const ALL_AGES  = [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
   const DISCIPLINES = [
-    { id:'all', label:'Toutes', color:null },
-    { id:'nc',  label:'NC',    color:'#2563EB' },
-    { id:'el',  label:'EL',    color:'#10B981' },
+    { id:'all', label:'Toutes', name:'Toutes',              color:null },
+    { id:'nc',  label:'NC',     name:'Natation course',     color:'#2563EB' },
+    { id:'el',  label:'EL',     name:'Eau libre',           color:'#10B981' },
+    { id:'na',  label:'NA',     name:'Natation artistique', color:'#EC4899' },
+    { id:'wp',  label:'WP',     name:'Water-polo',          color:'#F97316' },
+    { id:'plg', label:'PLG',    name:'Plongeon',            color:'#1E3A8A' },
   ];
+  /* Identifiant numérique de discipline (App) → clé locale */
+  const DISC_FROM_APP = { 1:'nc', 2:'wp', 3:'plg', 4:'na', 5:'el' };
 
   /* ── Courbes communes ──────────────────────────────────────── */
   const CURVE_DIMS = [
@@ -58480,6 +58485,81 @@ function ProfilDeveloppementView() {
         { t:'Capacités physiques : réserve de fréquence, duel physique, efficience à toutes intensités' },
       ]},
     },
+    na: {
+      p2: { enjeu:'Découvrir les capacités de son corps dans l\'eau et l\'air, explorer divers appuis, expérimenter figures et mouvements techniques, se synchroniser avec d\'autres et développer sa compréhension de la musique, réaliser des efforts variés lors des premières compétitions.', comp:[
+        { t:'Découvrir les capacités de son corps dans l\'espace aquatique et aérien' },
+        { t:'Se déplacer dans l\'eau en explorant un large panel d\'appuis' },
+        { t:'Expérimenter des figures et mouvements techniques' },
+        { t:'Se synchroniser avec d\'autres athlètes et/ou avec la musique' },
+        { t:'Réaliser des efforts variés adaptés aux premières compétitions de la natation artistique' },
+      ]},
+      p3: { enjeu:'Maîtriser les coordinations complexes (bras-jambes-respiration), développer les appuis au service de la chorégraphie, s\'adapter aux transformations physiques, développer efficacité et gestion de l\'effort (solo/duo/équipe, avec/sans musique) dans le respect des contraintes techniques.', comp:[
+        { t:'Maîtriser les coordinations complexes entre bras, jambes et respiration (appuis et mouvements chorégraphiques)' },
+        { t:'S\'adapter aux transformations physiques' },
+        { t:'Développer efficacité et gestion de l\'effort seul·e ou en équipe, avec ou sans musique' },
+        { t:'Respecter les contraintes techniques des enchaînements' },
+      ]},
+      p4: { enjeu:'Connaître ses forces, se mobiliser pour la performance collective, gérer la pression en compétition, valoriser sa progression personnelle, tirer parti de la maturation physique et développer une compréhension fine des critères de jugement.', comp:[
+        { t:'Connaître ses forces, savoir se mobiliser pour la performance collective' },
+        { t:'Gérer la pression en compétition' },
+        { t:'Valoriser sa progression personnelle et tirer parti de la maturation physique' },
+        { t:'Développer progressivement une compréhension et une appropriation plus fine des critères de jugement' },
+      ]},
+      p5: { enjeu:'Analyser performances individuelles et collectives, identifier axes d\'amélioration précis, perfectionner sa technique avec des outils spécifiques, affiner la qualité artistique et utiliser les critères de jugement pour optimiser les stratégies de performance.', comp:[
+        { t:'Analyser ses performances et celles du groupe' },
+        { t:'Identifier des axes d\'amélioration précis' },
+        { t:'Perfectionner sa technique à l\'aide d\'outils spécifiques à la natation artistique' },
+        { t:'Affiner la qualité artistique des enchaînements' },
+        { t:'Développer sa capacité à utiliser les critères de jugement pour être acteur de stratégies de performance optimales' },
+      ]},
+    },
+    wp: {
+      p2: { enjeu:'S\'approprier les fondamentaux techniques, développer sa motricité et construire les bases de sa pratique aquatique.', comp:[
+        { t:'S\'approprier les déplacements spécifiques à la discipline' },
+        { t:'Devenir agile avec un ballon' },
+        { t:'Comprendre l\'organisation du jeu' },
+      ]},
+      p3: { enjeu:'Maîtriser les habiletés fondamentales et techniques du water-polo.', comp:[
+        { t:'Maîtriser les techniques individuelles sous pression' },
+        { t:'Développer la lecture tactique du jeu' },
+        { t:'Construire la cohésion et la communication en équipe' },
+        { t:'Mettre en place une préparation physique adaptée' },
+      ]},
+      p4: { enjeu:'Rester performant sous la pression temporelle et de l\'adversaire, mettre ses compétences au service du collectif.', comp:[
+        { t:'Perfectionner les compétences tactiques' },
+        { t:'Développer le leadership dans l\'équipe' },
+        { t:'Optimiser la condition physique de compétition' },
+        { t:'Se spécialiser par poste' },
+      ]},
+      p5: { enjeu:'Rechercher l\'excellence individuelle et collective au service de la stratégie.', comp:[
+        { t:'Maintenir le niveau d\'excellence technique' },
+        { t:'Perfectionner la stratégie de jeu collective' },
+        { t:'Optimiser la performance en compétition de haut niveau' },
+        { t:'Développer et maintenir l\'attitude de haute performance' },
+      ]},
+    },
+    plg: {
+      p2: { enjeu:'S\'approprier les fondamentaux techniques, développer sa motricité et construire les bases de sa pratique.', comp:[
+        { t:'Maîtriser les chandelles et les entrées à l\'eau par la tête' },
+        { t:'Découvrir les plongeons codifiés simples' },
+        { t:'Progresser du bord au tremplin' },
+      ]},
+      p3: { enjeu:'Continuer à s\'approprier les fondamentaux techniques, à développer sa motricité et à construire les bases de sa pratique.', comp:[
+        { t:'Maîtriser l\'ensemble des paramètres des plongeons de base' },
+        { t:'Découvrir les plongeons plus complexes' },
+        { t:'Progresser du bord jusqu\'au tremplin de 1M et de 3M ainsi qu\'au haut-vol selon les installations' },
+      ]},
+      p4: { enjeu:'Connaître ses forces, valoriser sa progression personnelle, poursuivre une construction technique complète à travers les tremplins, se mobiliser pour la performance, gérer la compétition et les enjeux, tirer parti de la maturation physique et développer une compréhension fine des critères de jugement.', comp:[
+        { t:'Perfectionner les plongeons complexes' },
+        { t:'Construire un programme compétitif complet' },
+        { t:'Se préparer aux compétitions nationales' },
+      ]},
+      p5: { enjeu:'Prendre du recul sur ses performances, chercher des axes d\'amélioration précis, utiliser des outils perfectionnés.', comp:[
+        { t:'Performer au plus haut niveau international' },
+        { t:'Maîtriser les plongeons les plus difficiles' },
+        { t:'Transmettre son expertise' },
+      ]},
+    },
   };
 
   /* ── Colonne Âge scolaire ──────────────────────────────────── */
@@ -58496,10 +58576,30 @@ function ProfilDeveloppementView() {
       p4:[ {label:'Niveau scolaire',val:'Lycée (2nde–Terminale)'},{label:'Structure',val:'Club haut niveau · stages eau libre nationaux et internationaux'},{label:'Compétition',val:'Circuit fédéral national · championnats de France juniors · ouvertures internationales'},{label:'Enjeu',val:'Maîtriser les conditions réelles, construire une tactique de groupe',link:'besoins-periode-4'} ],
       p5:[ {label:'Niveau',val:'Enseignement supérieur ou vie professionnelle'},{label:'Structure',val:'Pôles France · INSEP · stages eaux vives nationales et internationales'},{label:'Compétition',val:'World Aquatics Open Water Series · Championnats du Monde · Jeux Olympiques'},{label:'Enjeu',val:'Expertise en toutes conditions, gestion de la carrière internationale',link:'besoins-periode-5'} ],
     },
+    na: {
+      p2:[ {label:'Niveau scolaire',val:'École primaire'},{label:'Catégorie',val:'U9 / U12'},{label:'Volume',val:'De 1h à 3h/semaine (6-7 ans) à 7h à 9h/semaine (11 ans)'},{label:'Structure',val:'CAF, Centre d\'Accession et de Formation (9 à 14 ans)'},{label:'Compétition',val:'Au début, deux compétitions dans l\'année, puis progressivement 4 à 6 par an ; compétitions orientées « club »'},{label:'Attente',val:'Découvrir la compétition de manière progressive et positive, du plaisir aux premières expériences compétitives'} ],
+      p3:[ {label:'Niveau scolaire',val:'Collège (6e–3e), catégorie Jeune (U15)'},{label:'Volume',val:'De 7h30 à 10h30/semaine (12 ans) à 12h30 à 15h/semaine (14/15 ans)'},{label:'Structures',val:'CAF (9 à 14 ans) · CNAHN (12 à 18 ans) · Section Sportive Scolaire (3–4 h/sem) · Sport-Études (10–15 h/sem)'},{label:'Compétition',val:'3 à 6 compétitions par an'},{label:'Enjeu',val:'Structurer la progression vers le haut niveau avec des paliers clairs'} ],
+      p4:[ {label:'Niveau scolaire',val:'Lycée (2nde–Terminale), catégorie Junior (U19)'},{label:'Volume',val:'4 à 6 séances/semaine de 3h à 4h, soit 15h à 22h/semaine (16/18 ans)'},{label:'Structures',val:'CNAHN (12 à 18 ans) · CNR (15 à 19 ans) · CNE · Sport-Études (10–15 h/sem)'},{label:'Compétition',val:'3 à 6 compétitions par an ; niveau national et international junior'},{label:'Enjeu',val:'Les compétitions Juniors représentent le niveau pré-élite'} ],
+      p5:[ {label:'Niveau',val:'Enseignement supérieur ou vie professionnelle'},{label:'Catégorie',val:'Senior'},{label:'Volume',val:'5 à 7 séances/semaine de 3h à 5h, soit 22h à 25h/semaine (18 ans et plus)'},{label:'Structure',val:'CNE, Centre National d\'Entraînement'},{label:'Compétition',val:'Calendrier adapté au projet sportif de l\'athlète, nombre de compétitions variable selon les objectifs majeurs nationaux et internationaux'},{label:'Enjeu',val:'Trouver un équilibre entre pratique sportive de haut-niveau et projet de vie'} ],
+    },
+    wp: {
+      p2:[ {label:'Niveau scolaire',val:'École primaire'},{label:'Compétition',val:'Matchs amicaux · plateaux et rassemblements · championnats officiels'},{label:'Attente',val:'La compétition est avant tout un outil pédagogique et éducatif'} ],
+      p3:[ {label:'Niveau scolaire',val:'Collège (6e–3e)'},{label:'Catégorie',val:'U12 / U14'},{label:'Compétition',val:'Regroupements et plateaux (U12) · championnats de Ligue et championnat national (U14)'},{label:'Enjeu',val:'La compétition reste avant tout un outil pédagogique de formation'} ],
+      p4:[ {label:'Niveau scolaire',val:'Lycée (2nde–Terminale)'},{label:'Catégorie',val:'U16 / U18'},{label:'Compétition',val:'Championnats régionaux et interrégionaux (U16) · championnats nationaux (U18)'},{label:'Enjeu',val:'Gérer la montée en importance du résultat, tout en préservant la compétition comme outil de formation'} ],
+      p5:[ {label:'Niveau',val:'Enseignement supérieur ou vie professionnelle'},{label:'Catégorie',val:'Seniors 18+ ans'},{label:'Compétition',val:'Championnats nationaux, coupes d\'Europe, championnats internationaux, Jeux Olympiques'},{label:'Enjeu',val:'Construire un projet de vie : se confronter, mesurer les écarts, faire des sacrifices, tout en préparant son avenir au-delà du sport'} ],
+    },
+    plg: {
+      p2:[ {label:'Niveau scolaire',val:'École primaire'},{label:'Catégorie',val:'Poussins D'},{label:'Volume',val:'De 1h30 à 3h/semaine (7-8 ans) à 7h à 9h/semaine (11 ans)'},{label:'Compétition',val:'3 à 5 compétitions par an ; régional avec finalité fédérale possible ; programmes promotionnels'},{label:'Attente',val:'L\'accent est mis sur la découverte et la motivation'} ],
+      p3:[ {label:'Niveau scolaire',val:'Collège (6e–3e)'},{label:'Catégorie',val:'Benjamin(e)s (C) 12-13 ans · Minimes (B) 14-15 ans'},{label:'Volume',val:'De 7h30-10h/semaine (12 ans) à 12h30-15h/semaine (14-15 ans)'},{label:'Structures',val:'Section Sportive Scolaire · Sport-Études (12-15h/semaine) · CAF (filles à partir de la 4ème)'},{label:'Compétition',val:'3 à 8 compétitions par an selon le niveau ; compétitions promotionnelles et traditionnelles'},{label:'Enjeu',val:'Se préparer aux compétitions nationales et internationales jeunes'} ],
+      p4:[ {label:'Niveau scolaire',val:'Lycée (2nde–Terminale)'},{label:'Catégorie',val:'Cadet(te)s (A), 16-18 ans'},{label:'Volume',val:'9-10 séances/semaine, 20h-22h (16 ans) à 9-11 séances/semaine, 23h-25h (18 ans)'},{label:'Structures',val:'Section Sportive Scolaire · Sport-Études (15-20h/semaine) · CAF · CNAHN / CNE Plongeon'},{label:'Compétition',val:'3 à 8 compétitions par an ; Meetings Fédéraux, Championnats de France des Jeunes et compétitions internationales Cadettes'},{label:'Enjeu',val:'Se préparer à l\'ouverture vers le niveau Senior'} ],
+      p5:[ {label:'Niveau',val:'Enseignement supérieur ou vie professionnelle'},{label:'Catégorie',val:'Seniors, 18 ans et plus'},{label:'Volume',val:'9-11 séances/semaine réparties sur 5 à 6 jours, 22h-25h/semaine'},{label:'Structure',val:'CNE, Centre National d\'Entraînement'},{label:'Compétition',val:'Circuit national (meetings fédéraux) et international (Championnats d\'Europe, du Monde)'},{label:'Enjeu',val:'Performer au plus haut niveau, gérer un calendrier annuel et sur plusieurs saisons'} ],
+    },
   };
 
-  const [sliders, setSliders] = React.useState({ cognitif:1, physique:1, training:1, school:1 });
-  const [disc, setDisc] = React.useState('all');
+  /* Période et discipline de départ : celles depuis lesquelles la carte est ouverte */
+  const initIdx = Math.max(0, Math.min(3, (periodId || 3) - 2));
+  const [sliders, setSliders] = React.useState({ cognitif:initIdx, physique:initIdx, training:initIdx, school:initIdx });
+  const [disc, setDisc] = React.useState(DISC_FROM_APP[disciplineId] || 'all');
 
   /* ── Chart.js init (une fois) ──────────────────────────────── */
   React.useEffect(() => {
@@ -58516,7 +58616,7 @@ function ProfilDeveloppementView() {
           scales:{ x:{display:false}, y:{ display:true, min:0, max:100, ticks:{font:{size:9},color:'rgba(0,0,0,0.4)',maxTicksLimit:4,callback:v=>v+'%'}, grid:{color:'rgba(0,0,0,0.06)'}, border:{display:false}, title:{display:true,text:'maturité',color:'rgba(0,0,0,0.35)',font:{size:9}} } },
           layout:{ padding:{top:4,bottom:0} } },
         plugins:[{ id:'marker-'+dim.id, afterDraw(chart){
-          const idx = chart._activeIdx!==undefined?chart._activeIdx:1;
+          const idx = chart._activeIdx!==undefined?chart._activeIdx:initIdx;
           const pc=PERIODS[idx].color, age=SNAP_AGES[idx];
           const ctx=chart.ctx, xA=chart.scales.x, yA=chart.scales.y;
           const ai=ALL_AGES.indexOf(age); if(ai<0)return;
@@ -58586,7 +58686,7 @@ function ProfilDeveloppementView() {
   const badge = (color, label) => <span style={{ fontSize:10, fontWeight:700, padding:'2px 8px', borderRadius:20, background:`${color}18`, color, border:`1px solid ${color}44` }}>{label}</span>;
 
   /* Liste des disciplines à afficher dans les colonnes filtrées */
-  const shownDiscs = disc === 'all' ? ['nc','el'] : [disc];
+  const shownDiscs = disc === 'all' ? ['nc','el','na','wp','plg'] : [disc];
 
   return (
     <div style={{ background:'white', minHeight:'100%', padding:'2rem', fontFamily:'inherit' }}>
@@ -58597,11 +58697,19 @@ function ProfilDeveloppementView() {
           Chaque dimension évolue à son propre rythme. Glissez sur les graphiques ou cliquez sur les segments. Les liens <span style={{ textDecoration:'underline', textDecorationStyle:'dotted', textDecorationColor:'#aaa' }}>↗</span> ouvrent la carte correspondante dans le PDLTA.
         </p>
 
-        <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:'1.5rem', flexWrap:'wrap' }}>
-          <span style={{ fontSize:11, fontWeight:600, color:'#999', textTransform:'uppercase', letterSpacing:'0.06em', marginRight:4 }}>Discipline</span>
-          {DISCIPLINES.map(d=>{ const a=disc===d.id; return (
-            <button key={d.id} onClick={()=>setDisc(d.id)} style={{ padding:'5px 14px', borderRadius:20, border:`1px solid ${a?(d.color||'#333'):'#ddd'}`, background:a?(d.color?d.color+'18':'#f0f0f0'):'white', color:a?(d.color||'#333'):'#888', fontWeight:a?700:400, fontSize:12, cursor:'pointer' }}>{d.label}</button>
-          ); })}
+        {/* Sélecteur de discipline : noms complets, couleur de la discipline, sélection bien visible */}
+        <div style={{ marginBottom:'1.5rem', padding:'12px 14px', background:'#f8f9fa', border:'1px solid #e5e7eb', borderRadius:12 }}>
+          <div style={{ fontSize:11, fontWeight:700, color:'#666', textTransform:'uppercase', letterSpacing:'0.06em', marginBottom:4 }}>Discipline</div>
+          <div style={{ fontSize:12, color:'#888', marginBottom:10 }}>Choisit le contenu affiché dans les colonnes « Âge d'entraînement » et « Âge scolaire ».</div>
+          <div role="radiogroup" aria-label="Discipline" style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+            {DISCIPLINES.map(d=>{ const a=disc===d.id; const c=d.color||'#333'; return (
+              <button key={d.id} type="button" role="radio" aria-checked={a} onClick={()=>setDisc(d.id)}
+                style={{ display:'flex', alignItems:'center', gap:8, padding:'9px 16px', minHeight:40, borderRadius:10, border:`2px solid ${a?c:'#e0e0e0'}`, background:a?c:'white', color:a?'#fff':'#444', fontWeight:a?700:500, fontSize:13, cursor:'pointer', boxShadow:a?`0 2px 6px ${c}55`:'none', transition:'all 0.15s' }}>
+                {d.color && <span style={{ width:10, height:10, borderRadius:'50%', background:a?'#fff':c, flexShrink:0 }} />}
+                {d.name}
+              </button>
+            ); })}
+          </div>
         </div>
 
         {/* ZONE HAUTE */}
@@ -58730,14 +58838,14 @@ function ProfilDeveloppementView() {
         // Rôle   : Affiche le contenu HTML d'une carte Comprendre via dangerouslySetInnerHTML
         // Lien   : Rendu par App sur view==="comprendre-detail" ; cas spécial : ProfilDeveloppementView
         // ============================================================
-        function ComprendreCardDetailView({ carte, period, cardType }) {
+        function ComprendreCardDetailView({ carte, period, cardType, disciplineId }) {
             if (!carte) return null;
             const disciplineBadges = { 1: "NC", 2: "WP", 3: "PLG", 4: "NA", 5: "EL" };
             const cardColor = cardType === 'common' ? '#00a8e8' : period.color;
             const badgeText = cardType === 'common' ? 'COMMUN' : (Array.isArray(carte.specificTo) ? carte.specificTo.map(id => disciplineBadges[id]).join(' / ') : (carte.specificTo ? disciplineBadges[carte.specificTo] : 'DISC'));
 
             if (carte.id === "les-differents-ages") {
-                return <ProfilDeveloppementView />;
+                return <ProfilDeveloppementView disciplineId={disciplineId} periodId={period && period.id} />;
             }
 
             return (
@@ -59604,6 +59712,7 @@ function ProfilDeveloppementView() {
                             carte={selectedCard}
                             period={periodsData[selectedPeriod]}
                             cardType={selectedCardType}
+                            disciplineId={selectedDiscipline}
                         />
                     )}
                     {view === 'transversal' && (
