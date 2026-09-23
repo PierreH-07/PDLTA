@@ -43514,15 +43514,14 @@ render();
     <li>Le terrain est divisé en <strong>deux secteurs triangulaires</strong> — deux extérieurs et une pointe — séparés par un couloir.</li>
     <li>La balle ne doit pas parvenir à la pointe située dans le <strong>triangle opposé</strong> à celui du secteur du porteur de balle : cette ligne de passe est interdite.</li>
     <li>La position des bras et des joueurs par rapport aux lignes de passe doit <strong>obliger la passe entre deux attaquants immédiatement à côté</strong> et éviter les passes longues tendues. Les passes longues lobées font gagner du temps à la défense.</li>
+    <li>Chaque défenseur tient donc <strong>deux bras à deux tâches</strong> : un bras sur le joueur qu'il défend, un bras perpendiculaire à la ligne de passe qu'il veut couper.</li>
   </ol>
 </div>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
   <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défenseur de pointe</div>
   <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défenseur de secteur</div>
-  <div class="legend-item"><div class="ld" style="background:#F97316"></div>Bras sur la ligne de passe</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(22,163,74,0.35);border:1.5px solid #22c55e"></div>Passe imposée, de proche en proche</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(239,68,68,0.3);border:1.5px solid #ef4444"></div>Ligne interdite</div>
+  <div class="legend-item"><div class="ld" style="background:#F97316"></div>Main du bras qui coupe la ligne de passe</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -43536,9 +43535,9 @@ var ATT={G:[380,28],'6a':[472,Y2M],'6b':[288,Y2M],1:[660,124],2:[548,222],4:[212
 // Les rôles des deux défenseurs de pointe s'inversent d'une configuration à l'autre.
 var CONFIGS=[
   {label:'Ballon en secteur A (droit)',  porteur:1, voisin:2, pointeAmie:'6a', pointeOpp:'6b', longues:[4,5], chaine:[[2,4],[4,5]], versOpp:4,
-   intention:"<strong>Ballon en secteur A.</strong> Le défenseur de la pointe du secteur B tend son bras sur la ligne 1 vers 6 : la passe vers la pointe opposée est fermée. Le défenseur de la pointe du secteur A garde son bras sur la diagonale venant du secteur B, prêt à reprendre ce rôle dès que le ballon change de côté. Les défenseurs de secteur ferment les lignes 1 et 2 : il ne reste au porteur que la passe à son voisin immédiat, le 2. Les lignes vers le 4 et le 5 ne sont jouables qu'en lob, ce qui laisse à la défense le temps de se replacer."},
+   intention:"<strong>Ballon en secteur A.</strong> Le défenseur de la pointe du secteur B place un bras en travers de la ligne 1 vers 6 : la passe vers la pointe opposée est fermée. Son autre bras reste sur l'attaquant qu'il défend. Le défenseur de la pointe du secteur A barre la diagonale venant du secteur B, prêt à reprendre ce rôle dès que le ballon change de côté. Les défenseurs de secteur ferment les lignes 1 et 2 : il ne reste au porteur que la passe à son voisin immédiat, le 2. Les lignes vers le 4 et le 5 ne sont jouables qu'en lob, ce qui laisse à la défense le temps de se replacer."},
   {label:'Ballon en secteur B (gauche)', porteur:5, voisin:4, pointeAmie:'6b', pointeOpp:'6a', longues:[2,1], chaine:[[4,2],[2,1]], versOpp:2,
-   intention:"<strong>Ballon en secteur B.</strong> Les rôles s'inversent : c'est le défenseur de la pointe du secteur A qui tend son bras sur la ligne 5 vers 6 pour fermer la passe vers la pointe opposée, pendant que celui de la pointe du secteur B surveille la diagonale venant du secteur A. Les défenseurs de secteur ferment les lignes 4 et 5 : la seule passe disponible est celle vers le voisin immédiat, le 4. Les lignes vers le 2 et le 1 ne sont jouables qu'en lob, ce qui laisse à la défense le temps de se replacer."}
+   intention:"<strong>Ballon en secteur B.</strong> Les rôles s'inversent : c'est le défenseur de la pointe du secteur A qui place un bras en travers de la ligne 5 vers 6 pour fermer la passe vers la pointe opposée, pendant que celui de la pointe du secteur B barre la diagonale venant du secteur A. Les défenseurs de secteur ferment les lignes 4 et 5 : la seule passe disponible est celle vers le voisin immédiat, le 4. Les lignes vers le 2 et le 1 ne sont jouables qu'en lob, ce qui laisse à la défense le temps de se replacer."}
 ];
 var cidx=0;
 
@@ -43573,14 +43572,28 @@ function drawBody(svg,x,y,label,color,headDir){
   svg.appendChild(T(x,y+4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
 }
 
-// défenseur posé sur une ligne de passe : bras tendu le long de cette ligne
-function drawDef(svg,pos,cible,label,color){
-  var u=norm(cible[0]-pos[0],cible[1]-pos[1]);
-  svg.appendChild(L(pos[0]-u[0]*11,pos[1]-u[1]*11,pos[0]-u[0]*26,pos[1]-u[1]*26,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
-  var ex=pos[0]+u[0]*34, ey=pos[1]+u[1]*34;
-  svg.appendChild(L(pos[0]+u[0]*11,pos[1]+u[1]*11,ex,ey,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+// Défenseur : un bras vers le joueur qu'il défend, un bras perpendiculaire à la ligne
+// de passe qu'il veut couper. La main du bras qui coupe est mise en évidence.
+function drawDef(svg,pos,defendu,ligneA,ligneB,label,color){
+  var d=norm(defendu[0]-pos[0],defendu[1]-pos[1]);
+  // bras vers le joueur défendu
+  svg.appendChild(L(pos[0]+d[0]*11,pos[1]+d[1]*11,pos[0]+d[0]*30,pos[1]+d[1]*30,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+  // bras perpendiculaire à la ligne à couper, dirigé vers cette ligne ;
+  // si le défenseur est déjà dessus, du côté opposé au joueur défendu
+  var u=norm(ligneB[0]-ligneA[0],ligneB[1]-ligneA[1]);
+  var vx=pos[0]-ligneA[0], vy=pos[1]-ligneA[1], dot=vx*u[0]+vy*u[1];
+  var wx=vx-dot*u[0], wy=vy-dot*u[1];
+  var p;
+  if(Math.abs(wx)+Math.abs(wy)<3){
+    p=[-u[1],u[0]];
+    if(p[0]*d[0]+p[1]*d[1]>0){ p=[u[1],-u[0]]; }
+  } else {
+    p=norm(-wx,-wy);
+  }
+  var ex=pos[0]+p[0]*40, ey=pos[1]+p[1]*40;
+  svg.appendChild(L(pos[0]+p[0]*11,pos[1]+p[1]*11,ex,ey,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
   svg.appendChild(C(ex,ey,4.5,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
-  drawBody(svg,pos[0],pos[1],label,color,u);
+  drawBody(svg,pos[0],pos[1],label,color,d);
 }
 
 function milieu(a,b){return[(a[0]+b[0])/2,(a[1]+b[1])/2];}
@@ -43594,20 +43607,6 @@ function triSecteur(svg,pts,fill,stroke){
     p+=(cx+(pts[j][0]-cx)*1.34)+','+(cy+(pts[j][1]-cy)*1.34)+' ';
   }
   svg.appendChild(se('polygon',{points:p.trim(),fill:fill,stroke:stroke,'stroke-width':'1.8','stroke-dasharray':'7,5'}));
-}
-
-function traitOK(svg,a,b){
-  var u=norm(b[0]-a[0],b[1]-a[1]);
-  var x1=a[0]+u[0]*16,y1=a[1]+u[1]*16,x2=b[0]-u[0]*16,y2=b[1]-u[1]*16;
-  svg.appendChild(L(x1,y1,x2,y2,{stroke:'#22c55e','stroke-width':'2.6','stroke-linecap':'round'}));
-  var px=-u[1]*5,py=u[0]*5;
-  svg.appendChild(se('polygon',{points:x2+','+y2+' '+(x2-u[0]*11+px)+','+(y2-u[1]*11+py)+' '+(x2-u[0]*11-px)+','+(y2-u[1]*11-py),fill:'#22c55e'}));
-}
-
-function traitInterdit(svg,a,b,fort){
-  var u=norm(b[0]-a[0],b[1]-a[1]);
-  svg.appendChild(L(a[0]+u[0]*16,a[1]+u[1]*16,b[0]-u[0]*16,b[1]-u[1]*16,
-    {stroke:fort?'#ef4444':'rgba(239,68,68,0.5)','stroke-width':fort?'2.6':'1.6','stroke-dasharray':'6,5','stroke-linecap':'round'}));
 }
 
 function render(){
@@ -43644,23 +43643,6 @@ function render(){
   svg.appendChild(R(BX1,BY,BX2-BX1,28,{fill:'none',stroke:'white','stroke-width':'2.5',rx:'2'}));
   svg.appendChild(R(BX1+5,BY+5,BX2-BX1-10,18,{fill:'rgba(255,255,255,0.15)'}));
 
-  // traits des lignes de passe, sous les joueurs
-  traitOK(svg,bp,voisin);
-  for(var ch=0;ch<cfg.chaine.length;ch++){
-    var p1=ATT[cfg.chaine[ch][0]],p2=ATT[cfg.chaine[ch][1]];
-    svg.appendChild(L(p1[0],p1[1],p2[0],p2[1],{stroke:'rgba(34,197,94,0.4)','stroke-width':'1.6','stroke-dasharray':'6,5'}));
-  }
-  svg.appendChild(L(bp[0],bp[1],amie[0],amie[1],{stroke:'rgba(255,215,64,0.45)','stroke-width':'1.6','stroke-dasharray':'5,4'}));
-  traitInterdit(svg,bp,ATT[cfg.longues[0]],false);
-  traitInterdit(svg,bp,ATT[cfg.longues[1]],false);
-  traitInterdit(svg,bp,opp,true);
-
-  // le lob reste possible, mais il donne du temps à la défense
-  var ml=milieu(bp,opp);
-  var sgn=(bp[0]>opp[0])?-1:1;
-  svg.appendChild(se('path',{d:'M'+(bp[0]+sgn*10)+','+(bp[1]+14)+' Q'+ml[0]+','+(ml[1]+210)+' '+(opp[0]-sgn*2)+','+(opp[1]+18),
-    fill:'none',stroke:'rgba(255,215,64,0.65)','stroke-width':'1.8','stroke-dasharray':'3,6','stroke-linecap':'round'}));
-
   // joueurs
   drawTri(svg,ATT.G[0],ATT.G[1],'G','#2e7d32',[0,1],false);
   drawTri(svg,s6a[0],s6a[1],'6','#c62828',[0,1],false);
@@ -43675,15 +43657,16 @@ function render(){
   // Celui de la pointe opposée met son bras sur la ligne venant du porteur ;
   // celui de la pointe du porteur surveille la diagonale venant de l'autre secteur.
   var dAmie=[amie[0]+((amie[0]<W/2)?6:-6), amie[1]-24];
-  drawDef(svg,dAmie,versOpp,'-6','#0d47a1');
+  drawDef(svg,dAmie,amie,versOpp,amie,'-6','#0d47a1');
   var dOpp=[opp[0]+((opp[0]<W/2)?6:-6), opp[1]-24];
-  drawDef(svg,dOpp,bp,'-6','#0d47a1');
+  drawDef(svg,dOpp,opp,bp,opp,'-6','#0d47a1');
 
-  // défenseurs de secteur : sur la ligne pointe vers extérieur, bras côté attaquant
-  drawDef(svg,milieu(s6a,a1),a1,'-1','#16a34a');
-  drawDef(svg,milieu(s6a,a2),a2,'-2','#16a34a');
-  drawDef(svg,milieu(s6b,a4),a4,'-4','#16a34a');
-  drawDef(svg,milieu(s6b,a5),a5,'-5','#16a34a');
+  // défenseurs de secteur : bras vers leur attaquant, bras perpendiculaire à la ligne
+  // qui relie cet attaquant à la pointe de son secteur
+  drawDef(svg,milieu(s6a,a1),a1,a1,s6a,'-1','#16a34a');
+  drawDef(svg,milieu(s6a,a2),a2,a2,s6a,'-2','#16a34a');
+  drawDef(svg,milieu(s6b,a4),a4,a4,s6b,'-4','#16a34a');
+  drawDef(svg,milieu(s6b,a5),a5,a5,s6b,'-5','#16a34a');
 
 }
 
