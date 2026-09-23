@@ -43807,6 +43807,29 @@ function drawCoupe(svg,pos,vers,ligneA,ligneB,label,color){
 // 4 attaquants sur la ligne des 2 m (postes 5, 6, 3, 1), 2 extérieurs aux postes 4 et 2.
 var A42={G:[330,26], 5:[150,Y2M], 6:[270,Y2M], 3:[390,Y2M], 1:[510,Y2M], 4:[215,215], 2:[445,215]};
 
+// Défenseur à deux tâches : une main ferme le secteur de tir vers le but,
+// l'autre se pose en travers d'une ligne de passe. Le corps reste face au porteur.
+function drawDouble(svg,pos,porteur,cible,label,color){
+  var d=norm(porteur[0]-pos[0],porteur[1]-pos[1]);
+  // main côté but : ferme le secteur de tir
+  var g=norm(BUT33[0]-pos[0],BUT33[1]-pos[1]);
+  var gx=pos[0]+g[0]*34, gy=pos[1]+g[1]*34;
+  svg.appendChild(L(pos[0]+g[0]*11,pos[1]+g[1]*11,gx,gy,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
+  svg.appendChild(C(gx,gy,4.2,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  // main côté ligne de passe : perpendiculaire à la ligne porteur -> cible
+  var u=norm(cible[0]-porteur[0],cible[1]-porteur[1]);
+  var vx=pos[0]-porteur[0], vy=pos[1]-porteur[1], dot=vx*u[0]+vy*u[1];
+  var wx=vx-dot*u[0], wy=vy-dot*u[1], pp;
+  if(Math.abs(wx)+Math.abs(wy)<3){
+    pp=[-u[1],u[0]];
+    if(pp[0]*g[0]+pp[1]*g[1]>0){ pp=[u[1],-u[0]]; }
+  } else { pp=norm(-wx,-wy); }
+  var ex=pos[0]+pp[0]*34, ey=pos[1]+pp[1]*34;
+  svg.appendChild(L(pos[0]+pp[0]*11,pos[1]+pp[1]*11,ex,ey,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
+  svg.appendChild(C(ex,ey,4.2,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  drawBody(svg,pos[0],pos[1],label,color,d);
+}
+
 function render42(){
   var svg=document.getElementById('svg-zm');
   drawField(svg);
@@ -43829,7 +43852,13 @@ function render42(){
   for(var k=0;k<inter.length;k++){
     var a=A42[inter[k][0]],b=A42[inter[k][1]];
     var pos=[(a[0]+b[0])/2, Y2M-22];
-    drawTri(svg,pos[0],pos[1],'I','#0d47a1',norm(bp[0]-pos[0],bp[1]-pos[1]),false);
+    if(k===inter.length-1){
+      // le défenseur d'intervalle côté ballon tient deux tâches : une main ferme le
+      // secteur de tir, l'autre se pose sur la ligne de passe vers l'intérieur
+      drawDouble(svg,pos,bp,A42[3],'I','#0d47a1');
+    } else {
+      drawTri(svg,pos[0],pos[1],'I','#0d47a1',norm(bp[0]-pos[0],bp[1]-pos[1]),false);
+    }
   }
   // 2 défenseurs extérieurs, responsables du tempo : ils coupent les lignes intérieur <-> extérieur
   drawCoupe(svg,[268,152],A42[4],A42[4],A42[6],'T','#16a34a');
@@ -43838,7 +43867,7 @@ function render42(){
 
 // ════════ Attaque en 3/3 ════════
 var A33={G:[330,26], 6:[330,Y2M], 1:[530,110], 2:[452,Y6M], 3:[330,265], 4:[208,Y6M], 5:[130,110]};
-var BUT=[330,BY+12];
+var BUT33=[330,BY+12];
 
 function render33(porteur){
   var svg=document.getElementById('svg-zm');
@@ -43848,10 +43877,10 @@ function render33(porteur){
   drawTri(svg,A33[6][0],A33[6][1],'6','#c62828',[0,1],false);
   for(var n=1;n<=5;n++){
     var an=A33[n];
-    drawTri(svg,an[0],an[1],String(n),'#c62828',norm(BUT[0]-an[0],BUT[1]-an[1]),n===porteur);
+    drawTri(svg,an[0],an[1],String(n),'#c62828',norm(BUT33[0]-an[0],BUT33[1]-an[1]),n===porteur);
   }
   // le -6 est entre le but et le 6
-  var d6=entre(A33[6],BUT,0.5);
+  var d6=entre(A33[6],BUT33,0.5);
   drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(A33[6][0]-d6[0],A33[6][1]-d6[1]),false);
 
   // Les quatre autres défenseurs ne changent pas de place d'une position de ballon à
@@ -43864,13 +43893,18 @@ function render33(porteur){
     {pos:[215,120], entre:[4,5]}
   ];
   // rôle de chaque secteur : bloc devant le porteur, ou interception d'une ligne de passe
+  // balle au poste 1 : le défenseur du secteur 1-2 tient deux tâches à la fois —
+  // une main sur le secteur de tir, l'autre sur la ligne de passe vers le 2 ;
+  // celui du secteur 2-3 ferme la ligne de passe 1 vers 4.
   var roles=(porteur===1)
-    ? ['bloc', {vers:2}, {vers:4}, {vers:5}]
+    ? [{double:2}, {vers:4}, {vers:3}, {vers:5}]
     : [{vers:2}, 'bloc', 'bloc', {vers:4}];
   for(var k=0;k<SECTEURS.length;k++){
     var pos=SECTEURS[k].pos, role=roles[k];
     if(role==='bloc'){
-      drawTri(svg,pos[0],pos[1],'B','#0d47a1',norm(bp[0]-pos[0],bp[1]-pos[1]),false);
+      drawTri(svg,pos[0],pos[1],'B','#16a34a',norm(bp[0]-pos[0],bp[1]-pos[1]),false);
+    } else if(role.double!==undefined){
+      drawDouble(svg,pos,bp,A33[role.double],'B','#16a34a');
     } else {
       var cible=A33[role.vers];
       drawCoupe(svg,pos,cible,bp,cible,'P','#16a34a');
@@ -43881,14 +43915,14 @@ function render33(porteur){
 // ════════ Pilotage ════════
 var vues=[
  {tab:0, sub:"Attaque en 4/2 : 4 attaquants sur la ligne des 2 m, 2 à l'extérieur aux postes 2 et 4",
-  desc:"<strong>Zone − contre une attaque en 4/2.</strong> Trois défenseurs sur la ligne de défense à 2 m sont responsables des quatre joueurs de la ligne d'attaque à 2 m : ils se placent <strong>dans les intervalles</strong> entre ces quatre joueurs. Les deux défenseurs extérieurs sont responsables du <strong>tempo</strong> : empêcher les grandes passes tendues de l'intérieur vers l'extérieur, ou l'inverse.",
+  desc:"<strong>Zone − contre une attaque en 4/2.</strong> Trois défenseurs sur la ligne de défense à 2 m sont responsables des quatre joueurs de la ligne d'attaque à 2 m : ils se placent <strong>dans les intervalles</strong> entre ces quatre joueurs. Le défenseur d'intervalle côté ballon tient deux tâches à la fois : une main ferme le secteur de tir, l'autre se pose sur la ligne de passe vers l'intérieur. Les deux défenseurs extérieurs sont responsables du <strong>tempo</strong> : empêcher les grandes passes tendues de l'intérieur vers l'extérieur, ou l'inverse.",
   leg:[['#c62828','Attaque'],['#0d47a1',"I — défenseur d'intervalle à 2 m"],['#16a34a','T — défenseur de tempo'],['#2e7d32','Gardien'],['#F97316','Main du bras qui coupe la ligne']]},
  {tab:1, sub:"Attaque en 3/3 · balle au poste 1",
-  desc:"<strong>Zone − contre une attaque en 3/3.</strong> Les quatre joueurs hors le -6 sont responsables soit d'un <strong>secteur de bloc</strong> — un ou plusieurs défenseurs entre le porteur et le but —, soit d'une <strong>ligne de passe</strong> — un défenseur entre le porteur et un autre joueur. Le <strong>-6</strong> est entre le but et le 6. L'objectif est de ralentir le rythme de la zone + adverse en forçant les passes longues et difficiles. Ralentir se comprend dans la lutte pour le gain d'espace et de temps : faire faire un mouvement inutile à l'adversaire, ou éloigner le ballon et les attaquants d'une situation favorable, se traduit par un temps de possession plus court pour lui.",
-  leg:[['#c62828','Attaque'],['#0d47a1','B — secteur de bloc'],['#16a34a','P — ligne de passe'],['#2e7d32','Gardien'],['#F97316','Main du bras qui coupe la ligne']]},
+  desc:"<strong>Zone − contre une attaque en 3/3.</strong> Les quatre joueurs hors le -6 sont responsables soit d'un <strong>secteur de bloc</strong> — un ou plusieurs défenseurs entre le porteur et le but —, soit d'une <strong>ligne de passe</strong> — un défenseur entre le porteur et un autre joueur. Le <strong>-6</strong> est entre le but et le 6. Le défenseur du secteur 1-2 tient les deux à la fois : une main ferme le secteur de tir, l'autre se pose sur la ligne de passe. Celui du secteur 2-3 ferme la ligne 1 vers 4. L'objectif est de ralentir le rythme de la zone + adverse en forçant les passes longues et difficiles. Ralentir se comprend dans la lutte pour le gain d'espace et de temps : faire faire un mouvement inutile à l'adversaire, ou éloigner le ballon et les attaquants d'une situation favorable, se traduit par un temps de possession plus court pour lui.",
+  leg:[['#c62828','Attaque'],['#16a34a','B — secteur de bloc'],['#16a34a','P — ligne de passe'],['#0d47a1','-6 — devant la pointe'],['#2e7d32','Gardien'],['#F97316','Main qui coupe']]},
  {tab:2, sub:"Attaque en 3/3 · balle au poste 3",
   desc:"<strong>Zone − contre une attaque en 3/3.</strong> Le ballon est passé dans l'axe. <strong>Les quatre défenseurs n'ont pas changé de place</strong> : chacun couvre toujours son quart de l'arc. Ce sont leur rôle et l'orientation de leurs mains qui changent — les deux secteurs centraux passent au bloc devant le porteur, les deux secteurs latéraux prennent les lignes 3 vers 2 et 3 vers 4. Le <strong>-6</strong> reste entre le but et le 6, et les deux ailiers ne sont atteignables que par des passes longues.",
-  leg:[['#c62828','Attaque'],['#0d47a1','B — secteur de bloc'],['#16a34a','P — ligne de passe'],['#2e7d32','Gardien'],['#F97316','Main du bras qui coupe la ligne']]}
+  leg:[['#c62828','Attaque'],['#16a34a','B — secteur de bloc'],['#16a34a','P — ligne de passe'],['#0d47a1','-6 — devant la pointe'],['#2e7d32','Gardien'],['#F97316','Main qui coupe']]}
 ];
 var vidx=0;
 
