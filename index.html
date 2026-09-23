@@ -42922,7 +42922,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <svg class="terrain" id="svg-main" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1 (-1 à -6)</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="ld" style="background:#F97316"></div>Bras de blocage côté ballon</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
@@ -42954,7 +42954,7 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
   g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
   const tx=hx*(r+8),ty=hy*(r+8);
   g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*5-hx*3},\${sy*5-hy*3} \${-sx*5-hx*3},\${-sy*5-hy*3}\`,fill:color,opacity:'0.75'}));
-  g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   if(isCarrier){
     const bx=sx*(r+16),by=sy*(r+16);
     g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'6',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.3'}));
@@ -42998,7 +42998,7 @@ function drawDef6(svg,ball){
   svg.appendChild(C(dx6,dy6,r,{fill:'#ffccbc',stroke:'#0d47a1','stroke-width':'2.2'}));
   var px=-hd[1],py=hd[0];
   svg.appendChild(se('polygon',{points:(dx6+hd[0]*19)+','+(dy6+hd[1]*19)+' '+(dx6+px*5)+','+(dy6+py*5)+' '+(dx6-px*5)+','+(dy6-py*5),fill:'#0d47a1',opacity:'0.75'}));
-  svg.appendChild(T(dx6,dy6+4,'6',{'text-anchor':'middle','font-size':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  svg.appendChild(T(dx6,dy6+4,'-6',{'text-anchor':'middle','font-size':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
 }
 
 function render(){
@@ -43055,7 +43055,7 @@ function render(){
   for(let n=1;n<=5;n++){
     const dp=defPressPos(n);
     const dir=norm(ATT[n][0]-dp[0],ATT[n][1]-dp[1]);
-    drawTri(svg,dp[0],dp[1],String(n),'#0d47a1',dir,false);
+    drawTri(svg,dp[0],dp[1],'-'+n,'#0d47a1',dir,false);
   }
 }
 
@@ -43541,7 +43541,7 @@ render();
 <svg class="terrain" id="svg-main-iv" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1 (-1 à -6)</div>
   <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défense en intervalle</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
@@ -43662,7 +43662,7 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
   g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
   const tx=hx*(r+8),ty=hy*(r+8);
   g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*5-hx*3},\${sy*5-hy*3} \${-sx*5-hx*3},\${-sy*5-hy*3}\`,fill:color,opacity:'0.75'}));
-  g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   if(isCarrier){
     const bx=sx*(r+16),by=sy*(r+16);
     g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'6',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.3'}));
@@ -43728,14 +43728,14 @@ function render(){
   }
 
   // Def 6 entre att6 et le but
-  drawTri(svg,defPos(6)[0],defPos(6)[1],'6','#0d47a1',defDir(6,carrier),false);
+  drawTri(svg,defPos(6)[0],defPos(6)[1],'-6','#0d47a1',defDir(6,carrier),false);
   // Def 1 et 5 en pressing
-  drawTri(svg,defPos(1)[0],defPos(1)[1],'1','#0d47a1',defDir(1,carrier),false);
-  drawTri(svg,defPos(5)[0],defPos(5)[1],'5','#0d47a1',defDir(5,carrier),false);
+  drawTri(svg,defPos(1)[0],defPos(1)[1],'-1','#0d47a1',defDir(1,carrier),false);
+  drawTri(svg,defPos(5)[0],defPos(5)[1],'-5','#0d47a1',defDir(5,carrier),false);
   // Def 2, 3, 4 en intervalle
-  drawTri(svg,defPos(2)[0],defPos(2)[1],'2','#16a34a',defDir(2,carrier),false);
-  drawTri(svg,defPos(3)[0],defPos(3)[1],'3','#16a34a',defDir(3,carrier),false);
-  drawTri(svg,defPos(4)[0],defPos(4)[1],'4','#16a34a',defDir(4,carrier),false);
+  drawTri(svg,defPos(2)[0],defPos(2)[1],'-2','#16a34a',defDir(2,carrier),false);
+  drawTri(svg,defPos(3)[0],defPos(3)[1],'-3','#16a34a',defDir(3,carrier),false);
+  drawTri(svg,defPos(4)[0],defPos(4)[1],'-4','#16a34a',defDir(4,carrier),false);
 }
 
 function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
