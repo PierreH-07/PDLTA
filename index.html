@@ -43596,14 +43596,14 @@ function render(){
   drawTri(svg,a5[0],a5[1],'5','#c62828',norm(goal[0]-a5[0],goal[1]-a5[1]),carrier===5);
 
   // Def H/H sur 6a (tête vers 6a = vers le bas + légèrement vers ext)
-  const d6aDir=norm(s6a[0]-ATT.G[0]+20,s6a[1]-ATT.G[1]);
-  const d6aPos=[s6a[0]-14,s6a[1]-24];
+  const d6aDir=norm(14,-24);
+  const d6aPos=[s6a[0]-14,s6a[1]+24];
   drawTri(svg,d6aPos[0],d6aPos[1],'-6','#0d47a1',d6aDir,false);
   drawArrow(svg,d6aPos[0],d6aPos[1]+6,d6aPos[0]+24,d6aPos[1]+12,'#F97316');
 
   // Def H/H sur 6b
-  const d6bDir=norm(s6b[0]-ATT.G[0]-20,s6b[1]-ATT.G[1]);
-  const d6bPos=[s6b[0]+14,s6b[1]-24];
+  const d6bDir=norm(-14,-24);
+  const d6bPos=[s6b[0]+14,s6b[1]+24];
   drawTri(svg,d6bPos[0],d6bPos[1],'-6','#0d47a1',d6bDir,false);
   drawArrow(svg,d6bPos[0],d6bPos[1]+6,d6bPos[0]-24,d6bPos[1]+12,'#F97316');
 
@@ -43679,10 +43679,10 @@ function defPos(n){
   const s6=ATT[6],g=ATT.G;
 
   if(n===6){
-    return[
-      s6[0]+(g[0]-s6[0])*0.40,
-      s6[1]+(g[1]-s6[1])*0.40
-    ];
+    // entre l'attaquant 6 et le porteur du poste 3, jamais entre le 6 et le but
+    const a3=ATT[3];
+    const u=norm(a3[0]-s6[0],a3[1]-s6[1]);
+    return[s6[0]+u[0]*26, s6[1]+u[1]*26];
   }
 
   if(n===3){
@@ -44076,7 +44076,7 @@ function render42(){
     const p2=att['2p'],p1=att[1],p6=att[6],p3=att[3],p4=att[4];
 
     // Def sur att6 (individuel H/H)
-    const d6=[p6[0],p6[1]-20];
+    const d6=[p6[0],p6[1]+20];
     drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
     drawArrow(svg,d6[0],d6[1]+6,d6[0]+18,d6[1]+18,'#F97316');
 
@@ -44104,7 +44104,7 @@ function render42(){
     const p4=att['4p'],p5=att[5],p6=att[6],p2=att[2],p3=att[3];
 
     // Def sur att6
-    const d6=[p6[0],p6[1]-20];
+    const d6=[p6[0],p6[1]+20];
     drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
     drawArrow(svg,d6[0],d6[1]+6,d6[0]-18,d6[1]+18,'#F97316');
 
@@ -44172,7 +44172,7 @@ function render33(){
 
   // ── Défense à 5 ──
   // 1 def individuel sur att6 (H/H)
-  const d6=[s6[0],s6[1]-20];
+  const d6=[s6[0],s6[1]+20];
   drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(s6[0]-d6[0],s6[1]-d6[1]),false);
   drawArrow(svg,d6[0],d6[1]+6,d6[0]+16,d6[1]+18,'#F97316');
 
