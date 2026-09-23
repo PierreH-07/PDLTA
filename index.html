@@ -58687,6 +58687,23 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
 
   /* Liste des disciplines à afficher dans les colonnes filtrées */
   const shownDiscs = disc === 'all' ? ['nc','el','na','wp','plg'] : [disc];
+  const multi = shownDiscs.length > 1;
+
+  /* Mode « Toutes » : chaque discipline se déplie / se replie (état partagé par les deux colonnes) */
+  const [openDiscs, setOpenDiscs] = React.useState({});
+  const toggleDisc = (dk) => setOpenDiscs(prev => ({ ...prev, [dk]: !prev[dk] }));
+  function DiscToggle({ dk }) {
+    const dObj = DISCIPLINES.find(x=>x.id===dk); const open = !!openDiscs[dk];
+    return (
+      <button type="button" aria-expanded={open} onClick={()=>toggleDisc(dk)}
+        style={{ display:'flex', alignItems:'center', gap:8, width:'100%', padding:'8px 10px', marginBottom: open?10:0, borderRadius:8, border:`1px solid ${dObj.color}44`, background: open?`${dObj.color}18`:'white', color:dObj.color, fontWeight:700, fontSize:12, cursor:'pointer', textAlign:'left' }}>
+        <span style={{ width:9, height:9, borderRadius:'50%', background:dObj.color, flexShrink:0 }} />
+        <span style={{ flex:1 }}>{dObj.name}</span>
+        <span style={{ fontSize:11, transition:'transform 0.15s', transform: open?'rotate(90deg)':'none' }}>▶</span>
+      </button>
+    );
+  }
+  const discBlockStyle = (di) => ({ marginBottom: di<shownDiscs.length-1?(multi?8:14):0, paddingBottom: (!multi && di<shownDiscs.length-1)?14:0, borderBottom: (!multi && di<shownDiscs.length-1)?'1px solid #e9ecef':'none' });
 
   return (
     <div style={{ background:'white', minHeight:'100%', padding:'2rem', fontFamily:'inherit' }}>
@@ -58785,11 +58802,13 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
                 {badge(p.color, p.label)}
               </div>
               <div style={bodyStyle}>
-                {shownDiscs.map((dk,di)=>{ const data=TRAINING[dk][p.id]; const dObj=DISCIPLINES.find(x=>x.id===dk); return (
-                  <div key={dk} style={{ marginBottom: di<shownDiscs.length-1?14:0, paddingBottom: di<shownDiscs.length-1?14:0, borderBottom: di<shownDiscs.length-1?'1px solid #e9ecef':'none' }}>
-                    {shownDiscs.length>1 && <div style={{ marginBottom:8 }}>{badge(dObj.color, dObj.label)}</div>}
-                    <Enjeu text={data.enjeu} />
-                    {data.comp.map((it,i)=><Item key={i} item={it} color={color} />)}
+                {shownDiscs.map((dk,di)=>{ const data=TRAINING[dk][p.id]; const show=!multi||openDiscs[dk]; return (
+                  <div key={dk} style={discBlockStyle(di)}>
+                    {multi && <DiscToggle dk={dk} />}
+                    {show && <>
+                      <Enjeu text={data.enjeu} />
+                      {data.comp.map((it,i)=><Item key={i} item={it} color={color} />)}
+                    </>}
                   </div>
                 ); })}
               </div>
@@ -58804,10 +58823,10 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
                 {badge(p.color, p.label)}
               </div>
               <div style={bodyStyle}>
-                {shownDiscs.map((dk,di)=>{ const items=SCHOOL[dk][p.id]; const dObj=DISCIPLINES.find(x=>x.id===dk); return (
-                  <div key={dk} style={{ marginBottom: di<shownDiscs.length-1?14:0, paddingBottom: di<shownDiscs.length-1?14:0, borderBottom: di<shownDiscs.length-1?'1px solid #e9ecef':'none' }}>
-                    {shownDiscs.length>1 && <div style={{ marginBottom:8 }}>{badge(dObj.color, dObj.label)}</div>}
-                    {items.map((item,i)=>(
+                {shownDiscs.map((dk,di)=>{ const items=SCHOOL[dk][p.id]; const show=!multi||openDiscs[dk]; return (
+                  <div key={dk} style={discBlockStyle(di)}>
+                    {multi && <DiscToggle dk={dk} />}
+                    {show && items.map((item,i)=>(
                       <div key={i} style={{ display:'flex', gap:7, alignItems:'flex-start', marginBottom: i<items.length-1?8:0 }}>
                         <div style={{ width:5, height:5, borderRadius:'50%', background:color, marginTop:6, flexShrink:0 }} />
                         <div>
