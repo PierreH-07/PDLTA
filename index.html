@@ -43473,66 +43473,92 @@ render();
 <div style="margin-top:24px;"><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
       <div style="background:linear-gradient(135deg,#7b1fa2 0%,#9c27b0 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
         <span style="font-size:1.4em;">⚡</span>
-        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:\'Prompt\',Arial,sans-serif;">Défense à deux pointes</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">2 attaquants en position 6 · 2 secteurs symétriques</div></div>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:\'Prompt\',Arial,sans-serif;">Défense à deux pointes</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">2 attaquants en position 6 · 2 secteurs triangulaires séparés par un couloir</div></div>
       </div>
-      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">Deux attaquants sur les poteaux de la zone des 2m créent deux secteurs symétriques. Deux défenseurs en zone couvrent chaque secteur sur les trajectoires de passe. Le couloir central reste intentionnellement non couvert. Les deux défenseurs sur les pointes poussent leur attaquant vers l\'extérieur.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#7b1fa210;color:#7b1fa2;border:1px solid #7b1fa230;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">2×2 zoneurs</span><span style="background:#7b1fa210;color:#7b1fa2;border:1px solid #7b1fa230;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Couloir central ouvert</span></div></div>
+      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">Deux attaquants sur les poteaux de la zone des 2m créent deux secteurs triangulaires — deux extérieurs et une pointe — séparés par un couloir. La balle ne doit pas parvenir à la pointe du triangle opposé à celui du porteur : le défenseur de cette pointe pose son bras sur la ligne de passe venant du secteur adverse. Le placement des bras oblige la passe entre deux attaquants immédiatement à côté ; la passe longue tendue est fermée, et le lob qui la remplace donne à la défense le temps de se replacer.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#7b1fa210;color:#7b1fa2;border:1px solid #7b1fa230;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">2×2 zoneurs</span><span style="background:#7b1fa210;color:#7b1fa2;border:1px solid #7b1fa230;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Pointe opposée interdite</span></div></div>
     </div></div>
 <div id="wp-deux-pointes" style="background:#0f172a;border-radius:12px;padding: 20px 20px;margin: 20px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-#wp-deux-pointes { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 32px 24px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+#wp-deux-pointes { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
 #wp-deux-pointes .wp-header { text-align: center; }
 #wp-deux-pointes .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #F97316; }
 #wp-deux-pointes .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
-#wp-deux-pointes .carousel-ctrl { display: flex; align-items: center; gap: 14px; justify-content: center; }
-#wp-deux-pointes .carousel-btn { background: #F97316; border: none; color: white; width: 34px; height: 34px; border-radius: 50%; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
-#wp-deux-pointes #wp-deux-pointes .carousel-btn:hover { background: #ea6500; }
-#wp-deux-pointes .carrier-label { font-family: 'Prompt', sans-serif; font-size: 13px; color: rgba(255,255,255,0.8); min-width: 200px; text-align: center; }
-#wp-deux-pointes #wp-deux-pointes .carrier-label span { color: #ffd740; font-weight: 700; }
 #wp-deux-pointes svg.terrain { width: 100%; max-width: 800px; height: auto; display: block; border-radius: 12px; box-shadow: 0 6px 28px rgba(0,0,0,0.55); }
-#wp-deux-pointes .legend { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; background: transparent; }
+#wp-deux-pointes .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; }
+#wp-deux-pointes .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+#wp-deux-pointes .carousel-btn:hover { background: #ea6500; }
+#wp-deux-pointes .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 240px; text-align: center; }
+#wp-deux-pointes .dp-desc { max-width: 800px; background: rgba(255,255,255,0.06); border-left: 3px solid #F97316; border-radius: 8px; padding: 14px 16px; }
+#wp-deux-pointes .dp-desc ol { margin: 0; padding-left: 20px; }
+#wp-deux-pointes .dp-desc li { font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,0.8); margin-bottom: 8px; }
+#wp-deux-pointes .dp-desc li:last-child { margin-bottom: 0; }
+#wp-deux-pointes #dp-intention { font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,0.85); border-left-color: #ffd740; }
+#wp-deux-pointes .legend { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; background: transparent; }
 #wp-deux-pointes .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-deux-pointes .ld { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
 #wp-deux-pointes .lr { width: 20px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 </style>
 <div class="wp-header">
   <div class="wp-title">🤽 WATER POLO — Défense à deux pointes</div>
-  <div class="wp-subtitle">2 attaquants en position 6 · 2 secteurs · couloir central non couvert</div>
+  <div class="wp-subtitle">Deux secteurs triangulaires séparés par un couloir · la pointe opposée au porteur est interdite</div>
+</div>
+<div class="carrier-ctrl">
+  <button class="carousel-btn" id="dp-prev">&#8592;</button>
+  <div class="state-val" id="dp-state">Ballon en secteur A (droit)</div>
+  <button class="carousel-btn" id="dp-next">&#8594;</button>
 </div>
 <svg class="terrain" id="svg-main-dp" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="dp-desc" id="dp-intention"></div>
+<div class="dp-desc">
+  <ol>
+    <li>Le terrain est divisé en <strong>deux secteurs triangulaires</strong> — deux extérieurs et une pointe — séparés par un couloir.</li>
+    <li>La balle ne doit pas parvenir à la pointe située dans le <strong>triangle opposé</strong> à celui du secteur du porteur de balle : cette ligne de passe est interdite.</li>
+    <li>La position des bras et des joueurs par rapport aux lignes de passe doit <strong>obliger la passe entre deux attaquants immédiatement à côté</strong> et éviter les passes longues tendues. Les passes longues lobées font gagner du temps à la défense.</li>
+  </ol>
+</div>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
-  <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défense Zone</div>
-  <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.18);border:1.5px dashed #F97316"></div>Secteur droit</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(22,163,74,0.18);border:1.5px dashed #16a34a"></div>Secteur gauche</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défenseur de pointe</div>
+  <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défenseur de secteur</div>
+  <div class="legend-item"><div class="ld" style="background:#F97316"></div>Bras sur la ligne de passe</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(22,163,74,0.35);border:1.5px solid #22c55e"></div>Passe imposée, de proche en proche</div>
+  <div class="legend-item"><div class="lr" style="background:rgba(239,68,68,0.3);border:1.5px solid #ef4444"></div>Ligne interdite</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
-const NS='http://www.w3.org/2000/svg';
+var NS='http://www.w3.org/2000/svg';
+var W=760,H=460,M=24,Y2M=95,Y5M=210;
+var Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
+// couloir central qui sépare les deux secteurs
+var COUL1=330,COUL2=430;
+var ATT={G:[380,28],'6a':[472,Y2M],'6b':[288,Y2M],1:[660,124],2:[548,222],4:[212,222],5:[100,124]};
+// Deux configurations : le ballon est dans le secteur A (droit) ou dans le secteur B (gauche).
+// Les rôles des deux défenseurs de pointe s'inversent d'une configuration à l'autre.
+var CONFIGS=[
+  {label:'Ballon en secteur A (droit)',  porteur:1, voisin:2, pointeAmie:'6a', pointeOpp:'6b', longues:[4,5], chaine:[[2,4],[4,5]], versOpp:4,
+   intention:"<strong>Ballon en secteur A.</strong> Le défenseur de la pointe du secteur B tend son bras sur la ligne 1 vers 6 : la passe vers la pointe opposée est fermée. Le défenseur de la pointe du secteur A garde son bras sur la diagonale venant du secteur B, prêt à reprendre ce rôle dès que le ballon change de côté. Les défenseurs de secteur ferment les lignes 1 et 2 : il ne reste au porteur que la passe à son voisin immédiat, le 2. Les lignes vers le 4 et le 5 ne sont jouables qu'en lob, ce qui laisse à la défense le temps de se replacer."},
+  {label:'Ballon en secteur B (gauche)', porteur:5, voisin:4, pointeAmie:'6b', pointeOpp:'6a', longues:[2,1], chaine:[[4,2],[2,1]], versOpp:2,
+   intention:"<strong>Ballon en secteur B.</strong> Les rôles s'inversent : c'est le défenseur de la pointe du secteur A qui tend son bras sur la ligne 5 vers 6 pour fermer la passe vers la pointe opposée, pendant que celui de la pointe du secteur B surveille la diagonale venant du secteur A. Les défenseurs de secteur ferment les lignes 4 et 5 : la seule passe disponible est celle vers le voisin immédiat, le 4. Les lignes vers le 2 et le 1 ne sont jouables qu'en lob, ce qui laisse à la défense le temps de se replacer."}
+];
+var cidx=0;
 
-const W=760,H=460,M=24,Y2M=95,Y5M=210;
-const Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
-const ATT={G:[380,28],'6a':[Z2X2-30,Y2M],'6b':[Z2X1+30,Y2M],1:[660,124],2:[548,222],4:[212,222],5:[100,124]};
-// Porteur fixe : cette configuration à deux pointes n'a pas de poste 3
-const CARRIER=1;
-
-function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
-function zonerAt50(apex,target){return[apex[0]+(target[0]-apex[0])*.5,apex[1]+(target[1]-apex[1])*.5];}
-function defHHDir(attPos){return norm(attPos[0]-ATT.G[0],attPos[1]-ATT.G[1]);} // tête vers l'att = opposé du but
+function se(t,a){a=a||{};var e=document.createElementNS(NS,t);for(var k in a){e.setAttribute(k,String(a[k]));}return e;}
+function R(x,y,w,h,a){a=a||{};return se('rect',Object.assign({x:x,y:y,width:w,height:h},a));}
+function C(cx,cy,r,a){a=a||{};return se('circle',Object.assign({cx:cx,cy:cy,r:r},a));}
+function L(x1,y1,x2,y2,a){a=a||{};return se('line',Object.assign({x1:x1,y1:y1,x2:x2,y2:y2},a));}
+function T(x,y,txt,a){a=a||{};var t=se('text',Object.assign({x:x,y:y},a));t.textContent=txt;return t;}
+function norm(dx,dy){var l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
 
 function drawTri(svg,x,y,label,color,headDir,isCarrier){
-  const[hx,hy]=headDir,sx=-hy,sy=hx,r=11,arm=22,spread=13;
-  const g=se('g',{transform:\`translate(\${x},\${y})\`});
+  var hx=headDir[0],hy=headDir[1],sx=-hy,sy=hx,r=11,arm=22,spread=13;
+  var g=se('g',{transform:'translate('+x+','+y+')'});
   g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2.2'}));
   g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
   g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
-  const tx=hx*(r+8),ty=hy*(r+8);
-  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*5-hx*3},\${sy*5-hy*3} \${-sx*5-hx*3},\${-sy*5-hy*3}\`,fill:color,opacity:'0.75'}));
+  g.appendChild(se('polygon',{points:(hx*(r+8))+','+(hy*(r+8))+' '+(sx*5-hx*3)+','+(sy*5-hy*3)+' '+(-sx*5-hx*3)+','+(-sy*5-hy*3),fill:color,opacity:'0.75'}));
   g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   if(isCarrier){
-    const bx=sx*(r+16),by=sy*(r+16);
+    var bx=sx*(r+16),by=sy*(r+16);
     g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'6',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.3'}));
     g.appendChild(L(bx,by-6,bx,by+6,{stroke:'#92400e','stroke-width':'1'}));
     g.appendChild(L(bx-6,by,bx+6,by,{stroke:'#92400e','stroke-width':'1'}));
@@ -43540,36 +43566,75 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
   svg.appendChild(g);
 }
 
-function drawArrow(svg,x1,y1,x2,y2,color){
-  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
-  svg.appendChild(L(x1,y1,x2,y2,{stroke:color,'stroke-width':'2','stroke-linecap':'round'}));
-  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*9+px},\${y2-uy*9+py} \${x2-ux*9-px},\${y2-uy*9-py}\`,fill:color}));
+function drawBody(svg,x,y,label,color,headDir){
+  var hx=headDir[0],hy=headDir[1],px=-hy,py=hx,r=11;
+  svg.appendChild(C(x,y,r,{fill:'#ffccbc',stroke:color,'stroke-width':'2.2'}));
+  svg.appendChild(se('polygon',{points:(x+hx*(r+8))+','+(y+hy*(r+8))+' '+(x+px*5)+','+(y+py*5)+' '+(x-px*5)+','+(y-py*5),fill:color,opacity:'0.75'}));
+  svg.appendChild(T(x,y+4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+}
+
+// défenseur posé sur une ligne de passe : bras tendu le long de cette ligne
+function drawDef(svg,pos,cible,label,color){
+  var u=norm(cible[0]-pos[0],cible[1]-pos[1]);
+  svg.appendChild(L(pos[0]-u[0]*11,pos[1]-u[1]*11,pos[0]-u[0]*26,pos[1]-u[1]*26,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+  var ex=pos[0]+u[0]*34, ey=pos[1]+u[1]*34;
+  svg.appendChild(L(pos[0]+u[0]*11,pos[1]+u[1]*11,ex,ey,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+  svg.appendChild(C(ex,ey,4.5,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  drawBody(svg,pos[0],pos[1],label,color,u);
+}
+
+function milieu(a,b){return[(a[0]+b[0])/2,(a[1]+b[1])/2];}
+
+// triangle d'un secteur, légèrement dilaté autour de son centre
+function triSecteur(svg,pts,fill,stroke){
+  var cx=0,cy=0;
+  for(var i=0;i<pts.length;i++){cx+=pts[i][0]/pts.length;cy+=pts[i][1]/pts.length;}
+  var p='';
+  for(var j=0;j<pts.length;j++){
+    p+=(cx+(pts[j][0]-cx)*1.34)+','+(cy+(pts[j][1]-cy)*1.34)+' ';
+  }
+  svg.appendChild(se('polygon',{points:p.trim(),fill:fill,stroke:stroke,'stroke-width':'1.8','stroke-dasharray':'7,5'}));
+}
+
+function traitOK(svg,a,b){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  var x1=a[0]+u[0]*16,y1=a[1]+u[1]*16,x2=b[0]-u[0]*16,y2=b[1]-u[1]*16;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:'#22c55e','stroke-width':'2.6','stroke-linecap':'round'}));
+  var px=-u[1]*5,py=u[0]*5;
+  svg.appendChild(se('polygon',{points:x2+','+y2+' '+(x2-u[0]*11+px)+','+(y2-u[1]*11+py)+' '+(x2-u[0]*11-px)+','+(y2-u[1]*11-py),fill:'#22c55e'}));
+}
+
+function traitInterdit(svg,a,b,fort){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  svg.appendChild(L(a[0]+u[0]*16,a[1]+u[1]*16,b[0]-u[0]*16,b[1]-u[1]*16,
+    {stroke:fort?'#ef4444':'rgba(239,68,68,0.5)','stroke-width':fort?'2.6':'1.6','stroke-dasharray':'6,5','stroke-linecap':'round'}));
 }
 
 function render(){
-  const carrier=CARRIER;
-  const svg=document.getElementById('svg-main-dp');
+  var cfg=CONFIGS[cidx];
+  document.getElementById('dp-state').textContent=cfg.label;
+  document.getElementById('dp-intention').innerHTML=cfg.intention;
+  var svg=document.getElementById('svg-main-dp');
   svg.innerHTML='';
-  const defs=se('defs');
-  const grad=se('linearGradient',{id:'wg',x1:'0',y1:'0',x2:'0',y2:'1'});
+  var defs=se('defs');
+  var grad=se('linearGradient',{id:'wg',x1:'0',y1:'0',x2:'0',y2:'1'});
   grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
   grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
   defs.appendChild(grad);svg.appendChild(defs);
   svg.appendChild(R(0,0,W,H,{fill:'url(#wg)',rx:'10'}));
 
-  const s6a=ATT['6a'],s6b=ATT['6b'],a1=ATT[1],a2=ATT[2],a4=ATT[4],a5=ATT[5];
+  var s6a=ATT['6a'],s6b=ATT['6b'],a1=ATT[1],a2=ATT[2],a4=ATT[4],a5=ATT[5];
+  var bp=ATT[cfg.porteur], voisin=ATT[cfg.voisin];
+  var amie=ATT[cfg.pointeAmie], opp=ATT[cfg.pointeOpp], versOpp=ATT[cfg.versOpp];
 
-  // Secteurs
-  svg.appendChild(se('polygon',{points:\`\${s6a[0]},\${s6a[1]} \${a1[0]+22},\${a1[1]} \${a2[0]+16},\${a2[1]+30} \${a2[0]},\${a2[1]+30}\`,
-    fill:'rgba(255,200,0,0.11)',stroke:'#F97316','stroke-width':'1.8','stroke-dasharray':'7,5'}));
-  svg.appendChild(se('polygon',{points:\`\${s6b[0]},\${s6b[1]} \${a4[0]-16},\${a4[1]+30} \${a5[0]-22},\${a5[1]} \${a4[0]},\${a4[1]+30}\`,
-    fill:'rgba(22,163,74,0.11)',stroke:'#16a34a','stroke-width':'1.8','stroke-dasharray':'7,5'}));
+  // 1. deux secteurs triangulaires séparés par un couloir
+  triSecteur(svg,[s6a,a1,a2],'rgba(255,200,0,0.12)','#F97316');
+  triSecteur(svg,[s6b,a5,a4],'rgba(22,163,74,0.12)','#16a34a');
+  svg.appendChild(R(COUL1,Y2M,COUL2-COUL1,H-Y2M-M,{fill:'rgba(0,0,0,0.16)',stroke:'rgba(255,255,255,0.12)','stroke-width':'1','stroke-dasharray':'4,4'}));
+  var lbl=se('text',{x:String((COUL1+COUL2)/2),y:String(H-M-14),'text-anchor':'middle','font-size':'10','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.35)','font-style':'italic'});
+  lbl.textContent='couloir';svg.appendChild(lbl);
 
-  // Couloir central
-  svg.appendChild(R(Z2X1,Y2M,Z2X2-Z2X1,H-Y2M-M,{fill:'rgba(0,0,0,0.12)',stroke:'rgba(255,255,255,0.08)','stroke-width':'1','stroke-dasharray':'4,4'}));
-  const lbl=se('text',{x:String((Z2X1+Z2X2)/2),y:String(Y2M+80),'text-anchor':'middle','font-size':'10','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.25)','font-style':'italic'});
-  lbl.textContent='couloir central — non couvert';svg.appendChild(lbl);
-
+  // terrain
   svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.8',rx:'4'}));
   svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'9,6'}));
   svg.appendChild(T(W-M+3,Y5M+5,'6m',{fill:'#ffd740','font-size':'9','font-weight':'bold'}));
@@ -43579,65 +43644,54 @@ function render(){
   svg.appendChild(R(BX1,BY,BX2-BX1,28,{fill:'none',stroke:'white','stroke-width':'2.5',rx:'2'}));
   svg.appendChild(R(BX1+5,BY+5,BX2-BX1-10,18,{fill:'rgba(255,255,255,0.15)'}));
 
-  // Trajectoires de passe
-  svg.appendChild(L(a1[0],a1[1],s6a[0],s6a[1],{stroke:'rgba(255,200,0,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
-  svg.appendChild(L(a2[0],a2[1],s6a[0],s6a[1],{stroke:'rgba(255,200,0,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
-  svg.appendChild(L(a4[0],a4[1],s6b[0],s6b[1],{stroke:'rgba(22,163,74,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
-  svg.appendChild(L(a5[0],a5[1],s6b[0],s6b[1],{stroke:'rgba(22,163,74,0.2)','stroke-width':'1.2','stroke-dasharray':'4,4'}));
-
-  // Porteur
-  const pc=ATT[carrier];
-  if(pc){
-    svg.appendChild(L(pc[0],pc[1],s6a[0],s6a[1],{stroke:'rgba(255,255,100,0.45)','stroke-width':'1.6','stroke-dasharray':'5,3'}));
-    svg.appendChild(L(pc[0],pc[1],s6b[0],s6b[1],{stroke:'rgba(255,255,100,0.45)','stroke-width':'1.6','stroke-dasharray':'5,3'}));
+  // traits des lignes de passe, sous les joueurs
+  traitOK(svg,bp,voisin);
+  for(var ch=0;ch<cfg.chaine.length;ch++){
+    var p1=ATT[cfg.chaine[ch][0]],p2=ATT[cfg.chaine[ch][1]];
+    svg.appendChild(L(p1[0],p1[1],p2[0],p2[1],{stroke:'rgba(34,197,94,0.4)','stroke-width':'1.6','stroke-dasharray':'6,5'}));
   }
+  svg.appendChild(L(bp[0],bp[1],amie[0],amie[1],{stroke:'rgba(255,215,64,0.45)','stroke-width':'1.6','stroke-dasharray':'5,4'}));
+  traitInterdit(svg,bp,ATT[cfg.longues[0]],false);
+  traitInterdit(svg,bp,ATT[cfg.longues[1]],false);
+  traitInterdit(svg,bp,opp,true);
 
-  // Gardien
+  // le lob reste possible, mais il donne du temps à la défense
+  var ml=milieu(bp,opp);
+  var sgn=(bp[0]>opp[0])?-1:1;
+  svg.appendChild(se('path',{d:'M'+(bp[0]+sgn*10)+','+(bp[1]+14)+' Q'+ml[0]+','+(ml[1]+210)+' '+(opp[0]-sgn*2)+','+(opp[1]+18),
+    fill:'none',stroke:'rgba(255,215,64,0.65)','stroke-width':'1.8','stroke-dasharray':'3,6','stroke-linecap':'round'}));
+
+  // joueurs
   drawTri(svg,ATT.G[0],ATT.G[1],'G','#2e7d32',[0,1],false);
-  // 6a et 6b — dos au but (tête vers le bas = vers le jeu)
-  drawTri(svg,s6a[0],s6a[1],'6','#c62828',[0,1],carrier==='6a');
-  drawTri(svg,s6b[0],s6b[1],'6','#c62828',[0,1],carrier==='6b');
-  // Att 1,2,4,5 — orientés vers le centre du but
-  const goal=[W/2,BY+11];
-  drawTri(svg,a1[0],a1[1],'1','#c62828',norm(goal[0]-a1[0],goal[1]-a1[1]),carrier===1);
-  drawTri(svg,a2[0],a2[1],'2','#c62828',norm(goal[0]-a2[0],goal[1]-a2[1]),carrier===2);
-  drawTri(svg,a4[0],a4[1],'4','#c62828',norm(goal[0]-a4[0],goal[1]-a4[1]),carrier===4);
-  drawTri(svg,a5[0],a5[1],'5','#c62828',norm(goal[0]-a5[0],goal[1]-a5[1]),carrier===5);
+  drawTri(svg,s6a[0],s6a[1],'6','#c62828',[0,1],false);
+  drawTri(svg,s6b[0],s6b[1],'6','#c62828',[0,1],false);
+  var goal=[W/2,BY+11];
+  drawTri(svg,a1[0],a1[1],'1','#c62828',norm(goal[0]-a1[0],goal[1]-a1[1]),cfg.porteur===1);
+  drawTri(svg,a2[0],a2[1],'2','#c62828',norm(goal[0]-a2[0],goal[1]-a2[1]),cfg.porteur===2);
+  drawTri(svg,a4[0],a4[1],'4','#c62828',norm(goal[0]-a4[0],goal[1]-a4[1]),cfg.porteur===4);
+  drawTri(svg,a5[0],a5[1],'5','#c62828',norm(goal[0]-a5[0],goal[1]-a5[1]),cfg.porteur===5);
 
-  // Def H/H sur 6a (tête vers 6a = vers le bas + légèrement vers ext)
-  const d6aDir=norm(14,24);
-  const d6aPos=[s6a[0]-14,s6a[1]-24];
-  drawTri(svg,d6aPos[0],d6aPos[1],'-6','#0d47a1',d6aDir,false);
-  drawArrow(svg,d6aPos[0],d6aPos[1]+6,d6aPos[0]+24,d6aPos[1]+12,'#F97316');
+  // défenseurs de pointe : entre le but et leur attaquant.
+  // Celui de la pointe opposée met son bras sur la ligne venant du porteur ;
+  // celui de la pointe du porteur surveille la diagonale venant de l'autre secteur.
+  var dAmie=[amie[0]+((amie[0]<W/2)?6:-6), amie[1]-24];
+  drawDef(svg,dAmie,versOpp,'-6','#0d47a1');
+  var dOpp=[opp[0]+((opp[0]<W/2)?6:-6), opp[1]-24];
+  drawDef(svg,dOpp,bp,'-6','#0d47a1');
 
-  // Def H/H sur 6b
-  const d6bDir=norm(-14,24);
-  const d6bPos=[s6b[0]+14,s6b[1]-24];
-  drawTri(svg,d6bPos[0],d6bPos[1],'-6','#0d47a1',d6bDir,false);
-  drawArrow(svg,d6bPos[0],d6bPos[1]+6,d6bPos[0]-24,d6bPos[1]+12,'#F97316');
+  // défenseurs de secteur : sur la ligne pointe vers extérieur, bras côté attaquant
+  drawDef(svg,milieu(s6a,a1),a1,'-1','#16a34a');
+  drawDef(svg,milieu(s6a,a2),a2,'-2','#16a34a');
+  drawDef(svg,milieu(s6b,a4),a4,'-4','#16a34a');
+  drawDef(svg,milieu(s6b,a5),a5,'-5','#16a34a');
 
-  // Zoneurs secteur droit (face à leur att)
-  const zR1=zonerAt50(s6a,a1),zR2=zonerAt50(s6a,a2);
-  drawTri(svg,zR1[0],zR1[1],'-1','#16a34a',norm(a1[0]-zR1[0],a1[1]-zR1[1]),false);
-  drawTri(svg,zR2[0],zR2[1],'-2','#16a34a',norm(a2[0]-zR2[0],a2[1]-zR2[1]),false);
-
-  // Zoneurs secteur gauche
-  const zL4=zonerAt50(s6b,a4),zL5=zonerAt50(s6b,a5);
-  drawTri(svg,zL4[0],zL4[1],'-4','#16a34a',norm(a4[0]-zL4[0],a4[1]-zL4[1]),false);
-  drawTri(svg,zL5[0],zL5[1],'-5','#16a34a',norm(a5[0]-zL5[0],a5[1]-zL5[1]),false);
 }
 
-function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
-function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
-function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
-function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
-function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
-function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+document.getElementById('dp-prev').addEventListener('click',function(){cidx=(cidx+CONFIGS.length-1)%CONFIGS.length;render();});
+document.getElementById('dp-next').addEventListener('click',function(){cidx=(cidx+1)%CONFIGS.length;render();});
 render();
 <\/script>
 </div>
-
-
 <div style="margin-top:24px;"><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
       <div style="background:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
         <span style="font-size:1.4em;">🔢</span>
