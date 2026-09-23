@@ -43347,12 +43347,9 @@ var ZDESC={
 };
 var zkey='2-3';
 
-// distance du défenseur à son attaquant, le long de la ligne de passe
-function defDist(n,enZone){
-  if(!enZone) return 21;
-  var d=dist(ATT[n],ATT[PORTEUR])*0.40;
-  return Math.max(40,Math.min(75,d));
-}
+// centre du but et retrait des défenseurs de zone (part de la distance attaquant - but)
+var BUTC=[(BX1+BX2)/2, BY+9];
+var RETRAIT=0.30;
 
 function renderZones(){
   var svg=document.getElementById('svg-z');
@@ -43393,22 +43390,30 @@ function renderZones(){
       // en défense de zone, le défenseur de la pointe se place entre le but et l'attaquant 6
       var g=norm(ATT.G[0]-an[0],ATT.G[1]-an[1]);
       dp=[an[0]+g[0]*20, an[1]+g[1]*20];
+    } else if(enZone){
+      // en zone, le défenseur est en retrait derrière son attaquant,
+      // à 30 % de la distance qui sépare celui-ci du but
+      dp=[an[0]+(BUTC[0]-an[0])*RETRAIT, an[1]+(BUTC[1]-an[1])*RETRAIT];
     } else {
-      var t=defDist(k,enZone);
-      dp=[an[0]+u[0]*t, an[1]+u[1]*t];
+      dp=[an[0]+u[0]*21, an[1]+u[1]*21];
     }
     var col=enZone?'#16a34a':'#0d47a1';
-    // bras arrière, côté opposé au porteur
-    svg.appendChild(L(dp[0]-u[0]*9,dp[1]-u[1]*9,dp[0]-u[0]*24,dp[1]-u[1]*24,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-    // bras posé sur la ligne de passe, vers le porteur ; pour le 6 il passe par-dessus son attaquant
-    var reach=(k===6)?46:30;
-    var ex=dp[0]+u[0]*reach, ey=dp[1]+u[1]*reach;
-    svg.appendChild(L(dp[0]+u[0]*9,dp[1]+u[1]*9,ex,ey,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-    svg.appendChild(C(ex,ey,3.6,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'0.9'}));
-    drawBody(svg,dp[0],dp[1],'-'+k,col,[-u[0],-u[1]]);
+    // le défenseur reste tourné vers son attaquant
+    var look=(k===6)?[-u[0],-u[1]]:norm(an[0]-dp[0],an[1]-dp[1]);
+    // bras arrière, à l'opposé de son attaquant
+    svg.appendChild(L(dp[0]-look[0]*9,dp[1]-look[1]*9,dp[0]-look[0]*24,dp[1]-look[1]*24,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+    // bras posé sur la ligne de passe porteur -> attaquant ; en retrait, la main va
+    // se poser juste devant l'attaquant, sur cette ligne
+    var pt;
+    if(enZone&&k!==6){ pt=[an[0]+u[0]*13, an[1]+u[1]*13]; }
+    else { var reach=(k===6)?46:30; pt=[dp[0]+u[0]*reach, dp[1]+u[1]*reach]; }
+    var ab=norm(pt[0]-dp[0],pt[1]-dp[1]);
+    svg.appendChild(L(dp[0]+ab[0]*9,dp[1]+ab[1]*9,pt[0],pt[1],{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+    svg.appendChild(C(pt[0],pt[1],3.6,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'0.9'}));
+    drawBody(svg,dp[0],dp[1],'-'+k,col,look);
   }
-  // défenseur du porteur : en zone, devant lui, sans ligne de passe à couper
-  var d3=[ATT[3][0]+(ATT[6][0]-ATT[3][0])*0.18, ATT[3][1]+(ATT[6][1]-ATT[3][1])*0.18];
+  // défenseur du porteur : en zone, en retrait lui aussi, dans l'axe du but
+  var d3=[ATT[3][0]+(BUTC[0]-ATT[3][0])*RETRAIT, ATT[3][1]+(BUTC[1]-ATT[3][1])*RETRAIT];
   drawTri(svg,d3[0],d3[1],'-3','#16a34a',norm(ATT[3][0]-d3[0],ATT[3][1]-d3[1]),false);
 }
 
@@ -43821,6 +43826,20 @@ function perpVers(pos,a,b,evite){
   return norm(-wx,-wy);
 }
 
+// Défenseur au contact du porteur : un bras tendu vers lui pour matérialiser le block,
+// l'autre en travers de la ligne de passe vers l'intérieur.
+function drawBlock(svg,pos,porteur,cible,label,color){
+  var d=norm(porteur[0]-pos[0],porteur[1]-pos[1]);
+  var bx=pos[0]+d[0]*36, by=pos[1]+d[1]*36;
+  svg.appendChild(L(pos[0]+d[0]*11,pos[1]+d[1]*11,bx,by,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
+  svg.appendChild(C(bx,by,4.2,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  var pp=perpVers(pos,porteur,cible,d);
+  var ex=pos[0]+pp[0]*34, ey=pos[1]+pp[1]*34;
+  svg.appendChild(L(pos[0]+pp[0]*11,pos[1]+pp[1]*11,ex,ey,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
+  svg.appendChild(C(ex,ey,4.2,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
+  drawBody(svg,pos[0],pos[1],label,color,d);
+}
+
 // Défenseur à deux tâches : une main ferme le secteur de tir vers le but,
 // l'autre se pose en travers d'une ligne de passe. Le corps reste face au porteur.
 function drawDouble(svg,pos,porteur,cible,label,color){
@@ -43862,9 +43881,9 @@ function render42(){
     var a=A42[inter[k][0]],b=A42[inter[k][1]];
     var pos=[(a[0]+b[0])/2, Y2M-22];
     if(k===inter.length-1){
-      // le défenseur d'intervalle côté ballon tient deux tâches : une main ferme le
-      // secteur de tir, l'autre se pose sur la ligne de passe vers l'intérieur
-      drawDouble(svg,pos,bp,A42[3],'I','#0d47a1');
+      // le défenseur d'intervalle côté ballon tient deux tâches : un bras tendu vers le
+      // porteur matérialise le block, l'autre se pose sur la ligne de passe vers l'intérieur
+      drawBlock(svg,pos,bp,A42[3],'I','#0d47a1');
     } else {
       drawTri(svg,pos[0],pos[1],'I','#0d47a1',norm(bp[0]-pos[0],bp[1]-pos[1]),false);
     }
@@ -43924,7 +43943,7 @@ function render33(porteur){
 // ════════ Pilotage ════════
 var vues=[
  {tab:0, sub:"Attaque en 4/2 : 4 attaquants sur la ligne des 2 m, 2 à l'extérieur aux postes 2 et 4",
-  desc:"<strong>Zone − contre une attaque en 4/2.</strong> Trois défenseurs sur la ligne de défense à 2 m sont responsables des quatre joueurs de la ligne d'attaque à 2 m : ils se placent <strong>dans les intervalles</strong> entre ces quatre joueurs. Le défenseur d'intervalle côté ballon tient deux tâches à la fois : une main ferme le secteur de tir, l'autre se pose sur la ligne de passe vers l'intérieur. Les deux défenseurs extérieurs sont responsables du <strong>tempo</strong> : empêcher les grandes passes tendues de l'intérieur vers l'extérieur, ou l'inverse.",
+  desc:"<strong>Zone − contre une attaque en 4/2.</strong> Trois défenseurs sur la ligne de défense à 2 m sont responsables des quatre joueurs de la ligne d'attaque à 2 m : ils se placent <strong>dans les intervalles</strong> entre ces quatre joueurs. Le défenseur d'intervalle côté ballon tient deux tâches à la fois : un bras tendu vers le porteur matérialise le block, l'autre main se pose sur la ligne de passe vers l'intérieur. Les deux défenseurs extérieurs sont responsables du <strong>tempo</strong> : empêcher les grandes passes tendues de l'intérieur vers l'extérieur, ou l'inverse.",
   leg:[['#c62828','Attaque'],['#0d47a1',"I — défenseur d'intervalle à 2 m"],['#16a34a','T — défenseur de tempo'],['#2e7d32','Gardien'],['#F97316','Main du bras qui coupe la ligne']]},
  {tab:1, sub:"Attaque en 3/3 · balle au poste 1",
   desc:"<strong>Zone − contre une attaque en 3/3.</strong> Les quatre joueurs hors le -6 sont responsables soit d'un <strong>secteur de bloc</strong> — un ou plusieurs défenseurs entre le porteur et le but —, soit d'une <strong>ligne de passe</strong> — un défenseur entre le porteur et un autre joueur. Le <strong>-6</strong> est entre le but et le 6. Le défenseur du secteur 1-2 tient les deux à la fois : une main ferme le secteur de tir, l'autre se pose sur la ligne de passe. Celui du secteur 2-3 ferme la ligne 1 vers 4. L'objectif est de ralentir le rythme de la zone + adverse en forçant les passes longues et difficiles. Ralentir se comprend dans la lutte pour le gain d'espace et de temps : faire faire un mouvement inutile à l'adversaire, ou éloigner le ballon et les attaquants d'une situation favorable, se traduit par un temps de possession plus court pour lui.",
@@ -44548,7 +44567,6 @@ renderCommun(); renderA(); renderB();
 </div>
 </div></details>
   </div>
-</div>
 `,
                         titre: "Jeu collectif"
                     },
