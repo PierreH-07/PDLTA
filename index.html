@@ -43369,13 +43369,21 @@ function renderZones(){
     if(k===PORTEUR) continue;
     var an=ATT[k], enZone=zone.indexOf(k)>=0;
     var u=norm(bp[0]-an[0],bp[1]-an[1]);          // de l'attaquant vers le porteur
-    var t=defDist(k,enZone);
-    var dp=[an[0]+u[0]*t, an[1]+u[1]*t];
+    var dp;
+    if(k===6){
+      // en défense de zone, le défenseur de la pointe se place entre le but et l'attaquant 6
+      var g=norm(ATT.G[0]-an[0],ATT.G[1]-an[1]);
+      dp=[an[0]+g[0]*20, an[1]+g[1]*20];
+    } else {
+      var t=defDist(k,enZone);
+      dp=[an[0]+u[0]*t, an[1]+u[1]*t];
+    }
     var col=enZone?'#16a34a':'#0d47a1';
-    // bras arrière, côté de son attaquant
+    // bras arrière, côté opposé au porteur
     svg.appendChild(L(dp[0]-u[0]*9,dp[1]-u[1]*9,dp[0]-u[0]*24,dp[1]-u[1]*24,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-    // bras posé sur la ligne de passe, vers le porteur
-    var ex=dp[0]+u[0]*30, ey=dp[1]+u[1]*30;
+    // bras posé sur la ligne de passe, vers le porteur ; pour le 6 il passe par-dessus son attaquant
+    var reach=(k===6)?46:30;
+    var ex=dp[0]+u[0]*reach, ey=dp[1]+u[1]*reach;
     svg.appendChild(L(dp[0]+u[0]*9,dp[1]+u[1]*9,ex,ey,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
     svg.appendChild(C(ex,ey,3.6,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'0.9'}));
     drawBody(svg,dp[0],dp[1],'-'+k,col,[-u[0],-u[1]]);
@@ -43597,14 +43605,14 @@ function render(){
   drawTri(svg,a5[0],a5[1],'5','#c62828',norm(goal[0]-a5[0],goal[1]-a5[1]),carrier===5);
 
   // Def H/H sur 6a (tête vers 6a = vers le bas + légèrement vers ext)
-  const d6aDir=norm(14,-24);
-  const d6aPos=[s6a[0]-14,s6a[1]+24];
+  const d6aDir=norm(14,24);
+  const d6aPos=[s6a[0]-14,s6a[1]-24];
   drawTri(svg,d6aPos[0],d6aPos[1],'-6','#0d47a1',d6aDir,false);
   drawArrow(svg,d6aPos[0],d6aPos[1]+6,d6aPos[0]+24,d6aPos[1]+12,'#F97316');
 
   // Def H/H sur 6b
-  const d6bDir=norm(-14,-24);
-  const d6bPos=[s6b[0]+14,s6b[1]+24];
+  const d6bDir=norm(-14,24);
+  const d6bPos=[s6b[0]+14,s6b[1]-24];
   drawTri(svg,d6bPos[0],d6bPos[1],'-6','#0d47a1',d6bDir,false);
   drawArrow(svg,d6bPos[0],d6bPos[1]+6,d6bPos[0]-24,d6bPos[1]+12,'#F97316');
 
