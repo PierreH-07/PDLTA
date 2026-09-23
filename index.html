@@ -43807,23 +43807,32 @@ function drawCoupe(svg,pos,vers,ligneA,ligneB,label,color){
 // 4 attaquants sur la ligne des 2 m (postes 5, 6, 3, 1), 2 extérieurs aux postes 4 et 2.
 var A42={G:[330,26], 5:[150,Y2M], 6:[270,Y2M], 3:[390,Y2M], 1:[510,Y2M], 4:[215,215], 2:[445,215]};
 
+// Perpendiculaire à la ligne a->b, dirigée vers cette ligne depuis pos.
+// Si pos est déjà sur la ligne, on prend le côté opposé à la direction evite.
+function perpVers(pos,a,b,evite){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  var vx=pos[0]-a[0], vy=pos[1]-a[1], dot=vx*u[0]+vy*u[1];
+  var wx=vx-dot*u[0], wy=vy-dot*u[1];
+  if(Math.abs(wx)+Math.abs(wy)<3){
+    var p=[-u[1],u[0]];
+    if(evite && p[0]*evite[0]+p[1]*evite[1]>0){ p=[u[1],-u[0]]; }
+    return p;
+  }
+  return norm(-wx,-wy);
+}
+
 // Défenseur à deux tâches : une main ferme le secteur de tir vers le but,
 // l'autre se pose en travers d'une ligne de passe. Le corps reste face au porteur.
 function drawDouble(svg,pos,porteur,cible,label,color){
   var d=norm(porteur[0]-pos[0],porteur[1]-pos[1]);
-  // main côté but : ferme le secteur de tir
-  var g=norm(BUT33[0]-pos[0],BUT33[1]-pos[1]);
+  // main qui ferme le secteur de tir : perpendiculaire à la ligne ballon vers but,
+  // dirigée vers cette ligne
+  var g=perpVers(pos,porteur,BUT33,d);
   var gx=pos[0]+g[0]*34, gy=pos[1]+g[1]*34;
   svg.appendChild(L(pos[0]+g[0]*11,pos[1]+g[1]*11,gx,gy,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
   svg.appendChild(C(gx,gy,4.2,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
-  // main côté ligne de passe : perpendiculaire à la ligne porteur -> cible
-  var u=norm(cible[0]-porteur[0],cible[1]-porteur[1]);
-  var vx=pos[0]-porteur[0], vy=pos[1]-porteur[1], dot=vx*u[0]+vy*u[1];
-  var wx=vx-dot*u[0], wy=vy-dot*u[1], pp;
-  if(Math.abs(wx)+Math.abs(wy)<3){
-    pp=[-u[1],u[0]];
-    if(pp[0]*g[0]+pp[1]*g[1]>0){ pp=[u[1],-u[0]]; }
-  } else { pp=norm(-wx,-wy); }
+  // main qui ferme la ligne de passe : perpendiculaire à la ligne porteur vers cible
+  var pp=perpVers(pos,porteur,cible,g);
   var ex=pos[0]+pp[0]*34, ey=pos[1]+pp[1]*34;
   svg.appendChild(L(pos[0]+pp[0]*11,pos[1]+pp[1]*11,ex,ey,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
   svg.appendChild(C(ex,ey,4.2,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'1'}));
