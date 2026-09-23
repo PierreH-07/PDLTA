@@ -44158,296 +44158,419 @@ render();
 </div>
 <div style="margin-top:24px;"><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
       <div style="background:linear-gradient(135deg,#c2410c 0%,#ea580c 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
-        <span style="font-size:1.4em;">🔄</span>
-        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Attaque placée sans pointe</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Entrées et sorties alternées pour désorganiser</div></div>
+        <span style="font-size:1.4em;">🎯</span>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Attaque placée</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Systèmes de jeu, playbook et construction de l'avantage</div></div>
       </div>
-      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">Sans attaquant fixe en pointe, l'attaque fait circuler les joueurs sur l'arc 5m. Les entrées et sorties alternées créent des déséquilibres locaux en forçant les défenseurs à choisir entre suivre leur joueur ou couvrir l'espace libéré.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#c2410c10;color:#c2410c;border:1px solid #c2410c30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Rotations sur l'arc 5m</span><span style="background:#c2410c10;color:#c2410c;border:1px solid #c2410c30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Exploitation des espaces libérés</span></div></div>
+      <div style="padding:16px 20px;"><p style="font-size:0.9em;color:#444;line-height:1.75;margin-bottom:16px;">L'attaque placée vise à déployer des systèmes de jeu caractérisés par les mouvements des joueurs et du ballon. Ces systèmes ont toujours pour objectif de permettre à l'attaque de prendre l'avantage sur la défense, de provoquer une faute, une exclusion ou un but. Ils sont en général compilés dans un plan de jeu (« playbook »). Mais un système n'est pas une chorégraphie : il fournit le premier mouvement, c'est la réponse de la défense qui produit le second. Ce qui est écrit dans le playbook, c'est une intention de départ et les lectures qui en découlent, pas une suite d'actions à exécuter jusqu'au bout.</p><p style="font-size:0.9em;color:#444;line-height:1.75;margin-bottom:16px;">Ils permettent notamment de mettre un joueur ciblé en position préférentielle de tir, ou bien de porter le danger dans une zone identifiée comme faible chez l'adversaire. Les systèmes de jeu sont donc propres aux forces de l'équipe, mais s'adaptent également aux faiblesses de l'adversaire. Ils supposent au préalable une occupation correcte des espaces : sur un terrain aussi contraint, un avantage créé dans un espace encombré n'est pas exploitable.</p><p style="font-size:0.9em;color:#444;line-height:1.75;margin-bottom:0;">Prendre l'avantage recouvre deux réalités que les joueurs doivent savoir distinguer. <strong>L'avantage de position</strong> d'abord : le défenseur n'est plus placé entre son attaquant et le but, et ne peut plus contester ni le tir, ni la passe, ni la progression. <strong>L'avantage dans le duel</strong> ensuite, qui est un temps d'avance sur le défenseur direct. Un défenseur qui coule après un saut sur une interception manquée met plusieurs dixièmes à se replacer, et pendant ce temps l'attaquant joue seul. Dans les deux cas, l'avantage obtenu est rarement exploitable par celui qui l'a créé : l'intention essentielle est de le transmettre, par une passe, à celui qui pourra le convertir. Un système où chacun cherche à conclure l'avantage qu'il vient de produire se referme immédiatement.</p></div>
     </div></div>
-<div id="wp-sans-pointe" style="background:#0f172a;border-radius:12px;padding: 20px 20px;margin: 20px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
+<div id="wp-avantage" style="background:#0f172a;border-radius:12px;padding:18px;margin:22px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-#wp-sans-pointe { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; }
-#wp-sans-pointe .wp-header { text-align: center; margin-bottom: 14px; }
-#wp-sans-pointe .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #F97316; }
-#wp-sans-pointe .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
-#wp-sans-pointe .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
-#wp-sans-pointe .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
-#wp-sans-pointe #wp-sans-pointe .carousel-btn:hover { background: #ea6500; }
-#wp-sans-pointe .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 200px; text-align: center; }
-#wp-sans-pointe svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-sans-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
-#wp-sans-pointe .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
-#wp-sans-pointe .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-#wp-sans-pointe .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+#wp-avantage { background:#0f172a; font-family:'Inter',system-ui,sans-serif; color:white; padding:18px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+#wp-avantage .av-title { font-family:'Prompt',Arial,sans-serif; font-size:16px; font-weight:700; color:#F97316; text-align:center; }
+#wp-avantage svg.terrain { width:100%; max-width:620px; height:auto; display:block; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.45); }
+#wp-avantage .av-legend { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+#wp-avantage .av-item { display:flex; align-items:center; gap:5px; font-size:10.5px; color:rgba(255,255,255,0.7); }
+#wp-avantage .av-d { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+#wp-avantage .av-r { width:17px; height:7px; border-radius:2px; flex-shrink:0; }
 </style>
-<div class="wp-header">
-  <div class="wp-title">🤽 WATER POLO — Attaque placée sans pointe</div>
-  <div class="wp-subtitle">Chaque joueur peut descendre en position 6 depuis son poste extérieur</div>
-</div>
-<div class="carrier-ctrl">
-  <button class="carousel-btn" onclick="prevSP()">&#8592;</button>
-  <div class="state-val" id="state-label-sp">Entrée : joueur 1 (coin droit) → position 6</div>
-  <button class="carousel-btn" onclick="nextSP()">&#8594;</button>
-</div>
-<svg class="terrain" id="svg-main-sp" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
-<div class="legend">
-  <div class="legend-item"><div class="ld" style="background:#c62828"></div>Position actuelle</div>
-  <div class="legend-item"><div class="ld" style="background:#c62828;opacity:0.3"></div>Poste extérieur vidé</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Mouvement vers la position 6</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
+<div class="av-title">Celui qui crée l'avantage n'est pas celui qui le convertit</div>
+<svg class="terrain" id="svg-avantage" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="av-legend">
+  <div class="av-item"><div class="av-d" style="background:#c62828"></div>Attaque</div>
+  <div class="av-item"><div class="av-d" style="background:#0d47a1"></div>Défense</div>
+  <div class="av-item"><div class="av-r" style="background:#c62828"></div>Mouvement de joueur</div>
+  <div class="av-item"><div class="av-r" style="background:transparent;border-top:2px dashed #ffd740"></div>Trajectoire du ballon</div>
+  <div class="av-item"><div class="av-d" style="background:rgba(249,115,22,0.35);border:1.5px dashed #F97316"></div>Joueur en position d'avantage</div>
 </div>
 <script>
-const NS='http://www.w3.org/2000/svg';
+var NS='http://www.w3.org/2000/svg';
+function se(t,a){a=a||{};var e=document.createElementNS(NS,t);for(var k in a){e.setAttribute(k,String(a[k]));}return e;}
+function R(x,y,w,h,a){a=a||{};return se('rect',Object.assign({x:x,y:y,width:w,height:h},a));}
+function C(cx,cy,r,a){a=a||{};return se('circle',Object.assign({cx:cx,cy:cy,r:r},a));}
+function L(x1,y1,x2,y2,a){a=a||{};return se('line',Object.assign({x1:x1,y1:y1,x2:x2,y2:y2},a));}
+function T(x,y,txt,a){a=a||{};var t=se('text',Object.assign({x:x,y:y},a));t.textContent=txt;return t;}
+function norm(dx,dy){var l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+function entre(a,b,t){return[a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t];}
 
-window.prevSP=prev;window.nextSP=next;
-const W=660,H=400,M=20;
-const Y2M=88,Y5M=196;
-const Z2X1=236,Z2X2=424,BX1=278,BX2=382,BY=M;
+// terrain, aux mêmes codes que les schémas défensifs
+function drawField(svg,D,gid){
+  svg.innerHTML='';
+  var defs=se('defs');
+  var grad=se('linearGradient',{id:gid,x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad);svg.appendChild(defs);
+  svg.appendChild(R(0,0,D.W,D.H,{fill:'url(#'+gid+')',rx:'8'}));
+  svg.appendChild(R(D.M,D.M,D.W-2*D.M,D.H-2*D.M,{fill:'none',stroke:'white','stroke-width':'1.4',rx:'3'}));
+  svg.appendChild(L(D.M,D.Y6M,D.W-D.M,D.Y6M,{stroke:'#ffd740','stroke-width':'1.3','stroke-dasharray':'7,5'}));
+  svg.appendChild(T(D.W-D.M+2,D.Y6M+4,'6m',{fill:'#ffd740','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(D.Z1,D.M,D.Z2-D.Z1,D.Y2M-D.M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.3','stroke-dasharray':'5,4'}));
+  svg.appendChild(T(D.W-D.M+2,D.Y2M+4,'2m',{fill:'#ff5252','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(D.BX1,D.M,D.BX2-D.BX1,20,{fill:'none',stroke:'white','stroke-width':'1.8',rx:'1'}));
+  svg.appendChild(R(D.BX1+3,D.M+3,D.BX2-D.BX1-6,13,{fill:'rgba(255,255,255,0.15)'}));
+}
 
-function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
-
-function drawTri(svg,x,y,label,color,headDir,alpha=1,r=10){
-  const[hx,hy]=headDir,sx=-hy,sy=hx,arm=r*2.2,spread=r*1.1;
-  const g=se('g',{transform:\`translate(\${x},\${y})\`,opacity:String(alpha)});
+function drawTri(svg,x,y,label,color,headDir,r,opts){
+  opts=opts||{};
+  var hx=headDir[0],hy=headDir[1],sx=-hy,sy=hx,arm=r*1.8,spread=r*1.1;
+  var g=se('g',{transform:'translate('+x+','+y+')',opacity:String(opts.alpha===undefined?1:opts.alpha)});
   g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2'}));
-  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-  const tx=hx*(r+6),ty=hy*(r+6);
-  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
-  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':String(r*0.9),'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'2.8','stroke-linecap':'round'}));
+  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'2.8','stroke-linecap':'round'}));
+  g.appendChild(se('polygon',{points:(hx*(r+6))+','+(hy*(r+6))+' '+(sx*4-hx*3)+','+(sy*4-hy*3)+' '+(-sx*4-hx*3)+','+(-sy*4-hy*3),fill:color,opacity:'0.75'}));
+  g.appendChild(T(0,3.6,label,{'text-anchor':'middle','font-size':String(label).length>1?'7':'8.6','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  if(opts.ballon){
+    var bx=sx*(r+13),by=sy*(r+13);
+    g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'5',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.1'}));
+    g.appendChild(L(bx,by-4.5,bx,by+4.5,{stroke:'#92400e','stroke-width':'0.8'}));
+    g.appendChild(L(bx-4.5,by,bx+4.5,by,{stroke:'#92400e','stroke-width':'0.8'}));
+  }
   svg.appendChild(g);
 }
 
-function drawMovArrow(svg,x1,y1,x2,y2,color,dashed=false){
-  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
-  const attrs={stroke:color,'stroke-width':'2','stroke-linecap':'round'};
-  if(dashed) attrs['stroke-dasharray']='5,4';
-  svg.appendChild(L(x1,y1,x2,y2,attrs));
-  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*8+px},\${y2-uy*8+py} \${x2-ux*8-px},\${y2-uy*8-py}\`,fill:color}));
+// flèche pleine : mouvement de joueur
+function fleche(svg,a,b,couleur,large){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  var x1=a[0]+u[0]*13,y1=a[1]+u[1]*13,x2=b[0]-u[0]*13,y2=b[1]-u[1]*13;
+  var w=large?2.4:1.9, t=large?9:7.5;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:couleur,'stroke-width':String(w),'stroke-linecap':'round'}));
+  var px=-u[1]*(t*0.5),py=u[0]*(t*0.5);
+  svg.appendChild(se('polygon',{points:x2+','+y2+' '+(x2-u[0]*t+px)+','+(y2-u[1]*t+py)+' '+(x2-u[0]*t-px)+','+(y2-u[1]*t-py),fill:couleur}));
+  return [(x1+x2)/2-u[1]*14,(y1+y2)/2+u[0]*14];
 }
 
-function drawTerrain(svg){
-  const defs=se('defs');
-  const grad=se('linearGradient',{id:'wgsp',x1:'0',y1:'0',x2:'0',y2:'1'});
-  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
-  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
-  defs.appendChild(grad); svg.appendChild(defs);
-  svg.appendChild(R(0,0,W,H,{fill:'url(#wgsp)',rx:'8'}));
-  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
-  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'8,5'}));
-  svg.appendChild(T(W-M+2,Y5M+4,'6m',{fill:'#ffd740','font-size':'9','font-weight':'bold'}));
-  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
-  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
-  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
-  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'9','font-weight':'bold'}));
-  svg.appendChild(R(BX1,BY,BX2-BX1,24,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
-  svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
+// flèche en pointillé : trajectoire du ballon
+function flecheBallon(svg,a,b){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  var x1=a[0]+u[0]*14,y1=a[1]+u[1]*14,x2=b[0]-u[0]*14,y2=b[1]-u[1]*14;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:'#ffd740','stroke-width':'1.8','stroke-dasharray':'6,4','stroke-linecap':'round'}));
+  var px=-u[1]*3.5,py=u[0]*3.5;
+  svg.appendChild(se('polygon',{points:x2+','+y2+' '+(x2-u[0]*8+px)+','+(y2-u[1]*8+py)+' '+(x2-u[0]*8-px)+','+(y2-u[1]*8-py),fill:'#ffd740'}));
+  return [(x1+x2)/2-u[1]*14,(y1+y2)/2+u[0]*14];
 }
 
-// 6 postes extérieurs — position 6 (centre 2m) vide au départ
-const GPOS=[330,26];
-const POS6=[330,Y2M];
-const P={
-  '1':[530,104], '2':[452,196], '3a':[372,232], '3b':[288,232], '4':[208,196], '5':[130,104]
-};
-const ORDER=['1','2','3a','3b','4','5'];
-const SLOT_LABEL={'1':'1','2':'2','3a':'3','3b':'3','4':'4','5':'5'};
-const SLOT_DESC={'1':'coin droit','2':'demi-droit','3a':'centre-droit','3b':'centre-gauche','4':'demi-gauche','5':'coin gauche'};
+// pastille numérotée posée sur une flèche
+function temps(svg,pt,txt){
+  svg.appendChild(C(pt[0],pt[1],8.5,{fill:'#0f172a',stroke:'#F97316','stroke-width':'1.6'}));
+  svg.appendChild(T(pt[0],pt[1]+3.2,txt,{'text-anchor':'middle','font-size':'9','font-weight':'bold',fill:'#F97316','font-family':'Inter,sans-serif'}));
+}
 
-const STATES=ORDER.map(key=>({key}));
+// halo : le joueur qui dispose de l'avantage
+function halo(svg,p){
+  svg.appendChild(C(p[0],p[1],20,{fill:'rgba(249,115,22,0.22)',stroke:'#F97316','stroke-width':'2','stroke-dasharray':'4,3'}));
+}
 
-let sidx=0;
+// espace libéré
+function espaceLibre(svg,p){
+  svg.appendChild(C(p[0],p[1],17,{fill:'rgba(255,255,255,0.14)',stroke:'rgba(255,255,255,0.55)','stroke-width':'1.4','stroke-dasharray':'4,4'}));
+}
 
-function addLabel(svg,x,y,txt){
-  const t=se('text',{x:String(x),y:String(y),'text-anchor':'middle','font-size':'9','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.45)','font-style':'italic'});
-  t.textContent=txt; svg.appendChild(t);
+function etiquette(svg,x,y,txt,couleur){
+  var w=txt.length*4.6+12;
+  svg.appendChild(R(x-w/2,y-9,w,14,{fill:'rgba(15,23,42,0.78)',rx:'4'}));
+  svg.appendChild(T(x,y+1.5,txt,{'text-anchor':'middle','font-size':'8.5','font-weight':'bold',fill:couleur,'font-family':'Inter,sans-serif'}));
+}
+
+// ── Schéma : la transmission de l'avantage ────────────────────────────────────
+var D={W:660,H:400,M:20,Y2M:88,Y6M:196,Z1:236,Z2:424,BX1:278,BX2:382};
+var BUT=[330,D.M+11];
+var ATT={G:[330,26], 6:[330,D.Y2M], 1:[530,110], 2:[452,D.Y6M], 3:[330,265], 4:[208,D.Y6M], 5:[130,110]};
+var D2=[370,190];   // arrivée du drive de 2, entre le 3 et le 6
+
+function defPos(n){
+  var a=ATT[n], u=norm(BUT[0]-a[0],BUT[1]-a[1]);
+  return [a[0]+u[0]*21, a[1]+u[1]*21];
 }
 
 function render(){
-  const s=STATES[sidx];
-  const num=SLOT_LABEL[s.key],desc=SLOT_DESC[s.key];
-  document.getElementById('state-label-sp').textContent=\`Entrée : joueur \${num} (\${desc}) → position 6\`;
-  const svg=document.getElementById('svg-main-sp');
-  svg.innerHTML='';
-  drawTerrain(svg);
-  drawTri(svg,GPOS[0],GPOS[1],'G','#2e7d32',[0,1]);
-  const goal=[W/2,BY+11];
-  for(const key of ORDER){
-    const pos=P[key],label=SLOT_LABEL[key];
-    const dir=norm(goal[0]-pos[0],goal[1]-pos[1]);
-    if(key===s.key){
-      // Poste extérieur vidé (fantôme) + mouvement vers la position 6
-      drawTri(svg,pos[0],pos[1],label,'#c62828',dir,0.25);
-      drawMovArrow(svg,pos[0],pos[1],POS6[0],POS6[1],'#F97316');
-      drawTri(svg,POS6[0],POS6[1],label,'#c62828',[0,1]);
-    }else{
-      drawTri(svg,pos[0],pos[1],label,'#c62828',dir);
-    }
-  }
-  addLabel(svg,330,358,\`Joueur \${num} (\${desc}) descend en position 6 — les 5 autres restent en place\`);
-}
+  var svg=document.getElementById('svg-avantage');
+  drawField(svg,D,'wgav');
 
-function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
-function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
-function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
-function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
-function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
-function prev(){sidx=(sidx-1+STATES.length)%STATES.length;render();}
-function next(){sidx=(sidx+1)%STATES.length;render();}
+  // ③ le 6 est seul à 2 m : son défenseur est parti sur le porteur du drive
+  halo(svg,ATT[6]);
+
+  // ① le 2 entre vers l'intérieur
+  var p1=fleche(svg,ATT[2],D2,'#c62828',true);
+  // ② les deux défenseurs convergent sur lui
+  var d2ini=defPos(2), d6ini=entre(ATT[6],BUT,0.5);
+  var d2fin=entre(d2ini,D2,0.45), d6fin=entre(d6ini,D2,0.5);
+  var p2a=fleche(svg,d2ini,d2fin,'#0d47a1',false);
+  var p2b=fleche(svg,d6ini,d6fin,'#0d47a1',false);
+  // ③ le ballon va au joueur libre, puis au but
+  var p3=flecheBallon(svg,ATT[3],ATT[6]);
+  flecheBallon(svg,ATT[6],[372,44]);
+
+  // l'option que le porteur du drive doit refuser
+  var u=norm(BUT[0]-D2[0],BUT[1]-D2[1]);
+  var tx=D2[0]+u[0]*46, ty=D2[1]+u[1]*46;
+  svg.appendChild(L(D2[0]+u[0]*14,D2[1]+u[1]*14,tx,ty,{stroke:'rgba(226,232,240,0.5)','stroke-width':'2','stroke-dasharray':'5,5','stroke-linecap':'round'}));
+  var mx=(D2[0]+tx)/2, my=(D2[1]+ty)/2;
+  svg.appendChild(L(mx-9,my-9,mx+9,my+9,{stroke:'#94a3b8','stroke-width':'2.6','stroke-linecap':'round'}));
+  svg.appendChild(L(mx-9,my+9,mx+9,my-9,{stroke:'#94a3b8','stroke-width':'2.6','stroke-linecap':'round'}));
+
+  // joueurs
+  drawTri(svg,ATT.G[0],ATT.G[1],'G','#2e7d32',[0,1],11,{});
+  drawTri(svg,ATT[6][0],ATT[6][1],'6','#c62828',[0,1],11,{});
+  for(var n=1;n<=5;n++){
+    var a=ATT[n];
+    if(n===2) continue;
+    drawTri(svg,a[0],a[1],String(n),'#c62828',norm(BUT[0]-a[0],BUT[1]-a[1]),11,{ballon:n===3});
+  }
+  // le 2 : fantôme à sa position de départ, plein à l'arrivée du drive
+  drawTri(svg,ATT[2][0],ATT[2][1],'2','#c62828',norm(BUT[0]-ATT[2][0],BUT[1]-ATT[2][1]),11,{alpha:0.25});
+  drawTri(svg,D2[0],D2[1],'2','#c62828',norm(BUT[0]-D2[0],BUT[1]-D2[1]),11,{});
+  // défenseurs
+  for(var k=1;k<=5;k++){
+    if(k===2) continue;
+    var dp=defPos(k);
+    drawTri(svg,dp[0],dp[1],'-'+k,'#0d47a1',norm(ATT[k][0]-dp[0],ATT[k][1]-dp[1]),11,{});
+  }
+  drawTri(svg,d2fin[0],d2fin[1],'-2','#0d47a1',norm(D2[0]-d2fin[0],D2[1]-d2fin[1]),11,{});
+  drawTri(svg,d6fin[0],d6fin[1],'-6','#0d47a1',norm(D2[0]-d6fin[0],D2[1]-d6fin[1]),11,{});
+
+  // repères de temps et mention
+  temps(svg,p1,'1'); temps(svg,p2a,'2'); temps(svg,p3,'3');
+  etiquette(svg,mx+126,my+58,"tir de 2 : l'avantage se referme",'#cbd5e1');
+}
 render();
 <\/script>
 </div>
+
 <div style="margin-top:24px;"><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
       <div style="background:linear-gradient(135deg,#92400e 0%,#d97706 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
-        <span style="font-size:1.4em;">🎯</span>
-        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Attaque placée avec pointe</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Circulation pour atteindre att6 en position de tir</div></div>
+        <span style="font-size:1.4em;">🔄</span>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Drives et switch</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Obliger un défenseur à choisir</div></div>
       </div>
-      <div style="padding:14px 20px;"><div style="font-size:0.85em;color:#444;line-height:1.65;margin-bottom:10px;">Att6 est fixe en pointe, dos au but. La circulation de balle entre att1 à att5 cherche à isoler un joueur proche du 6 pour une passe directe vers la pointe. Chaque séquence est structurée en 2 passes : porteur vers relayeur, relayeur vers att6.</div><div style="display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#92400e10;color:#92400e;border:1px solid #92400e30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Att6 fixe dos au but</span><span style="background:#92400e10;color:#92400e;border:1px solid #92400e30;border-radius:20px;padding:3px 10px;font-size:0.78em;font-weight:600;">Séquences de 2 passes numérotées</span></div></div>
+      <div style="padding:16px 20px;"><p style="font-size:0.9em;color:#444;line-height:1.75;margin-bottom:0;">Les mouvements des joueurs sont des déplacements d'une position à une autre, ou bien des « <strong>drives</strong> », mouvements vers l'intérieur du jeu. Ils peuvent permettre de mettre les défenseurs « en retard », ou bien de provoquer un changement de défenseur sur un attaquant (« <strong>switch</strong> ») : face à un attaquant qui drive, le défenseur doit décider s'il le suit ou s'il le laisse, et c'est cette décision qui déclenche le changement et modifie les rapports d'avantage. L'intention du joueur qui drive n'est donc pas seulement d'aller vers le but, mais d'obliger un défenseur à choisir. Et ce choix est rarement neutre. Il est souvent émotionnellement difficile : laisser filer un adversaire vers la cible, abandonner son joueur, accepter de découvrir un espace. Dans l'action, sous la pression et la fatigue, un défenseur ne raisonne pas toujours de façon parfaitement rationnelle. Une part de l'avantage naît précisément là, dans l'inconfort du choix imposé, autant que dans sa résolution tactique.</p></div>
     </div></div>
-<div id="wp-avec-pointe" style="background:#0f172a;border-radius:12px;padding: 20px 20px;margin: 20px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
+<div id="wp-choix" style="background:#0f172a;border-radius:12px;padding:18px;margin:22px 0;font-family:'Inter',system-ui,sans-serif;color:white;">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-#wp-avec-pointe { background: #0f172a; font-family: 'Inter', system-ui, sans-serif; color: white; padding: 20px; }
-#wp-avec-pointe .wp-header { text-align: center; margin-bottom: 14px; }
-#wp-avec-pointe .wp-title { font-family: 'Prompt', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #F97316; }
-#wp-avec-pointe .wp-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
-#wp-avec-pointe .carrier-ctrl { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
-#wp-avec-pointe .carousel-btn { background: #F97316; border: none; color: white; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
-#wp-avec-pointe #wp-avec-pointe .carousel-btn:hover { background: #ea6500; }
-#wp-avec-pointe .state-val { font-family: 'Prompt', sans-serif; font-size: 13px; color: #ffd740; font-weight: 700; min-width: 220px; text-align: center; }
-#wp-avec-pointe svg.terrain { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-#wp-avec-pointe .legend { display: flex; justify-content: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; background: transparent; }
-#wp-avec-pointe .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
-#wp-avec-pointe .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-#wp-avec-pointe .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+#wp-choix { background:#0f172a; font-family:'Inter',system-ui,sans-serif; color:white; padding:18px; display:flex; flex-direction:column; align-items:center; gap:10px; }
+#wp-choix .ch-title { font-family:'Prompt',Arial,sans-serif; font-size:16px; font-weight:700; color:#F97316; text-align:center; }
+#wp-choix .ch-haut { width:100%; max-width:440px; }
+#wp-choix .ch-bas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; width:100%; }
+#wp-choix .ch-col { flex:1 1 300px; max-width:440px; }
+#wp-choix .ch-branche { font-family:'Prompt',sans-serif; font-size:12.5px; font-weight:700; color:#ffd740; text-align:center; margin-bottom:5px; }
+#wp-choix svg.terrain { width:100%; height:auto; display:block; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.45); }
+#wp-choix .ch-leg { font-size:11.5px; line-height:1.5; color:rgba(255,255,255,0.8); text-align:center; margin-top:7px; }
+#wp-choix .ch-fleche { color:rgba(255,255,255,0.35); font-size:18px; line-height:1; }
+#wp-choix .ch-legend { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:4px; }
+#wp-choix .ch-item { display:flex; align-items:center; gap:5px; font-size:10.5px; color:rgba(255,255,255,0.7); }
+#wp-choix .ch-d { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+#wp-choix .ch-r { width:17px; height:7px; border-radius:2px; flex-shrink:0; }
 </style>
-<div class="wp-header">
-  <div class="wp-title">🤽 WATER POLO — Attaque placée avec pointe</div>
-  <div class="wp-subtitle">Ballon au poste 3 · séquence de passes pour déséquilibrer et atteindre att6</div>
+<div class="ch-title">Le choix imposé</div>
+<div class="ch-haut">
+  <svg class="terrain" id="svg-choix-0" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div class="ch-leg">Le 2 entre vers l'intérieur. <strong>Le -2 doit choisir : suivre ou laisser.</strong></div>
 </div>
-<div class="carrier-ctrl">
-  <button class="carousel-btn" onclick="prevAP()">&#8592;</button>
-  <div class="state-val" id="state-label-ap">Relais par le joueur 2</div>
-  <button class="carousel-btn" onclick="nextAP()">&#8594;</button>
+<div class="ch-fleche">&#8595;</div>
+<div class="ch-bas">
+  <div class="ch-col">
+    <div class="ch-branche">Branche A — le -2 suit</div>
+    <svg class="terrain" id="svg-choix-1" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="ch-leg">L'espace périphérique s'ouvre. <strong>Le danger sort.</strong></div>
+  </div>
+  <div class="ch-col">
+    <div class="ch-branche">Branche B — le -2 ne suit pas</div>
+    <svg class="terrain" id="svg-choix-2" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="ch-leg">Le changement de défenseur libère la pointe. <strong>Le danger entre.</strong></div>
+  </div>
 </div>
-<svg class="terrain" id="svg-main-ap" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
-<div class="legend">
-  <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,255,255,0.2);border:1.5px solid white"></div>Passe numérotée</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.2);border:1.5px solid #F97316"></div>Passe finale vers pointe</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
+<div class="ch-legend">
+  <div class="ch-item"><div class="ch-d" style="background:#c62828"></div>Attaque</div>
+  <div class="ch-item"><div class="ch-d" style="background:#0d47a1"></div>Défense</div>
+  <div class="ch-item"><div class="ch-r" style="background:#c62828"></div>Mouvement de joueur</div>
+  <div class="ch-item"><div class="ch-r" style="background:transparent;border-top:2px dashed #ffd740"></div>Trajectoire du ballon</div>
+  <div class="ch-item"><div class="ch-d" style="background:rgba(249,115,22,0.35);border:1.5px dashed #F97316"></div>Position d'avantage</div>
+  <div class="ch-item"><div class="ch-d" style="background:rgba(255,255,255,0.2);border:1.5px dashed rgba(255,255,255,0.6)"></div>Espace libéré</div>
 </div>
 <script>
-const NS='http://www.w3.org/2000/svg';
+var NS='http://www.w3.org/2000/svg';
+function se(t,a){a=a||{};var e=document.createElementNS(NS,t);for(var k in a){e.setAttribute(k,String(a[k]));}return e;}
+function R(x,y,w,h,a){a=a||{};return se('rect',Object.assign({x:x,y:y,width:w,height:h},a));}
+function C(cx,cy,r,a){a=a||{};return se('circle',Object.assign({cx:cx,cy:cy,r:r},a));}
+function L(x1,y1,x2,y2,a){a=a||{};return se('line',Object.assign({x1:x1,y1:y1,x2:x2,y2:y2},a));}
+function T(x,y,txt,a){a=a||{};var t=se('text',Object.assign({x:x,y:y},a));t.textContent=txt;return t;}
+function norm(dx,dy){var l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
+function entre(a,b,t){return[a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t];}
 
-window.prevAP=prev;window.nextAP=next;
-const W=660,H=400,M=20;
-const Y2M=88,Y5M=196;
-const Z2X1=236,Z2X2=424,BX1=278,BX2=382,BY=M;
+// terrain, aux mêmes codes que les schémas défensifs
+function drawField(svg,D,gid){
+  svg.innerHTML='';
+  var defs=se('defs');
+  var grad=se('linearGradient',{id:gid,x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad);svg.appendChild(defs);
+  svg.appendChild(R(0,0,D.W,D.H,{fill:'url(#'+gid+')',rx:'8'}));
+  svg.appendChild(R(D.M,D.M,D.W-2*D.M,D.H-2*D.M,{fill:'none',stroke:'white','stroke-width':'1.4',rx:'3'}));
+  svg.appendChild(L(D.M,D.Y6M,D.W-D.M,D.Y6M,{stroke:'#ffd740','stroke-width':'1.3','stroke-dasharray':'7,5'}));
+  svg.appendChild(T(D.W-D.M+2,D.Y6M+4,'6m',{fill:'#ffd740','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(D.Z1,D.M,D.Z2-D.Z1,D.Y2M-D.M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.3','stroke-dasharray':'5,4'}));
+  svg.appendChild(T(D.W-D.M+2,D.Y2M+4,'2m',{fill:'#ff5252','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(D.BX1,D.M,D.BX2-D.BX1,20,{fill:'none',stroke:'white','stroke-width':'1.8',rx:'1'}));
+  svg.appendChild(R(D.BX1+3,D.M+3,D.BX2-D.BX1-6,13,{fill:'rgba(255,255,255,0.15)'}));
+}
 
-function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
-
-function drawTri(svg,x,y,label,color,headDir,r=10,isCarrier=false){
-  const[hx,hy]=headDir,sx=-hy,sy=hx,arm=r*2.2,spread=r*1.1;
-  const g=se('g',{transform:\`translate(\${x},\${y})\`});
+function drawTri(svg,x,y,label,color,headDir,r,opts){
+  opts=opts||{};
+  var hx=headDir[0],hy=headDir[1],sx=-hy,sy=hx,arm=r*1.8,spread=r*1.1;
+  var g=se('g',{transform:'translate('+x+','+y+')',opacity:String(opts.alpha===undefined?1:opts.alpha)});
   g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2'}));
-  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
-  const tx=hx*(r+6),ty=hy*(r+6);
-  g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
-  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':String(r*0.9),'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
-  if(isCarrier){
-    const bx=sx*(r+13),by=sy*(r+13);
-    g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'5',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.2'}));
-    g.appendChild(L(bx,by-5,bx,by+5,{stroke:'#92400e','stroke-width':'0.8'}));
-    g.appendChild(L(bx-5,by,bx+5,by,{stroke:'#92400e','stroke-width':'0.8'}));
+  g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'2.8','stroke-linecap':'round'}));
+  g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'2.8','stroke-linecap':'round'}));
+  g.appendChild(se('polygon',{points:(hx*(r+6))+','+(hy*(r+6))+' '+(sx*4-hx*3)+','+(sy*4-hy*3)+' '+(-sx*4-hx*3)+','+(-sy*4-hy*3),fill:color,opacity:'0.75'}));
+  g.appendChild(T(0,3.6,label,{'text-anchor':'middle','font-size':String(label).length>1?'7':'8.6','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  if(opts.ballon){
+    var bx=sx*(r+13),by=sy*(r+13);
+    g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'5',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.1'}));
+    g.appendChild(L(bx,by-4.5,bx,by+4.5,{stroke:'#92400e','stroke-width':'0.8'}));
+    g.appendChild(L(bx-4.5,by,bx+4.5,by,{stroke:'#92400e','stroke-width':'0.8'}));
   }
   svg.appendChild(g);
 }
 
-function drawPass(svg,x1,y1,x2,y2,num,isFinal=false){
-  const color=isFinal?'#F97316':'white';
-  const dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),ux=dx/l,uy=dy/l,px=-uy*4,py=ux*4;
-  svg.appendChild(L(x1,y1,x2,y2,{stroke:color,'stroke-width':isFinal?'2.2':'1.8','stroke-linecap':'round'}));
-  svg.appendChild(se('polygon',{points:\`\${x2},\${y2} \${x2-ux*8+px},\${y2-uy*8+py} \${x2-ux*8-px},\${y2-uy*8-py}\`,fill:color}));
-  const mx=(x1+x2)/2-px*1.5,my=(y1+y2)/2-py*1.5;
-  svg.appendChild(se('circle',{cx:String(mx),cy:String(my),r:'8',fill:isFinal?'#F97316':'rgba(0,0,0,0.55)','stroke':color,'stroke-width':'1'}));
-  const t=se('text',{x:String(mx),y:String(my+3.5),'text-anchor':'middle','font-size':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'});
-  t.textContent=num; svg.appendChild(t);
+// flèche pleine : mouvement de joueur
+function fleche(svg,a,b,couleur,large){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  var x1=a[0]+u[0]*13,y1=a[1]+u[1]*13,x2=b[0]-u[0]*13,y2=b[1]-u[1]*13;
+  var w=large?2.4:1.9, t=large?9:7.5;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:couleur,'stroke-width':String(w),'stroke-linecap':'round'}));
+  var px=-u[1]*(t*0.5),py=u[0]*(t*0.5);
+  svg.appendChild(se('polygon',{points:x2+','+y2+' '+(x2-u[0]*t+px)+','+(y2-u[1]*t+py)+' '+(x2-u[0]*t-px)+','+(y2-u[1]*t-py),fill:couleur}));
+  return [(x1+x2)/2-u[1]*14,(y1+y2)/2+u[0]*14];
 }
 
-function drawTerrain(svg){
-  const defs=se('defs');
-  const grad=se('linearGradient',{id:'wgap',x1:'0',y1:'0',x2:'0',y2:'1'});
-  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
-  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
-  defs.appendChild(grad); svg.appendChild(defs);
-  svg.appendChild(R(0,0,W,H,{fill:'url(#wgap)',rx:'8'}));
-  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
-  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.5','stroke-dasharray':'8,5'}));
-  svg.appendChild(T(W-M+2,Y5M+4,'6m',{fill:'#ffd740','font-size':'9','font-weight':'bold'}));
-  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
-  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
-  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
-  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'9','font-weight':'bold'}));
-  svg.appendChild(R(BX1,BY,BX2-BX1,24,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
-  svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
+// flèche en pointillé : trajectoire du ballon
+function flecheBallon(svg,a,b){
+  var u=norm(b[0]-a[0],b[1]-a[1]);
+  var x1=a[0]+u[0]*14,y1=a[1]+u[1]*14,x2=b[0]-u[0]*14,y2=b[1]-u[1]*14;
+  svg.appendChild(L(x1,y1,x2,y2,{stroke:'#ffd740','stroke-width':'1.8','stroke-dasharray':'6,4','stroke-linecap':'round'}));
+  var px=-u[1]*3.5,py=u[0]*3.5;
+  svg.appendChild(se('polygon',{points:x2+','+y2+' '+(x2-u[0]*8+px)+','+(y2-u[1]*8+py)+' '+(x2-u[0]*8-px)+','+(y2-u[1]*8-py),fill:'#ffd740'}));
+  return [(x1+x2)/2-u[1]*14,(y1+y2)/2+u[0]*14];
 }
 
-const P={
-  G:[330,26], 6:[330,Y2M],
-  1:[530,108], 2:[452,196], 3:[330,265], 4:[208,196], 5:[130,108]
-};
+// pastille numérotée posée sur une flèche
+function temps(svg,pt,txt){
+  svg.appendChild(C(pt[0],pt[1],8.5,{fill:'#0f172a',stroke:'#F97316','stroke-width':'1.6'}));
+  svg.appendChild(T(pt[0],pt[1]+3.2,txt,{'text-anchor':'middle','font-size':'9','font-weight':'bold',fill:'#F97316','font-family':'Inter,sans-serif'}));
+}
 
-// Séquences : porteur initial → passes numérotées → passe finale vers 6
-// [from, to, isFinal]
-// Porteur fixe au poste 3 : le carrousel ne change plus que le relais choisi
-const SEQUENCES=[
-  {label:'Relais par le joueur 2', carrier:3, passes:[
-    [3,2,false,'1'],[2,6,true,'2']
-  ]},
-  {label:'Relais par le joueur 4', carrier:3, passes:[
-    [3,4,false,'1'],[4,6,true,'2']
-  ]},
-];
+// halo : le joueur qui dispose de l'avantage
+function halo(svg,p){
+  svg.appendChild(C(p[0],p[1],20,{fill:'rgba(249,115,22,0.22)',stroke:'#F97316','stroke-width':'2','stroke-dasharray':'4,3'}));
+}
 
-let sidx=0;
+// espace libéré
+function espaceLibre(svg,p){
+  svg.appendChild(C(p[0],p[1],17,{fill:'rgba(255,255,255,0.14)',stroke:'rgba(255,255,255,0.55)','stroke-width':'1.4','stroke-dasharray':'4,4'}));
+}
 
-function render(){
-  const s=SEQUENCES[sidx];
-  document.getElementById('state-label-ap').textContent=s.label;
-  const svg=document.getElementById('svg-main-ap');
-  svg.innerHTML='';
-  drawTerrain(svg);
+function etiquette(svg,x,y,txt,couleur){
+  var w=txt.length*4.6+12;
+  svg.appendChild(R(x-w/2,y-9,w,14,{fill:'rgba(15,23,42,0.78)',rx:'4'}));
+  svg.appendChild(T(x,y+1.5,txt,{'text-anchor':'middle','font-size':'8.5','font-weight':'bold',fill:couleur,'font-family':'Inter,sans-serif'}));
+}
 
-  // Gardien
-  drawTri(svg,P.G[0],P.G[1],'G','#2e7d32',[0,1]);
-  // Att6 dos au but
-  drawTri(svg,P[6][0],P[6][1],'6','#c62828',[0,1]);
-  // Att 1-5
-  for(let n=1;n<=5;n++){
-    const an=P[n];
-    const goal=[W/2,BY+11];
-    const dir=norm(goal[0]-an[0],goal[1]-an[1]);
-    drawTri(svg,an[0],an[1],String(n),'#c62828',dir,10,n===s.carrier);
+// ── Schéma : le choix imposé ─────────────────────────────────────────────────
+var D={W:440,H:280,M:14,Y2M:62,Y6M:138,Z1:158,Z2:282,BX1:186,BX2:254};
+var BUT=[220,D.M+11];
+var ATT={G:[220,20], 6:[220,D.Y2M], 1:[354,78], 2:[302,D.Y6M], 3:[220,186], 4:[138,D.Y6M], 5:[86,78]};
+var DRIVE=[258,124];   // arrivée du drive de 2, entre le 3 et le 6
+
+function defPos(n){
+  var a=ATT[n], u=norm(BUT[0]-a[0],BUT[1]-a[1]);
+  return [a[0]+u[0]*18, a[1]+u[1]*18];
+}
+function def6Pos(){ return entre(ATT[6],BUT,0.55); }
+
+// placement commun aux trois panneaux
+function placement(svg,opts){
+  opts=opts||{};
+  drawField(svg,D,opts.gid);
+  drawTri(svg,ATT.G[0],ATT.G[1],'G','#2e7d32',[0,1],9,{});
+  if(!opts.sansPointe) drawTri(svg,ATT[6][0],ATT[6][1],'6','#c62828',[0,1],9,{});
+  for(var n=1;n<=5;n++){
+    if(opts.omet && opts.omet.indexOf(n)>=0) continue;
+    var a=ATT[n];
+    drawTri(svg,a[0],a[1],String(n),'#c62828',norm(BUT[0]-a[0],BUT[1]-a[1]),9,{ballon:n===3});
   }
-  // Passes numérotées
-  for(const[from,to,isFinal,num] of s.passes){
-    const f=P[from],t=P[to];
-    drawPass(svg,f[0],f[1],t[0],t[1],num,isFinal);
+  for(var k=1;k<=5;k++){
+    if(opts.ometDef && opts.ometDef.indexOf(k)>=0) continue;
+    var dp=defPos(k);
+    drawTri(svg,dp[0],dp[1],'-'+k,'#0d47a1',norm(ATT[k][0]-dp[0],ATT[k][1]-dp[1]),9,{});
+  }
+  if(!opts.ometDef6){
+    var d6=def6Pos();
+    drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(ATT[6][0]-d6[0],ATT[6][1]-d6[1]),9,{});
   }
 }
 
-function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
-function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
-function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
-function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
-function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
-function prev(){sidx=(sidx-1+SEQUENCES.length)%SEQUENCES.length;render();}
-function next(){sidx=(sidx+1)%SEQUENCES.length;render();}
-render();
+// panneau du haut : le 2 entre, son défenseur doit choisir
+function renderCommun(){
+  var svg=document.getElementById('svg-choix-0');
+  placement(svg,{gid:'wgc0',omet:[2],ometDef:[2]});
+  fleche(svg,ATT[2],DRIVE,'#c62828',true);
+  drawTri(svg,ATT[2][0],ATT[2][1],'2','#c62828',norm(BUT[0]-ATT[2][0],BUT[1]-ATT[2][1]),9,{alpha:0.3});
+  drawTri(svg,DRIVE[0],DRIVE[1],'2','#c62828',norm(BUT[0]-DRIVE[0],BUT[1]-DRIVE[1]),9,{});
+  var d2=defPos(2);
+  drawTri(svg,d2[0],d2[1],'-2','#0d47a1',norm(ATT[2][0]-d2[0],ATT[2][1]-d2[1]),9,{});
+  // le marqueur de décision, seul élément qui doit accrocher l'œil
+  svg.appendChild(C(d2[0]+20,d2[1]-16,11,{fill:'#F97316',stroke:'#0f172a','stroke-width':'2'}));
+  svg.appendChild(T(d2[0]+20,d2[1]-11,'?',{'text-anchor':'middle','font-size':'15','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  var a=[d2[0]+20,d2[1]-2], b1=[d2[0]-18,d2[1]+30], b2=[d2[0]+46,d2[1]+14];
+  svg.appendChild(L(a[0],a[1],b1[0],b1[1],{stroke:'rgba(249,115,22,0.75)','stroke-width':'1.6','stroke-dasharray':'4,3'}));
+  svg.appendChild(L(a[0],a[1],b2[0],b2[1],{stroke:'rgba(249,115,22,0.75)','stroke-width':'1.6','stroke-dasharray':'4,3'}));
+}
+
+// branche A : le défenseur suit
+function renderA(){
+  var svg=document.getElementById('svg-choix-1');
+  placement(svg,{gid:'wgc1',omet:[1,2],ometDef:[2]});
+  // la position 2 se vide
+  espaceLibre(svg,ATT[2]);
+  // le défenseur accompagne son attaquant vers l'intérieur
+  var d2=defPos(2), d2f=entre(d2,DRIVE,0.62);
+  fleche(svg,d2,d2f,'#0d47a1',false);
+  drawTri(svg,DRIVE[0],DRIVE[1],'2','#c62828',norm(BUT[0]-DRIVE[0],BUT[1]-DRIVE[1]),9,{});
+  drawTri(svg,d2f[0],d2f[1],'-2','#0d47a1',norm(DRIVE[0]-d2f[0],DRIVE[1]-d2f[1]),9,{});
+  // l'ailier remonte dans l'espace libéré
+  fleche(svg,ATT[1],ATT[2],'#c62828',true);
+  drawTri(svg,ATT[1][0],ATT[1][1],'1','#c62828',norm(BUT[0]-ATT[1][0],BUT[1]-ATT[1][1]),9,{alpha:0.3});
+  drawTri(svg,ATT[2][0],ATT[2][1],'1','#c62828',norm(BUT[0]-ATT[2][0],BUT[1]-ATT[2][1]),9,{});
+  halo(svg,ATT[2]);
+  flecheBallon(svg,ATT[3],ATT[2]);
+}
+
+// branche B : le défenseur ne suit pas
+function renderB(){
+  var svg=document.getElementById('svg-choix-2');
+  placement(svg,{gid:'wgc2',omet:[2],ometDef6:true});
+  drawTri(svg,DRIVE[0],DRIVE[1],'2','#c62828',norm(BUT[0]-DRIVE[0],BUT[1]-DRIVE[1]),9,{});
+  drawTri(svg,ATT[2][0],ATT[2][1],'2','#c62828',norm(BUT[0]-ATT[2][0],BUT[1]-ATT[2][1]),9,{alpha:0.3});
+  // le défenseur de la pointe sort sur le joueur qui entre
+  var d6=def6Pos(), d6f=entre(d6,DRIVE,0.6);
+  var m=fleche(svg,d6,d6f,'#0d47a1',true);
+  drawTri(svg,d6f[0],d6f[1],'-6','#0d47a1',norm(DRIVE[0]-d6f[0],DRIVE[1]-d6f[1]),9,{});
+  etiquette(svg,m[0]+20,m[1]+16,'switch','#F97316');
+  // la pointe est libre
+  halo(svg,ATT[6]);
+  flecheBallon(svg,ATT[3],ATT[6]);
+}
+
+renderCommun(); renderA(); renderB();
 <\/script>
 </div>
+
+<div style="margin-top:24px;"><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <div style="background:linear-gradient(135deg,#7c2d12 0%,#c2410c 100%);padding:14px 20px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.4em;">🧭</span>
+        <div><div style="color:white;font-weight:700;font-size:1.05em;font-family:'Prompt',Arial,sans-serif;">Qualité d'intention</div><div style="color:rgba(255,255,255,0.75);font-size:0.82em;margin-top:2px;">Ce qui fait vivre un système</div></div>
+      </div>
+      <div style="padding:16px 20px;"><p style="font-size:0.9em;color:#444;line-height:1.75;margin-bottom:0;">Ces intentions de mouvements coordonnés de l'équipe s'enchaînent dans le but d'entraîner une réaction de l'adversaire dont l'attaque pourra profiter. La réaction du défenseur conditionne l'évolution du système en situation réelle. C'est pourquoi la valeur d'un système tient moins à sa complexité qu'à la qualité d'intention que chaque joueur y engage : un déplacement exécuté sans intention de peser sur un défenseur ne produit aucune réaction, et donc aucun avantage à exploiter.</p></div>
+    </div></div>
 </div>
 </div></details>
   </div>
