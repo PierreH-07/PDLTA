@@ -43222,18 +43222,28 @@ render();
 #wp-zone .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,0.7); }
 #wp-zone .ld { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 #wp-zone .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+#wp-zone .wpz-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+#wp-zone .wpz-tab { background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.7); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-family: 'Prompt', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+#wp-zone .wpz-tab:hover { background: rgba(255,255,255,0.14); }
+#wp-zone .wpz-tab.on { background: #F97316; border-color: #F97316; color: white; }
+#wp-zone .wpz-single { max-width: 560px; margin: 0 auto; }
+#wp-zone .wpz-desc { max-width: 700px; margin: 14px auto 0; background: rgba(255,255,255,0.06); border-left: 3px solid #F97316; border-radius: 8px; padding: 12px 14px; font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,0.8); }
 </style>
 <div class="wp-header">
   <div class="wp-title">🤽 WATER POLO — Défense par zone sur le joueur 6</div>
-  <div class="wp-subtitle">L'ouverture du joueur 6 détermine Z2 (fermé) ou Z3 (ouvert)</div>
+  <div class="wp-subtitle" id="wpz-sub">L'ouverture du joueur 6 détermine Z2 (fermé) ou Z3 (ouvert)</div>
 </div>
-<div class="carrier-ctrl">
+<div class="wpz-tabs">
+  <button class="wpz-tab on" id="wpz-tab0">Zone sur le joueur 6</button>
+  <button class="wpz-tab" id="wpz-tab1">m-Zone</button>
+</div>
+<div class="carrier-ctrl" id="wpz-ctrl">
   <div class="carrier-lbl">Porteur :</div>
   <button class="carousel-btn" onclick="prevCarrier()">&#8592;</button>
   <div class="carrier-val" id="carrier-val">J.1</div>
   <button class="carousel-btn" onclick="nextCarrier()">&#8594;</button>
 </div>
-<div class="schemas-wrapper">
+<div class="schemas-wrapper" id="wpz-pair">
   <div class="schema-block">
     <div class="schema-label" style="color:#16a34a;">🔒 Joueur 6 fermé <span class="badge" style="background:#0d47a1;color:white;">Z2</span></div>
     <svg class="terrain" id="svg-0" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -43243,12 +43253,18 @@ render();
     <svg class="terrain" id="svg-1" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg"></svg>
   </div>
 </div>
+<div class="wpz-single" id="wpz-m" style="display:none;">
+  <div class="schema-label" style="color:#16a34a;">Ⓜ️ m-Zone <span class="badge" style="background:#16a34a;color:white;">porteur : joueur 3</span></div>
+  <svg class="terrain" id="svg-m" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+<div class="wpz-desc" id="wpz-desc" style="display:none;">Les défenseurs sont tous en zone, éloignés de leur attaquant. Le -1 et le -5 sont légèrement dans l'intervalle vers le 6. Le -3 et le -6 entourent la pointe, dans les intervalles 1-6 et 5-6. Le -2 et le -4 sont sur les intervalles 2-3 et 3-4. En reliant -1, -2, l'attaquant 6, -4 et -5, on obtient un M vu depuis le but.</div>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
+  <div class="legend-item" id="wpz-leg-hh"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
   <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Zone (50% ligne att→6)</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
-  <div class="legend-item"><div class="lr" style="background:rgba(255,200,0,0.18);border:1.5px dashed #F97316"></div>Triangle actif</div>
+  <div class="legend-item" id="wpz-leg-tri"><div class="lr" style="background:rgba(255,200,0,0.18);border:1.5px dashed #F97316"></div>Triangle actif</div>
+  <div class="legend-item" id="wpz-leg-m" style="display:none;"><div class="lr" style="background:transparent;border-top:2px dashed #F97316"></div>Le M : -5, -4, att6, -2, -1</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -43258,8 +43274,9 @@ window.prevCarrier=prevCarrier;window.nextCarrier=nextCarrier;
 const W=420,H=300,M=16,Y2M=68,Y5M=148;
 const Z2X1=148,Z2X2=272,BX1=178,BX2=242,BY=M;
 const ATT={G:[210,22],6:[210,Y2M],1:[355,88],2:[300,150],3:[210,225],4:[120,150],5:[65,88]};
-const CARRIERS=[1,2,'3a','3b',4,5];
-const CARRIER_LABELS={1:'J.1',2:'J.2','3a':'J.3 (zone 2/3)','3b':'J.3 (zone 3/4)',4:'J.4',5:'J.5'};
+// Le porteur reste au poste 3 : le carrousel ne fait plus varier que le côté d'appui
+const CARRIERS=['3a','3b'];
+const CARRIER_LABELS={'3a':'J.3 (zone 2/3)','3b':'J.3 (zone 3/4)'};
 let cidx=0;
 const CONFIG={
   0:{nZone:2},
@@ -43325,11 +43342,91 @@ function zonerPos(n){const an=ATT[n],s6=ATT[6];return[an[0]+(s6[0]-an[0])*.5,an[
 function defHHPos(n){const a=ATT[n],g=ATT.G,dx=g[0]-a[0],dy=g[1]-a[1],l=Math.sqrt(dx*dx+dy*dy);return[a[0]+dx/l*18,a[1]+dy/l*18];}
 function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return[dx/l,dy/l];}
 
+// ── m-Zone ──────────────────────────────────────────────────────────────────
+// Tous les défenseurs en zone, éloignés de leur attaquant, porteur au poste 3.
+// -1 et -5 légèrement dans l'intervalle vers le 6 ; -3 et -6 encadrent la pointe
+// dans les intervalles 5-6 et 1-6 ; -2 et -4 sur les intervalles 2-3 et 3-4.
+function between(a,b,t){return[a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t];}
+
+function mZonePos(){
+  return {
+    1: between(ATT[1],ATT[6],0.25),
+    5: between(ATT[5],ATT[6],0.25),
+    6: between(ATT[6],ATT[1],0.35),
+    3: between(ATT[6],ATT[5],0.35),
+    2: between(ATT[2],ATT[3],0.5),
+    4: between(ATT[3],ATT[4],0.5)
+  };
+}
+
+function renderM(){
+  const svg=document.getElementById('svg-m');
+  const D=mZonePos(), bp=ATT[3];
+  svg.innerHTML='';
+  const defs=se('defs');
+  const grad=se('linearGradient',{id:'wgm',x1:'0',y1:'0',x2:'0',y2:'1'});
+  grad.appendChild(se('stop',{offset:'0%','stop-color':'#5bc8f5'}));
+  grad.appendChild(se('stop',{offset:'100%','stop-color':'#0288d1'}));
+  defs.appendChild(grad);svg.appendChild(defs);
+  svg.appendChild(R(0,0,W,H,{fill:'url(#wgm)',rx:'6'}));
+  svg.appendChild(R(M,M,W-2*M,H-2*M,{fill:'none',stroke:'white','stroke-width':'1.5',rx:'3'}));
+  svg.appendChild(L(M,Y5M,W-M,Y5M,{stroke:'#ffd740','stroke-width':'1.3','stroke-dasharray':'7,5'}));
+  svg.appendChild(T(W-M+2,Y5M+4,'5m',{fill:'#ffd740','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(Z2X1,M,Z2X2-Z2X1,Y2M-M,{fill:'rgba(255,82,82,0.1)',stroke:'#ff5252','stroke-width':'1.5','stroke-dasharray':'5,4'}));
+  svg.appendChild(C(Z2X1,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(C(Z2X2,Y2M,3,{fill:'#ff5252'}));
+  svg.appendChild(T(W-M+2,Y2M+4,'2m',{fill:'#ff5252','font-size':'8','font-weight':'bold'}));
+  svg.appendChild(R(BX1,BY,BX2-BX1,20,{fill:'none',stroke:'white','stroke-width':'2',rx:'1'}));
+  svg.appendChild(R(BX1+3,BY+3,BX2-BX1-6,14,{fill:'rgba(255,255,255,0.15)'}));
+
+  // lignes de passe depuis le porteur
+  for(const n of [1,2,4,5,6])
+    svg.appendChild(L(bp[0],bp[1],ATT[n][0],ATT[n][1],{stroke:'rgba(255,255,255,0.22)','stroke-width':'1','stroke-dasharray':'3,4'}));
+
+  // le M : -5, -4, att6, -2, -1 (vu depuis le but)
+  const mPts=[D[5],D[4],ATT[6],D[2],D[1]];
+  let d='M'+mPts[0][0]+','+mPts[0][1];
+  for(let k=1;k<mPts.length;k++) d+=' L'+mPts[k][0]+','+mPts[k][1];
+  svg.appendChild(se('path',{d:d,fill:'none',stroke:'#F97316','stroke-width':'2','stroke-dasharray':'6,4','stroke-linejoin':'round','stroke-linecap':'round'}));
+
+  drawTri(svg,ATT.G[0],ATT.G[1],'G','#2e7d32',[0,1],false);
+  drawTri(svg,ATT[6][0],ATT[6][1],'6','#c62828',norm(bp[0]-ATT[6][0],bp[1]-ATT[6][1]),false);
+  for(let n=1;n<=5;n++){
+    const an=ATT[n];
+    const dir=norm(W/2-an[0],BY+9-an[1]);
+    drawTri(svg,an[0],an[1],String(n),'#c62828',dir,n===3);
+  }
+  // défenseurs : -3 et -6 tournés vers la pointe, les autres vers le porteur
+  for(const n of [1,2,4,5,3,6]){
+    const dp=D[n];
+    const look=(n===3||n===6)?ATT[6]:bp;
+    drawTri(svg,dp[0],dp[1],'-'+n,'#16a34a',norm(look[0]-dp[0],look[1]-dp[1]),false);
+  }
+}
+
+let zmode=0;
+
 function render(){
   const carrier=CARRIERS[cidx];
   document.getElementById('carrier-val').textContent=CARRIER_LABELS[carrier];
-  renderSlide(0,carrier);renderSlide(1,carrier);
+  document.getElementById('wpz-tab0').className='wpz-tab'+(zmode===0?' on':'');
+  document.getElementById('wpz-tab1').className='wpz-tab'+(zmode===1?' on':'');
+  document.getElementById('wpz-pair').style.display=(zmode===0)?'flex':'none';
+  document.getElementById('wpz-ctrl').style.display=(zmode===0)?'flex':'none';
+  document.getElementById('wpz-m').style.display=(zmode===1)?'block':'none';
+  document.getElementById('wpz-desc').style.display=(zmode===1)?'block':'none';
+  document.getElementById('wpz-sub').textContent=(zmode===0)
+    ?"L'ouverture du joueur 6 détermine Z2 (fermé) ou Z3 (ouvert)"
+    :"Tous les défenseurs en zone · porteur au poste 3 · le M vu depuis le but";
+  document.getElementById('wpz-leg-hh').style.display=(zmode===0)?'flex':'none';
+  document.getElementById('wpz-leg-tri').style.display=(zmode===0)?'flex':'none';
+  document.getElementById('wpz-leg-m').style.display=(zmode===1)?'flex':'none';
+  if(zmode===0){ renderSlide(0,carrier);renderSlide(1,carrier); }
+  else { renderM(); }
 }
+
+document.getElementById('wpz-tab0').addEventListener('click',function(){zmode=0;render();});
+document.getElementById('wpz-tab1').addEventListener('click',function(){zmode=1;render();});
 
 function renderSlide(si,carrier){
   const cfg=CONFIG[si];
