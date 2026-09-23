@@ -61877,7 +61877,12 @@ function ProfilDeveloppementView() {
                                             className="theme-card"
                                             onClick={() => onTransversalClick(block.transversalType)}
                                         >
-                                            <div className="theme-icon">{block.icon}</div>
+                                            <div className="theme-icon">
+                                                {block.icon && typeof block.icon === 'string' && (block.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(block.icon)) ?
+                                                    <img src={block.icon} alt="" />
+                                                    : block.icon
+                                                }
+                                            </div>
                                             <h3 className="theme-title">{block.title}</h3>
                                             <p className="theme-description">{block.description}</p>
                                         </div>
@@ -62777,7 +62782,12 @@ function ProfilDeveloppementView() {
                     return (
                         <div className={`subtheme-view period-${period.id}`}>
                             <div className="detail-header">
-                                <div className="icon-xl">{theme.icon}</div>
+                                <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                                 <h1 className="detail-title">{theme.title}</h1>
                                 <p className="detail-subtitle">{theme.description}</p>
                             </div>
@@ -63342,7 +63352,12 @@ function ProfilDeveloppementView() {
                     return (
                         <div className={`subtheme-view period-${period.id}`}>
                             <div className="detail-header">
-                                <div className="icon-xl">{theme.icon}</div>
+                                <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                                 <h1 className="detail-title">{competitionContent.titre || theme.title}</h1>
                                 {competitionContent.soustitre && (
                                     <p className="detail-subtitle" style={{fontWeight: '600', fontSize: '1.1em', marginBottom: '5px'}}>{competitionContent.soustitre}</p>
@@ -63759,7 +63774,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -63795,7 +63815,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -64082,7 +64107,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -64116,7 +64146,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -64177,7 +64212,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -64197,7 +64237,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -64580,7 +64625,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                            {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                <img src={theme.icon} alt="" />
+                                : theme.icon
+                            }
+                        </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.detailDescription || theme.description}</p>
                         </div>
