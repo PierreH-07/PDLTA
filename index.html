@@ -2588,6 +2588,12 @@
     "nc-ventilation": "Images/emoji-disciplines/nc-ventilation.png",
     "el-ravitaillement": "Images/emoji-disciplines/el-ravitaillement.png",
 
+    "onglet-accompagner": "Images/emoji-disciplines/onglet-accompagner.png",
+    "onglet-competition": "Images/emoji-disciplines/onglet-competition.png",
+    "onglet-comprendre": "Images/emoji-disciplines/onglet-comprendre.png",
+    "onglet-formation-athletique": "Images/emoji-disciplines/onglet-formation-athletique.png",
+    "onglet-reperes-volumes-entrainement": "Images/emoji-disciplines/onglet-reperes-volumes-entrainement.png",
+
     // --- Water-polo ---
     "wp-attaque-ballon": "Images/emoji-disciplines/wp-attaque-ballon.png",
     "wp-celebration-bonnet": "Images/emoji-disciplines/wp-celebration-bonnet.png",
@@ -3063,7 +3069,7 @@
                 transversal: [
                     {
                         id: "accompagner",
-                        icon: "🤝",
+                        icon: window.ICONS['onglet-accompagner'],
                         title: "Accompagner",
                         description: "Besoins et rôles des acteurs",
                         details: {
@@ -3202,7 +3208,7 @@
                     },
                     {
                         id: "comprendre",
-                        icon: "🧠",
+                        icon: window.ICONS['onglet-comprendre'],
                         title: "Comprendre",
                         description: "Les mécanismes en jeu à cette période",
                         mecanismes: [
@@ -11146,7 +11152,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     {
                         id: "athletique",
-                        icon: "🤸🏽‍♀️",
+                        icon: window.ICONS['onglet-formation-athletique'],
                         title: "Apprentissage athlétique",
                         description: "Entre 6 et 11 ans, la préparation athlétique se concentre sur l'appropriation du corps dans l'espace et au sol à travers des situations variées et ludiques. L'objectif est de développer une motricité générale riche : sauter, ramper, rouler, se déplacer dans toutes les directions et découvrir son corps en mouvement.",
                         descriptionHtml: `Entre 6 et 11 ans, la préparation athlétique se concentre sur <strong>l'appropriation du corps dans l'espace et au sol</strong> à travers des situations variées et ludiques. L'objectif est de développer une motricité générale riche : sauter, ramper, rouler, se déplacer dans toutes les directions et découvrir son corps en mouvement.`,
@@ -15242,7 +15248,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     {
                         id: "athletique",
-                        icon: "🤸🏽‍♀️",
+                        icon: window.ICONS['onglet-formation-athletique'],
                         title: "Formation athlétique",
                         description: "La période collège est celle de la construction des fondations : développer la coordination, apprendre à gainer son corps, placer chaque mouvement avec intention et maîtrise. C'est la qualité de ces apprentissages qui conditionne la solidité de la construction athlétique future. Les qualités explorées en P2 doivent être entretenues et consolidées. Parallèlement, de nouvelles qualités de renforcement et de contrôle moteur sont à développer, en tenant compte des transformations biologiques liées à la puberté.",
                         descriptionHtml: `  <!-- ENVIRONNEMENT -->
@@ -23524,7 +23530,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     {
                         id: "athletique",
-                        icon: "🤸🏽‍♀️",
+                        icon: window.ICONS['onglet-formation-athletique'],
                         title: "Développement athlétique",
                         description: "À cette période, la préparation athlétique vise le développement maximal de la force et de la puissance musculaire. C'est la période la plus favorable pour construire la masse musculaire et développer les qualités physiques qui soutiendront la performance à haut niveau.",
                         descriptionHtml: `À cette période, la préparation athlétique vise le <strong>développement maximal de la force et de la puissance musculaire</strong>. C'est la période la plus favorable pour construire la masse musculaire et développer les qualités physiques qui soutiendront la performance à haut niveau. L'athlète doit également devenir expert de son échauffement et construire une routine efficace pour l'entraînement et la compétition.`,
@@ -31025,7 +31031,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     },
                     {
                         id: "athletique",
-                        icon: "🤸🏽‍♀️",
+                        icon: window.ICONS['onglet-formation-athletique'],
                         title: "Individualisation athlétique",
                         description: "À haut niveau, la préparation athlétique devient hautement individualisée : chaque athlète développe son programme spécifique en fonction de ses besoins, de ses points faibles et de ses objectifs. L'enjeu n'est plus de construire la force maximale, mais d'entretenir une force optimale tout en prévenant les blessures et en optimisant la disponibilité.",
                         descriptionHtml: `À haut niveau, la préparation athlétique devient <strong>hautement individualisée</strong> : chaque athlète développe son programme spécifique en fonction de ses besoins, de ses points faibles et de ses objectifs. L'enjeu n'est plus de construire la force maximale, mais d'<strong>entretenir une force optimale</strong> tout en prévenant les blessures et en optimisant la disponibilité.`,
@@ -59200,7 +59206,7 @@ function ProfilDeveloppementView() {
                     // Pour competition, créer un thème synthétique et rediriger vers ThemeView
                     const competitionTheme = {
                         id: "competition",
-                        icon: "🏆",
+                        icon: window.ICONS['onglet-competition'],
                         title: "La compétition",
                         description: "Format et règles des compétitions",
                         transversalType: 'competition'
@@ -61891,7 +61897,7 @@ function ProfilDeveloppementView() {
                             )) {
                                 transversalBlocks.push({
                                     id: "accompagner",
-                                    icon: "🤝",
+                                    icon: window.ICONS['onglet-accompagner'],
                                     title: "Accompagner",
                                     description: "Principes pédagogiques et posture de l'éducateur",
                                     isTransversal: true,
@@ -61904,7 +61910,7 @@ function ProfilDeveloppementView() {
                             if (period.transversal.comprendre) {
                                 transversalBlocks.push({
                                     id: "comprendre",
-                                    icon: "🧠",
+                                    icon: window.ICONS['onglet-comprendre'],
                                     title: "Comprendre",
                                     description: "Caractéristiques développementales et justifications scientifiques",
                                     isTransversal: true,
@@ -61918,7 +61924,7 @@ function ProfilDeveloppementView() {
                                 console.log('Adding competition block');
                                 transversalBlocks.push({
                                     id: "competition",
-                                    icon: "🏆",
+                                    icon: window.ICONS['onglet-competition'],
                                     title: "La compétition",
                                     description: "Format et règles des compétitions",
                                     isTransversal: true,
@@ -62012,7 +62018,7 @@ function ProfilDeveloppementView() {
                                 <div style={{flex: 1, minWidth: '280px'}}>
 
                                     <h2 className="preconisations-age-title">
-                                        📊 Repères de volumes d'entraînement – trajectoire de performance
+                                        <img src="Images/emoji-disciplines/onglet-reperes-volumes-entrainement.png" style={{width: '1em', height: '1em', objectFit: 'contain', verticalAlign: 'middle'}} alt="" /> Repères de volumes d'entraînement – trajectoire de performance
                                     </h2>
                                     <p style={{
                                         fontSize: '0.88em',
