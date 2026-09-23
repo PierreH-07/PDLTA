@@ -42883,6 +42883,12 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
         <div class="p4jc-sub-card"><div class="p4jc-sub-title">Philosophie</div><div class="p4jc-sub-text">Un projet de jeu efficace <strong>impose les choix à l'adversaire</strong> plutôt que de subir les siens. Il cherche à limiter les options adverses, à créer des déséquilibres reproductibles, et à mettre la pression de manière organisée. C'est un outil de cohérence collective, pas un carcan.</div></div>
       </div></details>
     <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head"><h3 style="color:var(--p4-dark);">Les grandes familles tactiques</h3></div><span class="attendus-bloc-cta" style="color: var(--p4-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><p style="font-size:0.95em;color:#444;line-height:1.7;margin:0;">À cette période, l'objectif est de <strong>découvrir et comprendre</strong> les principales familles tactiques : pourquoi elles existent, dans quelles situations de jeu elles sont pertinentes, et comment elles s'articulent avec le projet de jeu de l'équipe. Le détail des schémas s'acquiert progressivement par la pratique.</p>
+<div style="margin-top:20px;padding:18px 20px;background:rgba(249,115,22,0.06);border-radius:10px;border-left:4px solid #F97316;">
+  <h4 style="color:#F97316;font-size:0.95em;font-weight:700;margin-bottom:10px;font-family:'Prompt',Arial,sans-serif;">📌 Comment lire ces schémas</h4>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;margin-bottom:10px;">Les schémas tactiques sont des <strong>bases</strong>. Le choix est fait avec un porteur de balle toujours sur le poste 3.</p>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;margin-bottom:10px;">L'animation du schéma dépend du jeu, de la position de la balle et laisse libre cours à la créativité des entraîneurs et des joueurs.</p>
+  <p style="font-size:0.88em;color:#444;line-height:1.7;margin:0;"><strong>Notation :</strong> les attaquants portent le numéro de leur poste, de 1 à 6 ; les défenseurs portent le numéro du poste qu'ils ont en face, précédé du signe moins, de -1 à -6.</p>
+</div>
 <div style="margin-top:40px;border-top:3px solid #F97316;padding-top:32px;">
   <h3 style="color:#F97316;font-size:1.35em;font-weight:700;margin-bottom:8px;font-family:\'Prompt\',Arial,sans-serif;">🛡️ Les grandes familles de tactiques défensives</h3>
   <p style="font-size:0.88em;color:#666;font-style:italic;margin-bottom:8px;line-height:1.6;">En water-polo de haut niveau, la défense s\'organise selon des principes collectifs reconnus. Ces cinq familles définissent des modes de couverture distincts, chacun avec ses objectifs, ses contraintes et ses situations d\'application.</p>
@@ -42922,7 +42928,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 <svg class="terrain" id="svg-main" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1 (-1 à -6)</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="ld" style="background:#F97316"></div>Bras de blocage côté ballon</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
@@ -43165,7 +43171,7 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
     fill:color,opacity:'0.75'
   }));
   // Label
-  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':String(label).length>1?'6.5':'8','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   // Ballon
   if(isCarrier){
     const bx2=sx*(r+14)+hx*4,by2=sy*(r+14)+hy*4;
@@ -43293,20 +43299,20 @@ function renderSlide(si,carrier){
   }
   // Def6 H/H
   const arrowDir=pc[0]>s6[0]?-1:1;
-  drawTri(svg,s6[0],s6[1]-22,'H','#0d47a1',[0,-1],false); // tête vers le bas = face à att6
+  drawTri(svg,s6[0],s6[1]-22,'-6','#0d47a1',[0,-1],false); // tête vers le bas = face à att6
   drawArrow(svg,s6[0],s6[1]-16,s6[0]+arrowDir*14,s6[1]-6,'#F97316');
   // Zoneurs — tête vers leur att (bras en éventail vers l'att)
   for(const n of zoners){
     const zp=zonerPos(n);
     const[ux,uy]=norm(ATT[n][0]-zp[0],ATT[n][1]-zp[1]);
-    drawTri(svg,zp[0],zp[1],'Z','#16a34a',[ux,uy],false);
+    drawTri(svg,zp[0],zp[1],'-'+n,'#16a34a',[ux,uy],false);
   }
   // Def H/H restants — tête vers leur att
   for(let n=1;n<=5;n++){
     if(!zoners.includes(n)){
       const hp=defHHPos(n);
       const[ux,uy]=norm(ATT[n][0]-hp[0],ATT[n][1]-hp[1]);
-      drawTri(svg,hp[0],hp[1],'H','#0d47a1',[ux,uy],false);
+      drawTri(svg,hp[0],hp[1],'-'+n,'#0d47a1',[ux,uy],false);
     }
   }
   svg.appendChild(znLabel);
@@ -43395,7 +43401,7 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
   g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
   const tx=hx*(r+8),ty=hy*(r+8);
   g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*5-hx*3},\${sy*5-hy*3} \${-sx*5-hx*3},\${-sy*5-hy*3}\`,fill:color,opacity:'0.75'}));
-  g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
+  g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   if(isCarrier){
     const bx=sx*(r+16),by=sy*(r+16);
     g.appendChild(se('circle',{cx:String(bx),cy:String(by),r:'6',fill:'#fde68a',stroke:'#d97706','stroke-width':'1.3'}));
@@ -43473,24 +43479,24 @@ function render(){
   // Def H/H sur 6a (tête vers 6a = vers le bas + légèrement vers ext)
   const d6aDir=norm(s6a[0]-ATT.G[0]+20,s6a[1]-ATT.G[1]);
   const d6aPos=[s6a[0]-14,s6a[1]-24];
-  drawTri(svg,d6aPos[0],d6aPos[1],'H','#0d47a1',d6aDir,false);
+  drawTri(svg,d6aPos[0],d6aPos[1],'-6','#0d47a1',d6aDir,false);
   drawArrow(svg,d6aPos[0],d6aPos[1]+6,d6aPos[0]+24,d6aPos[1]+12,'#F97316');
 
   // Def H/H sur 6b
   const d6bDir=norm(s6b[0]-ATT.G[0]-20,s6b[1]-ATT.G[1]);
   const d6bPos=[s6b[0]+14,s6b[1]-24];
-  drawTri(svg,d6bPos[0],d6bPos[1],'H','#0d47a1',d6bDir,false);
+  drawTri(svg,d6bPos[0],d6bPos[1],'-6','#0d47a1',d6bDir,false);
   drawArrow(svg,d6bPos[0],d6bPos[1]+6,d6bPos[0]-24,d6bPos[1]+12,'#F97316');
 
   // Zoneurs secteur droit (face à leur att)
   const zR1=zonerAt50(s6a,a1),zR2=zonerAt50(s6a,a2);
-  drawTri(svg,zR1[0],zR1[1],'Z','#16a34a',norm(a1[0]-zR1[0],a1[1]-zR1[1]),false);
-  drawTri(svg,zR2[0],zR2[1],'Z','#16a34a',norm(a2[0]-zR2[0],a2[1]-zR2[1]),false);
+  drawTri(svg,zR1[0],zR1[1],'-1','#16a34a',norm(a1[0]-zR1[0],a1[1]-zR1[1]),false);
+  drawTri(svg,zR2[0],zR2[1],'-2','#16a34a',norm(a2[0]-zR2[0],a2[1]-zR2[1]),false);
 
   // Zoneurs secteur gauche
   const zL4=zonerAt50(s6b,a4),zL5=zonerAt50(s6b,a5);
-  drawTri(svg,zL4[0],zL4[1],'Z','#16a34a',norm(a4[0]-zL4[0],a4[1]-zL4[1]),false);
-  drawTri(svg,zL5[0],zL5[1],'Z','#16a34a',norm(a5[0]-zL5[0],a5[1]-zL5[1]),false);
+  drawTri(svg,zL4[0],zL4[1],'-4','#16a34a',norm(a4[0]-zL4[0],a4[1]-zL4[1]),false);
+  drawTri(svg,zL5[0],zL5[1],'-5','#16a34a',norm(a5[0]-zL5[0],a5[1]-zL5[1]),false);
 }
 
 function se(t,a={}){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,String(v));return e;}
@@ -43541,7 +43547,7 @@ render();
 <svg class="terrain" id="svg-main-iv" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
-  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1 (-1 à -6)</div>
+  <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
   <div class="legend-item"><div class="ld" style="background:#16a34a"></div>Défense en intervalle</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
@@ -43838,7 +43844,7 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier,r=9){
   g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
   const tx=hx*(r+6),ty=hy*(r+6);
   g.appendChild(se('polygon',{points:\`\${tx},\${ty} \${sx*4-hx*2},\${sy*4-hy*2} \${-sx*4-hx*2},\${-sy*4-hy*2}\`,fill:color,opacity:'0.75'}));
-  const fs=r>9?'9.5':'8';
+  const fs=String(label).length>1?(r>9?'8':'6.5'):(r>9?'9.5':'8');
   g.appendChild(T(0,3.5,label,{'text-anchor':'middle','font-size':fs,'font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   if(isCarrier){
     const bx=sx*(r+13),by=sy*(r+13);
@@ -43964,24 +43970,24 @@ function render42(){
 
     // Def sur att6 (individuel H/H)
     const d6=[p6[0],p6[1]-20];
-    drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
+    drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
     drawArrow(svg,d6[0],d6[1]+6,d6[0]+18,d6[1]+18,'#F97316');
 
     // Def zone entre att6 et att2p (couvre passe 6→2p)
     const dz1=[p6[0]+(p2[0]-p6[0])*.5, p6[1]+(p2[1]-p6[1])*.5];
-    drawTri(svg,dz1[0],dz1[1],'Z','#16a34a',norm(p2[0]-dz1[0],p2[1]-dz1[1]),false);
+    drawTri(svg,dz1[0],dz1[1],'-2','#16a34a',norm(p2[0]-dz1[0],p2[1]-dz1[1]),false);
 
     // Def zone entre att2p et att1 (couvre passe 2p→1, pousse vers att5 côté faible)
     const dz2=[p2[0]+(p1[0]-p2[0])*.45, p2[1]+(p1[1]-p2[1])*.45];
-    drawTri(svg,dz2[0],dz2[1],'Z','#16a34a',norm(p1[0]-dz2[0],p1[1]-dz2[1]),false);
+    drawTri(svg,dz2[0],dz2[1],'-1','#16a34a',norm(p1[0]-dz2[0],p1[1]-dz2[1]),false);
     // Flèche "pousse vers extérieur/côté faible"
     drawArrow(svg,dz2[0],dz2[1],dz2[0]-28,dz2[1]+10,'#F97316',true);
 
     // Def individuel sur att3 et att4 (à 5m)
     const dp3=[p3[0],p3[1]-20];
-    drawTri(svg,dp3[0],dp3[1],'H','#0d47a1',norm(p3[0]-dp3[0],p3[1]-dp3[1]),false);
+    drawTri(svg,dp3[0],dp3[1],'-3','#0d47a1',norm(p3[0]-dp3[0],p3[1]-dp3[1]),false);
     const dp4=[p4[0]+(220-p4[0])*.15,p4[1]-18];
-    drawTri(svg,dp4[0],dp4[1],'H','#0d47a1',norm(p4[0]-dp4[0],p4[1]-dp4[1]),false);
+    drawTri(svg,dp4[0],dp4[1],'-4','#0d47a1',norm(p4[0]-dp4[0],p4[1]-dp4[1]),false);
 
     // Annotation côté faible (att5 seul)
     const lbl=se('text',{x:String(att[5][0]-12),y:String(att[5][1]+30),'font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.45)','font-style':'italic'});
@@ -43992,23 +43998,23 @@ function render42(){
 
     // Def sur att6
     const d6=[p6[0],p6[1]-20];
-    drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
+    drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(p6[0]-d6[0],p6[1]-d6[1]),false);
     drawArrow(svg,d6[0],d6[1]+6,d6[0]-18,d6[1]+18,'#F97316');
 
     // Def zone entre att6 et att4p
     const dz1=[p6[0]+(p4[0]-p6[0])*.5, p6[1]+(p4[1]-p6[1])*.5];
-    drawTri(svg,dz1[0],dz1[1],'Z','#16a34a',norm(p4[0]-dz1[0],p4[1]-dz1[1]),false);
+    drawTri(svg,dz1[0],dz1[1],'-4','#16a34a',norm(p4[0]-dz1[0],p4[1]-dz1[1]),false);
 
     // Def zone entre att4p et att5
     const dz2=[p4[0]+(p5[0]-p4[0])*.45, p4[1]+(p5[1]-p4[1])*.45];
-    drawTri(svg,dz2[0],dz2[1],'Z','#16a34a',norm(p5[0]-dz2[0],p5[1]-dz2[1]),false);
+    drawTri(svg,dz2[0],dz2[1],'-5','#16a34a',norm(p5[0]-dz2[0],p5[1]-dz2[1]),false);
     drawArrow(svg,dz2[0],dz2[1],dz2[0]+28,dz2[1]+10,'#F97316',true);
 
     // Def individuel sur att2 et att3
     const dp2=[p2[0],p2[1]-20];
-    drawTri(svg,dp2[0],dp2[1],'H','#0d47a1',norm(p2[0]-dp2[0],p2[1]-dp2[1]),false);
+    drawTri(svg,dp2[0],dp2[1],'-2','#0d47a1',norm(p2[0]-dp2[0],p2[1]-dp2[1]),false);
     const dp3=[p3[0]+(220-p3[0])*.15,p3[1]-18];
-    drawTri(svg,dp3[0],dp3[1],'H','#0d47a1',norm(p3[0]-dp3[0],p3[1]-dp3[1]),false);
+    drawTri(svg,dp3[0],dp3[1],'-3','#0d47a1',norm(p3[0]-dp3[0],p3[1]-dp3[1]),false);
 
     const lbl=se('text',{x:String(att[1][0]-10),y:String(att[1][1]+30),'font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.45)','font-style':'italic'});
     lbl.textContent='côté faible';svg.appendChild(lbl);
@@ -44060,7 +44066,7 @@ function render33(){
   // ── Défense à 5 ──
   // 1 def individuel sur att6 (H/H)
   const d6=[s6[0],s6[1]-20];
-  drawTri(svg,d6[0],d6[1],'H','#0d47a1',norm(s6[0]-d6[0],s6[1]-d6[1]),false);
+  drawTri(svg,d6[0],d6[1],'-6','#0d47a1',norm(s6[0]-d6[0],s6[1]-d6[1]),false);
   drawArrow(svg,d6[0],d6[1]+6,d6[0]+16,d6[1]+18,'#F97316');
 
   // 4 def en zone — à 50% de la ligne attN→att6, orientés face à leur att
@@ -44069,13 +44075,13 @@ function render33(){
   for(const n of ZONES){
     const an=POS33[n];
     const zp=[an[0]+(s6[0]-an[0])*.50, an[1]+(s6[1]-an[1])*.50];
-    drawTri(svg,zp[0],zp[1],'Z','#16a34a',norm(an[0]-zp[0],an[1]-zp[1]),false);
+    drawTri(svg,zp[0],zp[1],'-'+n,'#16a34a',norm(an[0]-zp[0],an[1]-zp[1]),false);
   }
 
   // Att3 : légèrement couvert par un def en retrait (zone lâche)
   const a3=POS33[3];
   const zp3=[a3[0]+(s6[0]-a3[0])*.38, a3[1]+(s6[1]-a3[1])*.38];
-  drawTri(svg,zp3[0],zp3[1],'Z','#16a34a',norm(a3[0]-zp3[0],a3[1]-zp3[1]),false,8);
+  drawTri(svg,zp3[0],zp3[1],'-3','#16a34a',norm(a3[0]-zp3[0],a3[1]-zp3[1]),false,8);
 
   // Annotation
   const lbl=se('text',{x:'220',y:'265','text-anchor':'middle','font-size':'8','font-family':'Inter,sans-serif',fill:'rgba(255,255,255,0.4)','font-style':'italic'});
