@@ -2575,6 +2575,19 @@
     "plg-position-carpee": "Images/emoji-disciplines/plg-position-carpee.png",
     "plg-position-groupee": "Images/emoji-disciplines/plg-position-groupee.png",
 
+    // --- Période 1 : Je découvre ---
+    "DECOUVRE-explorer": "Images/emoji-disciplines/DECOUVRE-explorer.png",
+    "DECOUVRE-confiance": "Images/emoji-disciplines/DECOUVRE-confiance.png",
+    "DECOUVRE-deplacements": "Images/emoji-disciplines/DECOUVRE-deplacements.png",
+    "Attaque_WP": "Images/emoji-disciplines/Attaque_WP.png",
+    "Gardien_WP": "Images/emoji-disciplines/Gardien_WP.png",
+
+    "nc-corps-projectile": "Images/emoji-disciplines/nc-corps-projectile.png",
+    "nc-tactique-course": "Images/emoji-disciplines/nc-tactique-course.png",
+    "nc-parties-non-nagees": "Images/emoji-disciplines/nc-parties-non-nagees.png",
+    "nc-ventilation": "Images/emoji-disciplines/nc-ventilation.png",
+    "el-ravitaillement": "Images/emoji-disciplines/el-ravitaillement.png",
+
     // --- Water-polo ---
     "wp-attaque-ballon": "Images/emoji-disciplines/wp-attaque-ballon.png",
     "wp-celebration-bonnet": "Images/emoji-disciplines/wp-celebration-bonnet.png",
@@ -2708,7 +2721,7 @@
                 themes: [
                     {
                         id: "confiance",
-                        icon: "😊",
+                        icon: window.ICONS['DECOUVRE-confiance'],
                         title: "Explorer et construire la confiance",
                         description: "Les défis à surmonter, les blocages",
                         hasPeurs: true,
@@ -2811,7 +2824,7 @@
                     },
                     {
                         id: "decouverte-milieu",
-                        icon: "💧",
+                        icon: window.ICONS['DECOUVRE-explorer'],
                         title: "Explorer et découvrir le milieu aquatique",
                         description: "Quelles sont les étapes et les attendus",
                         hasEtapes: true,
@@ -3000,7 +3013,7 @@
                     },
                     {
                         id: "premiers-deplacement",
-                        icon: "🏊",
+                        icon: window.ICONS['DECOUVRE-deplacements'],
                         title: "Explorer les premiers déplacements",
                         description: "Modes de déplacement, comment et pourquoi",
                         hasModesDeplacement: true,
@@ -9010,7 +9023,7 @@
 
         <!-- BLOC 1 : LE CORPS PROJECTILE -->
         <details style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #0DBCF0;"><summary class="attendus-bloc-summary"><h2 style="color: #0DBCF0; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🚀 Le corps projectile
+                <img src="Images/emoji-disciplines/nc-corps-projectile.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Le corps projectile
             </h2><span class="attendus-bloc-cta" style="color: #0DBCF0;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
             <div style="margin-bottom: 20px; overflow: hidden; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.3);">
@@ -14771,7 +14784,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 2 : VENTILATION -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                💨 Ventilation
+                <img src="Images/emoji-disciplines/nc-ventilation.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Ventilation
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable de <strong>se ventiler efficacement</strong> par le biais d'une expiration complète et d'une inspiration brève intégrée dans le cycle de nage afin de limiter l'augmentation des résistances. La ventilation doit être au service de la propulsion.
                 </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -14969,7 +14982,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 4 : TACTIQUE DE COURSE -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🧠 Tactique de course
+                <img src="Images/emoji-disciplines/nc-tactique-course.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Tactique de course
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8">
                     Être capable de projeter un modèle stratégique en fonction de la course.
                 </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -15110,7 +15123,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 5 : PARTIES NON-NAGÉES -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🚀 Parties non-nagées
+                <img src="Images/emoji-disciplines/nc-parties-non-nagees.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Parties non-nagées
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8">
                      Maîtriser les virages et plongeons pour <strong>gagner du temps </strong> : pousser fort (placement des pieds) et dans la bonne direction (orientation du corps) pour glisser loin en restant aligné.
                 </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -16977,22 +16990,22 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                         specificTo: 'eau-libre',
                         details: {
                             contenuSpecifique: `
-<div style="max-width: 1000px; margin: 0 auto;">
+<div style="padding: 20px;">
 
     <!-- ========================================
          BLOC PRÉREQUIS ET PRINCIPES FONDAMENTAUX
          ======================================== -->
     ${blocPrerequisHTML('#FF9800', true, LIEN_MECANISMES + LIEN_EL + LIEN_B3 + LIEN_PRINCIPES)}
 
-    <!-- INTRODUCTION GÉNÉRALE -->
-    <div style="background: linear-gradient(135deg, rgba(213,159,73,0.08) 0%, rgba(255,152,0,0.05) 100%); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 2px solid rgba(213,159,73,0.2);">
-        <h2 style="color: #D59F49; font-size: 1.35em; margin-bottom: 14px;">🌊 Développer les compétences en eau libre</h2>
-        <p style="line-height: 1.8; color: #444; margin-bottom: 15px; font-size: 1em;">
+    <!-- INTRODUCTION -->
+    <div style="background: linear-gradient(135deg, rgba(213,159,73,0.08) 0%, rgba(255,152,0,0.05) 100%); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;">
+        <h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.4em;">🌊 Développer les compétences en eau libre</h3>
+        <p style="line-height: 1.8; margin-bottom: 12px;">
             L'objectif est de
             <strong>développer les compétences spécifiques</strong> à la pratique de l'eau libre :
             se sentir à l'aise dans le milieu (relâchement, efficacité et ventilation), élargir le répertoire moteur, appréhender la notion de tactique de course, développer ses capacités à effectuer des efforts prolongés, gérer les phases de ravitaillement.
         </p>
-        <p style="line-height: 1.8; color: #444; margin: 0; font-size: 1em;">
+        <p style="line-height: 1.8; margin: 0;">
             Le nageur doit maintenant <strong>maîtriser son déplacement dans des conditions variées</strong>
             et développer des stratégies pour <strong>optimiser sa performance en milieu naturel</strong>.
         </p>
@@ -17000,17 +17013,13 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
     <!--PROG_ANCHOR-->
 
-    <div style="margin-bottom: 28px;">
-        <h3 style="color: #D59F49; font-size: 1.25em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid rgba(213,159,73,0.3); display: flex; align-items: center; gap: 12px;">
-            <span style="background: #D59F49; color: white; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9em; flex-shrink: 0;">1</span>
-            Stratégie et placement dans le groupe
-        </h3>
 
-        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
+    <!-- BLOC 1 : STRATÉGIE ET PLACEMENT DANS LE GROUPE -->
+    <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-peloton-groupe.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Stratégie et placement dans le groupe</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3>        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
             En eau libre, la dimension tactique est essentielle. Le nageur doit apprendre à
             <strong>se positionner stratégiquement</strong> en prenant en compte les autres concurrents
             et à <strong>gérer son effort dans un groupe</strong>.
-        </p>
+        </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- Drafting -->
         <div style="background: white; border: 2px solid rgba(213,159,73,0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
@@ -17180,20 +17189,15 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 </p>
             </div>
         </div>
-    </div>
 
+    </details>
 
-    <div style="margin-bottom: 28px;">
-        <h3 style="color: #D59F49; font-size: 1.25em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid rgba(213,159,73,0.3); display: flex; align-items: center; gap: 12px;">
-            <span style="background: #D59F49; color: white; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9em; flex-shrink: 0;">2</span>
-            Gestion du ravitaillement (transition)
-        </h3>
-
-        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
+    <!-- BLOC 2 : TRANSITIONS (RAVITAILLEMENT) -->
+    <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-ravitaillement.png" style="width:1em;height:1em;object-fit:contain;vertical-align:middle;" alt="" /> Transitions</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3>        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
             Sur les courses longues, le ravitaillement est une étape technique cruciale. Le nageur
             doit apprendre à <strong>s'alimenter et s'hydrater sans s'arrêter</strong>, en minimisant
             la perte de temps et d'efficacité.
-        </p>
+        </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- Saisir le gobelet -->
         <div style="background: white; border: 2px solid rgba(213,159,73,0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
@@ -17279,21 +17283,21 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 complètement ou de ne rien boire.
             </p>
         </div>
-    </div>
-</div>
 
-    <div style="margin-bottom: 28px;">
-        <h3 style="color: #D59F49; font-size: 1.25em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid rgba(213,159,73,0.3); display: flex; align-items: center; gap: 12px;">
-                        <span style="background: #D59F49; color: white; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9em; flex-shrink: 0;">3</span>
-            Capacités physiques
-        </h3>
+    </details>
 
-        <h4 style="color: #D59F49; font-size: 1.1em; margin-bottom: 14px; margin-top: 4px;">Répertoire moteur</h4>
-
-        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
+    <!-- BLOC 3 : CAPACITÉS PHYSIQUES -->
+    <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em;">💪 Capacités physiques</h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3>        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
             En eau libre, le nageur doit disposer d'un <strong>répertoire moteur large et flexible</strong>
             pour s'adapter aux conditions changeantes du milieu et aux exigences tactiques de la course.
         </p>
+        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
+            Les courses d'eau libre durent généralement plus longtemps qu'en bassin. Le nageur doit
+            développer sa <strong>capacité à nager longtemps en continu</strong> tout en étant capable
+            de <strong>varier son allure en fonction des exigences tactiques</strong>.
+        </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
+
+        <h4 style="color: #D59F49; font-size: 1.1em; margin-bottom: 14px; margin-top: 4px;">Répertoire moteur</h4>
 
         <!-- Changements de rythme -->
         <div style="background: white; border: 2px solid rgba(213,159,73,0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
@@ -17376,16 +17380,8 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 </div>
             </div>
         </div>
-    </div>
-
 
         <h4 style="color: #D59F49; font-size: 1.1em; margin-bottom: 14px; margin-top: 24px;">Capacité d'entraînement en eau libre</h4>
-
-        <p style="line-height: 1.8; color: #444; margin-bottom: 20px; font-size: 0.98em;">
-            Les courses d'eau libre durent généralement plus longtemps qu'en bassin. Le nageur doit
-            développer sa <strong>capacité à nager longtemps en continu</strong> tout en étant capable
-            de <strong>varier son allure en fonction des exigences tactiques</strong>.
-        </p>
 
         <!-- Nager longtemps -->
         <div style="background: white; border: 2px solid rgba(213,159,73,0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
@@ -17453,9 +17449,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 </p>
             </div>
         </div>
-    </div>
 
-    </div>
+    </details>
+
+</div>
                             `
                         }
                     },
@@ -21674,7 +21671,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                             gestion des effectifs, répartition des rôles, équilibrage des équipes et animation des séances avec des niveaux hétérogènes.
                                         </p>
                                         <ul style="line-height: 1.8; margin-left: 20px;">
-                                            <li><strong>Effectifs variables :</strong> Adapter les exercices selon le nombre de joueurs présents (5 vs 5, 3 vs 3, situations réduites)</li>
+                                            <li><strong>Effectifs variables :</strong> Adapter les exercices selon le nombre de joueurs présents (5 contre 5, 3 contre 3, situations réduites)</li>
                                             <li><strong>Mixité des niveaux :</strong> Intégrer des joueurs de niveaux différents dans un même exercice en variant les rôles et les responsabilités</li>
                                             <li><strong>Spécialisation progressive des postes :</strong> Commencer à identifier les profils (centre, ailier, gardien) tout en maintenant la polyvalence</li>
                                             <li><strong>Temps de jeu adapté :</strong> Ajuster le temps de jeu en fonction des objectifs de chacun et du projet collectif.</li>
@@ -22857,7 +22854,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 2 : VENTILATION -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                💨 Ventilation
+                <img src="Images/emoji-disciplines/nc-ventilation.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Ventilation
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'enjeu de la ventilation évolue : il ne s'agit plus seulement de <strong>bien ventiler</strong>, mais d'<strong>optimiser la ventilation</strong> pour :
                 </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -23106,7 +23103,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 4 : TACTIQUE DE COURSE -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🧠 Tactique de course
+                <img src="Images/emoji-disciplines/nc-tactique-course.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Tactique de course
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'athlète commence à <strong>construire sa propre stratégie de course</strong> en fonction de ses qualités physiques, de ses distances de spécialisation et du contexte de course.
                 </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -23215,7 +23212,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 5 : PARTIES NON-NAGÉES -->
         <details style="background: rgba(213, 159, 73, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #D59F49;"><summary class="attendus-bloc-summary"><h2 style="color: #D59F49; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🚀 Parties non-nagées
+                <img src="Images/emoji-disciplines/nc-parties-non-nagees.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Parties non-nagées
             </h2><h3 style="color: #D59F49; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     Au lycée, l'enjeu des parties non-nagées évolue vers une <strong>logique de liaison</strong> entre les différentes phases pour <strong>maximiser la vitesse globale</strong>.
                 </p><span class="attendus-bloc-cta" style="color: #D59F49;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -25492,8 +25489,8 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     </details>
 
     <!-- BLOC 2 : TACTIQUE DE GROUPE AVANCÉE -->
-    <div id="bloc-strategie-peloton" style="background: rgba(255, 152, 0, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #FF9800;">
-        <h2 style="color: #FF9800; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-peloton-groupe.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Stratégie et placement dans le groupe</h2>
+    <details id="bloc-strategie-peloton" style="background: rgba(255, 152, 0, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #FF9800;"><summary class="attendus-bloc-summary">
+        <h2 style="color: #FF9800; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-peloton-groupe.png" style="width:40px; vertical-align:middle; margin-right:8px;"> Stratégie et placement dans le groupe</h2><span class="attendus-bloc-cta" style="color: #FF9800;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
         <!-- ENJEUX -->
         <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -25639,10 +25636,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
             </p>
         </div>
 
-    </div>
+    </details>
 
     <!-- BLOC 3 : RAVITAILLEMENT STRATÉGIQUE -->
-    <details style="background: rgba(255, 152, 0, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #FF9800;"><summary class="attendus-bloc-summary"><h2 style="color: #FF9800; margin-bottom: 20px; font-size: 1.8em;">🥤 Transitions</h2><h3 style="color: #FF9800; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
+    <details style="background: rgba(255, 152, 0, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #FF9800;"><summary class="attendus-bloc-summary"><h2 style="color: #FF9800; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-ravitaillement.png" style="width:1em;height:1em;object-fit:contain;vertical-align:middle;" alt="" /> Transitions</h2><h3 style="color: #FF9800; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 Développer une <strong>approche stratégique du ravitaillement</strong> : préparer le contenu adapté
                 aux besoins, identifier la position du ravitailleur pour se placer dans le peloton de façon adéquate et expérimenter différentes stratégies, y compris sauter un ou plusieurs ravitaillements.
             </p><span class="attendus-bloc-cta" style="color: #FF9800;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -29973,7 +29970,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
              <!-- BLOC 4 : TACTIQUE DE COURSE -->
         <details style="background: rgba(226, 0, 26, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🎯 Tactique de course
+                <img src="Images/emoji-disciplines/nc-tactique-course.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Tactique de course
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8; margin-bottom: 12px;">
                     <strong>Connaître et maîtriser sa stratégie de course personnelle</strong>, appuyée sur ses points forts. C'est le niveau le plus <strong>personnel</strong> de toutes les compétences. Il n'y a pas deux courses identiques entre deux nageurs.
                 </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -30297,7 +30294,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 3 : VENTILATION -->
         <details style="background: rgba(226, 0, 26, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                💨 Ventilation
+                <img src="Images/emoji-disciplines/nc-ventilation.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Ventilation
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable de <strong>réaliser des coulées efficaces et rapides à chaque virage sans être limité par le temps d'apnée</strong>. À ce niveau, la ventilation ne limite plus la course : elle est intégrée, automatisée, elle ne coûte rien en termes d'efficacité.
                 </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -30395,7 +30392,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 
         <!-- BLOC 5 : PARTIES NON-NAGÉES -->
         <details style="background: rgba(226, 0, 26, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #E2001A;"><summary class="attendus-bloc-summary"><h2 style="color: #E2001A; margin-bottom: 20px; font-size: 1.8em; display: flex; align-items: center; gap: 10px;">
-                🚀 Parties non-nagées
+                <img src="Images/emoji-disciplines/nc-parties-non-nagees.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Parties non-nagées
             </h2><h3 style="color: #E2001A; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                     Être capable d'<strong>optimiser chaque départ, virage, coulée et arrivée</strong> pour maximiser la vitesse moyenne sur la course. Les parties non-nagées représentent 20-30% du temps total en bassin et peuvent faire gagner ou perdre plusieurs dixièmes, voire secondes.
                 </p><span class="attendus-bloc-cta" style="color: #E2001A;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
@@ -30540,7 +30537,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <!--PROG_ANCHOR-->
 
     <!-- BLOC 1 : RAVITAILLEMENT -->
-    <details style="background: rgba(244, 67, 54, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #F44336;"><summary class="attendus-bloc-summary"><h2 style="color: #F44336; margin-bottom: 20px; font-size: 1.8em;">🥤 Ravitaillement</h2><h3 style="color: #F44336; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
+    <details style="background: rgba(244, 67, 54, 0.08); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #F44336;"><summary class="attendus-bloc-summary"><h2 style="color: #F44336; margin-bottom: 20px; font-size: 1.8em;"><img src="Images/emoji-disciplines/el-ravitaillement.png" style="width:1em;height:1em;object-fit:contain;vertical-align:middle;" alt="" /> Transitions</h2><h3 style="color: #F44336; margin-bottom: 15px; font-size: 1.3em;">🎯 Enjeux de la période</h3><p style="line-height: 1.8;">
                 À ce niveau, les aspects tactiques du ravitaillement (position du ravitailleur, signaux, choix de sauter ou non) sont maîtrisés. L'enjeu de la période est d'affiner la <strong>gestion nutritionnelle individuelle</strong> : estimer sa dépense énergétique réelle et adapter les dosages et quantités en conséquence, en s'appuyant sur des professionnels de santé.
             </p><span class="attendus-bloc-cta" style="color: #F44336;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary>
 
@@ -41664,7 +41661,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   </div>
 </div>
 
-<div class="domain"><div class="domain-head" style="background:linear-gradient(135deg,#5b3fa6,#8D71DE);"><h2>🧤 Gardien de but</h2></div><div class="domain-body" style="background:rgba(91,63,166,0.05);"><div style="background:white;border-radius:10px;padding: 20px 20px;margin-bottom: 20px;box-shadow:0 1px 4px rgba(0,0,0,0.07);"><h4 style="margin:0 0 10px;color:#4a3285;font-size:0.95em;">🎯 Principes directeurs</h4><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.75;"><li>Le gardien moderne n'est pas un rôle isolé : il est intégré au système défensif et devient le premier attaquant par la qualité et la rapidité de sa relance.</li><li>Choisir progressivement le gardien, sans spécialisation aveugle (observation motrice, morphologie, potentiel, envie).</li><li>Construire d'abord le corps du gardien dans l'eau (rétropédalage, positions, déplacements, coordination) avant la technique d'arrêt.</li><li>Apprendre plusieurs modes d'intervention (attraper, amortir/contrôler, repousser/dévier) et complexifier par étapes (tir direct → latéral → lob/penalty → tirs en situation → avec block → situations collectives).</li><li>Maîtriser les passes lobées pour lancer le jeu</li><li>Développer le sens de l'espace (poteaux, hauteur de cage, ligne de déplacement, placement).</li><li>Associer gardien et défense : le block et l'intervention du gardien s'entraînent comme un système coordonné.</li><li>Faire du gardien le premier attaquant : précision, timing et distance de relance sont des compétences à part entière.</li><li>Ne pas réduire la formation du gardien à recevoir des séries de tirs ; ne pas sacrifier rétropédalage/placement au profit du seul volume d'arrêts ; ne pas sélectionner sur la seule morphologie ; ne pas dissocier trop longtemps le gardien de la défense collective.</li><li>Chaîne de progression : détecter → rétropédaler → se déplacer → sauter → intervenir → se placer → lire → coopérer avec le block → relancer → performer en situation.</li></ul></div><div><span class="section-label" style="background:#4a3285;">🧤 Compétences du gardien</span><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Efficacité situationnelle</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable d'utiliser son sens de l'espace et son placement pour choisir la bonne réponse face à la menace, en lien croissant avec le block défensif.</div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.8;"><li>Sens de l'espace entre les poteaux, hauteur de cage, lignes de déplacement.</li><li>Choix du placement, de la posture et du mode d'intervention selon la menace.</li><li>Tirs libres, tirs après nage, tirs de position.</li><li>Introduction progressive du block et de la collaboration gardien-défense.</li></ul></div></details><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Choisir et faire appliquer une organisation de zone</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Passer de « je signale » à « je décide ». Tu deviens responsable d'un choix collectif, et tu dois pouvoir le justifier.</div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
+<div class="domain"><div class="domain-head" style="background:linear-gradient(135deg,#5b3fa6,#8D71DE);"><h2><img src="Images/emoji-disciplines/Gardien_WP.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Gardien de but</h2></div><div class="domain-body" style="background:rgba(91,63,166,0.05);"><div style="background:white;border-radius:10px;padding: 20px 20px;margin-bottom: 20px;box-shadow:0 1px 4px rgba(0,0,0,0.07);"><h4 style="margin:0 0 10px;color:#4a3285;font-size:0.95em;">🎯 Principes directeurs</h4><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.75;"><li>Le gardien moderne n'est pas un rôle isolé : il est intégré au système défensif et devient le premier attaquant par la qualité et la rapidité de sa relance.</li><li>Choisir progressivement le gardien, sans spécialisation aveugle (observation motrice, morphologie, potentiel, envie).</li><li>Construire d'abord le corps du gardien dans l'eau (rétropédalage, positions, déplacements, coordination) avant la technique d'arrêt.</li><li>Apprendre plusieurs modes d'intervention (attraper, amortir/contrôler, repousser/dévier) et complexifier par étapes (tir direct → latéral → lob/penalty → tirs en situation → avec block → situations collectives).</li><li>Maîtriser les passes lobées pour lancer le jeu</li><li>Développer le sens de l'espace (poteaux, hauteur de cage, ligne de déplacement, placement).</li><li>Associer gardien et défense : le block et l'intervention du gardien s'entraînent comme un système coordonné.</li><li>Faire du gardien le premier attaquant : précision, timing et distance de relance sont des compétences à part entière.</li><li>Ne pas réduire la formation du gardien à recevoir des séries de tirs ; ne pas sacrifier rétropédalage/placement au profit du seul volume d'arrêts ; ne pas sélectionner sur la seule morphologie ; ne pas dissocier trop longtemps le gardien de la défense collective.</li><li>Chaîne de progression : détecter → rétropédaler → se déplacer → sauter → intervenir → se placer → lire → coopérer avec le block → relancer → performer en situation.</li></ul></div><div><span class="section-label" style="background:#4a3285;">🧤 Compétences du gardien</span><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Efficacité situationnelle</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Être capable d'utiliser son sens de l'espace et son placement pour choisir la bonne réponse face à la menace, en lien croissant avec le block défensif.</div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.8;"><li>Sens de l'espace entre les poteaux, hauteur de cage, lignes de déplacement.</li><li>Choix du placement, de la posture et du mode d'intervention selon la menace.</li><li>Tirs libres, tirs après nage, tirs de position.</li><li>Introduction progressive du block et de la collaboration gardien-défense.</li></ul></div></details><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(91,63,166,0.07);"><h3 style="color:#4a3285;">Choisir et faire appliquer une organisation de zone</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p4);">Passer de « je signale » à « je décide ». Tu deviens responsable d'un choix collectif, et tu dois pouvoir le justifier.</div><span class="attendus-bloc-cta" style="color: #4a3285;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
     <div style="background:rgba(141,113,222,0.05);padding:16px;border-radius:8px;border-left:4px solid #8D71DE;">
       <h4 style="color:#4a3285;margin:0 0 8px;font-size:0.88em;">🎯 Ce que tu développes</h4>
@@ -42600,7 +42597,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <p style="font-size:0.95em;color:#555;line-height:1.65;font-style:italic;">La maîtrise des habiletés tactiques individuelles est le prérequis de toute tactique collective. Ces compétences, développées en P2 et P3, doivent être disponibles sous pression et en situation de match réel.</p>
 
     <div style="margin-top:14px;">
-  <div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
+  <div class="jc-section-title" style="background:var(--att);"><img src="Images/emoji-disciplines/Attaque_WP.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> En attaque</div>
   <details class="sd-card">
     <summary class="attendus-bloc-summary">
       <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Transition offensive</h3></div>
@@ -42610,7 +42607,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Identifier dès la fin de la défense les opportunités d'avantage.</li>
             <li>Être capable de maîtriser les positions à 5 contre 4 ou à 6 contre 5.</li>
@@ -42651,7 +42648,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Tenir une organisation identifiée avec une pointe ou avec deux pointes sur plusieurs possessions</li>
             <li>Commencer à exploiter les engagements et les corners avec une stratégie spécifique</li>
@@ -42694,7 +42691,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Maîtriser au moins deux dispositifs (4-2 et 3-3) et savoir lequel est demandé</li>
             <li>Savoir jouer à un poste non-préférentiel</li>
@@ -42740,7 +42737,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Hiérarchiser le repli : contrarier la relance, protéger l'axe, récupérer les côtés</li>
             <li>Identifier immédiatement le joueur à prendre en charge, sans doublon ni oubli</li>
@@ -42782,7 +42779,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Gérer les aides et les changements sur écran sans laisser d'homme libre</li>
             <li>Défendre la position 2m à deux défenseurs directs et une aide sur de la ligne extérieure</li>
@@ -42805,7 +42802,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
       <div class="leviers">
         <h5>🔧 Leviers d'action</h5>
         <ul>
-          <li>6c6 avec système défensif imposé, puis changé sur signal</li>
+          <li>6 contre 6 avec système défensif imposé, puis changé sur signal</li>
           <li>Travail spécifique de l'aide côté faible en 3 contre 3</li>
           <li>Comptage des tirs concédés par zone pour objectiver l'orientation obtenue</li>
         </ul>
@@ -42825,7 +42822,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Maîtriser plusieurs organisations statiques ou agressives (4-2, 3-3, pressing sur un secteur)</li>
             <li>Assurer les mouvements nécessaires à la couverture de sa zone</li>
@@ -43658,7 +43655,7 @@ render();
 #wp-zone-moins .lr { width: 18px; height: 8px; border-radius: 2px; flex-shrink: 0; }
 </style>
 <div class="wp-header">
-  <div class="wp-title">🤽 WATER POLO — Défense en infériorité numérique (5c6)</div>
+  <div class="wp-title">🤽 WATER POLO — Défense en infériorité numérique (5 contre 6)</div>
   <div class="wp-subtitle">Zone adaptée selon la configuration offensive adverse</div>
 </div>
 
@@ -44822,7 +44819,7 @@ render();
                                         <ul style="line-height: 1.8; margin-left: 20px;">
                                             <li><strong>Niveau :</strong> Régional et national</li>
                                             <li><strong>Durée :</strong> Matchs de 4 × 8 minutes (U17) ou 4 × 8 minutes (U20)</li>
-                                            <li><strong>Format :</strong> 7 vs 7 (1 gardien + 6 joueurs de champs). Règles officielles complètes. Championnats régionaux et nationaux.</li>
+                                            <li><strong>Format :</strong> 7 contre 7 (1 gardien + 6 joueurs de champs). Règles officielles complètes. Championnats régionaux et nationaux.</li>
                                         </ul>
                                     </div>
                                 `
@@ -45518,7 +45515,7 @@ render();
     </div>
   </div>
 
-<div class="domain"><div class="domain-head" style="background:linear-gradient(135deg,#92670a,#D59F49);"><h2>🧤 Gardien de but</h2></div><div class="domain-body" style="background:rgba(146,103,10,0.05);"><div style="background:white;border-radius:10px;padding: 20px 20px;margin-bottom: 20px;box-shadow:0 1px 4px rgba(0,0,0,0.07);"><h4 style="margin:0 0 10px;color:var(--p3-dark);font-size:0.95em;">🎯 Principes directeurs</h4><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.75;"><li>Le gardien moderne n'est pas un rôle isolé : il est intégré au système défensif et devient le premier attaquant par la qualité et la rapidité de sa relance.</li><li>Maîtriser les passes directes et rapides pour varier les lancements de jeu</li><li>Choisir progressivement le gardien, sans spécialisation aveugle (observation motrice, morphologie, potentiel, envie).</li><li>Construire d'abord le corps du gardien dans l'eau (rétropédalage, positions, déplacements, coordination) avant la technique d'arrêt.</li><li>Apprendre plusieurs modes d'intervention (attraper, amortir/contrôler, repousser/dévier) et complexifier par étapes (tir direct → latéral → lob/penalty → tirs en situation → avec block → situations collectives).</li><li>Développer le sens de l'espace (poteaux, hauteur de cage, ligne de déplacement, placement).</li><li>Associer gardien et défense : le block et l'intervention du gardien s'entraînent comme un système coordonné.</li><li>Faire du gardien le premier attaquant : précision, timing et distance de relance sont des compétences à part entière.</li><li>Ne pas réduire la formation du gardien à recevoir des séries de tirs ; ne pas sacrifier rétropédalage/placement au profit du seul volume d'arrêts ; ne pas sélectionner sur la seule morphologie ; ne pas dissocier trop longtemps le gardien de la défense collective.</li><li>Chaîne de progression : détecter → rétropédaler → se déplacer → sauter → intervenir → se placer → lire → coopérer avec le block → relancer → performer en situation.</li></ul></div><div><span class="section-label" style="background:#6b4c07;">🧤 Compétences du gardien</span><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Fondations techniques et consolidation</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de construire les fondamentaux moteurs du poste — rétropédalage, déplacements, sauts et modes d'intervention de base — et de les stabiliser sous contrainte.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.8;"><li>Rétropédalage et position fondamentale basse/haute.</li><li>Déplacements latéraux, déplacements verticaux, sauts dans toutes les directions.</li><li>Trois modes d'intervention avec ballon : attraper, amortir/contrôler, repousser.</li><li>Tirs directs et latéraux ; premières situations de supériorité numérique.</li><li>Travail à deux avec résistance (force bras-jambes) ; élargissement aux tirs lob, penalty, déplacement latéral + tir.</li><li>Stabiliser la technique sous contrainte, corriger les mauvaises habitudes.</li></ul></div></details><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Guider le repli défensif</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Le gardien est le seul joueur qui voit tout le terrain devant lui en permanence. Cet avantage de position n'a de valeur que s'il est transformé en information pour les autres.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
+<div class="domain"><div class="domain-head" style="background:linear-gradient(135deg,#92670a,#D59F49);"><h2><img src="Images/emoji-disciplines/Gardien_WP.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Gardien de but</h2></div><div class="domain-body" style="background:rgba(146,103,10,0.05);"><div style="background:white;border-radius:10px;padding: 20px 20px;margin-bottom: 20px;box-shadow:0 1px 4px rgba(0,0,0,0.07);"><h4 style="margin:0 0 10px;color:var(--p3-dark);font-size:0.95em;">🎯 Principes directeurs</h4><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.75;"><li>Le gardien moderne n'est pas un rôle isolé : il est intégré au système défensif et devient le premier attaquant par la qualité et la rapidité de sa relance.</li><li>Maîtriser les passes directes et rapides pour varier les lancements de jeu</li><li>Choisir progressivement le gardien, sans spécialisation aveugle (observation motrice, morphologie, potentiel, envie).</li><li>Construire d'abord le corps du gardien dans l'eau (rétropédalage, positions, déplacements, coordination) avant la technique d'arrêt.</li><li>Apprendre plusieurs modes d'intervention (attraper, amortir/contrôler, repousser/dévier) et complexifier par étapes (tir direct → latéral → lob/penalty → tirs en situation → avec block → situations collectives).</li><li>Développer le sens de l'espace (poteaux, hauteur de cage, ligne de déplacement, placement).</li><li>Associer gardien et défense : le block et l'intervention du gardien s'entraînent comme un système coordonné.</li><li>Faire du gardien le premier attaquant : précision, timing et distance de relance sont des compétences à part entière.</li><li>Ne pas réduire la formation du gardien à recevoir des séries de tirs ; ne pas sacrifier rétropédalage/placement au profit du seul volume d'arrêts ; ne pas sélectionner sur la seule morphologie ; ne pas dissocier trop longtemps le gardien de la défense collective.</li><li>Chaîne de progression : détecter → rétropédaler → se déplacer → sauter → intervenir → se placer → lire → coopérer avec le block → relancer → performer en situation.</li></ul></div><div><span class="section-label" style="background:#6b4c07;">🧤 Compétences du gardien</span><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Fondations techniques et consolidation</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Être capable de construire les fondamentaux moteurs du poste — rétropédalage, déplacements, sauts et modes d'intervention de base — et de les stabiliser sous contrainte.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.8;"><li>Rétropédalage et position fondamentale basse/haute.</li><li>Déplacements latéraux, déplacements verticaux, sauts dans toutes les directions.</li><li>Trois modes d'intervention avec ballon : attraper, amortir/contrôler, repousser.</li><li>Tirs directs et latéraux ; premières situations de supériorité numérique.</li><li>Travail à deux avec résistance (force bras-jambes) ; élargissement aux tirs lob, penalty, déplacement latéral + tir.</li><li>Stabiliser la technique sous contrainte, corriger les mauvaises habitudes.</li></ul></div></details><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(213,159,73,0.08);"><h3 style="color:var(--p3-dark);">Guider le repli défensif</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p3);">Le gardien est le seul joueur qui voit tout le terrain devant lui en permanence. Cet avantage de position n'a de valeur que s'il est transformé en information pour les autres.</div><span class="attendus-bloc-cta" style="color: var(--p3-dark);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
     <div style="background:rgba(213,159,73,0.05);padding:16px;border-radius:8px;border-left:4px solid #D59F49;">
       <h4 style="color:#92670a;margin:0 0 8px;font-size:0.88em;">🎯 Ce que tu développes</h4>
@@ -46029,12 +46026,12 @@ render();
       <p style="font-size:0.95em;color:#555;line-height:1.65;font-style:italic;">Chaque joueur participe au jeu collectif par son comportement dans les différentes phases du jeu. Avant de considérer les projets de jeu et les stratégies, il est essentiel de travailler les intentions de jeu et comment celles-ci servent le collectif.</p>
 
       <!-- ATTAQUE P3 -->
-      <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
+      <div style="margin-top:14px;"><div class="jc-section-title" style="background:var(--att);"><img src="Images/emoji-disciplines/Attaque_WP.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> En attaque</div>
 
         <!-- Contre-attaque -->
         <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Transition offensive<span style="font-size:0.75em;font-weight:400;color:#888;font-style:italic;">— Privilégier les situations jusqu'à 4 contre 3</span></h3></div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
-              <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
+              <div class="r-bloc r-tech"><h5>🤽 Technique / Tactique</h5><ul>
                 <li>Identifier une supériorité numérique claire et la zone du joueur disponible.</li>
                 <li>Se déplacer pour occuper l'espace laissé libre par la défense</li>
                 <li>Prendre immédiatement l'avantage sur son défenseur pour aller vers l'avant et le coeur du jeu</li>
@@ -46061,7 +46058,7 @@ render();
         <!-- Attaque placée -->
         <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
-              <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
+              <div class="r-bloc r-tech"><h5>🤽 Technique / Tactique</h5><ul>
                 <li>Identifier le joueur qui peut avoir un avantage.</li>
                 <li>Identifier les conditions pour créer une situation d'avantage à chaque poste.</li>
                 <li>Occuper le bassin dans la largeur et la profondeur du demi-terrain</li>
@@ -46139,7 +46136,7 @@ render();
         <!-- Zone + -->
         <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Supériorité numérique / Zone +</h3></div><span class="attendus-bloc-cta" style="color: var(--att);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
-              <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
+              <div class="r-bloc r-tech"><h5>🤽 Technique / Tactique</h5><ul>
                 <li>Suite à une exclusion, identifier immédiatement le joueur libre</li>
                 <li>Le joueur libre doit se rendre disponible pour le ballon</li>
                 <li>Proposer une solution de tir depuis une position favorable.</li>
@@ -46154,7 +46151,7 @@ render();
               <div class="jc-item int"><span class="jc-marker" style="color:#aaa;">→</span><span>Porteur de balle : Participer à aggraver le déséquilibre défensif par le choix du joueur et du moment de la passe.</span></div>
             </div>
             <div class="leviers"><h5>🔧 Leviers d'action</h5><ul>
-              <li>Situations 6c5 avec exclusion imposée pour travailler la reconnaissance instantanée</li>
+              <li>Situations 6 contre 5 avec exclusion imposée pour travailler la reconnaissance instantanée</li>
               <li>Chrono imposé sur la phase de supériorité pour forcer la vitesse de décision</li>
             </ul></div>
           </div>
@@ -46170,7 +46167,7 @@ render();
         <!-- Repli défensif -->
         <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Transition défensive</h3></div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
-              <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
+              <div class="r-bloc r-tech"><h5>🤽 Technique / Tactique</h5><ul>
                 <li>Identifier immédiatement, suite à la perte de balle, la position des attaquants et les zones de désavantage.</li>
                 <li>Contrarier la première passe adverse</li>
               </ul></div>
@@ -46196,7 +46193,7 @@ render();
         <!-- Défense placée -->
         <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Défense placée</h3></div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
-              <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
+              <div class="r-bloc r-tech"><h5>🤽 Technique / Tactique</h5><ul>
                 <li>Identifier les conditions d'un pressing ou d'une défense en zone.</li>
                 <li>Au pressing, contrarier la position du joueur et la circulation du ballon</li>
               </ul></div>
@@ -46224,7 +46221,7 @@ render();
         <!-- Zone - -->
         <details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(29,78,216,0.06);"><h3 style="color:var(--def);">Infériorité numérique / Zone –</h3></div><span class="attendus-bloc-cta" style="color: var(--def);"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
             <div class="ressources-grid">
-              <div class="r-bloc r-tech"><h5>🏊 Technique / Tactique</h5><ul>
+              <div class="r-bloc r-tech"><h5>🤽 Technique / Tactique</h5><ul>
                 <li>Identifier quel joueur est exclu et où se situe le déséquilibre.</li>
                 <li>S'assurer que la ligne des 2m est fermée.</li>
               </ul></div>
@@ -47181,7 +47178,7 @@ render();
   </div>
 </div>
 
-<div class="domain"><div class="domain-head" style="background:linear-gradient(135deg,#a0001a,#E2001A);"><h2>🧤 Gardien de but</h2></div><div class="domain-body" style="background:rgba(160,0,26,0.05);"><div style="background:white;border-radius:10px;padding: 20px 20px;margin-bottom: 20px;box-shadow:0 1px 4px rgba(0,0,0,0.07);"><h4 style="margin:0 0 10px;color:#7d0014;font-size:0.95em;">🎯 Principes directeurs</h4><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.75;"><li>Le gardien moderne n'est pas un rôle isolé : il est intégré au système défensif et devient le premier attaquant par la qualité et la rapidité de sa relance.</li><li>Choisir progressivement le gardien, sans spécialisation aveugle (observation motrice, morphologie, potentiel, envie).</li><li>Construire d'abord le corps du gardien dans l'eau (rétropédalage, positions, déplacements, coordination) avant la technique d'arrêt.</li><li>Apprendre plusieurs modes d'intervention (attraper, amortir/contrôler, repousser/dévier) et complexifier par étapes (tir direct → latéral → lob/penalty → tirs en situation → avec block → situations collectives).</li><li>Développer le sens de l'espace (poteaux, hauteur de cage, ligne de déplacement, placement).</li><li>Associer gardien et défense : le block et l'intervention du gardien s'entraînent comme un système coordonné.</li><li>Faire du gardien le premier attaquant : précision, timing et distance de relance sont des compétences à part entière.</li><li>Ne pas réduire la formation du gardien à recevoir des séries de tirs ; ne pas sacrifier rétropédalage/placement au profit du seul volume d'arrêts ; ne pas sélectionner sur la seule morphologie ; ne pas dissocier trop longtemps le gardien de la défense collective.</li><li>Chaîne de progression : détecter → rétropédaler → se déplacer → sauter → intervenir → se placer → lire → coopérer avec le block → relancer → performer en situation.</li></ul></div><div><span class="section-label" style="background:#7d0014;">🧤 Compétences du gardien</span><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Spécialisation haut niveau</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir l'exigence de tous ses fondamentaux et de faire de la relance un temps fort de la transition offensive, au niveau senior.</div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.8;"><li>Maintien de tous les fondamentaux avec une exigence de spécificité accrue (réaction, puissance).</li><li>Tirs avec et sans block, y compris en attaque placée et en situations collectives (supériorité/infériorité numérique, systèmes défensifs combinés).</li><li>Relance comme déclencheur de la transition offensive (précision, timing, distance, choix du côté).</li><li>Individualisation du travail et évaluation du potentiel en vue du niveau senior.</li></ul></div></details><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Piloter les secteurs de tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Le gardien ne subit plus le tir : il organise ce qu'on laisse à l'adversaire. Laisser volontairement un secteur ouvert est une décision, pas une faiblesse.</div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
+<div class="domain"><div class="domain-head" style="background:linear-gradient(135deg,#a0001a,#E2001A);"><h2><img src="Images/emoji-disciplines/Gardien_WP.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> Gardien de but</h2></div><div class="domain-body" style="background:rgba(160,0,26,0.05);"><div style="background:white;border-radius:10px;padding: 20px 20px;margin-bottom: 20px;box-shadow:0 1px 4px rgba(0,0,0,0.07);"><h4 style="margin:0 0 10px;color:#7d0014;font-size:0.95em;">🎯 Principes directeurs</h4><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.75;"><li>Le gardien moderne n'est pas un rôle isolé : il est intégré au système défensif et devient le premier attaquant par la qualité et la rapidité de sa relance.</li><li>Choisir progressivement le gardien, sans spécialisation aveugle (observation motrice, morphologie, potentiel, envie).</li><li>Construire d'abord le corps du gardien dans l'eau (rétropédalage, positions, déplacements, coordination) avant la technique d'arrêt.</li><li>Apprendre plusieurs modes d'intervention (attraper, amortir/contrôler, repousser/dévier) et complexifier par étapes (tir direct → latéral → lob/penalty → tirs en situation → avec block → situations collectives).</li><li>Développer le sens de l'espace (poteaux, hauteur de cage, ligne de déplacement, placement).</li><li>Associer gardien et défense : le block et l'intervention du gardien s'entraînent comme un système coordonné.</li><li>Faire du gardien le premier attaquant : précision, timing et distance de relance sont des compétences à part entière.</li><li>Ne pas réduire la formation du gardien à recevoir des séries de tirs ; ne pas sacrifier rétropédalage/placement au profit du seul volume d'arrêts ; ne pas sélectionner sur la seule morphologie ; ne pas dissocier trop longtemps le gardien de la défense collective.</li><li>Chaîne de progression : détecter → rétropédaler → se déplacer → sauter → intervenir → se placer → lire → coopérer avec le block → relancer → performer en situation.</li></ul></div><div><span class="section-label" style="background:#7d0014;">🧤 Compétences du gardien</span><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Spécialisation haut niveau</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Être capable de maintenir l'exigence de tous ses fondamentaux et de faire de la relance un temps fort de la transition offensive, au niveau senior.</div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body"><ul style="margin:0;padding-left:1.2em;font-size:0.92em;color:#444;line-height:1.8;"><li>Maintien de tous les fondamentaux avec une exigence de spécificité accrue (réaction, puissance).</li><li>Tirs avec et sans block, y compris en attaque placée et en situations collectives (supériorité/infériorité numérique, systèmes défensifs combinés).</li><li>Relance comme déclencheur de la transition offensive (précision, timing, distance, choix du côté).</li><li>Individualisation du travail et évaluation du potentiel en vue du niveau senior.</li></ul></div></details><details class="sd-card"><summary class="attendus-bloc-summary"><div class="sd-head" style="background:rgba(160,0,26,0.07);"><h3 style="color:#7d0014;">Piloter les secteurs de tir</h3></div><div class="enjeu-bloc" style="border-left-color:var(--p5);">Le gardien ne subit plus le tir : il organise ce qu'on laisse à l'adversaire. Laisser volontairement un secteur ouvert est une décision, pas une faiblesse.</div><span class="attendus-bloc-cta" style="color: #7d0014;"><svg width="10" height="7" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span></summary><div class="sd-body">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
     <div style="background:rgba(226,0,26,0.05);padding:16px;border-radius:8px;border-left:4px solid #E2001A;">
       <h4 style="color:#7d0014;margin:0 0 8px;font-size:0.88em;">🎯 Ce qui se développe</h4>
@@ -47589,7 +47586,7 @@ render();
     <p style="font-size:0.95em;color:#555;line-height:1.65;font-style:italic;">Connaître et maîtriser les schémas défensifs et offensifs. Fin de match : stratégies adaptées selon le score (conserver, rattraper, accélérer).</p>
 
     <div style="margin-top:14px;">
-  <div class="jc-section-title" style="background:var(--att);">⚡ En attaque</div>
+  <div class="jc-section-title" style="background:var(--att);"><img src="Images/emoji-disciplines/Attaque_WP.png" style="width:1em;height:1em;object-fit:contain;" alt="" /> En attaque</div>
   <details class="sd-card">
     <summary class="attendus-bloc-summary">
       <div class="sd-head" style="background:rgba(220,38,38,0.06);"><h3 style="color:var(--att);">Attaque placée</h3></div>
@@ -47599,7 +47596,7 @@ render();
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Disposer de plusieurs systèmes éprouvés et passer de l'un à l'autre en cours de possession</li>
             <li>Exploiter un scouting individuel : défenseur en difficulté, joueur chargé en fautes</li>
@@ -47643,7 +47640,7 @@ render();
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Adapter la réponse au type de récupération : arrêt du gardien, interception, sortie de but, remise en jeu rapide</li>
             <li>Enchaîner transition et attaque placée sans rupture de rythme perceptible</li>
@@ -47690,7 +47687,7 @@ render();
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Adapter le dispositif à la zone − adverse identifiée, y compris en cours de possession</li>
             <li>Maîtriser l'exploitation rapide (premières secondes) et l'exploitation construite</li>
@@ -47716,7 +47713,7 @@ render();
       <div class="leviers">
         <h5>🔧 Leviers d'action</h5>
         <ul>
-          <li>6c5 contre des dispositifs défensifs variés, annoncés puis masqués</li>
+          <li>6 contre 5 face à des dispositifs défensifs variés, annoncés puis masqués</li>
           <li>Simulation de supériorité en fin de match avec écart au score imposé</li>
           <li>Suivi du taux de conversion par dispositif, par secteur de tir et par type de défense</li>
         </ul>
@@ -47740,7 +47737,7 @@ render();
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Maîtriser tous les types de pressing, zone et défense mixte en cours de match selon l'efficacité constatée</li>
             <li>Neutraliser un joueur adverse identifié par une défense spécifique ou une aide systématique</li>
@@ -47784,7 +47781,7 @@ render();
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Différencier le repli selon le type de perte : tir contré, interception, faute offensive</li>
             <li>Maintenir la qualité du repli en fin de période et en fin de match comme sur les derniers matchs d'un tournoi</li>
@@ -47829,7 +47826,7 @@ render();
     <div class="sd-body">
       <div class="ressources-grid">
         <div class="r-bloc r-tech">
-          <h5>🏊 Technique / Tactique</h5>
+          <h5>🤽 Technique / Tactique</h5>
           <ul>
             <li>Adapter le dispositif au système de zone + adverse, identifié en amont puis en direct</li>
             <li>Maîtriser des variantes agressives : sauter sur un secteur, sortie sur le tireur privilégié identifié</li>
@@ -47855,7 +47852,7 @@ render();
       <div class="leviers">
         <h5>🔧 Leviers d'action</h5>
         <ul>
-          <li>5c6 contre les dispositifs offensifs réels du prochain adversaire</li>
+          <li>5 contre 6 face aux dispositifs offensifs réels du prochain adversaire</li>
           <li>Travail conjoint gardien / défenseurs organisé par secteur de tir</li>
           <li>Enchaînement systématique infériorité → transition offensive</li>
         </ul>
@@ -63829,7 +63826,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                                {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                    <img src={theme.icon} style={{width: '1em', height: '1em', objectFit: 'contain'}} alt="" />
+                                    : theme.icon
+                                }
+                            </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -63886,7 +63888,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                                {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                    <img src={theme.icon} style={{width: '1em', height: '1em', objectFit: 'contain'}} alt="" />
+                                    : theme.icon
+                                }
+                            </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
@@ -63937,7 +63944,12 @@ function ProfilDeveloppementView() {
                 return (
                     <div className={`subtheme-view period-${period.id}`}>
                         <div className="detail-header">
-                            <div className="icon-xl">{theme.icon}</div>
+                            <div className="icon-xl">
+                                {theme.icon && typeof theme.icon === 'string' && (theme.icon.startsWith('data:image') || /\.(png|jpe?g|svg|gif|webp)$/i.test(theme.icon)) ?
+                                    <img src={theme.icon} style={{width: '1em', height: '1em', objectFit: 'contain'}} alt="" />
+                                    : theme.icon
+                                }
+                            </div>
                             <h1 className="detail-title">{theme.title}</h1>
                             <p className="detail-subtitle">{theme.description}</p>
                         </div>
