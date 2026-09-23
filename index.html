@@ -42923,17 +42923,12 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
 </style>
 <div class="wp-header">
   <div class="wp-title">🤽 WATER POLO — Pressing 1 contre 1</div>
-  <div class="wp-subtitle" id="wpp-sub">Un défenseur par attaquant · collé à son joueur · le défenseur du 6 se place devant lui, côté ballon</div>
+  <div class="wp-subtitle" id="wpp-sub">Un défenseur par attaquant · collé à son joueur · ballon au poste 3</div>
 </div>
 <div class="wpp-tabs">
   <button class="wpp-tab on" id="wpp-tab0">Pressing de base</button>
   <button class="wpp-tab" id="wpp-tab1">Pressing ligne de passe</button>
   <button class="wpp-tab" id="wpp-tab2">Pressing japonais</button>
-</div>
-<div class="carrier-ctrl" id="wpp-ctrl">
-  <button class="carousel-btn" id="wpp-prev">&#8592;</button>
-  <div class="state-val" id="wpp-state">Ballon : joueur 2</div>
-  <button class="carousel-btn" id="wpp-next">&#8594;</button>
 </div>
 <svg class="terrain" id="svg-main" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="wpp-desc" id="wpp-desc"></div>
@@ -43025,10 +43020,10 @@ function passLine(svg,from,to){
 }
 
 // ════════ Version 1 : pressing de base ════════
-var BALLS=[1,2,4,5];
-var bidx=1;
-// +1 : ballon aux postes 1 ou 2 (côté droit) · -1 : postes 4 ou 5 (côté gauche)
-function ballSide(b){ return (b===1||b===2)?1:-1; }
+// Le porteur est fixe au poste 3
+var BALL=3;
+// côté vers lequel le défenseur du 6 se décale : à droite pour un ballon dans l'axe
+function ballSide(b){ return (b===4||b===5)?-1:1; }
 
 function defPressPos(n){
   var a=ATT[n],g=ATT.G;
@@ -43051,7 +43046,7 @@ function drawDef6(svg,ball){
 }
 
 function renderBase(){
-  var ball=BALLS[bidx];
+  var ball=BALL;
   var svg=document.getElementById('svg-main');
   drawField(svg);
   var s6=ATT[6];
@@ -43148,12 +43143,12 @@ function renderJapon(){
 // ════════ Pilotage ════════
 var mode=0;
 var SUB=[
- "Un défenseur par attaquant · collé à son joueur · le défenseur du 6 se place devant lui, côté ballon",
+ "Un défenseur par attaquant · collé à son joueur · ballon au poste 3",
  "La balle est sur l'attaquant 3 · chaque défenseur se place devant son attaquant",
  "Chaque défenseur tourne en permanence autour de son attaquant"
 ];
 var DESC=[
- "Chaque défenseur couvre un attaquant désigné, collé à lui. Le défenseur du 6 se place entre l'attaquant 6 et les autres attaquants, bras autour du 6, le bras côté ballon perpendiculaire à la ligne de passe. Utilisez les flèches pour déplacer le ballon.",
+ "Chaque défenseur couvre un attaquant désigné, collé à lui. Le défenseur du 6 se place entre l'attaquant 6 et les autres attaquants, bras autour du 6, le bras côté ballon perpendiculaire à la ligne de passe. ",
  "La balle est sur l'attaquant 3. Chaque défenseur colle son attaquant en se positionnant devant lui, un bras orienté pour couper la ligne de passe. Le défenseur -6 est entre l'attaquant 6 et l'attaquant 3, collé au 6, tourné vers le 6.",
  "Chaque défenseur tourne en permanence autour de son attaquant."
 ];
@@ -43163,14 +43158,12 @@ function stopTimer(){ if(timer){clearInterval(timer);timer=null;} }
 function render(){
   document.getElementById('wpp-sub').textContent=SUB[mode];
   document.getElementById('wpp-desc').textContent=DESC[mode];
-  document.getElementById('wpp-ctrl').style.display=(mode===0)?'flex':'none';
   document.getElementById('wpp-leg-arm').style.display=(mode===2)?'none':'flex';
   for(var t=0;t<3;t++){
     document.getElementById('wpp-tab'+t).className='wpp-tab'+(t===mode?' on':'');
   }
   stopTimer();
   if(mode===0){
-    document.getElementById('wpp-state').textContent='Ballon : joueur '+BALLS[bidx];
     renderBase();
   } else if(mode===1){
     renderLigne();
@@ -43186,8 +43179,6 @@ function render(){
   }
 }
 
-document.getElementById('wpp-prev').addEventListener('click',function(){bidx=(bidx+BALLS.length-1)%BALLS.length;render();});
-document.getElementById('wpp-next').addEventListener('click',function(){bidx=(bidx+1)%BALLS.length;render();});
 for(var t=0;t<3;t++){
   (function(k){document.getElementById('wpp-tab'+k).addEventListener('click',function(){mode=k;render();});})(t);
 }
@@ -43238,9 +43229,9 @@ render();
   <button class="wpz-tab" id="wpz-tab1">m-Zone</button>
 </div>
 <div class="carrier-ctrl" id="wpz-ctrl">
-  <div class="carrier-lbl">Porteur :</div>
+  <div class="carrier-lbl">Appui :</div>
   <button class="carousel-btn" onclick="prevCarrier()">&#8592;</button>
-  <div class="carrier-val" id="carrier-val">J.1</div>
+  <div class="carrier-val" id="carrier-val">côté 2</div>
   <button class="carousel-btn" onclick="nextCarrier()">&#8594;</button>
 </div>
 <div class="schemas-wrapper" id="wpz-pair">
@@ -43276,7 +43267,7 @@ const Z2X1=148,Z2X2=272,BX1=178,BX2=242,BY=M;
 const ATT={G:[210,22],6:[210,Y2M],1:[355,88],2:[300,150],3:[210,225],4:[120,150],5:[65,88]};
 // Le porteur reste au poste 3 : le carrousel ne fait plus varier que le côté d'appui
 const CARRIERS=['3a','3b'];
-const CARRIER_LABELS={'3a':'J.3 (zone 2/3)','3b':'J.3 (zone 3/4)'};
+const CARRIER_LABELS={'3a':'côté 2','3b':'côté 4'};
 let cidx=0;
 const CONFIG={
   0:{nZone:2},
@@ -43578,11 +43569,6 @@ render();
   <div class="wp-title">🤽 WATER POLO — Défense à deux pointes</div>
   <div class="wp-subtitle">2 attaquants en position 6 · 2 secteurs · couloir central non couvert</div>
 </div>
-<div class="carousel-ctrl">
-  <button class="carousel-btn" onclick="prevDP()">&#8592;</button>
-  <div class="carrier-label">Porteur : <span id="carrier-name-dp">Joueur 1</span></div>
-  <button class="carousel-btn" onclick="nextDP()">&#8594;</button>
-</div>
 <svg class="terrain" id="svg-main-dp" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
@@ -43596,13 +43582,11 @@ render();
 <script>
 const NS='http://www.w3.org/2000/svg';
 
-window.prevDP=prev;window.nextDP=next;
 const W=760,H=460,M=24,Y2M=95,Y5M=210;
 const Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
 const ATT={G:[380,28],'6a':[Z2X2-30,Y2M],'6b':[Z2X1+30,Y2M],1:[660,124],2:[548,222],4:[212,222],5:[100,124]};
-const CARRIERS=[1,2,'6a','6b',4,5];
-const CNAMES={1:'Joueur 1',2:'Joueur 2','6a':'Joueur 6a (poteau droit)','6b':'Joueur 6b (poteau gauche)',4:'Joueur 4',5:'Joueur 5'};
-let cidx=0;
+// Porteur fixe : cette configuration à deux pointes n'a pas de poste 3
+const CARRIER=1;
 
 function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
 function zonerAt50(apex,target){return[apex[0]+(target[0]-apex[0])*.5,apex[1]+(target[1]-apex[1])*.5];}
@@ -43633,8 +43617,7 @@ function drawArrow(svg,x1,y1,x2,y2,color){
 }
 
 function render(){
-  const carrier=CARRIERS[cidx];
-  document.getElementById('carrier-name-dp').textContent=CNAMES[carrier];
+  const carrier=CARRIER;
   const svg=document.getElementById('svg-main-dp');
   svg.innerHTML='';
   const defs=se('defs');
@@ -43720,8 +43703,6 @@ function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
 function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
 function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
 function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
-function prev(){cidx=(cidx-1+CARRIERS.length)%CARRIERS.length;render();}
-function next(){cidx=(cidx+1)%CARRIERS.length;render();}
 render();
 <\/script>
 </div>
@@ -43754,11 +43735,6 @@ render();
   <div class="wp-title">🤽 WATER POLO — Défense en intervalle</div>
   <div class="wp-subtitle">Position dans l'espace de passe · orientation vers att + ballon si porteur proche</div>
 </div>
-<div class="carousel-ctrl">
-  <button class="carousel-btn" onclick="prevIV()">&#8592;</button>
-  <div class="carrier-label">Porteur : <span id="carrier-name-iv">aucun</span></div>
-  <button class="carousel-btn" onclick="nextIV()">&#8594;</button>
-</div>
 <svg class="terrain" id="svg-main-iv" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="legend">
   <div class="legend-item"><div class="ld" style="background:#c62828"></div>Attaque</div>
@@ -43770,13 +43746,11 @@ render();
 <script>
 const NS='http://www.w3.org/2000/svg';
 
-window.prevIV=prev;window.nextIV=next;
 const W=760,H=460,M=24,Y2M=95,Y5M=210;
 const Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
 const ATT={G:[380,28],6:[380,Y2M],1:[660,124],2:[548,222],3:[380,300],4:[212,222],5:[100,124]};
-const CARRIERS=[null,1,2,3,4,5];
-const CNAMES={null:'aucun',1:'Joueur 1',2:'Joueur 2',3:'Joueur 3',4:'Joueur 4',5:'Joueur 5'};
-let cidx=0;
+// Porteur fixe au poste 3
+const CARRIER=3;
 
 function norm(dx,dy){const l=Math.sqrt(dx*dx+dy*dy);return l>0?[dx/l,dy/l]:[0,1];}
 
@@ -43894,8 +43868,7 @@ function drawTri(svg,x,y,label,color,headDir,isCarrier){
 }
 
 function render(){
-  const carrier=CARRIERS[cidx];
-  document.getElementById('carrier-name-iv').textContent=CNAMES[carrier];
+  const carrier=CARRIER;
   const svg=document.getElementById('svg-main-iv');
   svg.innerHTML='';
   const defs=se('defs');
@@ -43964,8 +43937,6 @@ function R(x,y,w,h,a={}){return se('rect',{x,y,width:w,height:h,...a});}
 function C(cx,cy,r,a={}){return se('circle',{cx,cy,r,...a});}
 function L(x1,y1,x2,y2,a={}){return se('line',{x1,y1,x2,y2,...a});}
 function T(x,y,txt,a={}){const t=se('text',{x,y,...a});t.textContent=txt;return t;}
-function prev(){cidx=(cidx-1+CARRIERS.length)%CARRIERS.length;render();}
-function next(){cidx=(cidx+1)%CARRIERS.length;render();}
 render();
 <\/script>
 </div>
@@ -44678,11 +44649,11 @@ render();
 </style>
 <div class="wp-header">
   <div class="wp-title">🤽 WATER POLO — Attaque placée avec pointe</div>
-  <div class="wp-subtitle">Séquence de passes pour déséquilibrer et atteindre att6</div>
+  <div class="wp-subtitle">Ballon au poste 3 · séquence de passes pour déséquilibrer et atteindre att6</div>
 </div>
 <div class="carrier-ctrl">
   <button class="carousel-btn" onclick="prevAP()">&#8592;</button>
-  <div class="state-val" id="state-label-ap">Porteur : Joueur 1</div>
+  <div class="state-val" id="state-label-ap">Relais par le joueur 2</div>
   <button class="carousel-btn" onclick="nextAP()">&#8594;</button>
 </div>
 <svg class="terrain" id="svg-main-ap" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -44756,24 +44727,13 @@ const P={
 
 // Séquences : porteur initial → passes numérotées → passe finale vers 6
 // [from, to, isFinal]
+// Porteur fixe au poste 3 : le carrousel ne change plus que le relais choisi
 const SEQUENCES=[
-  {label:'Porteur : Joueur 1', carrier:1, passes:[
-    [1,2,false,'1'],[2,6,true,'2']
-  ]},
-  {label:'Porteur : Joueur 2', carrier:2, passes:[
-    [2,1,false,'1'],[1,6,true,'2']
-  ]},
-  {label:'Porteur : Joueur 3', carrier:3, passes:[
+  {label:'Relais par le joueur 2', carrier:3, passes:[
     [3,2,false,'1'],[2,6,true,'2']
   ]},
-  {label:'Porteur : Joueur 3 (variante)', carrier:3, passes:[
+  {label:'Relais par le joueur 4', carrier:3, passes:[
     [3,4,false,'1'],[4,6,true,'2']
-  ]},
-  {label:'Porteur : Joueur 4', carrier:4, passes:[
-    [4,5,false,'1'],[5,6,true,'2']
-  ]},
-  {label:'Porteur : Joueur 5', carrier:5, passes:[
-    [5,4,false,'1'],[4,6,true,'2']
   ]},
 ];
 
