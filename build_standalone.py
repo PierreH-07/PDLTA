@@ -2,200 +2,146 @@
 """
 build_standalone.py
 -------------------
-Génère une version autonome de navigation_periodes_athletes.html :
-- JSX pré-compilé (Babel supprimé)
-- React + ReactDOM intégrés
-- Police Prompt (400 + 700) intégrée en base64
-- Aucune dépendance externe — fonctionne sans internet, sur mobile et tablette
+Génère index_compile.html à partir de index.html (qui reste LA source à modifier) :
+- JSX pré-compilé (plus de Babel dans le navigateur)
+- React, ReactDOM et Chart.js intégrés dans le fichier
+- Police Prompt (300, 400, 600, 700) intégrée en base64
+- Aucune dépendance externe : seuls index_compile.html + le dossier Images/ sont nécessaires
 
-PRÉREQUIS (à installer une seule fois dans le terminal VS Code) :
-    npm install -g @babel/core @babel/cli @babel/preset-react @babel/preset-env
-    npm install @fontsource/prompt
+PRÉREQUIS (une seule fois, dans le dossier du projet) :
+    npm install
 
 UTILISATION :
     python3 build_standalone.py
 
 RÉSULTAT :
-    PDLTA.html  (même dossier)
+    index_compile.html  (même dossier, à côté de Images/)
 """
 
+import base64
 import os
 import re
-import base64
 import subprocess
 import sys
 import tempfile
 
 # ── Chemins ──────────────────────────────────────────────────────────────────
-SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
-SOURCE_FILE  = os.path.join(SCRIPT_DIR, "index.html")
-OUTPUT_FILE  = os.path.join(SCRIPT_DIR, "PDLTA.html")
-FONTSOURCE   = os.path.join(SCRIPT_DIR, "node_modules", "@fontsource", "prompt", "files")
+SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
+SOURCE_FILE = os.path.join(SCRIPT_DIR, "index.html")
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index_compile.html")
+NODE_MODULES = os.path.join(SCRIPT_DIR, "node_modules")
 
-# ── 1. Vérifications préalables ───────────────────────────────────────────────
+BABEL_BIN = os.path.join(NODE_MODULES, ".bin", "babel")
+LIBS = {
+    "react":    os.path.join(NODE_MODULES, "react", "umd", "react.production.min.js"),
+    "reactdom": os.path.join(NODE_MODULES, "react-dom", "umd", "react-dom.production.min.js"),
+    "chartjs":  os.path.join(NODE_MODULES, "chart.js", "dist", "chart.umd.min.js"),
+}
+FONT_WEIGHTS = ["300", "400", "600", "700"]  # mêmes graisses que le lien Google Fonts de index.html
+FONT_DIR = os.path.join(NODE_MODULES, "@fontsource", "prompt", "files")
+
+
+def fail(msg):
+    print(f"ERREUR : {msg}")
+    sys.exit(1)
+
+
+def read(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def inline_script(js):
+    # Empêche le navigateur de fermer la balise <script> trop tôt
+    return "<script>" + js.replace("</script", "<\\/script") + "</script>"
+
+
+def replace_once(pattern, repl, text, label):
+    new_text, n = re.subn(pattern, lambda m: repl, text, count=1)
+    if n != 1:
+        fail(f"balise introuvable dans index.html : {label}")
+    return new_text
+
+
+# ── 1. Vérifications ─────────────────────────────────────────────────────────
 print("── Vérification des prérequis ──")
-
 if not os.path.exists(SOURCE_FILE):
-    print(f"ERREUR : fichier source introuvable : {SOURCE_FILE}")
-    sys.exit(1)
+    fail(f"fichier source introuvable : {SOURCE_FILE}")
+missing = [p for p in [BABEL_BIN, *LIBS.values()] if not os.path.exists(p)]
+missing += [os.path.join(FONT_DIR, f"prompt-latin-{w}-normal.woff2") for w in FONT_WEIGHTS
+            if not os.path.exists(os.path.join(FONT_DIR, f"prompt-latin-{w}-normal.woff2"))]
+if missing:
+    print("Fichiers manquants :")
+    for p in missing:
+        print("  -", os.path.relpath(p, SCRIPT_DIR))
+    fail("lancez d'abord : npm install")
+print("  ✓ Babel, React, ReactDOM, Chart.js, police Prompt")
 
-# Babel CLI
-babel_cmd = None
-for candidate in ["babel", os.path.expanduser("~/.npm-global/bin/babel")]:
-    if subprocess.run(["which", candidate], capture_output=True).returncode == 0:
-        babel_cmd = candidate
-        break
-if babel_cmd is None:
-    print("ERREUR : babel CLI non trouvé.")
-    print("  → Installez-le : npm install -g @babel/core @babel/cli @babel/preset-react @babel/preset-env")
-    sys.exit(1)
-print(f"  ✓ Babel : {babel_cmd}")
+content = read(SOURCE_FILE)
+print(f"  Source : {len(content)/1024/1024:.2f} MB")
 
-# React UMD (dans node_modules ou npm global)
-react_candidates = [
-    os.path.join(SCRIPT_DIR, "node_modules", "react", "umd", "react.production.min.js"),
-]
-react_path = next((p for p in react_candidates if os.path.exists(p)), None)
-if react_path is None:
-    print("ERREUR : react non trouvé dans node_modules.")
-    print("  → Installez-le : npm install react@18 react-dom@18")
-    sys.exit(1)
-reactdom_path = react_path.replace("react/umd/react.", "react-dom/umd/react-dom.")
-if not os.path.exists(reactdom_path):
-    print(f"ERREUR : react-dom non trouvé : {reactdom_path}")
-    sys.exit(1)
-print(f"  ✓ React    : {react_path}")
-print(f"  ✓ ReactDOM : {reactdom_path}")
-
-# Fontsource Prompt
-font_400 = os.path.join(FONTSOURCE, "prompt-latin-400-normal.woff2")
-font_700 = os.path.join(FONTSOURCE, "prompt-latin-700-normal.woff2")
-fonts_available = os.path.exists(font_400) and os.path.exists(font_700)
-if not fonts_available:
-    print("  ⚠ Police Prompt non trouvée — la police sera chargée depuis Google Fonts si connecté.")
-    print("    → Pour l'intégrer : npm install @fontsource/prompt")
-else:
-    print(f"  ✓ Prompt 400 : {font_400}")
-    print(f"  ✓ Prompt 700 : {font_700}")
-
-# ── 2. Lecture du source ──────────────────────────────────────────────────────
-print("\n── Lecture du fichier source ──")
-with open(SOURCE_FILE, "r", encoding="utf-8") as f:
-    content = f.read()
-print(f"  Taille : {len(content)/1024/1024:.2f} MB")
-
-# ── 3. Extraction et compilation du JSX ───────────────────────────────────────
+# ── 2. Compilation du JSX ────────────────────────────────────────────────────
 print("\n── Compilation du JSX ──")
 start_tag = '<script type="text/babel">'
-end_tag   = "</script>"
-start_idx = content.index(start_tag) + len(start_tag)
-end_idx   = content.rindex(end_tag)
-jsx_code  = content[start_idx:end_idx]
-print(f"  JSX extrait : {len(jsx_code)/1024:.0f} KB")
+if content.count(start_tag) != 1:
+    fail('il doit y avoir exactement une balise <script type="text/babel">')
+start = content.index(start_tag)
+end = content.index("</script>", start) + len("</script>")
+jsx_code = content[start + len(start_tag):end - len("</script>")]
 
-with tempfile.NamedTemporaryFile(suffix=".jsx", mode="w", encoding="utf-8", delete=False) as tmp_jsx:
-    tmp_jsx.write(jsx_code)
-    tmp_jsx_path = tmp_jsx.name
+with tempfile.TemporaryDirectory() as tmp:
+    src, out = os.path.join(tmp, "app.jsx"), os.path.join(tmp, "app.js")
+    with open(src, "w", encoding="utf-8") as f:
+        f.write(jsx_code)
+    # preset-react seul : le JSX est converti, le reste du code est laissé tel quel
+    result = subprocess.run(
+        [BABEL_BIN, src, "--no-babelrc", "--presets", "@babel/preset-react",
+         "--out-file", out],
+        capture_output=True, text=True, cwd=SCRIPT_DIR,
+    )
+    if result.returncode != 0:
+        fail(f"Babel :\n{result.stderr}")
+    compiled_js = read(out)
+print(f"  JSX {len(jsx_code)/1024:.0f} KB → JS {len(compiled_js)/1024:.0f} KB  ✓")
 
-compiled_path = tmp_jsx_path.replace(".jsx", ".compiled.js")
+output = content[:start] + inline_script(compiled_js) + content[end:]
 
-result = subprocess.run(
-    [babel_cmd, tmp_jsx_path,
-     "--presets", "@babel/preset-react,@babel/preset-env",
-     "--out-file", compiled_path],
-    capture_output=True, text=True
-)
-if result.returncode != 0:
-    print(f"ERREUR Babel :\n{result.stderr}")
-    sys.exit(1)
+# ── 3. Bibliothèques intégrées (remplace les appels CDN) ─────────────────────
+print("\n── Intégration des bibliothèques ──")
+output = replace_once(r'<script[^>]*src="https://unpkg\.com/react@[^"]*"[^>]*></script>',
+                      inline_script(read(LIBS["react"])), output, "React")
+output = replace_once(r'<script[^>]*src="https://unpkg\.com/react-dom@[^"]*"[^>]*></script>',
+                      inline_script(read(LIBS["reactdom"])), output, "ReactDOM")
+output = replace_once(r'<script[^>]*src="https://cdn\.jsdelivr\.net/npm/chart\.js@[^"]*"[^>]*></script>',
+                      inline_script(read(LIBS["chartjs"])), output, "Chart.js")
+output = replace_once(r'[ \t]*<script[^>]*src="https://unpkg\.com/@babel/standalone[^"]*"[^>]*></script>\n?',
+                      "", output, "Babel")
+print("  ✓ React, ReactDOM, Chart.js intégrés ; Babel retiré")
 
-with open(compiled_path, "r", encoding="utf-8") as f:
-    compiled_js = f.read()
-print(f"  JS compilé  : {len(compiled_js)/1024:.0f} KB  ✓")
-
-os.unlink(tmp_jsx_path)
-os.unlink(compiled_path)
-
-# ── 4. Chargement de React et ReactDOM ───────────────────────────────────────
-print("\n── Chargement de React + ReactDOM ──")
-with open(react_path, "r", encoding="utf-8") as f:
-    react_js = f.read()
-with open(reactdom_path, "r", encoding="utf-8") as f:
-    reactdom_js = f.read()
-print(f"  React    : {len(react_js)/1024:.0f} KB")
-print(f"  ReactDOM : {len(reactdom_js)/1024:.0f} KB")
-
-# ── 5. Police Prompt en base64 ────────────────────────────────────────────────
+# ── 4. Police Prompt ─────────────────────────────────────────────────────────
+print("\n── Intégration de la police Prompt ──")
+output = re.sub(r'[ \t]*<link[^>]*href="https://fonts\.(googleapis|gstatic)\.com[^"]*"[^>]*>\n?', "", output)
 font_css = ""
-if fonts_available:
-    print("\n── Intégration de la police Prompt ──")
-    for weight, path in [("400", font_400), ("700", font_700)]:
-        with open(path, "rb") as f:
-            b64 = base64.b64encode(f.read()).decode("utf-8")
-        font_css += (
-            f"@font-face {{\n"
-            f"  font-family: 'Prompt';\n"
-            f"  font-style: normal;\n"
-            f"  font-display: swap;\n"
-            f"  font-weight: {weight};\n"
-            f"  src: url('data:font/woff2;base64,{b64}') format('woff2');\n"
-            f"}}\n"
-        )
-        print(f"  Prompt {weight} : {os.path.getsize(path)/1024:.1f} KB  ✓")
+for w in FONT_WEIGHTS:
+    with open(os.path.join(FONT_DIR, f"prompt-latin-{w}-normal.woff2"), "rb") as f:
+        b64 = base64.b64encode(f.read()).decode("ascii")
+    font_css += ("@font-face{font-family:'Prompt';font-style:normal;font-display:swap;"
+                 f"font-weight:{w};src:url(data:font/woff2;base64,{b64}) format('woff2');}}\n")
+output = output.replace("<head>", f"<head>\n<style>\n{font_css}</style>", 1)
+print(f"  ✓ Graisses {', '.join(FONT_WEIGHTS)}")
 
-# ── 6. Assemblage du fichier final ────────────────────────────────────────────
-print("\n── Assemblage du fichier standalone ──")
-output = content
+# ── 5. Contrôles ─────────────────────────────────────────────────────────────
+print("\n── Contrôles ──")
+external = re.findall(r'<(?:script|link)[^>]*(?:src|href)="https?://[^"]*"', output)
+babel_left = output.count('type="text/babel"')
+print(f"  Scripts/styles externes restants : {len(external)}")
+print(f"  Balises text/babel restantes     : {babel_left}")
+if external or babel_left:
+    fail("le fichier compilé dépend encore de ressources externes")
 
-# Supprimer preconnect et lien Google Fonts
-output = re.sub(
-    r'\s*<link rel="preconnect" href="https://fonts\.googleapis\.com">\s*\n'
-    r'\s*<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>\s*\n'
-    r'\s*<link href="https://fonts\.googleapis\.com[^"]*" rel="stylesheet">\s*\n',
-    "\n",
-    output
-)
-
-# Insérer police inline juste après <head> (si disponible)
-if font_css:
-    output = output.replace("<head>\n", f"<head>\n<style>\n{font_css}</style>\n", 1)
-
-# Remplacer React CDN
-output = output.replace(
-    '<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>',
-    f"<script>{react_js}</script>"
-)
-
-# Remplacer ReactDOM CDN
-output = output.replace(
-    '<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>',
-    f"<script>{reactdom_js}</script>"
-)
-
-# Supprimer Babel CDN
-output = output.replace(
-    '<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>',
-    ""
-)
-
-# Remplacer le bloc JSX par le JS compilé
-start_idx2 = output.index('<script type="text/babel">')
-end_idx2   = output.rindex("</script>") + len("</script>")
-output = output[:start_idx2] + f"<script>{compiled_js}</script>" + output[end_idx2:]
-
-# ── 7. Vérifications finales ──────────────────────────────────────────────────
-remaining_cdn = re.findall(r"https://(unpkg|fonts\.googleapis|cdnjs\.cloudflare)", output)
-remaining_babel = output.count('type="text/babel"')
-print(f"  CDN externes résiduels : {len(remaining_cdn)}")
-print(f"  Balises text/babel     : {remaining_babel}")
-if remaining_cdn or remaining_babel:
-    print("  ⚠ Vérifier manuellement le fichier généré")
-
-# ── 8. Écriture ───────────────────────────────────────────────────────────────
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.write(output)
 
-print(f"\n── Terminé ──")
-print(f"  Fichier source     : {len(content)/1024/1024:.2f} MB")
-print(f"  Fichier standalone : {len(output)/1024/1024:.2f} MB")
-print(f"  → {OUTPUT_FILE}")
+print("\n── Terminé ──")
+print(f"  → {os.path.relpath(OUTPUT_FILE, SCRIPT_DIR)} ({len(output)/1024/1024:.2f} MB)")
+print("  À déployer : index_compile.html (renommé index.html si besoin) + dossier Images/")
