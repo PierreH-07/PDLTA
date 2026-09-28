@@ -2,11 +2,11 @@
 """
 build_standalone.py
 -------------------
-Génère index_compile.html à partir de index.html (qui reste LA source à modifier) :
+Génère index.html (version publiée, GitHub Pages) à partir de index_avant_compile.html (qui reste LA source à modifier) :
 - JSX pré-compilé (plus de Babel dans le navigateur)
 - React, ReactDOM et Chart.js intégrés dans le fichier
 - Police Prompt (300, 400, 600, 700) intégrée en base64
-- Aucune dépendance externe : seuls index_compile.html + le dossier Images/ sont nécessaires
+- Aucune dépendance externe : seuls index.html + le dossier Images/ sont nécessaires
 
 PRÉREQUIS (une seule fois, dans le dossier du projet) :
     npm install
@@ -15,7 +15,7 @@ UTILISATION :
     python3 build_standalone.py
 
 RÉSULTAT :
-    index_compile.html  (même dossier, à côté de Images/)
+    index.html  (même dossier, à côté de Images/)
 """
 
 import base64
@@ -27,8 +27,8 @@ import tempfile
 
 # ── Chemins ──────────────────────────────────────────────────────────────────
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
-SOURCE_FILE = os.path.join(SCRIPT_DIR, "index.html")
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index_compile.html")
+SOURCE_FILE = os.path.join(SCRIPT_DIR, "index_avant_compile.html")
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 NODE_MODULES = os.path.join(SCRIPT_DIR, "node_modules")
 
 BABEL_BIN = os.path.join(NODE_MODULES, ".bin", "babel")
@@ -37,7 +37,7 @@ LIBS = {
     "reactdom": os.path.join(NODE_MODULES, "react-dom", "umd", "react-dom.production.min.js"),
     "chartjs":  os.path.join(NODE_MODULES, "chart.js", "dist", "chart.umd.min.js"),
 }
-FONT_WEIGHTS = ["300", "400", "600", "700"]  # mêmes graisses que le lien Google Fonts de index.html
+FONT_WEIGHTS = ["300", "400", "600", "700"]  # mêmes graisses que le lien Google Fonts de index_avant_compile.html
 FONT_DIR = os.path.join(NODE_MODULES, "@fontsource", "prompt", "files")
 
 
@@ -59,7 +59,7 @@ def inline_script(js):
 def replace_once(pattern, repl, text, label):
     new_text, n = re.subn(pattern, lambda m: repl, text, count=1)
     if n != 1:
-        fail(f"balise introuvable dans index.html : {label}")
+        fail(f"balise introuvable dans index_avant_compile.html : {label}")
     return new_text
 
 
@@ -144,4 +144,4 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
 
 print("\n── Terminé ──")
 print(f"  → {os.path.relpath(OUTPUT_FILE, SCRIPT_DIR)} ({len(output)/1024/1024:.2f} MB)")
-print("  À déployer : index_compile.html (renommé index.html si besoin) + dossier Images/")
+print("  À déployer : index.html + dossier Images/")
