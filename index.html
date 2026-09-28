@@ -19572,6 +19572,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                             <li>Biceps</li>
                                             <li>Capsule postérieure</li>
                                         </ul>
+                                        <a href="#" onclick="event.preventDefault(); window.__pendingEtirementsBloc = 'haut'; document.dispatchEvent(new CustomEvent('navigate-to-theme', {detail: {periodId: 3, themeId: 'athletique', scrollToId: 'p3-attendus'}})); document.dispatchEvent(new CustomEvent('open-etirements', {detail: {bloc: 'haut'}})); return false;" style="display:inline-block; margin-top:8px; font-size:0.88em; color:#2196F3; font-weight:600; text-decoration:underline;">→ Étirements du haut du corps (Formation athlétique)</a>
                                     </div>
 
                                          <h3>🔗 POUR ALLER PLUS LOIN</h3>
@@ -27478,7 +27479,7 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                                             <p style="line-height: 1.8; margin: 0;">
                                                 Pour des conseils concrets sur comment intégrer la préparation physique de haut niveau dans votre
                                                 projet sportif, consultez le bloc
-                                                <a href="#" class="link-to-block" data-block="accompagner"
+                                                <a href="#" class="link-to-block" data-block="accompagner" data-card="besoins-periode-5"
                                                    style="color: #F44336; font-weight: 600; text-decoration: none;">
                                                     👥 "Accompagner"
                                                 </a>
@@ -62781,7 +62782,20 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
         // Lien   : Consommé par ThemeView, sous le bloc "Les étirements en natation" / "Rappels sur les étirements"
         // ============================================================
         function BlocEtirements({ accentColor }) {
-            const [openBloc, setOpenBloc] = useState(null);
+            // Ouverture directe d'un bloc depuis un lien externe (ex: carte Comprendre l'épaule)
+            const [openBloc, setOpenBloc] = useState(() => {
+                const pending = window.__pendingEtirementsBloc || null;
+                window.__pendingEtirementsBloc = null;
+                return pending;
+            });
+            React.useEffect(() => {
+                const handleOpen = (e) => {
+                    window.__pendingEtirementsBloc = null;
+                    setOpenBloc(e.detail?.bloc || null);
+                };
+                document.addEventListener('open-etirements', handleOpen);
+                return () => document.removeEventListener('open-etirements', handleOpen);
+            }, []);
             const EXERCICES = {
                 haut: [
                     {
@@ -66159,6 +66173,17 @@ const disciplineKey = getDisciplineKey(disciplineId);
         document.addEventListener('click', function(e) {
             const b = e.target.closest('.attendus-detail-link');
             if (b) openAttendusDetail(b.getAttribute('data-attendus-id'));
+        });
+
+        // Ancres internes (href="#..."), non gérées par un autre mécanisme :
+        // sans ce garde-fou, le changement de hash déclenche popstate et renvoie à l'accueil.
+        document.addEventListener('click', function(e) {
+            const a = e.target.closest('a[href^="#"]');
+            if (!a || a.hasAttribute('data-card') || a.hasAttribute('onclick')) return;
+            e.preventDefault();
+            const targetId = decodeURIComponent(a.getAttribute('href').slice(1));
+            const target = targetId && document.getElementById(targetId);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
         // Attacher les événements de clic aux boutons de séquences
