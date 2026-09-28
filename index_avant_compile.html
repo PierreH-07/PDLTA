@@ -54021,15 +54021,74 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
         // Rôle   : Composant racine : gère la navigation (state machine sur view/selectedPeriod/selectedDiscipline)
         // Lien   : Monté sur #root par ReactDOM.createRoot
         // ============================================================
+        // ─── Adresses de page (lien partageable, favori, rechargement) ────────────
+        // L'état de navigation est écrit dans l'adresse, ex. #vue=theme&p=3&d=2&t=jeu-collectif
+        // (p = période, d = discipline, t = thème, b = bloc transversal, c = carte, li = logique interne).
+        const NAV_VIEWS = ['home', 'disciplines', 'period', 'theme', 'transversal', 'comprendre', 'comprendre-detail', 'logique-interne'];
+        function hashFromNav(st) {
+            if (!st || !st.view || st.view === 'home') return '';
+            const q = new URLSearchParams();
+            q.set('vue', st.view);
+            if (st.selectedPeriod != null) q.set('p', st.selectedPeriod);
+            if (st.selectedDiscipline != null) q.set('d', st.selectedDiscipline);
+            if (st.selectedTheme) q.set('t', st.selectedTheme);
+            if (st.selectedBlock) q.set('b', st.selectedBlock);
+            if (st.selectedCard) q.set('c', st.selectedCard);
+            if (st.logique != null) q.set('li', st.logique);
+            return '#' + q.toString();
+        }
+        function navFromHash(hash) {
+            if (!hash || hash.indexOf('vue=') < 0) return null;
+            const q = new URLSearchParams(hash.replace(/^#/, ''));
+            const num = (k) => (q.has(k) && !isNaN(Number(q.get(k))) ? Number(q.get(k)) : null);
+            return { view: q.get('vue'), selectedPeriod: num('p'), selectedDiscipline: num('d'), selectedTheme: q.get('t'),
+                     selectedBlock: q.get('b'), selectedCard: q.get('c'), logique: num('li') };
+        }
+        // Reconstruit l'état complet (objets thème / carte) ; une adresse incomplète
+        // ou invalide ramène à la page parente valide la plus proche.
+        function resolveNav(st) {
+            if (!st) return null;
+            let view = NAV_VIEWS.includes(st.view) ? st.view : 'home';
+            let p = st.selectedPeriod != null && periodsData[st.selectedPeriod] ? st.selectedPeriod : null;
+            const d = st.selectedDiscipline ?? null;
+            let theme = null, card = null, cardType = null;
+            if (st.selectedTheme && p != null) {
+                theme = st.selectedTheme === 'competition' && d != null
+                    ? buildCompetitionTheme(d, p)
+                    : resolvePeriodTheme(periodsData[p], d, st.selectedTheme);
+            }
+            if (st.selectedCard) {
+                for (const n of (p != null ? [p, 1, 2, 3, 4, 5] : [1, 2, 3, 4, 5])) {
+                    const cb = periodsData[n]?.transversal?.comprendre;
+                    if (!cb || Array.isArray(cb)) continue;
+                    card = cb.cartes_communes?.find(c => c.id === st.selectedCard) || null;
+                    if (card) { cardType = 'common'; if (p == null) p = n; break; }
+                    card = cb.cartes_disciplines?.find(c => c.id === st.selectedCard) || null;
+                    if (card) { cardType = 'discipline'; if (p == null) p = n; break; }
+                }
+            }
+            if (view === 'theme' && !theme) view = p != null ? 'period' : 'disciplines';
+            if (view === 'comprendre-detail' && !card) view = p != null ? 'comprendre' : 'disciplines';
+            if (view === 'transversal' && !st.selectedBlock) view = 'period';
+            if (['period', 'comprendre', 'transversal'].includes(view) && p == null) view = 'disciplines';
+            if (view === 'logique-interne' && st.logique == null) view = 'disciplines';
+            return { view, selectedPeriod: p, selectedDiscipline: d, selectedTheme: theme, selectedCard: card,
+                     selectedCardType: cardType, selectedBlock: st.selectedBlock ?? null, logique: st.logique ?? null };
+        }
+
         function App() {
-            const [view, setView] = useState('home');
-            const [selectedPeriod, setSelectedPeriod] = useState(null);
-            const [selectedTheme, setSelectedTheme] = useState(null);
-            const [selectedDiscipline, setSelectedDiscipline] = useState(null);
-            const [logiqueInterneDiscipline, setLogiqueInterneDiscipline] = React.useState(null);
-            const [selectedBlock, setSelectedBlock] = useState(null);
-            const [selectedCard, setSelectedCard] = useState(null);
-            const [selectedCardType, setSelectedCardType] = useState(null);
+            // État initial lu dans l'adresse (lien partagé, favori, rechargement)
+            const initNav = React.useRef(undefined);
+            if (initNav.current === undefined) initNav.current = resolveNav(navFromHash(window.location.hash)) || {};
+            const _i = initNav.current;
+            const [view, setView] = useState(_i.view || 'home');
+            const [selectedPeriod, setSelectedPeriod] = useState(_i.selectedPeriod ?? null);
+            const [selectedTheme, setSelectedTheme] = useState(_i.selectedTheme ?? null);
+            const [selectedDiscipline, setSelectedDiscipline] = useState(_i.selectedDiscipline ?? null);
+            const [logiqueInterneDiscipline, setLogiqueInterneDiscipline] = React.useState(_i.logique ?? null);
+            const [selectedBlock, setSelectedBlock] = useState(_i.selectedBlock ?? null);
+            const [selectedCard, setSelectedCard] = useState(_i.selectedCard ?? null);
+            const [selectedCardType, setSelectedCardType] = useState(_i.selectedCardType ?? null);
             const [returnStack, setReturnStack] = useState([]);
 
             const [showScrollTop, setShowScrollTop] = useState(false);
@@ -54202,64 +54261,49 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
             // --- Historique navigateur (bouton retour physique) ---
             // Empile une entrée d'historique à chaque changement de vue, sauf quand ce changement
             // provient lui-même d'un popstate (voir isRestoringFromHistory).
+            const navState = () => ({
+                view, selectedPeriod, selectedDiscipline,
+                selectedTheme: selectedTheme?.id ?? null,
+                selectedCard: selectedCard?.id ?? null,
+                selectedBlock, logique: logiqueInterneDiscipline,
+            });
+            const navUrl = (st) => hashFromNav(st) || (window.location.pathname + window.location.search);
+            const firstHistory = React.useRef(true);
             React.useEffect(() => {
                 if (isRestoringFromHistory.current) {
                     isRestoringFromHistory.current = false;
                     return;
                 }
-                history.pushState(
-                    {
-                        view,
-                        selectedPeriod,
-                        selectedDiscipline,
-                        selectedTheme: selectedTheme?.id,
-                        selectedCard: selectedCard?.id,
-                    },
-                    '',
-                    '#' + view
-                );
+                const st = navState();
+                if (firstHistory.current) {
+                    firstHistory.current = false;
+                    history.replaceState(st, '', navUrl(st));
+                    return;
+                }
+                history.pushState(st, '', navUrl(st));
             }, [view]);
+            // Période, discipline, thème, bloc ou carte qui changent sans changement de vue :
+            // l'adresse est mise à jour sans créer d'entrée d'historique supplémentaire.
+            React.useEffect(() => {
+                if (firstHistory.current) return;
+                const st = navState();
+                history.replaceState(st, '', navUrl(st));
+            }, [selectedPeriod, selectedDiscipline, selectedTheme, selectedBlock, selectedCard, logiqueInterneDiscipline]);
 
             // Restaure l'état React depuis event.state lors d'un retour arrière navigateur
             React.useEffect(() => {
                 const handlePopState = (e) => {
-                    isRestoringFromHistory.current = true;
-                    const state = e.state;
-                    if (!state) {
-                        setView('home');
-                        setSelectedPeriod(null);
-                        setSelectedDiscipline(null);
-                        setSelectedTheme(null);
-                        setSelectedCard(null);
-                        setSelectedCardType(null);
-                        setReturnStack([]);
-                        return;
-                    }
-                    const period = state.selectedPeriod != null ? periodsData[state.selectedPeriod] : null;
-                    let theme = null;
-                    if (state.selectedTheme && period) {
-                        theme = resolvePeriodTheme(period, state.selectedDiscipline, state.selectedTheme);
-                    }
-                    let card = null;
-                    let cardType = null;
-                    if (state.selectedCard && period) {
-                        const comprendreBlock = period.transversal?.comprendre;
-                        if (comprendreBlock) {
-                            card = comprendreBlock.cartes_communes?.find(c => c.id === state.selectedCard);
-                            if (card) {
-                                cardType = 'common';
-                            } else {
-                                card = comprendreBlock.cartes_disciplines?.find(c => c.id === state.selectedCard);
-                                if (card) cardType = 'discipline';
-                            }
-                        }
-                    }
-                    setView(state.view || 'home');
-                    setSelectedPeriod(state.selectedPeriod ?? null);
-                    setSelectedDiscipline(state.selectedDiscipline ?? null);
-                    setSelectedTheme(theme);
-                    setSelectedCard(card ?? null);
-                    setSelectedCardType(cardType);
+                    const r = resolveNav(e.state || navFromHash(window.location.hash)) || { view: 'home' };
+                    if (r.view !== viewRef.current) isRestoringFromHistory.current = true;
+                    setView(r.view || 'home');
+                    setSelectedPeriod(r.selectedPeriod ?? null);
+                    setSelectedDiscipline(r.selectedDiscipline ?? null);
+                    setSelectedTheme(r.selectedTheme ?? null);
+                    setSelectedCard(r.selectedCard ?? null);
+                    setSelectedCardType(r.selectedCardType ?? null);
+                    setSelectedBlock(r.selectedBlock ?? null);
+                    setLogiqueInterneDiscipline(r.logique ?? null);
+                    if (r.view === 'home') setReturnStack([]);
                 };
                 window.addEventListener('popstate', handlePopState);
                 return () => window.removeEventListener('popstate', handlePopState);
