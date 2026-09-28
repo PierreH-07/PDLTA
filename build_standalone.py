@@ -93,9 +93,10 @@ with tempfile.TemporaryDirectory() as tmp:
     src, out = os.path.join(tmp, "app.jsx"), os.path.join(tmp, "app.js")
     with open(src, "w", encoding="utf-8") as f:
         f.write(jsx_code)
-    # preset-react seul : le JSX est converti, le reste du code est laissé tel quel
+    # preset-react : JSX ; preset-env : syntaxe récente (?. ??) convertie pour les
+    # navigateurs listés dans package.json > browserslist (dont Safari/iOS 12+)
     result = subprocess.run(
-        [BABEL_BIN, src, "--no-babelrc", "--presets", "@babel/preset-react",
+        [BABEL_BIN, src, "--no-babelrc", "--presets", "@babel/preset-react,@babel/preset-env",
          "--out-file", out],
         capture_output=True, text=True, cwd=SCRIPT_DIR,
     )
