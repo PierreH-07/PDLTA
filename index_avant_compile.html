@@ -3224,185 +3224,314 @@
                         icon: window.ICONS['onglet-comprendre'],
                         title: "Comprendre",
                         description: "Les mécanismes en jeu à cette période",
-                        mecanismes: [
+                        titre: "Comprendre",
+                        soustitre: "Physiologie, psychologie et apprentissage chez l'enfant de moins de 6 ans",
+                        cartes_communes: [
                             {
-                                type: "Physiques",
-                                icone: "💪",
-                                points: [
-                                    "Développement de la motricité globale",
-                                    "Coordination encore immature",
-                                    "Faible amplitude articulaire",
-                                    "Tonus musculaire en construction",
-                                    "Équilibre en développement"
-                                ]
-                            },
-                            {
-                                type: "Physiologiques",
-                                icone: "🫁",
-                                points: [
-                                    "Capacité respiratoire limitée",
-                                    "Difficultés à bloquer ou contrôler la respiration",
-                                    "Régulation thermique immature (sensibilité au froid)",
-                                    "Réflexes aquatiques encore présents chez les plus jeunes",
-                                    "Flottabilité naturelle variable selon morphologie"
-                                ]
-                            },
-                            {
-                                type: "Cognitifs",
-                                icone: "🧩",
-                                points: [
-                                    "Attention limitée dans le temps (5-10 minutes max)",
-                                    "Pensée concrète (difficulté avec l'abstrait)",
-                                    "Apprentissage par essai-erreur",
-                                    "Mémoire en construction",
-                                    "Difficulté à traiter plusieurs informations simultanément"
-                                ]
-                            },
-                            {
-                                type: "Affectifs",
-                                icone: "❤️",
-                                points: [
-                                    "Émotions intenses et changeantes",
-                                    "Besoin de réassurance constant",
-                                    "Peur de l'inconnu très présente",
-                                    "Importance du lien à l'adulte référent",
-                                    "Sensibilité aux encouragements et valorisations"
-                                ]
-                            },
-                            {
-                                type: "Sociaux",
-                                icone: "👥",
-                                points: [
-                                    "Phase d'égocentrisme (difficulté à partager)",
-                                    "Apprentissage des règles sociales",
-                                    "Jeu parallèle puis collaboratif",
-                                    "Imitation importante (pairs et adultes)",
-                                    "Construction de l'identité au sein du groupe"
-                                ]
-                            }
-                        ],
-                        // NOUVEAU : Approfondissements niveau 3
-                        approfondissements: [
-                            {
-                                id: "appro-archimede",
-                                titre: "La poussée d'Archimède : aspects scientifiques",
+                                id: "caracteristiques-avant-6-ans",
+                                titre: "Les caractéristiques de l'enfant de moins de 6 ans",
+                                icone: "🧒",
+                                description: "Repères physiques, physiologiques, cognitifs, affectifs et sociaux",
                                 contenu: `
+                                    <div style="max-width: 900px; margin: 0 auto;">
+                                    <div style="background: rgba(13, 188, 240, 0.08); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #0DBCF0;">
+                                    <p style="line-height: 1.8; margin: 0; font-size: 1.05em;">Avant 6 ans, l'enfant se développe sur plusieurs plans à la fois. Ces repères aident à comprendre ce qu'il vit dans l'eau et à ajuster la posture de l'adulte.</p>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 25px;">
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2); margin-bottom: 20px;">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">💪 Physiques</h4>
+                                    <ul style="line-height: 1.8; margin-left: 16px;">
+                                    <li>Développement de la motricité globale</li>
+                                    <li>Coordination encore immature</li>
+                                    <li>Faible amplitude articulaire</li>
+                                    <li>Tonus musculaire en construction</li>
+                                    <li>Équilibre en développement</li>
+                                    </ul>
+                                    </div>
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2); margin-bottom: 20px;">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">🫁 Physiologiques</h4>
+                                    <ul style="line-height: 1.8; margin-left: 16px;">
+                                    <li>Capacité respiratoire limitée</li>
+                                    <li>Difficultés à bloquer ou contrôler la respiration</li>
+                                    <li>Régulation thermique immature (sensibilité au froid)</li>
+                                    <li>Réflexes aquatiques encore présents chez les plus jeunes</li>
+                                    <li>Flottabilité naturelle variable selon morphologie</li>
+                                    </ul>
+                                    </div>
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2); margin-bottom: 20px;">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">🧩 Cognitifs</h4>
+                                    <ul style="line-height: 1.8; margin-left: 16px;">
+                                    <li>Attention limitée dans le temps (5-10 minutes max)</li>
+                                    <li>Pensée concrète (difficulté avec l'abstrait)</li>
+                                    <li>Apprentissage par essai-erreur</li>
+                                    <li>Mémoire en construction</li>
+                                    <li>Difficulté à traiter plusieurs informations simultanément</li>
+                                    </ul>
+                                    </div>
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2); margin-bottom: 20px;">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">❤️ Affectifs</h4>
+                                    <ul style="line-height: 1.8; margin-left: 16px;">
+                                    <li>Émotions intenses et changeantes</li>
+                                    <li>Besoin de réassurance constant</li>
+                                    <li>Peur de l'inconnu très présente</li>
+                                    <li>Importance du lien à l'adulte référent</li>
+                                    <li>Sensibilité aux encouragements et valorisations</li>
+                                    </ul>
+                                    </div>
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2); margin-bottom: 20px;">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">👥 Sociaux</h4>
+                                    <ul style="line-height: 1.8; margin-left: 16px;">
+                                    <li>Phase d'égocentrisme (difficulté à partager)</li>
+                                    <li>Apprentissage des règles sociales</li>
+                                    <li>Jeu parallèle puis collaboratif</li>
+                                    <li>Imitation importante (pairs et adultes)</li>
+                                    <li>Construction de l'identité au sein du groupe</li>
+                                    </ul>
+                                    </div>
+                                    </div>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "developpement-0-6-ans",
+                                titre: "Développement de l'enfant de 0 à 6 ans",
+                                icone: "💪",
+                                description: "Des réflexes aux habiletés motrices fondamentales, repères OMS et premiers pas dans l'eau",
+                                contenu: `
+                                    <div style="max-width: 900px; margin: 0 auto;">
+                                    <div style="background: rgba(13, 188, 240, 0.08); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #0DBCF0;">
+                                    <p style="line-height: 1.8; margin: 0; font-size: 1.05em;">De la naissance à 6 ans, l'enfant passe des <strong>mouvements réflexes</strong> aux <strong>habiletés motrices fondamentales</strong> (courir, sauter, lancer, attraper, s'équilibrer). C'est sur ce socle que se construiront toutes les motricités aquatiques. Les écarts entre enfants du même âge sont importants et normaux.</p>
+                                    </div>
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">👶 De 0 à 2 ans : des réflexes aux premiers déplacements</h3>
+                                    <ul style="line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                                    <li><strong>Phase des mouvements réflexes</strong> (jusqu'à 1 an environ) : les mouvements sont involontaires, déclenchés par des stimulations.</li>
+                                    <li><strong>Phase des mouvements rudimentaires</strong> (de la naissance à 2 ans environ) : premiers mouvements volontaires, contrôle de la tête et du tronc, puis se déplacer (ramper, marcher à quatre pattes, marcher).</li>
+                                    </ul>
+                                    <p style="line-height: 1.8; margin-bottom: 10px;">L'OMS a mesuré l'âge d'acquisition de 6 grandes étapes motrices chez 816 enfants de 5 pays. Les fenêtres ci-dessous (1er et 99e percentiles) montrent l'<strong>étendue de la normalité</strong> :</p>
+                                    <div style="overflow-x: auto; margin-bottom: 10px;">
+                                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+                                    <thead><tr><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Étape motrice</th><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Les plus précoces</th><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Les plus tardifs</th></tr></thead>
+                                    <tbody>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">S'asseoir sans aide</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">3,8 mois</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">9,2 mois</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Se tenir debout avec aide</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">4,8 mois</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">11,4 mois</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Marcher à quatre pattes</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">5,2 mois</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">13,5 mois</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Marcher avec aide</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">5,9 mois</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">13,7 mois</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Se tenir debout seul</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">6,9 mois</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">16,9 mois</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Marcher seul</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">8,2 mois</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">17,6 mois</td></tr>
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    <p style="line-height: 1.8; margin-bottom: 25px; color: #555; font-size: 0.95em;">Un enfant peut marcher seul à 8 mois, un autre à 17 mois, et les deux sont dans la norme. Environ 4 % des enfants ne passent jamais par le quatre-pattes.</p>
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">🏃 De 2 à 6 ans : la phase des habiletés motrices fondamentales</h3>
+                                    <p style="line-height: 1.8; margin-bottom: 10px;">Cette phase s'étend de 2 à 7 ans environ. L'enfant acquiert trois familles d'habiletés, d'abord de façon maladroite (amplitude limitée, enchaînements difficiles), puis de plus en plus coordonnée :</p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 25px;">
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2);">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">🚶 Se déplacer</h4>
+                                    <p style="margin: 0; line-height: 1.7;">Marcher, courir, sauter, ramper, grimper</p>
+                                    </div>
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2);">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">🤲 Manipuler</h4>
+                                    <p style="margin: 0; line-height: 1.7;">Lancer, attraper, frapper, donner un coup de pied</p>
+                                    </div>
+                                    <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(13, 188, 240, 0.2);">
+                                    <h4 style="color: #0DBCF0; margin-bottom: 10px;">⚖️ S'équilibrer</h4>
+                                    <p style="margin: 0; line-height: 1.7;">Tenir sur ses appuis, rouler, tourner, s'orienter</p>
+                                    </div>
+                                    </div>
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">🕒 Bouger, dormir, limiter les écrans : les repères de l'OMS</h3>
+                                    <div style="overflow-x: auto; margin-bottom: 10px;">
+                                    <table style="width: 100%; border-collapse: collapse; font-size: 0.93em;">
+                                    <thead><tr><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Âge</th><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Activité physique</th><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Sédentarité et écrans</th><th style="padding: 10px 12px; text-align: left; background: rgba(13, 188, 240, 0.1); color: #0E1655;">Sommeil</th></tr></thead>
+                                    <tbody>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;"><strong>Moins de 1 an</strong></td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Être actif plusieurs fois par jour, de différentes façons, notamment par des jeux au sol ; au moins 30 minutes sur le ventre pour ceux qui ne se déplacent pas encore</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Pas plus d'1 heure d'affilée attaché (poussette, siège) ; écrans non recommandés</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">14 à 17 h (0-3 mois), 12 à 16 h (4-11 mois), siestes comprises</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;"><strong>1 à 2 ans</strong></td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Au moins 180 minutes d'activités physiques variées, quelle que soit l'intensité</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Pas plus d'1 heure d'affilée attaché ; écrans non recommandés à 1 an, pas plus d'1 heure à 2 ans (moins, c'est mieux)</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">11 à 14 h, siestes comprises</td></tr>
+                                    <tr><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;"><strong>3 à 4 ans</strong></td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Au moins 180 minutes, dont au moins 60 minutes d'intensité modérée à soutenue</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">Pas plus d'1 heure d'affilée attaché ; écrans : pas plus d'1 heure (moins, c'est mieux)</td><td style="padding: 10px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top;">10 à 13 h, sieste éventuelle comprise</td></tr>
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    <p style="line-height: 1.8; margin-bottom: 8px; color: #555; font-size: 0.95em;">À partir de 5 ans, l'OMS recommande en moyenne au moins 60 minutes par jour d'activité physique d'intensité modérée à soutenue.</p>
+                                    <p style="line-height: 1.8; margin-bottom: 25px; color: #555; font-size: 0.95em;">La séance aquatique n'est qu'une petite partie de ces 3 heures quotidiennes : le reste se joue dans le jeu libre et les autres activités.</p>
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">💧 Et dans l'eau ?</h3>
+                                    <ul style="line-height: 1.8; margin-left: 20px; margin-bottom: 25px;">
+                                    <li><strong>Avant 1 an :</strong> le nourrisson n'est pas encore capable, sur le plan neurodéveloppemental, de coordonner ses membres pour se propulser. L'Académie américaine de pédiatrie (AAP) considère qu'il n'existe pas de données permettant de recommander des cours de natation avant cet âge.</li>
+                                    <li><strong>À partir de 1 an environ :</strong> les apprentissages aquatiques deviennent bénéfiques et peuvent réduire le risque de noyade. C'est aussi l'âge où l'enfant devient autonome dans ses déplacements, et où le risque d'accès imprévu à l'eau augmente.</li>
+                                    <li><strong>Dès 3 ou 4 ans :</strong> la construction de l'aisance aquatique peut débuter (entrer et sortir seul, s'immerger, flotter, s'orienter, rejoindre le bord).</li>
+                                    <li><strong>À tout âge :</strong> apprendre à évoluer dans l'eau ne rend jamais un enfant « à l'abri de la noyade ». Pour les tout-petits, l'adulte qui surveille doit rester <strong>à portée de bras</strong>.</li>
+                                    </ul>
+                                    
+                                    <div style="background: rgba(255, 152, 0, 0.08); padding: 20px; border-radius: 10px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                    <h4 style="color: #FF9800; margin-bottom: 15px;">⚠️ Ce que ça implique pour l'éducateur</h4>
+                                    <ul style="line-height: 1.8; margin-left: 16px;">
+                                    <li>Comparer un enfant à son propre parcours, pas à celui des autres : les écarts d'âge d'acquisition sont larges et normaux.</li>
+                                    <li>Proposer dans l'eau les familles d'habiletés fondamentales : se déplacer, manipuler (attraper, lancer un objet), s'équilibrer (tourner, rouler, se laisser flotter).</li>
+                                    <li>Considérer la séance aquatique comme une expérience parmi d'autres dans la journée de l'enfant.</li>
+                                    <li>Ne jamais relâcher la surveillance, même lorsque l'enfant progresse.</li>
+                                    </ul>
+                                    </div>
+                                    
+                                    <div style="padding: 20px; background: rgba(13, 188, 240, 0.05); border-radius: 8px; margin-bottom: 20px;">
+                                    <p style="margin: 0 0 6px; font-size: 0.95em; color: #555;">📚 <strong>Sources :</strong></p>
+                                    <ul style="margin: 0; font-size: 0.95em; color: #555; line-height: 1.8; margin-left: 20px;">
+                                    <li><a href="https://cdn.who.int/media/docs/default-source/child-growth/child-growth-standards/indicators/motor-development-milestones/who-motor-development-study-windows-of-achievement-for-six-gross-motor-development-milestones.pdf" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">OMS - WHO Motor Development Study : windows of achievement for six gross motor development milestones (Acta Paediatrica, 2006)</a></li>
+                                    <li><a href="https://www.who.int/news/item/24-04-2019-to-grow-up-healthy-children-need-to-sit-less-and-play-more" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">OMS - Lignes directrices sur l'activité physique, la sédentarité et le sommeil chez les enfants de moins de 5 ans (2019)</a></li>
+                                    <li>D. Gallahue - Modèle des phases du développement moteur (réflexe, rudimentaire, fondamentale, spécialisée)</li>
+                                    <li><a href="https://www.who.int/publications/i/item/9789240015128" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">OMS - Lignes directrices sur l'activité physique et la sédentarité (2020)</a></li>
+                                    <li><a href="https://publications.aap.org/pediatrics/article/143/5/e20190850/37134/Prevention-of-Drowning" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">American Academy of Pediatrics - Prevention of Drowning, Pediatrics (2019)</a></li>
+                                    <li><a href="https://www.sports.gouv.fr/1ere-etape-aisance-aquatique-603" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">Ministère des Sports - 1ère étape : Aisance aquatique</a></li>
+                                    </ul>
+                                    </div>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "poussee-archimede",
+                                titre: "Flotter : la poussée d'Archimède",
+                                icone: "⚖️",
+                                description: "Pourquoi le corps flotte, pourquoi les jambes coulent, et comment l'utiliser en pédagogie",
+                                contenu: `
+                                    <div style="max-width: 900px; margin: 0 auto;">
+                                    <div style="background: rgba(13, 188, 240, 0.08); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #0DBCF0;">
+                                    <p style="line-height: 1.8; margin: 0; font-size: 1.05em;">À cette période, on construit le <strong>corps flottant</strong> sans matériel de flottaison. Comprendre pourquoi un corps flotte, et pourquoi il bascule, permet de choisir les bonnes situations et d'expliquer simplement à l'enfant ce qu'il ressent.</p>
+                                    </div>
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">⚖️ Le principe</h3>
                                     <p><strong>Formule :</strong> F = ρ × V × g</p>
                                     <p>Tout corps plongé dans un fluide reçoit une poussée verticale, dirigée de bas en haut, égale au poids du volume de fluide déplacé.</p>
-                                    <p><strong>Pour les jeunes enfants :</strong></p>
-                                    <ul>
-                                        <li>Plus le corps est volumineux, plus il flotte facilement.</li>
-                                        <li>L'eau "pousse" le corps vers le haut</li>
-                                        <li>En gonflant ses poumons, on augmente son volume et on flotte mieux</li>
-                                        <li>La densité du corps humain (≈1.0) est proche de celle de l'eau, d'où la possibilité de flotter.</li>
+                                    <ul style="line-height: 1.8; margin-left: 20px; margin-bottom: 25px;">
+                                    <li><strong>ρ</strong> : masse volumique de l'eau</li>
+                                    <li><strong>V</strong> : volume du corps immergé (le volume d'eau déplacé)</li>
+                                    <li><strong>g</strong> : accélération de la pesanteur</li>
                                     </ul>
-                                    <p><strong>Applications pédagogiques :</strong></p>
-                                    <ul>
-                                        <li>Faire expérimenter différentes positions (boule, étoile de mer) pour comprendre l'influence du volume</li>
-                                        <li>Comparer la flottabilité avec et sans inspiration profonde.</li>
-                                        <li>Utiliser des objets de densités différentes (balle, pierre) pour illustrer le principe.</li>
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">🫁 Flotter ou couler : une question de densité</h3>
+                                    <ul style="line-height: 1.8; margin-left: 20px; margin-bottom: 15px;">
+                                    <li>La <strong>graisse</strong> est moins dense que l'eau : elle flotte. Les <strong>os</strong> et les <strong>muscles</strong> sont légèrement plus denses que l'eau : ils coulent.</li>
+                                    <li>Après une inspiration, le corps déplace davantage d'eau <strong>sans devenir plus lourd</strong> : la flottaison est plus facile poumons remplis.</li>
+                                    <li>La densité est en moyenne <strong>plus faible chez l'enfant</strong> que chez l'adulte.</li>
                                     </ul>
-                                `,
-                                ressources: [
-                                    { titre: "Expérience : Mesurer la poussée d'Archimède", url: "#experimentation-archimede" }
-                                ]
-                            },
-                            {
-                                id: "appro-respiration",
-                                titre: "La respiration aquatique : mécanismes et apprentissage",
-                                contenu: `
-                                    <p><strong>Mécanismes physiologiques :</strong></p>
+                                    <p style="margin-bottom: 8px;"><strong>Pour les jeunes enfants :</strong></p>
                                     <ul>
-                                        <li><strong>Réflexe d'apnée :</strong> Blocage automatique de la glotte lors de l'immersion du visage</li>
-                                        <li><strong>Bradycardie de plongée :</strong> Ralentissement du rythme cardiaque en immersion</li>
-                                        <li><strong>Redistribution sanguine :</strong> Le sang se concentre vers les organes vitaux</li>
+                                    <li>L'eau "pousse" le corps vers le haut</li>
+                                    <li>En gonflant ses poumons, on augmente son volume et on flotte mieux</li>
+                                    <li>La densité du corps humain (≈1.0) est proche de celle de l'eau, d'où la possibilité de flotter.</li>
                                     </ul>
-                                    <p><strong>Phases d'apprentissage :</strong></p>
-                                    <ol>
-                                        <li><strong>Blocage respiratoire :</strong> Retenir sa respiration hors de l'eau</li>
-                                        <li><strong>Immersion passive :</strong> Mettre le visage dans l'eau en retenant l'air</li>
-                                        <li><strong>Expiration active :</strong> Souffler dans l'eau (bulles)</li>
-                                        <li><strong>Cycle inspiration/expiration :</strong> Coordonner respiration et mouvement</li>
-                                    </ol>
-                                    <p><strong>Erreurs courantes à éviter :</strong></p>
-                                    <ul>
-                                        <li>Forcer l'immersion du visage trop tôt</li>
-                                        <li>Ne pas vérifier que l'enfant expire bien sous l'eau</li>
-                                        <li>Passer trop vite à la respiration latérale en crawl</li>
-                                    </ul>
-                                `,
-                                ressources: [
-                                    { titre: "Article : Physiologie de l'apnée chez l'enfant", url: "#physiologie-apnee" },
-                                    { titre: "Progression pédagogique : De l'apnée à la respiration", url: "#progression-respiration" }
-                                ]
-                            },
-                            {
-                                id: "diversification-sportive",
-                                titre: "Diversification sportive avant 6 ans",
-                                contenu: `
-                                    <h3>👶 Avant 6 ans : Diversité maximale</h3>
-
-                                    <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #4CAF50;">
-                                        <h4 style="color: #4CAF50; margin-bottom: 12px;">🎯 Objectifs à cet âge</h4>
-                                        <ul style="line-height: 1.8; margin-left: 20px;">
-                                            <li><strong>Développer les habiletés motrices fondamentales</strong> : courir, sauter, lancer, attraper, grimper, rouler, tourner.</li>
-                                            <li><strong>Construire la coordination globale</strong> : synchroniser bras et jambes, gérer son équilibre dans différents environnements.</li>
-                                            <li><strong>Varier les environnements</strong> : eau, sol, hauteur, surfaces instables.</li>
-                                            <li><strong>Découvrir par le jeu</strong> : plaisir avant tout, exploration libre et spontanée.</li>
-                                        </ul>
-                                    </div>
-
-                                    <div style="background: rgba(255, 193, 7, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #FFC107;">
-                                        <h4 style="color: #F57C00; margin-bottom: 12px;">🧠 Pourquoi avant 6 ans ?</h4>
-                                        <p style="line-height: 1.8; margin: 0;">
-                                            Avant 6 ans, le <strong>cerveau de l'enfant est en pleine construction des "patterns moteurs" de base</strong>.
-                                            Plus il expérimente de mouvements différents dans des contextes variés, plus son
-                                            <strong>répertoire moteur sera riche</strong>. C'est la période idéale pour bâtir une base solide qui
-                                            servira toute la vie. La spécialisation à cet âge <strong>limite le développement</strong> et
-                                            augmente les risques d'abandon précoce, de blessures et de lassitude.
-                                        </p>
-                                    </div>
-
-                                    <div style="background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #4CAF50;">
-                                        <h4 style="color: #4CAF50; margin-bottom: 12px;">💼 Approche recommandée</h4>
-                                        <p style="line-height: 1.8; margin-bottom: 12px;">
-                                            <strong>Aucune spécialisation.</strong> L'enfant pratique sa discipline aquatique (natation artistique,
-                                            natation course, water-polo, plongeon...) <strong>seulement 1 à 2 fois par semaine</strong>
-                                            (soit 10-20% de son temps d'activité).
-                                        </p>
-                                        <p style="line-height: 1.8; margin: 0;">
-                                            Les <strong>80-90% restants</strong> sont consacrés à la découverte libre d'autres activités :
-                                            gymnastique, danse, jeux collectifs, vélo, parcours moteurs, activités dans la nature, jeux libres, etc.
-                                            <strong>Le plaisir et la variété sont les maîtres-mots.</strong>
-                                        </p>
-                                    </div>
-                                `,
-                                ressources: []
-                            },
-                            {
-                                id: "appro-equilibre",
-                                titre: "L'équilibre et la position du corps dans l'eau",
-                                contenu: `
+                                    
+                                    <h3 style="color: #0DBCF0; border-bottom: 2px solid #0DBCF0; padding-bottom: 8px; margin-bottom: 15px;">🧭 L'équilibre et la position du corps dans l'eau</h3>
                                     <p><strong>Concepts physiques :</strong></p>
                                     <ul>
-                                        <li><strong>Centre de gravité :</strong> Situé au niveau du bassin</li>
-                                        <li><strong>Centre de poussée :</strong> Situé au niveau des poumons (centre du volume)</li>
-                                        <li><strong>Équilibre :</strong> Alignement des deux centres pour une position horizontale</li>
+                                    <li><strong>Centre de gravité :</strong> Situé au niveau du bassin</li>
+                                    <li><strong>Centre de poussée :</strong> Situé au niveau des poumons (centre du volume)</li>
+                                    <li><strong>Équilibre :</strong> Alignement des deux centres pour une position horizontale</li>
                                     </ul>
                                     <p><strong>Pourquoi les débutants ont les jambes qui coulent ?</strong></p>
                                     <p>Le centre de gravité (bassin) est plus bas que le centre de poussée (poumons). Les jambes, plus denses et plus lourdes, ont tendance à couler.</p>
-                                    <p><strong>Solutions pédagogiques :</strong></p>
-                                    <ul>
-                                        <li>Apprendre à "pousser sur l'eau" avec les mains vers le bas pour maintenir les hanches hautes.</li>
-                                        <li>Travailler le gainage pour aligner le corps.</li>
-                                        <li>Utiliser la frite ou planche pour comprendre la position horizontale.</li>
-                                        <li>Battements de jambes pour créer une force ascensionnelle</li>
+                                    <p>Le corps pivote jusqu'à ce que le centre de gravité et le centre de poussée soient <strong>alignés verticalement</strong> : c'est pour cela qu'un enfant allongé immobile voit ses jambes descendre progressivement.</p>
+                                    
+                                    <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin: 25px 0 20px; border-left: 4px solid #4CAF50;">
+                                    <h4 style="color: #4CAF50; margin-bottom: 12px;">🏊 Le lien avec l'aisance aquatique</h4>
+                                    <p style="line-height: 1.8; margin-bottom: 10px;">Les paliers de l'aisance aquatique reposent directement sur ce principe :</p>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                    <li><strong>Palier 1 :</strong> entrer seul dans l'eau, se déplacer en immersion complète (tête sous l'eau) et sortir seul</li>
+                                    <li><strong>Palier 2 :</strong> sauter ou chuter dans l'eau, se laisser remonter, flotter de différentes manières, regagner le bord</li>
+                                    <li><strong>Palier 3 :</strong> entrer dans l'eau par la tête, remonter à la surface, parcourir 10 m en position ventrale tête immergée, flotter sur le dos</li>
                                     </ul>
-                                `,
-                                ressources: [
-                                    { titre: "Schémas : Centre de gravité vs centre de poussée", url: "#schemas-equilibre" },
-                                    { titre: "Exercices : Travail du gainage aquatique", url: "#exercices-gainage" }
-                                ]
+                                    </div>
+                                    
+                                    <div style="background: rgba(255, 152, 0, 0.08); padding: 20px; border-radius: 10px; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+                                    <h4 style="color: #FF9800; margin-bottom: 15px;">⚠️ Ce que ça implique pour l'éducateur</h4>
+                                    <p style="margin-bottom: 8px;"><strong>Applications pédagogiques :</strong></p>
+                                    <ul>
+                                    <li>Faire expérimenter différentes positions (boule, étoile de mer) pour comprendre l'influence du volume</li>
+                                    <li>Comparer la flottabilité avec et sans inspiration profonde.</li>
+                                    <li>Utiliser des objets de densités différentes (balle, pierre) pour illustrer le principe.</li>
+                                    </ul>
+                                    </div>
+                                    
+                                    <div style="padding: 20px; background: rgba(13, 188, 240, 0.05); border-radius: 8px; margin-bottom: 20px;">
+                                    <p style="margin: 0 0 6px; font-size: 0.95em; color: #555;">📚 <strong>Sources :</strong></p>
+                                    <ul style="margin: 0; font-size: 0.95em; color: #555; line-height: 1.8; margin-left: 20px;">
+                                    <li><a href="https://www.sports.gouv.fr/1ere-etape-aisance-aquatique-603" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">Ministère des Sports - 1ère étape : Aisance aquatique</a></li>
+                                    <li><a href="https://coachsci.sdsu.edu/swim/bullets/float36.htm" target="_blank" rel="noopener noreferrer" style="color: #0DBCF0; text-decoration: none;">B. Rushall - Flotation in Swimming, Swimming Science Bulletin n°36 (San Diego State University)</a></li>
+                                    </ul>
+                                    </div>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "respiration-aquatique",
+                                titre: "La respiration aquatique",
+                                icone: "🫁",
+                                description: "Mécanismes physiologiques et étapes d'apprentissage",
+                                contenu: `
+                                    <div style="max-width: 900px; margin: 0 auto;">
+                                    <p><strong>Mécanismes physiologiques :</strong></p>
+                                    <ul>
+                                    <li><strong>Réflexe d'apnée :</strong> Blocage automatique de la glotte lors de l'immersion du visage</li>
+                                    <li><strong>Bradycardie de plongée :</strong> Ralentissement du rythme cardiaque en immersion</li>
+                                    <li><strong>Redistribution sanguine :</strong> Le sang se concentre vers les organes vitaux</li>
+                                    </ul>
+                                    <p><strong>Phases d'apprentissage :</strong></p>
+                                    <ol>
+                                    <li><strong>Blocage respiratoire :</strong> Retenir sa respiration hors de l'eau</li>
+                                    <li><strong>Immersion passive :</strong> Mettre le visage dans l'eau en retenant l'air</li>
+                                    <li><strong>Expiration active :</strong> Souffler dans l'eau (bulles)</li>
+                                    <li><strong>Cycle inspiration/expiration :</strong> Coordonner respiration et mouvement</li>
+                                    </ol>
+                                    <p><strong>Erreurs courantes à éviter :</strong></p>
+                                    <ul>
+                                    <li>Forcer l'immersion du visage trop tôt</li>
+                                    <li>Ne pas vérifier que l'enfant expire bien sous l'eau</li>
+                                    <li>Passer trop vite à la respiration latérale en crawl</li>
+                                    </ul>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "diversification-avant-6-ans",
+                                titre: "Diversification sportive avant 6 ans",
+                                icone: "🌈",
+                                description: "Pourquoi multiplier les expériences motrices avant toute spécialisation",
+                                contenu: `
+                                    <div style="max-width: 900px; margin: 0 auto;">
+                                    <h3>👶 Avant 6 ans : Diversité maximale</h3>
+                                    <div style="background: rgba(76, 175, 80, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #4CAF50;">
+                                    <h4 style="color: #4CAF50; margin-bottom: 12px;">🎯 Objectifs à cet âge</h4>
+                                    <ul style="line-height: 1.8; margin-left: 20px;">
+                                    <li><strong>Développer les habiletés motrices fondamentales</strong> : courir, sauter, lancer, attraper, grimper, rouler, tourner.</li>
+                                    <li><strong>Construire la coordination globale</strong> : synchroniser bras et jambes, gérer son équilibre dans différents environnements.</li>
+                                    <li><strong>Varier les environnements</strong> : eau, sol, hauteur, surfaces instables.</li>
+                                    <li><strong>Découvrir par le jeu</strong> : plaisir avant tout, exploration libre et spontanée.</li>
+                                    </ul>
+                                    </div>
+                                    <div style="background: rgba(255, 193, 7, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #FFC107;">
+                                    <h4 style="color: #F57C00; margin-bottom: 12px;">🧠 Pourquoi avant 6 ans ?</h4>
+                                    <p style="line-height: 1.8; margin: 0;">
+                                    Avant 6 ans, le <strong>cerveau de l'enfant est en pleine construction des "patterns moteurs" de base</strong>.
+                                    Plus il expérimente de mouvements différents dans des contextes variés, plus son
+                                    <strong>répertoire moteur sera riche</strong>. C'est la période idéale pour bâtir une base solide qui
+                                    servira toute la vie. La spécialisation à cet âge <strong>limite le développement</strong> et
+                                    augmente les risques d'abandon précoce, de blessures et de lassitude.
+                                    </p>
+                                    </div>
+                                    <div style="background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #4CAF50;">
+                                    <h4 style="color: #4CAF50; margin-bottom: 12px;">💼 Approche recommandée</h4>
+                                    <p style="line-height: 1.8; margin-bottom: 12px;">
+                                    <strong>Aucune spécialisation.</strong> L'enfant pratique sa discipline aquatique (natation artistique,
+                                    natation course, water-polo, plongeon...) <strong>seulement 1 à 2 fois par semaine</strong>
+                                    (soit 10-20% de son temps d'activité).
+                                    </p>
+                                    <p style="line-height: 1.8; margin: 0;">
+                                    Les <strong>80-90% restants</strong> sont consacrés à la découverte libre d'autres activités :
+                                    gymnastique, danse, jeux collectifs, vélo, parcours moteurs, activités dans la nature, jeux libres, etc.
+                                    <strong>Le plaisir et la variété sont les maîtres-mots.</strong>
+                                    </p>
+                                    </div>
+                                    </div>
+                                `
                             }
                         ]
                     },
@@ -32267,6 +32396,10 @@ ${blocPrerequisHTML('#2196F3', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                 `
             }
         };
+        // P1 garde un format tableau pour ses blocs transversaux : on expose
+        // aussi son bloc Comprendre sous .comprendre, comme pour P2-P5, pour
+        // que ComprendreCardsView et les liens data-card le trouvent.
+        periodsData[1].transversal.comprendre = periodsData[1].transversal.find(b => b.id === 'comprendre');
 
         // ============================================================
         // disciplines
@@ -60071,6 +60204,105 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
         // Lien   : Consommé par LogiqueInterneView
         // ============================================================
         const logiqueInterneData = {
+            1: {
+                color: '#2563EB',
+                colorMid: 'rgba(37,99,235,0.2)',
+                colorLight: 'rgba(37,99,235,0.08)',
+                darkColor: '#1D4ED8',
+                emoji: '🏊',
+                nom: 'Natation course',
+                accroche: 'La natation course, c\'est parcourir une distance fixée le plus vite possible, dans un mode de nage codifié, au sein d\'un milieu qui freine l\'avancement et n\'offre aucun appui fixe.',
+                sections: [
+                    {
+                        id: 'logique-interne',
+                        titre: 'Logique interne de l\'activité',
+                        icone: '🎯',
+                        contenu: `
+                            <p style="line-height:1.8; margin-bottom:16px;">La logique interne de la natation course repose sur une <strong>confrontation au chronomètre</strong> : l'adversaire est présent dans le couloir voisin, mais il n'agit pas sur ma course. La performance est un temps, mesuré au centième de seconde, sur une distance et dans une nage imposées par le règlement.</p>
+                            <p style="line-height:1.8; margin-bottom:16px;">Pour aller vite, le nageur doit résoudre en permanence un double problème : <strong>limiter les résistances</strong> à l'avancement (corps projectile) et <strong>créer des accélérations</strong> en prenant appui sur une eau qui fuit (corps propulseur). La vitesse de nage résulte du produit de l'amplitude (distance parcourue par cycle) et de la fréquence (nombre de cycles par minute).</p>
+                            <p style="line-height:1.8; margin-bottom:20px;">La spécificité de l'activité tient au fait que cette recherche d'efficience se fait en position horizontale, avec une ventilation contrainte par le milieu et par le rythme des bras, et que la course ne se limite pas à la nage : départ, coulées, virages et arrivée en font partie intégrante.</p>
+                            <div style="background:rgba(37,99,235,0.08); border-left:4px solid #2563EB; border-radius:8px; padding: 20px 20px; margin-top: 20px; margin-bottom: 20px;">
+                                <p style="margin:0 0 10px 0; line-height:1.8; font-weight:700; color:#1D4ED8;">Et si on veut aller encore plus loin</p>
+                                <p style="margin:0; line-height:1.8; font-style:italic; color:#444;">Le nageur doit être capable de produire la vitesse la plus élevée possible au moindre coût énergétique, et de répartir son effort sur toute la distance, pour que la vitesse moyenne de sa course soit la plus haute possible.</p>
+                            </div>
+                            <div style="background:rgba(37,99,235,0.08); border-left:4px solid #2563EB; border-radius:8px; padding: 20px 20px; margin-top: 20px; margin-bottom: 20px;">
+                                <p style="margin:0; line-height:1.8; font-style:italic; color:#1D4ED8;">Pour aller plus loin sur le modèle de fonctionnement du nageur :</p>
+                                <a href="#" class="link-to-card" data-card="modele-theorique-nageur" data-type="discipline" style="display:block; margin-top:10px; color:#2563EB; font-weight:600; text-decoration:none;">🧠 Comprendre, Modèle théorique de fonctionnement du nageur</a>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 'discipline-bref',
+                        titre: 'La discipline en bref',
+                        icone: '📌',
+                        contenu: `
+                            <p style="line-height:1.8; margin-bottom:16px;">La natation course se pratique en bassin de <strong>50 m</strong> (grand bassin) ou de <strong>25 m</strong> (petit bassin), chaque nageur évoluant dans son propre couloir. Quatre nages sont codifiées :</p>
+                            <ul style="margin:0; padding-left:20px; line-height:1.9; color:#444;">
+                                <li><strong>Papillon</strong></li>
+                                <li><strong>Dos</strong></li>
+                                <li><strong>Brasse</strong></li>
+                                <li><strong>Nage libre</strong> (le crawl, dans la pratique)</li>
+                            </ul>
+                            <p style="line-height:1.8; margin:16px 0;">Les épreuves vont du 50 m au 1500 m, en individuel (dont le 4 nages, qui enchaîne papillon, dos, brasse et nage libre) et en relais. Leur durée va d'une vingtaine de secondes à environ un quart d'heure au plus haut niveau.</p>
+                            <p style="line-height:1.8; margin:0;">La natation figure au programme des Jeux olympiques depuis la première édition moderne, à Athènes en 1896 ; les épreuves féminines y sont apparues à Stockholm en 1912.</p>
+                        `
+                    },
+                    {
+                        id: 'competition',
+                        titre: 'Une course, comment ça se passe ?',
+                        icone: '🏁',
+                        contenu: `
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">Le départ</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Le départ se fait plongé depuis un plot, sauf en dos où il se prend dans l'eau, face au mur. Un seul faux départ entraîne la disqualification.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">Les coulées</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Après le départ et chaque virage, le nageur peut rester immergé, mais pas indéfiniment : en papillon, en dos et en nage libre, la tête doit avoir crevé la surface au plus tard à 15 m. En brasse, un seul mouvement de bras complet et un seul battement de papillon sont autorisés avant de reprendre la nage.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">Les virages</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Chaque nage a ses règles de virage. En brasse et en papillon, le mur doit être touché avec les deux mains simultanément. En nage libre et en dos, un virage culbute est possible.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">L'arrivée</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Le temps s'arrête au toucher de la plaque de chronométrage électronique, au centième de seconde. Des juges contrôlent la conformité de la nage, des virages et de l'arrivée : une faute entraîne la disqualification.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">Le format</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Selon les compétitions et les distances, les nageurs passent par des séries, puis éventuellement des demi-finales et des finales. Le classement se fait au temps.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 'exigences',
+                        titre: 'Ce qui rend la discipline exigeante',
+                        icone: '⚡',
+                        contenu: `
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">La recherche permanente d'efficience</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">L'eau freine d'autant plus que l'on va vite. Chaque défaut de posture, d'alignement ou d'appui se paie en vitesse et en énergie. La technique n'est jamais acquise une fois pour toutes : elle se reconstruit avec la croissance, la fatigue et l'augmentation de la vitesse.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">La gestion de l'effort et de l'allure</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Du 50 m au 1500 m, les ressources énergétiques sollicitées et la répartition de l'effort changent radicalement. Savoir tenir, accélérer ou répartir sa vitesse sur la distance est une compétence à part entière.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">La précision des parties non nagées</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Départ, coulées, virages et arrivée représentent une part importante du temps de course, surtout en petit bassin. Une coulée trop courte, un virage mal placé ou une arrivée mal ajustée peuvent coûter la place.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">Une ventilation contrainte</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Le nageur ne respire pas quand il veut : la ventilation doit s'intégrer au cycle de nage sans dégrader la posture ni la propulsion.</p>
+                            </div>
+                            <div style="background:white; border-radius:10px; padding:20px; border-left:4px solid #2563EB; margin-bottom:16px;">
+                                <h4 style="color:#1D4ED8; margin:0 0 8px 0; font-size:1em;">Un engagement sur la durée</h4>
+                                <p style="margin:0; line-height:1.7; color:#444;">Les progrès reposent sur un volume de pratique important et sur la répétition, dans un environnement où les repères sensoriels sont pauvres (bruit, vision réduite, absence d'appui fixe). Le nageur doit apprendre à sentir l'eau pour s'en servir.</p>
+                            </div>
+                        `
+                    }
+                ]
+            },
             2: {
                 color: '#F97316',
                 colorMid: 'rgba(249,115,22,0.2)',
