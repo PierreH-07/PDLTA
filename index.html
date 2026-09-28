@@ -339,6 +339,16 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
                 print-color-adjust: exact !important;
             }
         }
+        /* Focus clavier toujours visible (accessibilité) */
+        :focus-visible, [data-kbd]:focus-visible{
+            outline: 3px solid #009EE0;
+            outline-offset: 2px;
+        }
+        /* L'élément focalisé ne passe pas sous le fil d'Ariane fixe */
+        [data-kbd], a[href], button, summary{
+            scroll-margin-top: 140px;
+            scroll-margin-bottom: 40px;
+        }
         /* Les boutons et champs de formulaire n'héritent pas de la police par défaut */
         button, input, select, textarea{
             font-family: inherit;
@@ -51079,7 +51089,9 @@ const rootElement=document.getElementById('root');// Typographie française (H2)
 // appliquée automatiquement à tout le texte affiché (contenus actuels et futurs),
 // y compris quand le mot et la ponctuation sont dans deux éléments différents.
 (function(){const SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,CODE:1,PRE:1};const PONCT=/^[:;!?»]/;const esp=v=>v.replace(/([^\s\u00a0])[ \t\n]+([:;!?»])/g,'$1\u00a0$2');// appliqué deux fois pour les ponctuations qui se suivent (« fait ? » »)
-const inner=v=>esp(esp(v)).replace(/«[ \t\n]+/g,'«\u00a0');const set=(node,v)=>{if(node.nodeValue!==v)node.nodeValue=v;};const run=root=>{const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let prev=null,n;while(n=w.nextNode()){if(!n.parentNode||SKIP[n.parentNode.nodeName]){prev=null;continue;}set(n,inner(n.nodeValue));const v=n.nodeValue;if(prev){const pv=prev.nodeValue;if(/^[ \t\n]+[:;!?»]/.test(v)&&/[^\s\u00a0]$/.test(pv))set(n,v.replace(/^[ \t\n]+/,'\u00a0'));else if(/^[ \t\n]+[:;!?»]/.test(v)&&/[^\s\u00a0][ \t\n]+$/.test(pv)){set(prev,pv.replace(/[ \t\n]+$/,''));set(n,n.nodeValue.replace(/^[ \t\n]+/,'\u00a0'));}else if(PONCT.test(v)&&/^[ \t\n]+$/.test(pv))set(prev,'\u00a0');else if(PONCT.test(v)&&/[^\s\u00a0][ \t\n]+$/.test(pv))set(prev,pv.replace(/[ \t\n]+$/,'\u00a0'));}prev=n;}};let pending=false;const obs=new MutationObserver(()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;run(document.body);obs.takeRecords();});});obs.observe(document.body,{childList:true,subtree:true,characterData:true});})();const root=ReactDOM.createRoot(rootElement);root.render(/*#__PURE__*/React.createElement(App,null));
+const inner=v=>esp(esp(v)).replace(/«[ \t\n]+/g,'«\u00a0');const set=(node,v)=>{if(node.nodeValue!==v)node.nodeValue=v;};const run=root=>{const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let prev=null,n;while(n=w.nextNode()){if(!n.parentNode||SKIP[n.parentNode.nodeName]){prev=null;continue;}set(n,inner(n.nodeValue));const v=n.nodeValue;if(prev){const pv=prev.nodeValue;if(/^[ \t\n]+[:;!?»]/.test(v)&&/[^\s\u00a0]$/.test(pv))set(n,v.replace(/^[ \t\n]+/,'\u00a0'));else if(/^[ \t\n]+[:;!?»]/.test(v)&&/[^\s\u00a0][ \t\n]+$/.test(pv)){set(prev,pv.replace(/[ \t\n]+$/,''));set(n,n.nodeValue.replace(/^[ \t\n]+/,'\u00a0'));}else if(PONCT.test(v)&&/^[ \t\n]+$/.test(pv))set(prev,'\u00a0');else if(PONCT.test(v)&&/[^\s\u00a0][ \t\n]+$/.test(pv))set(prev,pv.replace(/[ \t\n]+$/,'\u00a0'));}prev=n;}};// Accessibilité clavier : tout élément cliquable (curseur « main ») qui n'est pas
+// un lien ou un bouton natif devient atteignable par Tab et activable par Entrée / Espace.
+const NATIF='a[href], button, input, select, textarea, summary, [tabindex], [contenteditable="true"]';const a11y=()=>{for(const el of document.querySelectorAll('#root *, #attendusDetailModal *')){if(el.dataset.kbd||el.matches(NATIF)||el.closest('a[href], button, summary'))continue;if(getComputedStyle(el).cursor!=='pointer')continue;const p=el.parentElement;if(p&&getComputedStyle(p).cursor==='pointer'&&!p.matches('#root'))continue;el.setAttribute('tabindex','0');if(!el.hasAttribute('role'))el.setAttribute('role','button');el.dataset.kbd='1';}};document.addEventListener('keydown',e=>{const t=e.target;if(!t||!t.dataset||!t.dataset.kbd)return;if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){e.preventDefault();t.click();}});let pending=false;const obs=new MutationObserver(()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;run(document.body);a11y();obs.takeRecords();});});obs.observe(document.body,{childList:true,subtree:true,characterData:true});})();const root=ReactDOM.createRoot(rootElement);root.render(/*#__PURE__*/React.createElement(App,null));
 </script>
 </body>
 </html>
