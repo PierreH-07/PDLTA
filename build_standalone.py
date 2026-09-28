@@ -5,7 +5,7 @@ build_standalone.py
 Génère index.html (version publiée, GitHub Pages) à partir de index_avant_compile.html (qui reste LA source à modifier) :
 - JSX pré-compilé (plus de Babel dans le navigateur)
 - React, ReactDOM et Chart.js intégrés dans le fichier
-- Police Prompt (300, 400, 600, 700) intégrée en base64
+- Police Prompt (400, 500, 600, 700 et 400 italique, comme ffnatation.fr) intégrée en base64
 - Aucune dépendance externe : seuls index.html + le dossier Images/ sont nécessaires
 
 PRÉREQUIS (une seule fois, dans le dossier du projet) :
@@ -37,7 +37,7 @@ LIBS = {
     "reactdom": os.path.join(NODE_MODULES, "react-dom", "umd", "react-dom.production.min.js"),
     "chartjs":  os.path.join(NODE_MODULES, "chart.js", "dist", "chart.umd.min.js"),
 }
-FONT_WEIGHTS = ["300", "400", "600", "700"]  # mêmes graisses que le lien Google Fonts de index_avant_compile.html
+FONT_FACES = [("400", "normal"), ("500", "normal"), ("600", "normal"), ("700", "normal"), ("400", "italic")]  # mêmes graisses que le site ffnatation.fr
 FONT_DIR = os.path.join(NODE_MODULES, "@fontsource", "prompt", "files")
 
 
@@ -68,8 +68,8 @@ print("── Vérification des prérequis ──")
 if not os.path.exists(SOURCE_FILE):
     fail(f"fichier source introuvable : {SOURCE_FILE}")
 missing = [p for p in [BABEL_BIN, *LIBS.values()] if not os.path.exists(p)]
-missing += [os.path.join(FONT_DIR, f"prompt-latin-{w}-normal.woff2") for w in FONT_WEIGHTS
-            if not os.path.exists(os.path.join(FONT_DIR, f"prompt-latin-{w}-normal.woff2"))]
+missing += [os.path.join(FONT_DIR, f"prompt-latin-{w}-{st}.woff2") for w, st in FONT_FACES
+            if not os.path.exists(os.path.join(FONT_DIR, f"prompt-latin-{w}-{st}.woff2"))]
 if missing:
     print("Fichiers manquants :")
     for p in missing:
@@ -122,13 +122,13 @@ print("  ✓ React, ReactDOM, Chart.js intégrés ; Babel retiré")
 print("\n── Intégration de la police Prompt ──")
 output = re.sub(r'[ \t]*<link[^>]*href="https://fonts\.(googleapis|gstatic)\.com[^"]*"[^>]*>\n?', "", output)
 font_css = ""
-for w in FONT_WEIGHTS:
-    with open(os.path.join(FONT_DIR, f"prompt-latin-{w}-normal.woff2"), "rb") as f:
+for w, st in FONT_FACES:
+    with open(os.path.join(FONT_DIR, f"prompt-latin-{w}-{st}.woff2"), "rb") as f:
         b64 = base64.b64encode(f.read()).decode("ascii")
-    font_css += ("@font-face{font-family:'Prompt';font-style:normal;font-display:swap;"
+    font_css += (f"@font-face{{font-family:'Prompt';font-style:{st};font-display:swap;"
                  f"font-weight:{w};src:url(data:font/woff2;base64,{b64}) format('woff2');}}\n")
 output = output.replace("<head>", f"<head>\n<style>\n{font_css}</style>", 1)
-print(f"  ✓ Graisses {', '.join(FONT_WEIGHTS)}")
+print(f"  ✓ Graisses {', '.join(w + (' italique' if st == 'italic' else '') for w, st in FONT_FACES)}")
 
 # ── 5. Contrôles ─────────────────────────────────────────────────────────────
 print("\n── Contrôles ──")
