@@ -1235,6 +1235,11 @@
             font-size: 3em;
             margin-bottom: 15px;
             text-align: center;
+        }.card-icon img, .comprendre-detail-icon img{
+            width: 1em;
+            height: 1em;
+            object-fit: contain;
+            vertical-align: middle;
         }.card-description{
             color: #666;
             font-size: 1rem;
@@ -53069,6 +53074,12 @@ renderCommun(); renderA(); renderB();
         // Rôle   : Grille de sélection des cartes "Comprendre" (communes + spécifiques discipline)
         // Lien   : Rendu par App sur view==="comprendre" ; déclenche ComprendreCardDetailView
         // ============================================================
+        // Icône d'une carte Comprendre : picto maison (champ icon) sinon émoji (champ icone)
+        function renderCarteIcon(carte) {
+            if (typeof carte.icon === 'string' && /\.(png|jpe?g|svg|gif|webp)$/i.test(carte.icon)) return <img src={carte.icon} alt="" />;
+            return carte.icone;
+        }
+
         function ComprendreCardsView({ block, period, onCardClick, disciplineId }) {
             // Protection : période sans bloc Comprendre (évite une page blanche)
             if (!block || !period) {
@@ -53114,7 +53125,7 @@ renderCommun(); renderA(); renderB();
                                         onClick={() => onCardClick(carte, 'common')}
                                     >
                                         <span className="card-badge">COMMUN</span>
-                                        <div className="card-icon">{carte.icone}</div>
+                                        <div className="card-icon">{renderCarteIcon(carte)}</div>
                                         <h3 className="card-title">{carte.titre}</h3>
                                         <p className="card-description">{carte.description}</p>
                                     </div>
@@ -53144,7 +53155,7 @@ renderCommun(); renderA(); renderB();
                                         onClick={() => onCardClick(carte, 'discipline')}
                                     >
                                         <span className="card-badge">{disciplineBadges[disciplineId] || "DISC"}</span>
-                                        <div className="card-icon">{carte.icone}</div>
+                                        <div className="card-icon">{renderCarteIcon(carte)}</div>
                                         <h3 className="card-title">{carte.titre}</h3>
                                         <p className="card-description">{carte.description}</p>
                                     </div>
@@ -53780,7 +53791,7 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
             return (
                 <div className={`comprendre-detail-view period-${period.id}`} style={{'--card-color': cardColor}}>
                     <div className="comprendre-detail-header">
-                        <div className="comprendre-detail-icon">{carte.icone}</div>
+                        <div className="comprendre-detail-icon">{renderCarteIcon(carte)}</div>
                         <div className="comprendre-detail-badge">{badgeText}</div>
                         <h1 className="comprendre-detail-title">{carte.titre}</h1>
                     </div>
