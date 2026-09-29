@@ -52509,11 +52509,26 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
             detail: {
                 periodId: targetPeriodId,
                 disciplineId: selectedDiscipline,
-                themeId: selectedTheme.id,
+                themeId: sameThemeIdIn(targetPeriodId, selectedTheme.id) ?? selectedTheme.id,
             }
         })
     );
 };
+            // Thèmes équivalents d'une période à l'autre quand l'identifiant diffère
+            // (plongeon : les thématiques spécifiques de P2 correspondent aux « Attendus techniques » de P3 à P5)
+            const THEME_EQUIVALENTS = {
+                plongeon: {
+                    'chandelles-entrees': 'attendus-techniques',
+                    'plongeons-codifies': 'attendus-techniques',
+                    'attendus-techniques': 'plongeons-codifies',
+                },
+            };
+            const sameThemeIdIn = (periodNum, themeId) => {
+                const period = periodsData[periodNum];
+                if (resolvePeriodTheme(period, selectedDiscipline, themeId)) return themeId;
+                const alt = THEME_EQUIVALENTS[getDisciplineKey(selectedDiscipline)]?.[themeId];
+                return alt && resolvePeriodTheme(period, selectedDiscipline, alt) ? alt : null;
+            };
             const showPeriodNav = (view === 'theme' || view === 'transversal' || view === 'period') && selectedPeriod;
 
             const navigateToPeriod = (targetPeriodId) => {
@@ -52531,7 +52546,7 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
                     if (!isThemeNav) return true;
                     const periodNum = Number(pid);
                     if (periodNum === selectedPeriod) return true;
-                    return !!resolvePeriodTheme(periodsData[periodNum], selectedDiscipline, selectedTheme.id);
+                    return !!sameThemeIdIn(periodNum, selectedTheme.id);
                 });
                 if (entries.length < 2) return null;
 
@@ -54483,6 +54498,27 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
                         detailDescription: plgObjectives.techniquePlongeon.detailDescription,
                         specificTo: 'plongeon',
                         details: { contenuSpecifique: plgObjectives.techniquePlongeon.contenuSpecifique }
+                    };
+                }
+                // Période 2 : thématiques « Chandelles et entrées » et « Plongeons codifiés » (mêmes objets que dans la liste des thèmes)
+                if (themeId === 'chandelles-entrees' && plgObjectives?.chandellesEntrees) {
+                    return {
+                        id: 'chandelles-entrees',
+                        icon: window.ICONS['plg-depart-feminin'],
+                        title: plgObjectives.chandellesEntrees.titre || "Chandelles et entrées",
+                        detailDescription: plgObjectives.chandellesEntrees.description || "Progression du bord au tremplin 3m",
+                        specificTo: 'plongeon',
+                        details: { contenuSpecifique: plgObjectives.chandellesEntrees.contenuSpecifique }
+                    };
+                }
+                if (themeId === 'plongeons-codifies' && plgObjectives?.plongeonsCodifies) {
+                    return {
+                        id: 'plongeons-codifies',
+                        icon: window.ICONS['plg-position-groupee'],
+                        title: plgObjectives.plongeonsCodifies.titre || "Plongeons codifiés",
+                        detailDescription: plgObjectives.plongeonsCodifies.description || "Apprentissage des plongeons de base",
+                        specificTo: 'plongeon',
+                        details: { contenuSpecifique: plgObjectives.plongeonsCodifies.contenuSpecifique }
                     };
                 }
                 return null;
