@@ -6,7 +6,7 @@ Génère index.html (version publiée, GitHub Pages) à partir de index_avant_co
 - JSX pré-compilé (plus de Babel dans le navigateur)
 - React, ReactDOM et Chart.js intégrés dans le fichier
 - Police Prompt (400, 500, 600, 700 et 400 italique, comme ffnatation.fr) intégrée en base64
-- Aucune dépendance externe : seuls index.html + le dossier Images/ sont nécessaires
+- Aucune dépendance externe : seuls index.html + le dossier images/ sont nécessaires
 
 PRÉREQUIS (une seule fois, dans le dossier du projet) :
     npm install
@@ -15,7 +15,7 @@ UTILISATION :
     python3 build_standalone.py
 
 RÉSULTAT :
-    index.html  (même dossier, à côté de Images/)
+    index.html  (même dossier, à côté de images/)
 """
 
 import base64
@@ -93,9 +93,10 @@ with tempfile.TemporaryDirectory() as tmp:
     src, out = os.path.join(tmp, "app.jsx"), os.path.join(tmp, "app.js")
     with open(src, "w", encoding="utf-8") as f:
         f.write(jsx_code)
-    # preset-react seul : le JSX est converti, le reste du code est laissé tel quel
+    # preset-react : JSX ; preset-env : syntaxe récente (?. ??) convertie pour les
+    # navigateurs listés dans package.json > browserslist (dont Safari/iOS 12+)
     result = subprocess.run(
-        [BABEL_BIN, src, "--no-babelrc", "--presets", "@babel/preset-react",
+        [BABEL_BIN, src, "--no-babelrc", "--presets", "@babel/preset-react,@babel/preset-env",
          "--out-file", out],
         capture_output=True, text=True, cwd=SCRIPT_DIR,
     )
@@ -144,4 +145,4 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
 
 print("\n── Terminé ──")
 print(f"  → {os.path.relpath(OUTPUT_FILE, SCRIPT_DIR)} ({len(output)/1024/1024:.2f} MB)")
-print("  À déployer : index.html + dossier Images/")
+print("  À déployer : index.html + dossier images/")
