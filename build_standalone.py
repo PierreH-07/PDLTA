@@ -6,7 +6,7 @@ Génère index.html (version publiée, GitHub Pages) à partir de index_avant_co
 - JSX pré-compilé (plus de Babel dans le navigateur)
 - React, ReactDOM et Chart.js intégrés dans le fichier
 - Police Prompt (400, 500, 600, 700 et 400 italique, comme ffnatation.fr) intégrée en base64
-- Aucune dépendance externe : seuls index.html + le dossier Images/ sont nécessaires
+- Aucune dépendance externe : seuls index.html + le dossier images/ sont nécessaires
 
 PRÉREQUIS (une seule fois, dans le dossier du projet) :
     npm install
@@ -15,7 +15,7 @@ UTILISATION :
     python3 build_standalone.py
 
 RÉSULTAT :
-    index.html  (même dossier, à côté de Images/)
+    index.html  (même dossier, à côté de images/)
 """
 
 import base64
@@ -145,4 +145,4 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
 
 print("\n── Terminé ──")
 print(f"  → {os.path.relpath(OUTPUT_FILE, SCRIPT_DIR)} ({len(output)/1024/1024:.2f} MB)")
-print("  À déployer : index.html + dossier Images/")
+print("  À déployer : index.html + dossier images/")
