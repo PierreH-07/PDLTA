@@ -40576,16 +40576,22 @@ function renderLigne(){
   armWrap(svg,d6[0],d6[1],s6,1);
   armWrap(svg,d6[0],d6[1],s6,-1);
   drawBody(svg,d6[0],d6[1],'-6','#0d47a1',[-u6[0],-u6[1]]);
-  // Défenseurs 1, 2, 4 et 5 : devant leur attaquant, bras tendu sur la ligne de passe
+  // Défenseurs 1, 2, 4 et 5 : devant leur attaquant, un peu à l'intérieur du jeu
+  // (côté but) ; c'est le bras qui vient se placer perpendiculairement à la ligne de passe
   var postes=[1,2,4,5];
   for(var p=0;p<postes.length;p++){
     var n=postes[p], an=ATT[n];
     var u=norm(bp[0]-an[0],bp[1]-an[1]);
-    var dp=[an[0]+u[0]*DPRESS, an[1]+u[1]*DPRESS];
+    // perpendiculaire à la ligne de passe, orientée vers le but
+    var nv=[-u[1],u[0]];
+    if(nv[0]*(ATT.G[0]-an[0])+nv[1]*(ATT.G[1]-an[1])<0) nv=[u[1],-u[0]];
+    var dp=[an[0]+u[0]*26+nv[0]*26, an[1]+u[1]*26+nv[1]*26];
+    var look=norm(an[0]-dp[0],an[1]-dp[1]);
     // bras arrière : contact avec son attaquant
-    svg.appendChild(L(dp[0]-u[0]*11,dp[1]-u[1]*11,an[0]-u[0]*4,an[1]-u[1]*4,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
-    armReach(svg,dp[0],dp[1],u,40);
-    drawBody(svg,dp[0],dp[1],'-'+n,'#0d47a1',[-u[0],-u[1]]);
+    svg.appendChild(L(dp[0]+look[0]*11,dp[1]+look[1]*11,an[0]-look[0]*4,an[1]-look[1]*4,{stroke:'#c4956a','stroke-width':'3.5','stroke-linecap':'round'}));
+    // bras perpendiculaire à la ligne de passe, la main la traverse
+    armReach(svg,dp[0],dp[1],[-nv[0],-nv[1]],36);
+    drawBody(svg,dp[0],dp[1],'-'+n,'#0d47a1',look);
   }
   // Défenseur du porteur : entre l'attaquant 3 et le but
   var d3=defPressPos(3);
