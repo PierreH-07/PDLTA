@@ -40407,6 +40407,7 @@ ${blocPrerequisHTML('#0DBCF0', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
   <div class="legend-item"><div class="ld" style="background:#0d47a1"></div>Défense 1 contre 1</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item" id="wpp-leg-arm"><div class="ld" style="background:#F97316"></div>Bras qui coupe la ligne de passe</div>
+  <div class="legend-item" id="wpp-leg-jambes"><div class="lr" style="background:transparent;border-top:2.5px solid #e879f9;border-bottom:2.5px solid #e879f9;border-radius:0;height:9px"></div>Jambes</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
 <script>
@@ -40476,7 +40477,7 @@ function drawBody(svg,x,y,label,color,headDir){
 function jambes(svg,x,y,dir,r){
   var d=norm(dir[0],dir[1]), px=-d[1], py=d[0], e=4, l1=r-2, l2=r+15;
   for(var s=-1;s<=1;s+=2){
-    svg.appendChild(L(x+d[0]*l1+px*e*s,y+d[1]*l1+py*e*s,x+d[0]*l2+px*e*s,y+d[1]*l2+py*e*s,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+    svg.appendChild(L(x+d[0]*l1+px*e*s,y+d[1]*l1+py*e*s,x+d[0]*l2+px*e*s,y+d[1]*l2+py*e*s,{stroke:'#e879f9','stroke-width':'3','stroke-linecap':'round'}));
   }
 }
 
@@ -40642,6 +40643,7 @@ function render(){
   document.getElementById('wpp-sub').textContent=SUB[mode];
   document.getElementById('wpp-desc').textContent=DESC[mode];
   document.getElementById('wpp-leg-arm').style.display=(mode===2)?'none':'flex';
+  document.getElementById('wpp-leg-jambes').style.display=(mode===2)?'none':'flex';
   for(var t=0;t<3;t++){
     document.getElementById('wpp-tab'+t).className='wpp-tab'+(t===mode?' on':'');
   }
@@ -40728,6 +40730,7 @@ render();
   <div class="legend-item" id="wpz-leg-hh"><div class="ld" style="background:#0d47a1"></div>Défenseur en individuel</div>
   <div class="legend-item"><div class="ld" style="background:#2e7d32"></div>Gardien</div>
   <div class="legend-item" id="wpz-leg-arm"><div class="ld" style="background:#F97316"></div>Bras sur la ligne de passe</div>
+  <div class="legend-item" id="wpz-leg-jambes"><div class="lr" style="background:transparent;border-top:2.5px solid #e879f9;border-bottom:2.5px solid #e879f9;border-radius:0;height:9px"></div>Jambes</div>
   <div class="legend-item" id="wpz-leg-m" style="display:none;"><div class="lr" style="background:transparent;border-top:2px dashed #F97316"></div>Le M : -5, -4, att6, -2, -1</div>
   <div class="legend-item"><div class="lr" style="background:rgba(255,82,82,0.15);border:1.5px dashed #ff5252"></div>Zone 2m</div>
 </div>
@@ -40814,7 +40817,7 @@ var zkey='2-3';
 function jambes(svg,x,y,dir,r){
   var d=norm(dir[0],dir[1]), px=-d[1], py=d[0], e=4, l1=r-2, l2=r+15;
   for(var s=-1;s<=1;s+=2){
-    svg.appendChild(L(x+d[0]*l1+px*e*s,y+d[1]*l1+py*e*s,x+d[0]*l2+px*e*s,y+d[1]*l2+py*e*s,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+    svg.appendChild(L(x+d[0]*l1+px*e*s,y+d[1]*l1+py*e*s,x+d[0]*l2+px*e*s,y+d[1]*l2+py*e*s,{stroke:'#e879f9','stroke-width':'3','stroke-linecap':'round'}));
   }
 }
 
@@ -40969,6 +40972,7 @@ function render(){
   document.getElementById('wpz-m').style.display=(zmode===1)?'block':'none';
   document.getElementById('wpz-leg-hh').style.display=(zmode===0)?'flex':'none';
   document.getElementById('wpz-leg-arm').style.display=(zmode===0)?'flex':'none';
+  document.getElementById('wpz-leg-jambes').style.display=(zmode===0)?'flex':'none';
   document.getElementById('wpz-leg-m').style.display=(zmode===1)?'flex':'none';
   document.getElementById('wpz-sub').textContent=(zmode===0)
     ?"Une intention des défenseurs : couvrir un secteur pour déplacer le jeu de l'autre côté · porteur au poste 3"
@@ -41272,13 +41276,15 @@ function drawField(svg){
   svg.appendChild(R(BX1+4,BY+4,BX2-BX1-8,16,{fill:'rgba(255,255,255,0.15)'}));
 }
 
-function drawTri(svg,x,y,label,color,headDir,isCarrier){
+// eyeDir (facultatif) : direction du regard, distincte de l'orientation du corps (headDir)
+function drawTri(svg,x,y,label,color,headDir,isCarrier,eyeDir){
   var hx=headDir[0],hy=headDir[1],sx=-hy,sy=hx,r=11,arm=20,spread=12;
   var g=se('g',{transform:'translate('+x+','+y+')'});
   g.appendChild(se('circle',{cx:'0',cy:'0',r:String(r),fill:'#ffccbc',stroke:color,'stroke-width':'2.2'}));
   g.appendChild(L(sx*r,sy*r,sx*(r+spread)+hx*arm,sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
   g.appendChild(L(-sx*r,-sy*r,-sx*(r+spread)+hx*arm,-sy*(r+spread)+hy*arm,{stroke:'#c4956a','stroke-width':'3.2','stroke-linecap':'round'}));
-  g.appendChild(se('polygon',{points:(hx*(r+7))+','+(hy*(r+7))+' '+(sx*5-hx*3)+','+(sy*5-hy*3)+' '+(-sx*5-hx*3)+','+(-sy*5-hy*3),fill:color,opacity:'0.75'}));
+  var ex=eyeDir?eyeDir[0]:hx, ey=eyeDir?eyeDir[1]:hy, qx=-ey, qy=ex;
+  g.appendChild(se('polygon',{points:(ex*(r+7))+','+(ey*(r+7))+' '+(qx*5-ex*3)+','+(qy*5-ey*3)+' '+(-qx*5-ex*3)+','+(-qy*5-ey*3),fill:color,opacity:'0.75'}));
   g.appendChild(T(0,4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
   if(isCarrier){
     var bx=sx*(r+15),by=sy*(r+15);
@@ -41315,7 +41321,9 @@ function drawCoupe(svg,pos,vers,ligneA,ligneB,label,color){
 
 // ════════ Attaque en 4/2 ════════
 // 4 attaquants sur la ligne des 2 m (postes 5, 6, 3, 1), 2 extérieurs aux postes 4 et 2.
-var A42={G:[330,26], 5:[150,Y2M], 6:[270,Y2M], 3:[390,Y2M], 1:[510,Y2M], 4:[215,215], 2:[445,215]};
+// 4/2 : 1, 2, 3, 4 en arc de cercle en partant de la droite (2 et 3 en face des poteaux),
+// 5 et 6 aux poteaux sur la ligne des 2 m
+var A42={G:[330,26], 1:[584,Y2M], 2:[BX2,223], 3:[BX1,223], 4:[76,Y2M], 5:[BX1,Y2M], 6:[BX2,Y2M]};
 
 // Perpendiculaire à la ligne a->b, dirigée vers cette ligne depuis pos.
 // Si pos est déjà sur la ligne, on prend le côté opposé à la direction evite.
@@ -41368,34 +41376,34 @@ function render42(){
   drawField(svg);
   var bp=A42[1];
   drawTri(svg,A42.G[0],A42.G[1],'G','#2e7d32',norm(bp[0]-A42.G[0],bp[1]-A42.G[1]),false);
-  // attaquants de la ligne des 2 m : tournés vers le ballon, le porteur vers le but
-  var ligne=[5,6,3,1];
-  for(var i=0;i<ligne.length;i++){
-    var n=ligne[i], an=A42[n];
-    var dir=(n===1)?norm(W/2-an[0],BY+11-an[1]):norm(bp[0]-an[0],bp[1]-an[1]);
-    drawTri(svg,an[0],an[1],String(n),'#c62828',dir,n===1);
+  // attaquants : une épaule face à la cage (corps de profil par rapport au but),
+  // les yeux vers le ballon ; le porteur regarde le but
+  var cage=[W/2,BY+11];
+  for(var n=1;n<=6;n++){
+    var an=A42[n], gc=norm(cage[0]-an[0],cage[1]-an[1]);
+    var vb=(n===1)?gc:norm(bp[0]-an[0],bp[1]-an[1]);
+    var corps=[-gc[1],gc[0]];
+    if(corps[0]*vb[0]+corps[1]*vb[1]<0) corps=[gc[1],-gc[0]];
+    drawTri(svg,an[0],an[1],String(n),'#c62828',corps,n===1,vb);
   }
-  // attaquants extérieurs, également tournés vers le ballon
-  drawTri(svg,A42[4][0],A42[4][1],'4','#c62828',norm(bp[0]-A42[4][0],bp[1]-A42[4][1]),false);
-  drawTri(svg,A42[2][0],A42[2][1],'2','#c62828',norm(bp[0]-A42[2][0],bp[1]-A42[2][1]),false);
 
   // 3 défenseurs sur la ligne de défense à 2 m, dans les intervalles entre les 4
   // attaquants, tournés vers le ballon comme eux
-  var inter=[[5,6],[6,3],[3,1]];
+  var inter=[[4,5],[5,6],[6,1]];
   for(var k=0;k<inter.length;k++){
     var a=A42[inter[k][0]],b=A42[inter[k][1]];
     var pos=[(a[0]+b[0])/2, Y2M-22];
     if(k===inter.length-1){
       // le défenseur d'intervalle côté ballon tient deux tâches : un bras tendu vers le
       // porteur matérialise le block, l'autre se pose sur la ligne de passe vers l'intérieur
-      drawBlock(svg,pos,bp,A42[3],'I','#0d47a1');
+      drawBlock(svg,pos,bp,A42[6],'I','#0d47a1');
     } else {
       drawTri(svg,pos[0],pos[1],'I','#0d47a1',norm(bp[0]-pos[0],bp[1]-pos[1]),false);
     }
   }
   // 2 défenseurs extérieurs, responsables du tempo : ils coupent les lignes intérieur <-> extérieur
-  drawCoupe(svg,[268,152],A42[4],A42[4],A42[6],'T','#16a34a');
-  drawCoupe(svg,[392,152],A42[2],A42[2],A42[3],'T','#16a34a');
+  drawCoupe(svg,[268,152],A42[3],A42[3],A42[5],'T','#16a34a');
+  drawCoupe(svg,[392,152],A42[2],A42[2],A42[6],'T','#16a34a');
 }
 
 // ════════ Attaque en 3/3 ════════
@@ -41448,7 +41456,7 @@ function render33(porteur){
 
 // ════════ Pilotage ════════
 var vues=[
- {tab:0, sub:"Attaque en 4/2 : 4 attaquants sur la ligne des 2 m, 2 à l'extérieur aux postes 2 et 4",
+ {tab:0, sub:"Attaque en 4/2 : 4 attaquants sur la ligne des 2 m, 2 à l'extérieur aux postes 2 et 3",
   desc:"<strong>Zone − contre une attaque en 4/2.</strong> Trois défenseurs sur la ligne de défense à 2 m sont responsables des quatre joueurs de la ligne d'attaque à 2 m : ils se placent <strong>dans les intervalles</strong> entre ces quatre joueurs. Le défenseur d'intervalle côté ballon tient deux tâches à la fois : un bras tendu vers le porteur matérialise le block, l'autre main se pose sur la ligne de passe vers l'intérieur. Les deux défenseurs extérieurs sont responsables du <strong>tempo</strong> : empêcher les grandes passes tendues de l'intérieur vers l'extérieur, ou l'inverse.",
   leg:[['#c62828','Attaque'],['#0d47a1',"I : défenseur d'intervalle à 2 m"],['#16a34a','T : défenseur de tempo'],['#2e7d32','Gardien'],['#F97316','Main du bras qui coupe la ligne']]},
  {tab:1, sub:"Attaque en 3/3 · balle au poste 1",
