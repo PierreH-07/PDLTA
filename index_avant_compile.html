@@ -41052,7 +41052,9 @@ var W=760,H=460,M=24,Y2M=95,Y5M=210;
 var Z2X1=258,Z2X2=502,BX1=308,BX2=452,BY=M;
 // couloir central qui sépare les deux secteurs
 var COUL1=330,COUL2=430;
-var ATT={G:[380,28],'6a':[472,Y2M],'6b':[288,Y2M],1:[672,Y2M],2:[589,239],4:[171,239],5:[88,Y2M]};
+// pointes et postes 2 / 4 en face des poteaux du but (BX1, BX2) ; 2 et 4 à 7 m
+var Y7M=Y5M+(Y5M-Y2M)/4;
+var ATT={G:[380,28],'6a':[BX2,Y2M],'6b':[BX1,Y2M],1:[672,Y2M],2:[BX2,Y7M],4:[BX1,Y7M],5:[88,Y2M]};
 // Deux configurations : le ballon est dans le secteur A (droit) ou dans le secteur B (gauche).
 // Les rôles des deux défenseurs de pointe s'inversent d'une configuration à l'autre.
 var CONFIGS=[
@@ -41119,6 +41121,8 @@ function drawDef(svg,pos,defendu,ligneA,ligneB,label,color){
 }
 
 function milieu(a,b){return[(a[0]+b[0])/2,(a[1]+b[1])/2];}
+// point du segment a-b situé à 5 m (3 m au-delà de la ligne des 2 m)
+function a5m(a,b){var y=Y2M+(Y5M-Y2M)*3/4, t=(y-a[1])/(b[1]-a[1]); return[a[0]+(b[0]-a[0])*t, y];}
 
 // triangle d'un secteur, légèrement dilaté autour de son centre
 function triSecteur(svg,pts,fill,stroke){
@@ -41178,16 +41182,18 @@ function render(){
   // défenseurs de pointe : entre le but et leur attaquant.
   // Celui de la pointe opposée met son bras sur la ligne venant du porteur ;
   // celui de la pointe du porteur surveille la diagonale venant de l'autre secteur.
-  var dAmie=[amie[0]+((amie[0]<W/2)?6:-6), amie[1]-24];
+  // décalés vers l'intérieur pour couper la ligne de passe venant du côté extérieur opposé
+  var dAmie=[amie[0]+((amie[0]<W/2)?18:-18), amie[1]-24];
   drawDef(svg,dAmie,amie,versOpp,amie,'-6','#0d47a1');
-  var dOpp=[opp[0]+((opp[0]<W/2)?6:-6), opp[1]-24];
+  var dOpp=[opp[0]+((opp[0]<W/2)?18:-18), opp[1]-24];
   drawDef(svg,dOpp,opp,bp,opp,'-6','#0d47a1');
 
   // défenseurs de secteur : bras vers leur attaquant, bras perpendiculaire à la ligne
   // qui relie cet attaquant à la pointe de son secteur
   drawDef(svg,milieu(s6a,a1),a1,a1,s6a,'-1','#16a34a');
-  drawDef(svg,milieu(s6a,a2),a2,a2,s6a,'-2','#16a34a');
-  drawDef(svg,milieu(s6b,a4),a4,a4,s6b,'-4','#16a34a');
+  // -2 et -4 à 5 m, sur la ligne pointe - attaquant
+  drawDef(svg,a5m(s6a,a2),a2,a2,s6a,'-2','#16a34a');
+  drawDef(svg,a5m(s6b,a4),a4,a4,s6b,'-4','#16a34a');
   drawDef(svg,milieu(s6b,a5),a5,a5,s6b,'-5','#16a34a');
 
 }
