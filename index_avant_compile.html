@@ -41706,7 +41706,7 @@ dessine('svg-zp-33','wgzp33',A33,[6]);
 </style>
 <div class="av-title">Celui qui crée l'avantage n'est pas celui qui le convertit</div>
 <svg class="terrain" id="svg-avantage" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
-<div class="av-desc">Départ en pressing 1 contre 1, le -6 à droite de la pointe. Le 4 rentre tout droit jusqu'à presque 2 m. Le -5 quitte le 5 pour venir sur le 4. Le 5, porteur du ballon, est libéré : il peut tirer, ou donner en pointe au 6.</div>
+<div class="av-desc">Départ en pressing 1 contre 1, le -6 à droite de la pointe. Le 4 rentre en diagonale vers le coin de la zone des 2 m. Le -5 quitte le 5 pour venir sur le 4. Le 5, porteur du ballon, est libéré : il peut tirer, ou donner en pointe au 6.</div>
 <div class="av-legend">
   <div class="av-item"><div class="av-d" style="background:#c62828"></div>Attaque</div>
   <div class="av-item"><div class="av-d" style="background:#0d47a1"></div>Défense</div>
@@ -41808,7 +41808,7 @@ function etiquette(svg,x,y,txt,couleur){
 var D={W:660,H:400,M:20,Y2M:88,Y6M:196,Z1:236,Z2:424,BX1:278,BX2:382};
 var BUT=[330,D.M+11];
 var ATT={G:[330,26], 6:[330,D.Y2M], 1:[584,D.Y2M], 2:[507,223], 3:[330,292], 4:[153,223], 5:[76,D.Y2M]};
-var A4=[ATT[4][0], D.Y2M+24];   // le 4 rentre tout droit, presque jusqu'à 2 m
+var A4=entre(ATT[4],[D.Z1,D.Y2M],0.82);   // le 4 rentre en diagonale vers le coin de la zone des 2 m
 
 function defPos(n){
   var a=ATT[n], u=norm(BUT[0]-a[0],BUT[1]-a[1]);
@@ -41822,7 +41822,7 @@ function render(){
   // le 5, porteur, est libéré
   halo(svg,ATT[5]);
 
-  // le 4 rentre tout droit
+  // le 4 rentre en diagonale vers le coin de la zone des 2 m
   fleche(svg,ATT[4],A4,'#c62828',true);
   // le -5 quitte le 5 pour venir sur le 4
   var d5=defPos(5), d5f=[A4[0]-32, A4[1]-12];
