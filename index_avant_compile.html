@@ -41400,15 +41400,13 @@ function render42(){
   drawField(svg);
   var bp=A42[1];
   drawTri(svg,A42.G[0],A42.G[1],'G','#2e7d32',norm(bp[0]-A42.G[0],bp[1]-A42.G[1]),false);
-  // attaquants : une épaule face à la cage (corps de profil par rapport au but),
-  // les yeux vers le ballon ; le porteur regarde le but
+  // attaquants : épaules face à la cage (ligne des épaules perpendiculaire à l'axe
+  // joueur - centre du but, bras vers le but), regard vers le ballon ; le porteur regarde le but
   var cage=[W/2,BY+11];
   for(var n=1;n<=6;n++){
     var an=A42[n], gc=norm(cage[0]-an[0],cage[1]-an[1]);
     var vb=(n===1)?gc:norm(bp[0]-an[0],bp[1]-an[1]);
-    var corps=[-gc[1],gc[0]];
-    if(corps[0]*vb[0]+corps[1]*vb[1]<0) corps=[gc[1],-gc[0]];
-    drawTri(svg,an[0],an[1],String(n),'#c62828',corps,n===1,vb);
+    drawTri(svg,an[0],an[1],String(n),'#c62828',gc,n===1,vb);
   }
 
   // 3 défenseurs sur la ligne de défense à 2 m, dans les intervalles entre les 4
