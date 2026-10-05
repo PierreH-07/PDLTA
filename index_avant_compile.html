@@ -40852,41 +40852,67 @@ function renderZones(){
   }
 
   // défenseurs
+  // ajustements propres à chaque zone
+  var deuxZones=(zkey==='2-3'||zkey==='3-4');
   for(var k=1;k<=6;k++){
     if(k===PORTEUR) continue;
     var an=ATT[k], enZone=zone.indexOf(k)>=0;
     var u=norm(bp[0]-an[0],bp[1]-an[1]);          // de l'attaquant vers le porteur
-    var dp;
+    var gb=norm(BUTC[0]-an[0],BUTC[1]-an[1]);     // de l'attaquant vers le but
+    var dp, surLigne=false;
     if(k===6){
       // en défense de zone, le défenseur de la pointe se place entre le but et l'attaquant 6
       var g=norm(ATT.G[0]-an[0],ATT.G[1]-an[1]);
       dp=[an[0]+g[0]*20, an[1]+g[1]*20];
+      // zone 3-4 : un peu plus sur la droite du 6
+      if(zkey==='3-4') dp[0]+=14;
+    } else if(zkey==='1-2-3'&&k===1){
+      // zone 1-2-3 : le 1 étant écarté, le -1 monte sur la ligne de passe 3 vers 1
+      dp=between(bp,an,0.86); surLigne=true;
     } else if(enZone){
       // en zone, le défenseur est en retrait derrière son attaquant,
       // à 30 % de la distance qui sépare celui-ci du but
       dp=[an[0]+(BUTC[0]-an[0])*RETRAIT, an[1]+(BUTC[1]-an[1])*RETRAIT];
+    } else if(zkey==='1-2-3'&&(k===4||k===5)){
+      // zone 1-2-3 : -4 et -5 davantage entre leur attaquant et le but, moins collés
+      var v=norm(u[0]+gb[0]*2,u[1]+gb[1]*2);
+      dp=[an[0]+v[0]*30, an[1]+v[1]*30];
+    } else if(zkey==='2-3-4'&&(k===1||k===5)){
+      // zone 2-3-4 : -1 et -5 davantage en face de leur attaquant
+      var v2=norm(u[0]+gb[0],u[1]+gb[1]);
+      dp=[an[0]+v2[0]*24, an[1]+v2[1]*24];
     } else {
       dp=[an[0]+u[0]*21, an[1]+u[1]*21];
     }
     var col=enZone?'#16a34a':'#0d47a1';
-    // défenseur au pressing : jambes vers la cage (pas de jambes pour les défenseurs en zone)
-    if(!enZone) jambes(svg,dp[0],dp[1],[BUTC[0]-dp[0],BUTC[1]-dp[1]],11);
+    // jambes : vers la droite pour le -6, vers la cage pour les défenseurs au pressing,
+    // pas de jambes pour les défenseurs en zone
+    if(k===6) jambes(svg,dp[0],dp[1],[1,0],11);
+    else if(!enZone) jambes(svg,dp[0],dp[1],[BUTC[0]-dp[0],BUTC[1]-dp[1]],11);
     // le défenseur reste tourné vers son attaquant
     var look=(k===6)?[-u[0],-u[1]]:norm(an[0]-dp[0],an[1]-dp[1]);
+    // zones 2-3 et 3-4 : -1 et -5 tournés un peu plus vers l'intérieur du jeu
+    if(deuxZones&&(k===1||k===5)){
+      var ctr=norm(W/2-dp[0],Y5M-dp[1]);
+      look=norm(look[0]+ctr[0]*0.6,look[1]+ctr[1]*0.6);
+    }
     // bras arrière, à l'opposé de son attaquant
     svg.appendChild(L(dp[0]-look[0]*9,dp[1]-look[1]*9,dp[0]-look[0]*24,dp[1]-look[1]*24,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
     // bras posé sur la ligne de passe porteur -> attaquant ; en retrait, la main va
     // se poser juste devant l'attaquant, sur cette ligne
     var pt;
-    if(enZone&&k!==6){ pt=[an[0]+u[0]*13, an[1]+u[1]*13]; }
+    if(surLigne){ pt=[dp[0]+u[0]*24, dp[1]+u[1]*24]; }
+    else if(enZone&&k!==6){ pt=[an[0]+u[0]*13, an[1]+u[1]*13]; }
     else { var reach=(k===6)?46:30; pt=[dp[0]+u[0]*reach, dp[1]+u[1]*reach]; }
     var ab=norm(pt[0]-dp[0],pt[1]-dp[1]);
     svg.appendChild(L(dp[0]+ab[0]*9,dp[1]+ab[1]*9,pt[0],pt[1],{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
     svg.appendChild(C(pt[0],pt[1],3.6,{fill:'#F97316',stroke:'#7c2d12','stroke-width':'0.9'}));
     drawBody(svg,dp[0],dp[1],'-'+k,col,look);
   }
-  // défenseur du porteur : en zone, en retrait lui aussi, dans l'axe du but
-  var d3=[ATT[3][0]+(BUTC[0]-ATT[3][0])*RETRAIT, ATT[3][1]+(BUTC[1]-ATT[3][1])*RETRAIT];
+  // défenseur du porteur : en zone, en retrait lui aussi, dans l'axe du but ;
+  // zones 2-3 et 3-4 : à 5,50 m (une demi-unité au-dessus de la ligne des 6 m)
+  var d3=deuxZones ? [ATT[3][0], Y5M-(Y5M-Y2M)/8]
+                   : [ATT[3][0]+(BUTC[0]-ATT[3][0])*RETRAIT, ATT[3][1]+(BUTC[1]-ATT[3][1])*RETRAIT];
   drawTri(svg,d3[0],d3[1],'-3','#16a34a',norm(ATT[3][0]-d3[0],ATT[3][1]-d3[1]),false);
 }
 
