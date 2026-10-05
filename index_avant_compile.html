@@ -40884,6 +40884,11 @@ function renderZones(){
       // zone 2-3-4 : -1 et -5 davantage en face de leur attaquant
       var v2=norm(u[0]+gb[0],u[1]+gb[1]);
       dp=[an[0]+v2[0]*24, an[1]+v2[1]*24];
+    } else if(deuxZones){
+      // zones 2-3 et 3-4 : au pressing, davantage entre l'attaquant et le but,
+      // moins sur la ligne de passe
+      var v3=norm(u[0]*0.5+gb[0],u[1]*0.5+gb[1]);
+      dp=[an[0]+v3[0]*26, an[1]+v3[1]*26];
     } else {
       dp=[an[0]+u[0]*21, an[1]+u[1]*21];
     }
@@ -41323,7 +41328,7 @@ function drawCoupe(svg,pos,vers,ligneA,ligneB,label,color){
 }
 
 // ════════ Attaque en 4/2 ════════
-// 4 attaquants sur la ligne des 2 m (postes 5, 6, 3, 1), 2 extérieurs aux postes 4 et 2.
+// 4 attaquants sur la ligne des 2 m (postes 4, 5, 6, 1), 2 extérieurs aux postes 3 et 2.
 // 4/2 : 1, 2, 3, 4 en arc de cercle en partant de la droite (2 et 3 en face des poteaux),
 // 5 et 6 aux poteaux sur la ligne des 2 m
 var A42={G:[330,26], 1:[584,Y2M], 2:[BX2,223], 3:[BX1,223], 4:[76,Y2M], 5:[BX1,Y2M], 6:[BX2,Y2M]};
@@ -41535,7 +41540,7 @@ render();
   <div class="zp-col">
     <div class="zp-nom">Attaque en 4/2</div>
     <svg class="terrain" id="svg-zp-42" viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div class="zp-leg">Quatre attaquants sur la ligne des 2 m (postes 5, 6, 3, 1), deux attaquants à l'extérieur (postes 4 et 2).</div>
+    <div class="zp-leg">Quatre attaquants sur la ligne des 2 m (postes 4, 5, 6, 1), deux attaquants à l'extérieur (postes 3 et 2).</div>
   </div>
   <div class="zp-col">
     <div class="zp-nom">Attaque en 3/3</div>
@@ -41597,7 +41602,8 @@ function drawTri(svg,x,y,label,color,headDir){
 
 var BUT=[330,BY+12];
 // mêmes placements que dans les schémas de défense en infériorité, vus côté attaque
-var A42={G:[330,26], 5:[150,Y2M], 6:[270,Y2M], 3:[390,Y2M], 1:[510,Y2M], 4:[BX1,215], 2:[BX2,215]};
+// 1, 2, 3, 4 en arc depuis la droite (2 et 3 en face des poteaux), 5 et 6 sur la ligne des 2 m
+var A42={G:[330,26], 4:[76,Y2M], 5:[270,Y2M], 6:[390,Y2M], 1:[584,Y2M], 3:[BX1,215], 2:[BX2,215]};
 var A33={G:[330,26], 6:[330,Y2M], 1:[584,Y2M], 2:[507,223], 3:[330,292], 4:[153,223], 5:[76,Y2M]};
 
 function dessine(svgId,gid,A,surLigne){
@@ -41613,7 +41619,7 @@ function dessine(svgId,gid,A,surLigne){
   }
 }
 
-dessine('svg-zp-42','wgzp42',A42,[5,6,3,1]);
+dessine('svg-zp-42','wgzp42',A42,[4,5,6,1]);
 dessine('svg-zp-33','wgzp33',A33,[6]);
 <\/script>
 </div>
