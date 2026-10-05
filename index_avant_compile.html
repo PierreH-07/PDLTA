@@ -40868,7 +40868,7 @@ function renderZones(){
     var an=ATT[k], enZone=zone.indexOf(k)>=0;
     var u=norm(bp[0]-an[0],bp[1]-an[1]);          // de l'attaquant vers le porteur
     var gb=norm(BUTC[0]-an[0],BUTC[1]-an[1]);     // de l'attaquant vers le but
-    var dp, surLigne=false;
+    var dp, surLigne=false, mainSur=null;
     if(k===6){
       // en défense de zone, le défenseur de la pointe se place entre le but et l'attaquant 6
       var g=norm(ATT.G[0]-an[0],ATT.G[1]-an[1]);
@@ -40882,6 +40882,15 @@ function renderZones(){
       // en zone, le défenseur est en retrait derrière son attaquant,
       // à 30 % de la distance qui sépare celui-ci du but
       dp=[an[0]+(BUTC[0]-an[0])*RETRAIT, an[1]+(BUTC[1]-an[1])*RETRAIT];
+      if(zkey==='1-2-3'&&k===2){
+        // zone 1-2-3 : le -2 monte un peu vers la ligne de passe 3 vers 2, la main dessus
+        var lw=[an[0]-bp[0],an[1]-bp[1]], ll=lw[0]*lw[0]+lw[1]*lw[1];
+        var tp=((dp[0]-bp[0])*lw[0]+(dp[1]-bp[1])*lw[1])/ll;
+        var pr=[bp[0]+lw[0]*tp, bp[1]+lw[1]*tp];
+        dp=between(dp,pr,0.4);
+        var vm=norm(pr[0]-dp[0],pr[1]-dp[1]);
+        mainSur=[pr[0]+vm[0]*4, pr[1]+vm[1]*4];
+      }
     } else if(zkey==='1-2-3'&&(k===4||k===5)){
       // zone 1-2-3 : -4 et -5 davantage entre leur attaquant et le but, moins collés
       var v=norm(u[0]+gb[0]*2,u[1]+gb[1]*2);
@@ -40916,6 +40925,7 @@ function renderZones(){
     // se poser juste devant l'attaquant, sur cette ligne
     var pt;
     if(surLigne){ pt=[dp[0]+u[0]*24, dp[1]+u[1]*24]; }
+    else if(mainSur){ pt=mainSur; }
     else if(enZone&&k!==6){ pt=[an[0]+u[0]*13, an[1]+u[1]*13]; }
     else { var reach=(k===6)?46:30; pt=[dp[0]+u[0]*reach, dp[1]+u[1]*reach]; }
     var ab=norm(pt[0]-dp[0],pt[1]-dp[1]);
@@ -40924,8 +40934,8 @@ function renderZones(){
     drawBody(svg,dp[0],dp[1],'-'+k,col,look);
   }
   // défenseur du porteur : en zone, en retrait lui aussi, dans l'axe du but ;
-  // zones 2-3 et 3-4 : à 5,50 m (une demi-unité au-dessus de la ligne des 6 m)
-  var d3=deuxZones ? [ATT[3][0], Y5M-(Y5M-Y2M)/8]
+  // zones 2-3, 3-4 et 1-2-3 : à 5,50 m (une demi-unité au-dessus de la ligne des 6 m)
+  var d3=(deuxZones||zkey==='1-2-3') ? [ATT[3][0], Y5M-(Y5M-Y2M)/8]
                    : [ATT[3][0]+(BUTC[0]-ATT[3][0])*RETRAIT, ATT[3][1]+(BUTC[1]-ATT[3][1])*RETRAIT];
   drawTri(svg,d3[0],d3[1],'-3','#16a34a',norm(ATT[3][0]-d3[0],ATT[3][1]-d3[1]),false);
 }
