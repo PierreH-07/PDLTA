@@ -40472,6 +40472,14 @@ function drawBody(svg,x,y,label,color,headDir){
   svg.appendChild(T(x,y+4,label,{'text-anchor':'middle','font-size':String(label).length>1?'8':'9.5','font-weight':'bold',fill:'white','font-family':'Inter,sans-serif'}));
 }
 
+// Jambes : deux traits parallèles partant du corps dans la direction dir
+function jambes(svg,x,y,dir,r){
+  var d=norm(dir[0],dir[1]), px=-d[1], py=d[0], e=4, l1=r-2, l2=r+15;
+  for(var s=-1;s<=1;s+=2){
+    svg.appendChild(L(x+d[0]*l1+px*e*s,y+d[1]*l1+py*e*s,x+d[0]*l2+px*e*s,y+d[1]*l2+py*e*s,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  }
+}
+
 // Bras tendu, main mise en évidence
 function armReach(svg,x,y,dir,len){
   var ex=x+dir[0]*len, ey=y+dir[1]*len;
@@ -40508,6 +40516,7 @@ function defPressPos(n){
 function drawDef6(svg,ball){
   var s6=ATT[6], bp=ATT[ball], side=ballSide(ball);
   var dx6=s6[0]+side*20, dy6=s6[1]+27, r=11;
+  jambes(svg,dx6,dy6,[1,0],r);   // jambes vers la droite du schéma
   armWrap(svg,dx6,dy6,s6,side);
   var u=norm(s6[0]-bp[0],s6[1]-bp[1]);
   var vx=dx6-s6[0], vy=dy6-s6[1], dot=vx*u[0]+vy*u[1];
@@ -40561,6 +40570,8 @@ function renderLigne(){
   // Défenseur du 6 : entre l'attaquant 6 et l'attaquant 3, collé au 6, tourné vers le 6
   var u6=norm(bp[0]-s6[0],bp[1]-s6[1]);
   var d6=[s6[0]+u6[0]*DPRESS, s6[1]+u6[1]*DPRESS];
+  var p3=defPressPos(3);
+  jambes(svg,d6[0],d6[1],[p3[0]-d6[0],p3[1]-d6[1]],11);   // jambes vers le -3
   armWrap(svg,d6[0],d6[1],s6,1);
   armWrap(svg,d6[0],d6[1],s6,-1);
   drawBody(svg,d6[0],d6[1],'-6','#0d47a1',[-u6[0],-u6[1]]);
@@ -40799,6 +40810,14 @@ var ZDESC={
 };
 var zkey='2-3';
 
+// Jambes : deux traits parallèles partant du corps dans la direction dir
+function jambes(svg,x,y,dir,r){
+  var d=norm(dir[0],dir[1]), px=-d[1], py=d[0], e=4, l1=r-2, l2=r+15;
+  for(var s=-1;s<=1;s+=2){
+    svg.appendChild(L(x+d[0]*l1+px*e*s,y+d[1]*l1+py*e*s,x+d[0]*l2+px*e*s,y+d[1]*l2+py*e*s,{stroke:'#c4956a','stroke-width':'3','stroke-linecap':'round'}));
+  }
+}
+
 // centre du but et retrait des défenseurs de zone (part de la distance attaquant - but)
 var BUTC=[(BX1+BX2)/2, BY+9];
 var RETRAIT=0.30;
@@ -40850,6 +40869,8 @@ function renderZones(){
       dp=[an[0]+u[0]*21, an[1]+u[1]*21];
     }
     var col=enZone?'#16a34a':'#0d47a1';
+    // défenseur au pressing : jambes vers la cage (pas de jambes pour les défenseurs en zone)
+    if(!enZone) jambes(svg,dp[0],dp[1],[BUTC[0]-dp[0],BUTC[1]-dp[1]],11);
     // le défenseur reste tourné vers son attaquant
     var look=(k===6)?[-u[0],-u[1]]:norm(an[0]-dp[0],an[1]-dp[1]);
     // bras arrière, à l'opposé de son attaquant
