@@ -10764,51 +10764,6 @@ ${blocPrerequisHTML('#0DBCF0', true, LIEN_MECANISMES + LIEN_B2 + LIEN_PRINCIPES)
                     competitions: "Les compétitions sont avant tout des moments festifs de rencontre avec d'autres enfants. L'objectif est de découvrir l'environnement compétitif sans pression de résultat.",
                     pointsAttention: "Maintenir un équilibre 50/50 entre natation et autres activités sportives pour développer une motricité riche et éviter la spécialisation précoce."
                 },
-
-                // Structures fédérales Natation artistique
-                structuresFederalesNA: `
-                    <div style="background: linear-gradient(135deg, #0DBCF0 0%, #009EE0 100%); padding: 20px; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 15px rgba(13, 188, 240, 0.2); margin-bottom: 20px;">
-                        <h3 style="color: white; margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
-                            <img src="${window.ICONS['onglet-structures-ppf']}" style="width:1.6em;height:1.6em;object-fit:contain;vertical-align:middle;" alt="" /> Structures du Projet de Performance Fédéral, Primaire
-                        </h3>
-                        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                            <p style="line-height: 1.8; color: #333; margin-bottom: 20px;">
-                                Les structures présentées ci-dessous <strong>garantissent des conditions optimales à la pratique de la natation artistique</strong> selon les préconisations de la Fédération Française de Natation (FFN). Elles font l'objet d'un <strong>partenariat entre les clubs supports, la FFN et l'État</strong>, avec un cahier des charges assurant la qualité de l'accompagnement et de l'encadrement des athlètes dans leur <strong>projet sportif et de vie</strong>.
-                            </p>
-                            <div style="border-left: 4px solid #0DBCF0; padding-left: 20px; margin-bottom: 25px;">
-                                <h4 style="color: #0DBCF0; margin-bottom: 15px; font-size: 1.25rem;">🎯 Débuter le Projet Sportif</h4>
-                                <p style="line-height: 1.7; color: #555; margin-bottom: 12px;">
-                                    Le choix de candidater dans une structure du PPF doit découler d'une réflexion approfondie sur le projet sportif de l'enfant et de sa famille. Si l'athlète est retenu, il intégrera un projet dynamique qui modifiera son quotidien et pourrait impliquer des ajustements au sein de sa famille.
-                                </p>
-                            </div>
-                            <div style="border-left: 4px solid #0DBCF0; padding-left: 20px; margin-bottom: 25px;">
-                                <h4 style="color: #0DBCF0; margin-bottom: 15px; font-size: 1.25rem;">📍 Structure disponible (9–14 ans)</h4>
-                                <div style="margin-bottom: 16px;">
-                                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1rem; font-weight: 600;">🎯 CAF, Centre d'Accession et de Formation (9 à 14 ans)</h5>
-                                    <ul style="line-height: 1.7; color: #555; margin-left: 20px;">
-                                        <li>Découverte des règles de la natation artistique</li>
-                                        <li>Développement des compétences sportives générales et de l'esprit collectif</li>
-                                        <li>Premières compétitions nationales avec des objectifs clairement définis</li>
-                                        <li>Apprentissage de la discipline, gestion du temps et respect des autres</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
-                                <h5 style="color: #009EE0; margin-bottom: 8px;">✨ Objectifs transversaux</h5>
-                                <ul style="line-height: 1.7; color: #555; margin-left: 20px; margin-bottom: 0;">
-                                    <li>Développement personnel et social</li>
-                                    <li>Vie en collectif et coopération</li>
-                                </ul>
-                            </div>
-                            <div style="background: rgba(13, 188, 240, 0.05); padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #0DBCF0; margin-bottom: 20px;">
-                                <p style="line-height: 1.7; color: #333; margin: 0;">
-                                    💡 <strong>Pour en savoir plus</strong> sur ces structures, les critères d'admission et les démarches, rapprochez-vous de votre club et consultez le
-                                    <a href="https://www.ffnatation.fr/projet-de-performance-federal" target="_blank" style="color: #0DBCF0; font-weight: 600; text-decoration: underline;">Projet de Performance Fédéral sur le site FFN</a>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                `
             },
             3: {
                 id: 3,
@@ -52269,7 +52224,7 @@ function ProfilDeveloppementView({ disciplineId, periodId } = {}) {
       p5:[ {label:'Niveau',val:'Enseignement supérieur ou vie professionnelle'},{label:'Structure',val:'Pôles France · INSEP · stages eaux vives nationales et internationales'},{label:'Compétition',val:'World Aquatics Open Water Series · Championnats du Monde · Jeux Olympiques'},{label:'Enjeu',val:'Expertise en toutes conditions, gestion de la carrière internationale',link:'besoins-periode-5'} ],
     },
     na: {
-      p2:[ {label:'Niveau scolaire',val:'École primaire'},{label:'Catégorie',val:'U9 / U12'},{label:'Volume',val:'De 1h à 3h/semaine (6-7 ans) à 7h à 9h/semaine (11 ans)'},{label:'Structure',val:'CAF, Centre d\'Accession et de Formation (9 à 14 ans)'},{label:'Compétition',val:'Au début, deux compétitions dans l\'année, puis progressivement 4 à 6 par an ; compétitions orientées « club »'},{label:'Attente',val:'Découvrir la compétition de manière progressive et positive, du plaisir aux premières expériences compétitives'} ],
+      p2:[ {label:'Niveau scolaire',val:'École primaire'},{label:'Catégorie',val:'U9 / U12'},{label:'Volume',val:'De 1h à 3h/semaine (6-7 ans) à 7h à 9h/semaine (11 ans)'},{label:'Compétition',val:'Au début, deux compétitions dans l\'année, puis progressivement 4 à 6 par an ; compétitions orientées « club »'},{label:'Attente',val:'Découvrir la compétition de manière progressive et positive, du plaisir aux premières expériences compétitives'} ],
       p3:[ {label:'Niveau scolaire',val:'Collège (6e–3e), catégorie Jeune (U15)'},{label:'Volume',val:'De 7h30 à 10h30/semaine (12 ans) à 12h30 à 15h/semaine (14/15 ans)'},{label:'Structures',val:'CAF (9 à 14 ans) · CNAHN (12 à 18 ans) · Section Sportive Scolaire (3–4 h/sem) · Sport-Études (10–15 h/sem)'},{label:'Compétition',val:'3 à 6 compétitions par an'},{label:'Enjeu',val:'Structurer la progression vers le haut niveau avec des paliers clairs'} ],
       p4:[ {label:'Niveau scolaire',val:'Lycée (2nde–Terminale), catégorie Junior (U19)'},{label:'Volume',val:'4 à 6 séances/semaine de 3h à 4h, soit 15h à 22h/semaine (16/18 ans)'},{label:'Structures',val:'CNAHN (12 à 18 ans) · CNR (15 à 19 ans) · CNE · Sport-Études (10–15 h/sem)'},{label:'Compétition',val:'3 à 6 compétitions par an ; niveau national et international junior'},{label:'Enjeu',val:'Les compétitions Juniors représentent le niveau pré-élite'} ],
       p5:[ {label:'Niveau',val:'Enseignement supérieur ou vie professionnelle'},{label:'Catégorie',val:'Senior'},{label:'Volume',val:'5 à 7 séances/semaine de 3h à 5h, soit 22h à 25h/semaine (18 ans et plus)'},{label:'Structure',val:'CNE, Centre National d\'Entraînement'},{label:'Compétition',val:'Calendrier adapté au projet sportif de l\'athlète, nombre de compétitions variable selon les objectifs majeurs nationaux et internationaux'},{label:'Enjeu',val:'Trouver un équilibre entre pratique sportive de haut-niveau et projet de vie'} ],
